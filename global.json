@@ -109,6 +109,18 @@
                     "The number of edges in the connected ring is: <ansired>nk</ansired>/2",
                     "The number of newly added edges is: Binomial(<ansired>nk</ansired>/2, <ansired>p</ansired>)"
                 ]
+            },
+            "Path": {
+                "PARAM": {
+                    "n": {
+                        "TYPE": "positive integer",
+                        "DESC": "Number of nodes"
+                    }
+                },
+                "DESC": "A <ansired>path</ansired> graph (or linear graph) is an undirected graph whose nodes can be ordered in a line,\nand there exists an edge between every adjacent pair of nodes.",
+                "PROP": [
+                    "The number of edges is: <ansired>n</ansired>-1"
+                ]
             }
         }
     }
