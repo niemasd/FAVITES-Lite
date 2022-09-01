@@ -59,7 +59,7 @@ def page_newload_config(existing_file):
         GLOBAL['app']['config_fn'] = tmp
         return page_dashboard
 def page_new_config():
-    GLOBAL['config'] = dict()
+    GLOBAL['config'] = {"Contact Network":None}
     return page_newload_config(existing_file=False)
 def page_load_config():
     tmp = page_newload_config(existing_file=True)
@@ -116,10 +116,11 @@ def page_find_file(existing_file):
                     if fn is None: # if user canceled, return to directory selection
                         break
                     elif isfile(fn) or isdir(fn):
-                        message_dialog(
-                            title="Error",
-                            text="File exists:\n\n%s" % fn,
-                        ).run()
+                        if yes_no_dialog(
+                            title="File Exists",
+                            text="File exists:\n\n%s\n\nOverwrite?" % fn,
+                        ).run():
+                            return '%s%s' % (curr_dir, fn)
                     elif fn.strip() == "":
                         message_dialog(
                             title="Error",
@@ -151,13 +152,59 @@ def page_save():
     ).run()
     return GLOBAL['app']['prev_page']
 
+# contact network configuration
+def page_contact_network():
+    # pick model
+    model = None
+    while True:
+        model = radiolist_dialog(
+            title="Contact Network: Model",
+            text=None,
+            values=[(m, m) for m in GLOBAL['MODELS']['Contact Network']]
+        ).run()
+        if model is None:
+            return GLOBAL['app']['prev_page']
+        text = "Do you want to select the <ansired>%s</ansired> model?" % model
+        if 'DESC' in GLOBAL['MODELS']['Contact Network'][model]:
+            text += ("\n\n%s" % GLOBAL['MODELS']['Contact Network'][model]['DESC'])
+        if 'PARAM' in GLOBAL['MODELS']['Contact Network'][model] and len(GLOBAL['MODELS']['Contact Network'][model]['PARAM']) != 0:
+            text += "\n\n<ansigreen>Parameters:</ansigreen>"
+            for p in GLOBAL['MODELS']['Contact Network'][model]['PARAM']:
+                text += ("\n  - <ansired>%s</ansired>" % p)
+                if 'DESC' in GLOBAL['MODELS']['Contact Network'][model]['PARAM'][p]:
+                    text += (': %s' % GLOBAL['MODELS']['Contact Network'][model]['PARAM'][p]['DESC'])
+        if 'PROP' in GLOBAL['MODELS']['Contact Network'][model] and len(GLOBAL['MODELS']['Contact Network'][model]['PROP']) != 0:
+            text += ("\n\n<ansigreen>Properties:</ansigreen>\n%s" % '\n'.join(("  - %s" % p) for p in GLOBAL['MODELS']['Contact Network'][model]['PROP']))
+        if yes_no_dialog(
+            title=model,
+            text=HTML(text),
+        ).run():
+            break
+
+    # set model parameters
+    print(model); exit(1) # TODO
+    return page_dashboard
+
 # designer dashboard
 def page_dashboard():
     while True:
+        # set dashboard text
+        complete = True
+        for k in GLOBAL['CONFIG_KEYS']:
+            if k not in GLOBAL['config'] or GLOBAL['config'][k] is None:
+                complete = False; break
+        tmp = {True:"ansigreen", False:"ansired"}[complete]
+        text = "<%s>Config File:</%s> %s" % (tmp, tmp, GLOBAL['app']['config_fn'])
+        for k in GLOBAL['CONFIG_KEYS']:
+            tmp = {True:"ansigreen", False:"ansired"}[k in GLOBAL['config'] and GLOBAL['config'][k] is not None]
+            text += "\n  - <%s>Contact Network:</%s> %s" % (tmp, tmp, GLOBAL['config'][k])
+
+        # run dashboard
         tmp = radiolist_dialog(
             title="FAVITES-Lite Config Designer",
-            text=HTML("<ansired>Config File:</ansired> %s" % GLOBAL['app']['config_fn']),
+            text=HTML(text),
             values=[
+                (page_contact_network, "Contact Network"),
                 (page_save, "Save Changes"),
                 (page_about, "About"),
             ],

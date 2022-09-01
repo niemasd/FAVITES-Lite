@@ -1,3 +1,36 @@
 {
-    "VERSION": "0.0.1"
+    "VERSION": "0.0.1",
+    "CONFIG_KEYS": ["Contact Network"],
+    "MODELS": {
+        "Contact Network": {
+            "Barabasi-Albert": {
+                "PARAM": {
+                    "n": {
+                        "DESC": "Number of nodes"
+                    },
+                    "m": {
+                        "DESC": "Number of edges attached from new nodes to existing nodes"
+                    }
+                },
+                "DESC": "The <ansired>Barabasi-Albert</ansired> (BA) model is an algorithm for generating random scale-free networks using a preferential attachment mechanism.",
+                "PROP": [
+                    "The total number of undirected edges is <ansired>m</ansired>(<ansired>n</ansired>-<ansired>m</ansired>)",
+                    "The expected degree is roughly 2<ansired>m</ansired>"
+                ]
+            },
+
+            "Complete": {
+                "PARAM": {
+                    "n": {
+                        "DESC": "Number of nodes"
+                    }
+                },
+                "DESC": "A <ansired>complete</ansired> graph is a simple undirected graph in which every pair of distinct vertices is connected by a unique edge.",
+                "PROP": [
+                    "The total number of undirected edges is <ansired>n</ansired> choose 2 = <ansired>n</ansired>(<ansired>n</ansired>-1)/2",
+                    "The degree of every node (and thus also the average degree) is <ansired>n</ansired>-1"
+                ]
+            }
+        }
+    }
 }
