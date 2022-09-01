@@ -155,12 +155,23 @@ def page_save():
 # all steps (e.g. Contact Network, Transmission Network), etc. will use the same infrastructure to pick model
 def page_contact_network():
     return page_model_selection("Contact Network")
+def parse_param_value(value, param_type):
+    if param_type == "positive integer":
+        try:
+            value = int(value)
+        except:
+            return None
+        if value > 0:
+            return value
+        else:
+            return None
+    else:
+        print_log("FAVITES-Lite bug: Invalid parameter type: %s" % param_type); exit(1)
 def page_model_selection(step):
-    # pick model
-    model = None
     while True:
+        # pick model
         model = radiolist_dialog(
-            title="%s: Model" % step,
+            title=step,
             text=None,
             values=[(m, m) for m in GLOBAL['MODELS'][step]]
         ).run()
@@ -178,14 +189,42 @@ def page_model_selection(step):
         if 'PROP' in GLOBAL['MODELS'][step][model] and len(GLOBAL['MODELS'][step][model]['PROP']) != 0:
             text += ("\n\n<ansigreen>Properties:</ansigreen>\n%s" % '\n'.join(("  - %s" % p) for p in GLOBAL['MODELS'][step][model]['PROP']))
         if yes_no_dialog(
-            title=model,
+            title=step,
             text=HTML(text),
         ).run():
-            break
-
-    # set model parameters
-    print(model); exit(1) # TODO
-    return page_dashboard
+            # pick parameters
+            param = dict(); cancel = False
+            for p in GLOBAL['MODELS'][step][model]['PARAM']:
+                while True:
+                    text = "Please enter value for <ansired>%s</ansired> model parameter: <ansired>%s</ansired>\n\n<ansigreen>Type:</ansigreen> %s" % (model, p, GLOBAL['MODELS'][step][model]['PARAM'][p]['TYPE'])
+                    if 'DESC' in GLOBAL['MODELS'][step][model]['PARAM'][p]:
+                        text += "\n\n<ansigreen>Description:</ansigreen> %s" % GLOBAL['MODELS'][step][model]['PARAM'][p]['DESC']
+                    v = input_dialog(
+                        title=step,
+                        text=HTML(text)
+                    ).run()
+                    if v is None:
+                        cancel = True; break
+                    v = v.strip()
+                    if len(v) == 0:
+                        message_dialog(
+                            title="Error",
+                            text="You did not enter anything",
+                        ).run()
+                        continue
+                    v_parse = parse_param_value(v, GLOBAL['MODELS'][step][model]['PARAM'][p]['TYPE'])
+                    if v_parse is None:
+                        message_dialog(
+                            title="Error",
+                            text=HTML("<ansired>%s</ansired> model parameter <ansired>%s</ansired> must be: %s\n\nYou entered: %s" % (model, p, GLOBAL['MODELS'][step][model]['PARAM'][p]['TYPE'], v)),
+                        ).run()
+                    else:
+                        param[p] = v_parse; break
+                if cancel:
+                    break
+            if len(param) == len(GLOBAL['MODELS'][step][model]['PARAM']):
+                GLOBAL['config'][step] = {'model':model, 'param':param}
+                return page_dashboard
 
 # designer dashboard
 def page_dashboard():
@@ -199,7 +238,13 @@ def page_dashboard():
         text = "<%s>Config File:</%s> %s" % (tmp, tmp, GLOBAL['app']['config_fn'])
         for k in GLOBAL['CONFIG_KEYS']:
             tmp = {True:"ansigreen", False:"ansired"}[k in GLOBAL['config'] and GLOBAL['config'][k] is not None]
-            text += "\n  - <%s>%s:</%s> %s" % (tmp, k, tmp, GLOBAL['config'][k])
+            text += "\n  - <%s>%s:</%s> " % (tmp, k, tmp)
+            if GLOBAL['config'][k] is None:
+                text += "Not selected"
+            else:
+                text += "<ansired>%s</ansired>" % GLOBAL['config'][k]['model']
+                if len(GLOBAL['config'][k]['param']) != 0:
+                    text += ' {%s}' % ', '.join("<ansired>%s</ansired>: %s" % (p, GLOBAL['config'][k]['param'][p]) for p in GLOBAL['config'][k]['param'])
 
         # run dashboard
         tmp = radiolist_dialog(
