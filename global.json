@@ -50,6 +50,18 @@
                     "The total number of edges is: <ansired>n</ansired> choose 2 = <ansired>n</ansired>(<ansired>n</ansired>-1)/2",
                     "The degree of every node (and thus also the average degree) is: <ansired>n</ansired>-1"
                 ]
+            },
+            "Cycle": {
+                "PARAM": {
+                    "n": {
+                        "TYPE": "positive integer",
+                        "DESC": "Number of nodes"
+                    }
+                },
+                "DESC": "A <ansired>cycle</ansired> graph is an undirected graph that consists of a single cycle. In other words, the vertices are connected in a closed chain.",
+                "PROP": [
+                    "When <ansired>n</ansired> > 2, the number of edges is: <ansired>n</ansired>"
+                ]
             }
         }
     }
