@@ -152,29 +152,31 @@ def page_save():
     ).run()
     return GLOBAL['app']['prev_page']
 
-# contact network configuration
+# all steps (e.g. Contact Network, Transmission Network), etc. will use the same infrastructure to pick model
 def page_contact_network():
+    return page_model_selection("Contact Network")
+def page_model_selection(step):
     # pick model
     model = None
     while True:
         model = radiolist_dialog(
-            title="Contact Network: Model",
+            title="%s: Model" % step,
             text=None,
-            values=[(m, m) for m in GLOBAL['MODELS']['Contact Network']]
+            values=[(m, m) for m in GLOBAL['MODELS'][step]]
         ).run()
         if model is None:
             return GLOBAL['app']['prev_page']
         text = "Do you want to select the <ansired>%s</ansired> model?" % model
-        if 'DESC' in GLOBAL['MODELS']['Contact Network'][model]:
-            text += ("\n\n%s" % GLOBAL['MODELS']['Contact Network'][model]['DESC'])
-        if 'PARAM' in GLOBAL['MODELS']['Contact Network'][model] and len(GLOBAL['MODELS']['Contact Network'][model]['PARAM']) != 0:
+        if 'DESC' in GLOBAL['MODELS'][step][model]:
+            text += ("\n\n<ansigreen>Description:</ansigreen>\n%s" % GLOBAL['MODELS'][step][model]['DESC'])
+        if 'PARAM' in GLOBAL['MODELS'][step][model] and len(GLOBAL['MODELS'][step][model]['PARAM']) != 0:
             text += "\n\n<ansigreen>Parameters:</ansigreen>"
-            for p in GLOBAL['MODELS']['Contact Network'][model]['PARAM']:
+            for p in GLOBAL['MODELS'][step][model]['PARAM']:
                 text += ("\n  - <ansired>%s</ansired>" % p)
-                if 'DESC' in GLOBAL['MODELS']['Contact Network'][model]['PARAM'][p]:
-                    text += (': %s' % GLOBAL['MODELS']['Contact Network'][model]['PARAM'][p]['DESC'])
-        if 'PROP' in GLOBAL['MODELS']['Contact Network'][model] and len(GLOBAL['MODELS']['Contact Network'][model]['PROP']) != 0:
-            text += ("\n\n<ansigreen>Properties:</ansigreen>\n%s" % '\n'.join(("  - %s" % p) for p in GLOBAL['MODELS']['Contact Network'][model]['PROP']))
+                if 'DESC' in GLOBAL['MODELS'][step][model]['PARAM'][p]:
+                    text += (': %s' % GLOBAL['MODELS'][step][model]['PARAM'][p]['DESC'])
+        if 'PROP' in GLOBAL['MODELS'][step][model] and len(GLOBAL['MODELS'][step][model]['PROP']) != 0:
+            text += ("\n\n<ansigreen>Properties:</ansigreen>\n%s" % '\n'.join(("  - %s" % p) for p in GLOBAL['MODELS'][step][model]['PROP']))
         if yes_no_dialog(
             title=model,
             text=HTML(text),
@@ -197,7 +199,7 @@ def page_dashboard():
         text = "<%s>Config File:</%s> %s" % (tmp, tmp, GLOBAL['app']['config_fn'])
         for k in GLOBAL['CONFIG_KEYS']:
             tmp = {True:"ansigreen", False:"ansired"}[k in GLOBAL['config'] and GLOBAL['config'][k] is not None]
-            text += "\n  - <%s>Contact Network:</%s> %s" % (tmp, tmp, GLOBAL['config'][k])
+            text += "\n  - <%s>%s:</%s> %s" % (tmp, k, tmp, GLOBAL['config'][k])
 
         # run dashboard
         tmp = radiolist_dialog(
