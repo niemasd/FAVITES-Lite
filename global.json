@@ -152,9 +152,9 @@
         "Transmission Network": {
             "SI": {
                 "PARAM": {
-                    "S-I_seed": {
+                    "S-I": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate S -> I induced from outside"
+                        "DESC": "The transition rate S -> I (nodal, e.g. outside infection)"
                     },
                     "S-I_I": {
                         "TYPE": "non-negative float",
@@ -162,6 +162,40 @@
                     }
                 },
                 "DESC": "The <ansired>Susceptible-Infected (SI)</ansired> model has two states:\n  - S: Susceptible\n  - I: Infected\n\nThe following transition is possible:\n  - S -> I (induced by I or outside)"
+            },
+            "SIR": {
+                "PARAM": {
+                    "S-I": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate S -> I (nodal, e.g. outside infection)"
+                    },
+                    "S-I_I": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate S -> I induced by neighbors in I"
+                    },
+                    "I-R": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate I -> R (nodal)"
+                    }
+                },
+                "DESC": "The <ansired>Susceptible-Infected-Removed (SIR)</ansired> model has three states:\n  - S: Susceptible\n  - I: Infected\n  - R: Removed\n\nThe following transitions are possible:\n  - S -> I (induced by I or outside)\n  - I -> R"
+            },
+            "SIS": {
+                "PARAM": {
+                    "S-I": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate S -> I (nodal, e.g. outside infection)"
+                    },
+                    "S-I_I": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate S -> I induced by neighbors in I"
+                    },
+                    "I-S": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate I -> S (nodal)"
+                    }
+                },
+                "DESC": "The <ansired>Susceptible-Infected-Susceptible (SIS)</ansired> model has two states:\n  - S: Susceptible\n  - I: Infected\n\nThe following transitions are possible:\n  - S -> I (induced by I or outside)\n  - I -> S"
             }
         }
     }
