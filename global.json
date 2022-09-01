@@ -1,6 +1,6 @@
 {
     "VERSION": "0.0.1",
-    "CONFIG_KEYS": ["Contact Network"],
+    "CONFIG_KEYS": ["Contact Network", "Seed Selection"],
     "TYPES": ["positive integer"],
     "MODELS": {
         "Contact Network": {
@@ -137,6 +137,16 @@
                 "PROP": [
                     "The number of edges is: <ansired>nk</ansired>/2"
                 ]
+            }
+        },
+        "Seed Selection": {
+            "Edge-Weighted": {
+                "PARAM": {},
+                "DESC": "The probability that an individual is chosen to be a seed\nis weighted by the degree of that individual."
+            },
+            "Uniform": {
+                "PARAM": {},
+                "DESC": "Individuals are selected with equal probability."
             }
         }
     }
