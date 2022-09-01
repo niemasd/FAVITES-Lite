@@ -29,6 +29,37 @@ try:
 except:
     print_log("Unable to import prompt_toolkit. Install with: pip install prompt_toolkit"); exit(1)
 
+def parse_param_value(value, param_type):
+    if param_type == "positive integer":
+        try:
+            value = int(value)
+        except:
+            return None
+        if value > 0:
+            return value
+        else:
+            return None
+    elif param_type == "non-negative integer":
+        try:
+            value = int(value)
+        except:
+            return None
+        if value >= 0:
+            return value
+        else:
+            return None
+    elif param_type == "probability":
+        try:
+            value = float(value)
+        except:
+            return None
+        if 0 <= value <= 1:
+            return value
+        else:
+            return None
+    else:
+        print_log("FAVITES-Lite bug: Invalid parameter type: %s" % param_type); exit(1)
+
 # welcome page
 def page_welcome():
     return button_dialog(
@@ -155,27 +186,6 @@ def page_save():
 # all steps (e.g. Contact Network, Transmission Network), etc. will use the same infrastructure to pick model
 def page_contact_network():
     return page_model_selection("Contact Network")
-def parse_param_value(value, param_type):
-    if param_type == "positive integer":
-        try:
-            value = int(value)
-        except:
-            return None
-        if value > 0:
-            return value
-        else:
-            return None
-    elif param_type == "non-negative integer":
-        try:
-            value = int(value)
-        except:
-            return None
-        if value >= 0:
-            return value
-        else:
-            return None
-    else:
-        print_log("FAVITES-Lite bug: Invalid parameter type: %s" % param_type); exit(1)
 def page_model_selection(step):
     while True:
         # pick model

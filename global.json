@@ -71,6 +71,23 @@
                     }
                 },
                 "DESC": "An <ansired>empty</ansired> graph is a graph that does not have any edges.\n\nNote that you very likely do not want to use this for epidemic simulations\n(as there will not be any edges across which the pathogen can transmit)."
+            },
+            "Erdos-Renyi": {
+                "PARAM": {
+                    "n": {
+                        "TYPE": "positive integer",
+                        "DESC": "Number of nodes"
+                    },
+                    "p": {
+                        "TYPE": "probability",
+                        "DESC": "Probability of existence of an edge"
+                    }
+                },
+                "DESC": "The <ansired>Erdos-Renyi</ansired> model is an undirected graph model in which\neach of the <ansired>n</ansired> choose 2 possible edges have probability <ansired>p</ansired> of existing.",
+                "PROP": [
+                    "The expected degree is: <ansired>p</ansired>(<ansired>n</ansired> choose 2) = <ansired>pn</ansired>(<ansired>n</ansired>-1)/2",
+                    "The degree distribution is binomial: P(deg(v)=k) = (<ansired>n</ansired>-1 choose k)(<ansired>p</ansired>^k)(1-<ansired>p</ansired>)^(<ansired>n</ansired>-1-k)"
+                ]
             }
         }
     }
