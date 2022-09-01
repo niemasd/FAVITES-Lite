@@ -7,11 +7,12 @@ Niema Moshiri 2022
 # general imports and load global.json
 from datetime import datetime
 from glob import glob
-from json import loads as jloads
 from os import getcwd
-from os.path import abspath, expanduser, isdir
+from os.path import abspath, expanduser, isdir, isfile
 from sys import argv, stderr
-GLOBAL = jloads(open("%s/global.json" % '/'.join(abspath(expanduser(argv[0])).split('/')[:-1])).read())
+import json
+GLOBAL_JSON_PATH = "%s/global.json" % '/'.join(abspath(expanduser(argv[0])).split('/')[:-1])
+GLOBAL = json.loads(open(GLOBAL_JSON_PATH).read())
 
 # return the current time as a string
 def get_time():
@@ -51,16 +52,19 @@ def page_about():
 
 # new/load config file
 def page_newload_config(existing_file):
-    tmp = page_find_file(existing_file=False)
+    tmp = page_find_file(existing_file=existing_file)
     if tmp is None:
         return GLOBAL['app']['prev_page']
     else:
         GLOBAL['app']['config_fn'] = tmp
         return page_dashboard
 def page_new_config():
+    GLOBAL['config'] = dict()
     return page_newload_config(existing_file=False)
 def page_load_config():
-    return page_newload_config(existing_file=True)
+    tmp = page_newload_config(existing_file=True)
+    GLOBAL['config'] = json.loads(open(GLOBAL['app']['config_fn']).read())
+    return tmp
 
 # find a file (either new or existing)
 def page_find_file(existing_file):
@@ -87,7 +91,22 @@ def page_find_file(existing_file):
         # if user picks current directory:
         elif result == "":
             if existing_file: # if user is picking an existing file, find it
-                pass # TODO search for existing file
+                while True:
+                    vals = [(f.split('/')[-1], f.split('/')[-1]) for f in sorted(f2 for f2 in glob('%s/*' % curr_dir) if isfile(f2) and f2.endswith('.json') and f2 != GLOBAL_JSON_PATH)]
+                    fn = radiolist_dialog(
+                        title="Select File",
+                        text=None,
+                        values=vals,
+                    ).run()
+                    if fn is None: # if user canceled, return to directory selection
+                        break
+                    else:
+                        out = '%s%s' % (curr_dir, fn)
+                        if yes_no_dialog(
+                            title="Confirm",
+                            text="Load the following FAVITES-Lite config file?\n\n%s" % out,
+                        ).run():
+                            return out
             else:             # if user is creating a new file, ask for file name
                 while True:
                     fn = input_dialog(
@@ -96,14 +115,19 @@ def page_find_file(existing_file):
                     ).run()
                     if fn is None: # if user canceled, return to directory selection
                         break
+                    elif isfile(fn) or isdir(fn):
+                        message_dialog(
+                            title="Error",
+                            text="File exists:\n\n%s" % fn,
+                        ).run()
                     elif fn.strip() == "":
                         message_dialog(
-                            title="Empty Filename",
-                            text="File name must not be empty",
+                            title="Error",
+                            text="File name cannot be empty",
                         ).run()
                     elif not fn.strip().lower().endswith('.json'):
                         message_dialog(
-                            title="Invalid File Extension",
+                            title="Error",
                             text="File extension must be .json, but you entered:\n\n%s" % fn,
                         ).run()
                     else:
@@ -118,15 +142,33 @@ def page_find_file(existing_file):
         else:
             curr_dir = result
 
+# save changes
+def page_save():
+    f = open(GLOBAL['app']['config_fn'], 'w'); json.dump(GLOBAL['config'], f); f.close()
+    message_dialog(
+        title="Save",
+        text="Changes saved.",
+    ).run()
+    return GLOBAL['app']['prev_page']
+
 # designer dashboard
 def page_dashboard():
-    return radiolist_dialog(
-        title="FAVITES-Lite Config Designer",
-        text=HTML("<ansired>Config File:</ansired> %s" % GLOBAL['app']['config_fn']),
-        values=[
-            (page_about, "About"),
-        ],
-    ).run()
+    while True:
+        tmp = radiolist_dialog(
+            title="FAVITES-Lite Config Designer",
+            text=HTML("<ansired>Config File:</ansired> %s" % GLOBAL['app']['config_fn']),
+            values=[
+                (page_save, "Save Changes"),
+                (page_about, "About"),
+            ],
+        ).run()
+        if tmp is None and yes_no_dialog(
+            title="Exit?",
+            text=HTML("Do you want to exit the FAVITES-Lite Config Designer?\n\nNote that this will <b><ansired>*not*</ansired></b> save your changes.\nIf you need to save your changes, click \"No\" and save from the previous page."),
+        ).run():
+            return None
+        elif tmp is not None:
+            return tmp
 
 # run the config designer app
 if __name__ == "__main__":
