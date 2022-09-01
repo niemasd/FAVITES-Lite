@@ -259,6 +259,7 @@ def page_dashboard():
         tmp = radiolist_dialog(
             title="FAVITES-Lite Config Designer",
             text=HTML(text),
+            cancel_text="Exit",
             values=[
                 (page_contact_network, "Contact Network"),
                 (page_save, "Save Changes"),

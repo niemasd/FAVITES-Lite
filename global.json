@@ -15,7 +15,7 @@
                         "DESC": "Number of edges attached from new nodes to existing nodes"
                     }
                 },
-                "DESC": "The <ansired>Barabasi-Albert</ansired> (BA) model is an algorithm for generating undirected random scale-free networks using a preferential attachment mechanism.",
+                "DESC": "The <ansired>Barabasi-Albert</ansired> (BA) model is an algorithm for generating undirected\nrandom scale-free networks using a preferential attachment mechanism.",
                 "PROP": [
                     "The total number of edges is: <ansired>m</ansired>(<ansired>n</ansired>-<ansired>m</ansired>)",
                     "The expected degree is approximately: 2<ansired>m</ansired>"
@@ -32,7 +32,7 @@
                         "DESC": "Number of nodes in the path connecting the two complete subgraphs"
                     }
                 },
-                "DESC": "A <ansired>barbell</ansired> graph is an undirected graph composed of two complete graphs, each with <ansired>m1</ansired> nodes, connected by a path of <ansired>m2</ansired> nodes.",
+                "DESC": "A <ansired>barbell</ansired> graph is an undirected graph composed of two complete graphs,\neach with <ansired>m1</ansired> nodes, connected by a path of <ansired>m2</ansired> nodes.",
                 "PROP": [
                     "The total number of nodes is: 2<ansired>m1</ansired> + <ansired>m2</ansired>",
                     "The total number of edges is: <ansired>m1</ansired>(<ansired>m1</ansired>-1) + <ansired>m2</ansired> + 1"
@@ -45,7 +45,7 @@
                         "DESC": "Number of nodes"
                     }
                 },
-                "DESC": "A <ansired>complete</ansired> graph is a simple undirected graph in which every pair of distinct vertices is connected by a unique edge.",
+                "DESC": "A <ansired>complete</ansired> graph is a simple undirected graph in which every\npair of distinct vertices is connected by a unique edge.",
                 "PROP": [
                     "The total number of edges is: <ansired>n</ansired> choose 2 = <ansired>n</ansired>(<ansired>n</ansired>-1)/2",
                     "The degree of every node (and thus also the average degree) is: <ansired>n</ansired>-1"
@@ -58,10 +58,19 @@
                         "DESC": "Number of nodes"
                     }
                 },
-                "DESC": "A <ansired>cycle</ansired> graph is an undirected graph that consists of a single cycle. In other words, the vertices are connected in a closed chain.",
+                "DESC": "A <ansired>cycle</ansired> graph is an undirected graph that consists of a single cycle.\nIn other words, the vertices are connected in a closed chain.",
                 "PROP": [
                     "When <ansired>n</ansired> > 2, the number of edges is: <ansired>n</ansired>"
                 ]
+            },
+            "Empty": {
+                "PARAM": {
+                    "n": {
+                        "TYPE": "positive integer",
+                        "DESC": "Number of nodes"
+                    }
+                },
+                "DESC": "An <ansired>empty</ansired> graph is a graph that does not have any edges.\n\nNote that you very likely do not want to use this for epidemic simulations\n(as there will not be any edges across which the pathogen can transmit)."
             }
         }
     }
