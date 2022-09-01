@@ -165,6 +165,15 @@ def parse_param_value(value, param_type):
             return value
         else:
             return None
+    elif param_type == "non-negative integer":
+        try:
+            value = int(value)
+        except:
+            return None
+        if value >= 0:
+            return value
+        else:
+            return None
     else:
         print_log("FAVITES-Lite bug: Invalid parameter type: %s" % param_type); exit(1)
 def page_model_selection(step):

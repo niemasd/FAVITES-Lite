@@ -1,34 +1,54 @@
 {
     "VERSION": "0.0.1",
     "CONFIG_KEYS": ["Contact Network"],
+    "TYPES": ["positive integer"],
     "MODELS": {
         "Contact Network": {
             "Barabasi-Albert": {
                 "PARAM": {
                     "n": {
+                        "TYPE": "positive integer",
                         "DESC": "Number of nodes"
                     },
                     "m": {
+                        "TYPE": "positive integer",
                         "DESC": "Number of edges attached from new nodes to existing nodes"
                     }
                 },
-                "DESC": "The <ansired>Barabasi-Albert</ansired> (BA) model is an algorithm for generating random scale-free networks using a preferential attachment mechanism.",
+                "DESC": "The <ansired>Barabasi-Albert</ansired> (BA) model is an algorithm for generating undirected random scale-free networks using a preferential attachment mechanism.",
                 "PROP": [
-                    "The total number of undirected edges is <ansired>m</ansired>(<ansired>n</ansired>-<ansired>m</ansired>)",
-                    "The expected degree is roughly 2<ansired>m</ansired>"
+                    "The total number of edges is: <ansired>m</ansired>(<ansired>n</ansired>-<ansired>m</ansired>)",
+                    "The expected degree is approximately: 2<ansired>m</ansired>"
                 ]
             },
-
+            "Barbell": {
+                "PARAM": {
+                    "m1": {
+                        "TYPE": "positive integer",
+                        "DESC": "Number of nodes in each of the two complete subgraphs"
+                    },
+                    "m2": {
+                        "TYPE": "non-negative integer",
+                        "DESC": "Number of nodes in the path connecting the two complete subgraphs"
+                    }
+                },
+                "DESC": "A <ansired>barbell</ansired> graph is an undirected graph composed of two complete graphs, each with <ansired>m1</ansired> nodes, connected by a path of <ansired>m2</ansired> nodes.",
+                "PROP": [
+                    "The total number of nodes is: 2<ansired>m1</ansired> + <ansired>m2</ansired>",
+                    "The total number of edges is: <ansired>m1</ansired>(<ansired>m1</ansired>-1) + <ansired>m2</ansired> + 1"
+                ]
+            },
             "Complete": {
                 "PARAM": {
                     "n": {
+                        "TYPE": "positive integer",
                         "DESC": "Number of nodes"
                     }
                 },
                 "DESC": "A <ansired>complete</ansired> graph is a simple undirected graph in which every pair of distinct vertices is connected by a unique edge.",
                 "PROP": [
-                    "The total number of undirected edges is <ansired>n</ansired> choose 2 = <ansired>n</ansired>(<ansired>n</ansired>-1)/2",
-                    "The degree of every node (and thus also the average degree) is <ansired>n</ansired>-1"
+                    "The total number of edges is: <ansired>n</ansired> choose 2 = <ansired>n</ansired>(<ansired>n</ansired>-1)/2",
+                    "The degree of every node (and thus also the average degree) is: <ansired>n</ansired>-1"
                 ]
             }
         }
