@@ -121,6 +121,22 @@
                 "PROP": [
                     "The number of edges is: <ansired>n</ansired>-1"
                 ]
+            },
+            "Ring Lattice": {
+                "PARAM": {
+                    "n": {
+                        "TYPE": "positive integer",
+                        "DESC": "Number of nodes"
+                    },
+                    "k": {
+                        "TYPE": "even positive integer",
+                        "DESC": "Number of nearest neighbors to connect to"
+                    }
+                },
+                "DESC": "A <ansired>ring lattice</ansired> graph is an undirected graph in which\nevery node has an edge to each of its <ansired>k</ansired> neighbors.",
+                "PROP": [
+                    "The number of edges is: <ansired>nk</ansired>/2"
+                ]
             }
         }
     }
