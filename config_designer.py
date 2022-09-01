@@ -35,37 +35,39 @@ def save_config():
 
 # parse parameter value
 def parse_param_value(value, param_type):
-    if param_type == "positive integer":
-        try:
+    try:
+        if param_type == "integer":
+            return int(value)
+        elif param_type == "positive integer":
             value = int(value)
             if value > 0:
                 return value
-        except:
-            pass
-    elif param_type == "even positive integer":
-        try:
+        elif param_type == "even positive integer":
             value = int(value)
             if value > 0 and value % 2 == 0:
                 return value
-        except:
-            pass
-    elif param_type == "non-negative integer":
-        try:
+        elif param_type == "non-negative integer":
             value = int(value)
             if value >= 0:
                 return value
-        except:
-            pass
-    elif param_type == "probability":
-        try:
+        elif param_type == "float":
+            return float(value)
+        elif param_type == "positive float":
+            value = float(value)
+            if value > 0:
+                return value
+        elif param_type == "non-negative float":
+            value = float(value)
+            if value >= 0:
+                return value
+        elif param_type == "probability":
             value = float(value)
             if 0 <= value <= 1:
                 return value
-        except:
-            pass
-    else:
-        print_log("FAVITES-Lite bug: Invalid parameter type: %s" % param_type); exit(1)
-    return None
+        else:
+            print_log("FAVITES-Lite bug: Invalid parameter type: %s" % param_type); exit(1)
+    except:
+        return None
 
 # welcome page
 def page_welcome():
@@ -193,6 +195,10 @@ def page_save():
 # all steps (e.g. Contact Network, Transmission Network), etc. will use the same infrastructure to pick model
 def page_contact_network():
     return page_model_selection("Contact Network")
+def page_seed_selection():
+    return page_model_selection("Seed Selection")
+def page_transmission_network():
+    return page_model_selection("Transmission Network")
 def page_model_selection(step):
     while True:
         # pick model
@@ -265,7 +271,7 @@ def page_dashboard():
         for k in GLOBAL['CONFIG_KEYS']:
             tmp = {True:"ansigreen", False:"ansired"}[k in GLOBAL['config'] and GLOBAL['config'][k] is not None]
             text += "\n  - <%s>%s:</%s> " % (tmp, k, tmp)
-            if GLOBAL['config'][k] is None:
+            if k not in GLOBAL['config'] or GLOBAL['config'][k] is None:
                 text += "Not selected"
             else:
                 text += "<ansired>%s</ansired>" % GLOBAL['config'][k]['model']
@@ -279,6 +285,8 @@ def page_dashboard():
             cancel_text="Exit",
             values=[
                 (page_contact_network, "Contact Network"),
+                (page_seed_selection, "Seed Selection"),
+                (page_transmission_network, "Transmission Network"),
                 (page_save, "Save Changes"),
                 (page_about, "About"),
             ],

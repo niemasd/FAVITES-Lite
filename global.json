@@ -1,6 +1,6 @@
 {
     "VERSION": "0.0.1",
-    "CONFIG_KEYS": ["Contact Network", "Seed Selection"],
+    "CONFIG_KEYS": ["Contact Network", "Seed Selection", "Transmission Network"],
     "TYPES": ["positive integer"],
     "MODELS": {
         "Contact Network": {
@@ -147,6 +147,21 @@
             "Uniform": {
                 "PARAM": {},
                 "DESC": "Individuals are selected with equal probability."
+            }
+        },
+        "Transmission Network": {
+            "SI": {
+                "PARAM": {
+                    "S-I_seed": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate S -> I induced from outside"
+                    },
+                    "S-I_I": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate S -> I induced by neighbors in I"
+                    }
+                },
+                "DESC": "The <ansired>Susceptible-Infected (SI)</ansired> model has two states:\n  - S: Susceptible\n  - I: Infected\n\nThe following transition is possible:\n  - S -> I (induced by I or outside)"
             }
         }
     }
