@@ -86,7 +86,28 @@
                 "DESC": "The <ansired>Erdos-Renyi</ansired> model is an undirected graph model in which\neach of the <ansired>n</ansired> choose 2 possible edges have probability <ansired>p</ansired> of existing.",
                 "PROP": [
                     "The expected degree is: <ansired>p</ansired>(<ansired>n</ansired> choose 2) = <ansired>pn</ansired>(<ansired>n</ansired>-1)/2",
-                    "The degree distribution is binomial: P(deg(v)=k) = (<ansired>n</ansired>-1 choose k)(<ansired>p</ansired>^k)(1-<ansired>p</ansired>)^(<ansired>n</ansired>-1-k)"
+                    "The degree distribution is: Binomial(<ansired>n</ansired>-1, k)"
+                ]
+            },
+            "Newman-Watts-Strogatz": {
+                "PARAM": {
+                    "n": {
+                        "TYPE": "positive integer",
+                        "DESC": "Number of nodes"
+                    },
+                    "k": {
+                        "TYPE": "even positive integer",
+                        "DESC": "Number of nearest neighbors to connect to"
+                    },
+                    "p": {
+                        "TYPE": "probability",
+                        "DESC": "Probability of adding a new edge"
+                    }
+                },
+                "DESC": "The <ansired>Newman-Watts-Strogatz</ansired> model is an undirected graph model as follows:\n  1. Start with a ring of <ansired>n</ansired> nodes\n  2. Connect each node with its <ansired>k</ansired> nearest neighbors\n  3. For each edge (u,v) in the ring, add a new random edge (u,w) with probability <ansired>p</ansired>",
+                "PROP": [
+                    "The number of edges in the connected ring is: <ansired>nk</ansired>/2",
+                    "The number of newly added edges is: Binomial(<ansired>nk</ansired>/2, <ansired>p</ansired>)"
                 ]
             }
         }

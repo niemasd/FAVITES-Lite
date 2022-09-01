@@ -29,36 +29,43 @@ try:
 except:
     print_log("Unable to import prompt_toolkit. Install with: pip install prompt_toolkit"); exit(1)
 
+# save config file
+def save_config():
+    f = open(GLOBAL['app']['config_fn'], 'w'); json.dump(GLOBAL['config'], f); f.close()
+
+# parse parameter value
 def parse_param_value(value, param_type):
     if param_type == "positive integer":
         try:
             value = int(value)
+            if value > 0:
+                return value
         except:
-            return None
-        if value > 0:
-            return value
-        else:
-            return None
+            pass
+    elif param_type == "even positive integer":
+        try:
+            value = int(value)
+            if value > 0 and value % 2 == 0:
+                return value
+        except:
+            pass
     elif param_type == "non-negative integer":
         try:
             value = int(value)
+            if value >= 0:
+                return value
         except:
-            return None
-        if value >= 0:
-            return value
-        else:
-            return None
+            pass
     elif param_type == "probability":
         try:
             value = float(value)
+            if 0 <= value <= 1:
+                return value
         except:
-            return None
-        if 0 <= value <= 1:
-            return value
-        else:
-            return None
+            pass
     else:
         print_log("FAVITES-Lite bug: Invalid parameter type: %s" % param_type); exit(1)
+    return None
 
 # welcome page
 def page_welcome():
@@ -176,7 +183,7 @@ def page_find_file(existing_file):
 
 # save changes
 def page_save():
-    f = open(GLOBAL['app']['config_fn'], 'w'); json.dump(GLOBAL['config'], f); f.close()
+    save_config()
     message_dialog(
         title="Save",
         text="FAVITES-Lite config file saved:\n\n%s" % GLOBAL['app']['config_fn'],
@@ -276,12 +283,22 @@ def page_dashboard():
                 (page_about, "About"),
             ],
         ).run()
-        if tmp is None and yes_no_dialog(
-            title="Exit?",
-            text=HTML("Do you want to exit the FAVITES-Lite Config Designer?\n\nNote that this will <b><ansired>*not*</ansired></b> save your changes.\nIf you need to save your changes, click \"No\" and save from the previous page."),
-        ).run():
-            return None
-        elif tmp is not None:
+        if tmp is None:
+            tmp = button_dialog(
+                title="Exit?",
+                text=HTML("Do you want to exit the FAVITES-Lite Config Designer?\n  - <ansired>Yes (Save)</ansired> = Exit and save changes\n  - <ansired>Yes (Disc)</ansired> = Exit and discard changes\n  - <ansired>No</ansired> = Don't exit"),
+                buttons=[
+                    ("Yes (Save)", 'save'),
+                    ("Yes (Disc)", None),
+                    ("No", page_dashboard),
+                ],
+            ).run()
+            if tmp == 'save':
+                save_config()
+                return None
+            else:
+                return tmp
+        else:
             return tmp
 
 # run the config designer app
