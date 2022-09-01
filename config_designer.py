@@ -147,7 +147,7 @@ def page_save():
     f = open(GLOBAL['app']['config_fn'], 'w'); json.dump(GLOBAL['config'], f); f.close()
     message_dialog(
         title="Save",
-        text="Changes saved.",
+        text="FAVITES-Lite config file saved:\n\n%s" % GLOBAL['app']['config_fn'],
     ).run()
     return GLOBAL['app']['prev_page']
 
