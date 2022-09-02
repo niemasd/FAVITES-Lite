@@ -194,12 +194,7 @@ def page_save():
     return GLOBAL['app']['prev_page']
 
 # all steps (e.g. Contact Network, Transmission Network), etc. will use the same infrastructure to pick model
-def page_contact_network():
-    return page_model_selection("Contact Network")
-def page_seed_selection():
-    return page_model_selection("Seed Selection")
-def page_transmission_network():
-    return page_model_selection("Transmission Network")
+STEP_TO_PAGE = {k: (lambda: page_model_selection(k)) for k in GLOBAL['CONFIG_KEYS']}
 def page_model_selection(step):
     while True:
         # pick model
@@ -298,29 +293,24 @@ def page_dashboard():
                 complete = False; break
         tmp = {True:"ansigreen", False:"ansired"}[complete]
         text = "<%s>Config File:</%s> %s" % (tmp, tmp, GLOBAL['app']['config_fn'])
+        vals = list()
         for k in GLOBAL['CONFIG_KEYS']:
-            tmp = {True:"ansigreen", False:"ansired"}[k in GLOBAL['config'] and GLOBAL['config'][k] is not None]
-            text += "\n  - <%s>%s:</%s> " % (tmp, k, tmp)
-            if k not in GLOBAL['config'] or GLOBAL['config'][k] is None:
-                text += "Not selected"
+            if k in GLOBAL['config'] and GLOBAL['config'][k] is not None:
+                m = "<ansigreen>%s</ansigreen>" % GLOBAL['config'][k]['model']
             else:
-                text += "<ansired>%s</ansired>" % GLOBAL['config'][k]['model']
-                #if len(GLOBAL['config'][k]['param']) != 0: # TODO MOVE THIS TO SUMMARY PAGE OR SOMETHING
-                #    text += ' {%s}' % ', '.join("<ansired>%s</ansired>: %s" % (p, GLOBAL['config'][k]['param'][p]) for p in GLOBAL['config'][k]['param'])
+                m = "<ansired>Not selected</ansired>"
+            vals.append((STEP_TO_PAGE[k], HTML("%s: %s" % (k,m))))
+        vals += [
+            (page_save, "Save Changes"),
+            (page_about, "About"),
+        ]
 
         # run dashboard
         tmp = radiolist_dialog(
             title="FAVITES-Lite Config Designer",
             text=HTML(text),
             cancel_text="Exit",
-            values=[
-                (page_contact_network, "Edit Contact Network"),
-                (page_seed_selection, "Edit Seed Selection"),
-                (page_transmission_network, "Edit Transmission Network"),
-                (page_view_params, "View Parameters"),
-                (page_save, "Save Changes"),
-                (page_about, "About"),
-            ],
+            values=vals,
         ).run()
         if tmp is None:
             tmp = button_dialog(

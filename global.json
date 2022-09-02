@@ -185,7 +185,28 @@
                         "DESC": "The transition rate I -> S (nodal)"
                     }
                 },
-                "DESC": "The <ansired>Susceptible-Alert-Infected-Susceptible</ansired> (SAIS) model has three states:\n  - S: Susceptible\n  - A: Alert\n  - I: Infected\n\nThe following transitions are possible:\n  - S -> A (nodal or induced by A or I)\n  - S -> I (induced by I or outside)\n  - A -> I (induced by I or outside)\n  - I -> S (nodal)"
+                "DESC": "The <ansired>Susceptible-Alert-Infected-Susceptible (SAIS)</ansired> model has three states:\n  - S: Susceptible\n  - A: Alert\n  - I: Infected\n\nThe following transitions are possible:\n  - S -> A (nodal or induced by A or I)\n  - S -> I (induced by I or outside)\n  - A -> I (induced by I or outside)\n  - I -> S (nodal)"
+            },
+            "SEIR": {
+                "PARAM": {
+                    "S-E": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate S -> E (nodal, e.g. outside infection)"
+                    },
+                    "S-E_I": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate S -> E induced by neighbors in I"
+                    },
+                    "E-I": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate E -> I (nodal)"
+                    },
+                    "I-R": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate I -> R (nodal)"
+                    }
+                },
+                "DESC": "The <ansired>Susceptible-Exposed-Infected-Removed (SEIR)</ansired> model has four states:\n  - S: Susceptible\n  - E: Exposed\n  - I: Infected\n  - R: Removed\n\nThe following transitions are possible:\n  - S -> E (induced by I or outside)\n  - E -> I (nodal)\n  - I -> R (nodal)"
             },
             "SI": {
                 "PARAM": {
