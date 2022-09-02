@@ -264,14 +264,14 @@ def page_view_params(i=0, show_nav=True):
             if i != 0:
                 vals.append(('prev', 'Previous Step (%s)' % GLOBAL['CONFIG_KEYS'][i-1]))
         for p in GLOBAL['MODELS'][step][model]['PARAM']:
-            p_text = "%s: " % p
-            if 'DESC' in GLOBAL['MODELS'][step][model]['PARAM'][p]:
-                p_text += "%s: " % GLOBAL['MODELS'][step][model]['PARAM'][p]['DESC']
             if p in GLOBAL['config'][step]['param']:
                 p_val = GLOBAL['config'][step]['param'][p]
             else:
                 p_val = None
             tmp = {True:'ansired',False:'ansigreen'}[p_val is None]
+            p_text = "<%s>%s</%s>: " % (tmp, p, tmp)
+            if 'DESC' in GLOBAL['MODELS'][step][model]['PARAM'][p]:
+                p_text += "%s: " % GLOBAL['MODELS'][step][model]['PARAM'][p]['DESC']
             p_text += "<%s>%s</%s>" % (tmp, {True:"Not selected",False:p_val}[p_val is None], tmp)
             vals.append((lambda step=step, model=model, p=p: page_parameter_selection(step,model,p), HTML(p_text)))
         tmp = radiolist_dialog(
