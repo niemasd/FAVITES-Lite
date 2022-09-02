@@ -150,6 +150,43 @@
             }
         },
         "Transmission Network": {
+            "SAIS": {
+                "PARAM": {
+                    "S-A": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate S -> A (nodal)"
+                    },
+                    "S-A_A": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate S -> A induced by neighbors in A"
+                    },
+                    "S-A_I": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate S -> A induced by neighbors in I"
+                    },
+                    "S-I": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate S -> I (nodal, e.g. outside infection)"
+                    },
+                    "S-I_I": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate S -> I induced by neighbors in I"
+                    },
+                    "A-I": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate A -> I (nodal, e.g. outside infection)"
+                    },
+                    "A-I_I": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate A -> I induced by neighbors in I"
+                    },
+                    "I-S": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate I -> S (nodal)"
+                    }
+                },
+                "DESC": "The <ansired>Susceptible-Alert-Infected-Susceptible</ansired> (SAIS) model has three states:\n  - S: Susceptible\n  - A: Alert\n  - I: Infected\n\nThe following transitions are possible:\n  - S -> A (nodal or induced by A or I)\n  - S -> I (induced by I or outside)\n  - A -> I (induced by I or outside)\n  - I -> S (nodal)"
+            },
             "SI": {
                 "PARAM": {
                     "S-I": {

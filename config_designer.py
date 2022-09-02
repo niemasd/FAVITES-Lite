@@ -86,7 +86,7 @@ def page_welcome():
 def page_about():
     message_dialog(
         title="About",
-        text=HTML("<ansired>FAVITES-Lite Config Designer v%s</ansired>\nNiema Moshiri 2022" % GLOBAL['VERSION']),
+        text=HTML("<ansired>FAVITES-Lite Config Designer v%s</ansired> - Niema Moshiri 2022" % GLOBAL['VERSION']),
     ).run()
     return GLOBAL['app']['prev_page']
 
@@ -103,7 +103,8 @@ def page_new_config():
     return page_newload_config(existing_file=False)
 def page_load_config():
     tmp = page_newload_config(existing_file=True)
-    GLOBAL['config'] = json.loads(open(GLOBAL['app']['config_fn']).read())
+    if 'config_fn' in GLOBAL['app']:
+        GLOBAL['config'] = json.loads(open(GLOBAL['app']['config_fn']).read())
     return tmp
 
 # find a file (either new or existing)
@@ -258,6 +259,35 @@ def page_model_selection(step):
                 GLOBAL['config'][step] = {'model':model, 'param':param}
                 return page_dashboard
 
+# view parameter selection from dashboard
+def page_view_params():
+    i = 0
+    while True:
+        step = GLOBAL['CONFIG_KEYS'][i]; model = GLOBAL['config'][step]['model']
+        text = "<ansigreen>Model</ansigreen>: <ansired>%s</ansired>" % model
+        for p in GLOBAL['config'][step]['param']:
+            text += ("\n  - <ansigreen>%s</ansigreen>: %s: <ansired>%s</ansired>" % (p, GLOBAL['MODELS'][step][model]['PARAM'][p]['DESC'], GLOBAL['config'][step]['param'][p]))
+        buttons = list()
+        if i != 0:
+            buttons.append(('Prev', 'prev'))
+        buttons.append(('Cancel', None))
+        if i != len(GLOBAL['CONFIG_KEYS'])-1:
+            buttons.append(('Next', 'next'))
+        tmp = button_dialog(
+            title="View: %s" % step,
+            text=HTML(text),
+            buttons=buttons,
+        ).run()
+        if tmp is None:
+            break
+        elif tmp == 'prev':
+            i -= 1
+        elif tmp == 'next':
+            i += 1
+        else:
+            print_log("FAVITES-Lite bug")
+    return page_dashboard
+
 # designer dashboard
 def page_dashboard():
     while True:
@@ -275,8 +305,8 @@ def page_dashboard():
                 text += "Not selected"
             else:
                 text += "<ansired>%s</ansired>" % GLOBAL['config'][k]['model']
-                if len(GLOBAL['config'][k]['param']) != 0:
-                    text += ' {%s}' % ', '.join("<ansired>%s</ansired>: %s" % (p, GLOBAL['config'][k]['param'][p]) for p in GLOBAL['config'][k]['param'])
+                #if len(GLOBAL['config'][k]['param']) != 0: # TODO MOVE THIS TO SUMMARY PAGE OR SOMETHING
+                #    text += ' {%s}' % ', '.join("<ansired>%s</ansired>: %s" % (p, GLOBAL['config'][k]['param'][p]) for p in GLOBAL['config'][k]['param'])
 
         # run dashboard
         tmp = radiolist_dialog(
@@ -284,9 +314,10 @@ def page_dashboard():
             text=HTML(text),
             cancel_text="Exit",
             values=[
-                (page_contact_network, "Contact Network"),
-                (page_seed_selection, "Seed Selection"),
-                (page_transmission_network, "Transmission Network"),
+                (page_contact_network, "Edit Contact Network"),
+                (page_seed_selection, "Edit Seed Selection"),
+                (page_transmission_network, "Edit Transmission Network"),
+                (page_view_params, "View Parameters"),
                 (page_save, "Save Changes"),
                 (page_about, "About"),
             ],
