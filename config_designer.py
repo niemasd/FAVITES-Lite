@@ -13,6 +13,7 @@ from sys import argv, stderr
 import json
 GLOBAL_JSON_PATH = "%s/global.json" % '/'.join(abspath(expanduser(argv[0])).split('/')[:-1])
 GLOBAL = json.loads(open(GLOBAL_JSON_PATH).read())
+STEP_TO_IND = {k:i for i,k in enumerate(GLOBAL['CONFIG_KEYS'])}
 
 # return the current time as a string
 def get_time():
@@ -194,7 +195,7 @@ def page_save():
     return GLOBAL['app']['prev_page']
 
 # all steps (e.g. Contact Network, Transmission Network), etc. will use the same infrastructure to pick model
-STEP_TO_PAGE = {k: (lambda: page_model_selection(k)) for k in GLOBAL['CONFIG_KEYS']}
+STEP_TO_PAGE = {k: (lambda k=k: page_model_selection(k)) for k in GLOBAL['CONFIG_KEYS']}
 def page_model_selection(step):
     while True:
         # pick model
@@ -208,80 +209,85 @@ def page_model_selection(step):
         text = "Do you want to select the <ansired>%s</ansired> model?" % model
         if 'DESC' in GLOBAL['MODELS'][step][model]:
             text += ("\n\n<ansigreen>Description:</ansigreen>\n%s" % GLOBAL['MODELS'][step][model]['DESC'])
-        if 'PARAM' in GLOBAL['MODELS'][step][model] and len(GLOBAL['MODELS'][step][model]['PARAM']) != 0:
-            text += "\n\n<ansigreen>Parameters:</ansigreen>"
-            for p in GLOBAL['MODELS'][step][model]['PARAM']:
-                text += ("\n  - <ansired>%s</ansired>" % p)
-                if 'DESC' in GLOBAL['MODELS'][step][model]['PARAM'][p]:
-                    text += (': %s' % GLOBAL['MODELS'][step][model]['PARAM'][p]['DESC'])
         if 'PROP' in GLOBAL['MODELS'][step][model] and len(GLOBAL['MODELS'][step][model]['PROP']) != 0:
             text += ("\n\n<ansigreen>Properties:</ansigreen>\n%s" % '\n'.join(("  - %s" % p) for p in GLOBAL['MODELS'][step][model]['PROP']))
         if yes_no_dialog(
             title=step,
             text=HTML(text),
         ).run():
-            # pick parameters
-            param = dict(); cancel = False
-            for p in GLOBAL['MODELS'][step][model]['PARAM']:
-                while True:
-                    text = "Please enter value for <ansired>%s</ansired> model parameter: <ansired>%s</ansired>\n\n<ansigreen>Type:</ansigreen> %s" % (model, p, GLOBAL['MODELS'][step][model]['PARAM'][p]['TYPE'])
-                    if 'DESC' in GLOBAL['MODELS'][step][model]['PARAM'][p]:
-                        text += "\n\n<ansigreen>Description:</ansigreen> %s" % GLOBAL['MODELS'][step][model]['PARAM'][p]['DESC']
-                    v = input_dialog(
-                        title=step,
-                        text=HTML(text)
-                    ).run()
-                    if v is None:
-                        cancel = True; break
-                    v = v.strip()
-                    if len(v) == 0:
-                        message_dialog(
-                            title="Error",
-                            text="You did not enter anything",
-                        ).run()
-                        continue
-                    v_parse = parse_param_value(v, GLOBAL['MODELS'][step][model]['PARAM'][p]['TYPE'])
-                    if v_parse is None:
-                        message_dialog(
-                            title="Error",
-                            text=HTML("<ansired>%s</ansired> model parameter <ansired>%s</ansired> must be: %s\n\nYou entered: %s" % (model, p, GLOBAL['MODELS'][step][model]['PARAM'][p]['TYPE'], v)),
-                        ).run()
-                    else:
-                        param[p] = v_parse; break
-                if cancel:
-                    break
-            if len(param) == len(GLOBAL['MODELS'][step][model]['PARAM']):
-                GLOBAL['config'][step] = {'model':model, 'param':param}
-                return page_dashboard
+            GLOBAL['config'][step] = {'model':model, 'param':dict()}
+            return lambda step=step: page_view_params(i=STEP_TO_IND[step], show_nav=False)
+
+# page to set a specific model parameter
+def page_parameter_selection(step, model, p):
+    while True:
+        text = "Please enter value for <ansired>%s</ansired> model parameter: <ansired>%s</ansired>\n\n<ansigreen>Type:</ansigreen> %s" % (model, p, GLOBAL['MODELS'][step][model]['PARAM'][p]['TYPE'])
+        if 'DESC' in GLOBAL['MODELS'][step][model]['PARAM'][p]:
+            text += "\n\n<ansigreen>Description:</ansigreen> %s" % GLOBAL['MODELS'][step][model]['PARAM'][p]['DESC']
+        v = input_dialog(
+            title=step,
+            text=HTML(text)
+        ).run()
+        if v is None:
+            return GLOBAL['app']['prev_page']
+        v = v.strip()
+        if len(v) == 0:
+            message_dialog(
+                title="Error",
+                text="You did not enter anything",
+            ).run()
+            continue
+        v_parse = parse_param_value(v, GLOBAL['MODELS'][step][model]['PARAM'][p]['TYPE'])
+        if v_parse is None:
+            message_dialog(
+                title="Error",
+                text=HTML("<ansired>%s</ansired> model parameter <ansired>%s</ansired> must be: %s\n\nYou entered: %s" % (model, p, GLOBAL['MODELS'][step][model]['PARAM'][p]['TYPE'], v)),
+            ).run()
+        else:
+            GLOBAL['config'][step]['param'][p] = v_parse
+            return GLOBAL['app']['prev_page']
 
 # view parameter selection from dashboard
-def page_view_params():
-    i = 0
+def page_view_params(i=0, show_nav=True):
     while True:
-        step = GLOBAL['CONFIG_KEYS'][i]; model = GLOBAL['config'][step]['model']
-        text = "<ansigreen>Model</ansigreen>: <ansired>%s</ansired>" % model
-        for p in GLOBAL['config'][step]['param']:
-            text += ("\n  - <ansigreen>%s</ansigreen>: %s: <ansired>%s</ansired>" % (p, GLOBAL['MODELS'][step][model]['PARAM'][p]['DESC'], GLOBAL['config'][step]['param'][p]))
-        buttons = list()
-        if i != 0:
-            buttons.append(('Prev', 'prev'))
-        buttons.append(('Cancel', None))
-        if i != len(GLOBAL['CONFIG_KEYS'])-1:
-            buttons.append(('Next', 'next'))
-        tmp = button_dialog(
-            title="View: %s" % step,
+        step = GLOBAL['CONFIG_KEYS'][i]
+        if step in GLOBAL['config'] and GLOBAL['config'][step] is not None and 'model' in GLOBAL['config'][step]:
+            model = GLOBAL['config'][step]['model']
+        else:
+            model = None
+        tmp = {True:'ansired',False:'ansigreen'}[model is None]
+        text = "Model: <%s>%s</%s>" % (tmp, {True:"Not selected",False:model}[model is None], tmp)
+        vals = list()
+        if show_nav:
+            if i != len(GLOBAL['CONFIG_KEYS'])-1:
+                vals.append(('next', 'Next Step (%s)' % GLOBAL['CONFIG_KEYS'][i+1]))
+            if i != 0:
+                vals.append(('prev', 'Previous Step (%s)' % GLOBAL['CONFIG_KEYS'][i-1]))
+        for p in GLOBAL['MODELS'][step][model]['PARAM']:
+            p_text = "%s: " % p
+            if 'DESC' in GLOBAL['MODELS'][step][model]['PARAM'][p]:
+                p_text += "%s: " % GLOBAL['MODELS'][step][model]['PARAM'][p]['DESC']
+            if p in GLOBAL['config'][step]['param']:
+                p_val = GLOBAL['config'][step]['param'][p]
+            else:
+                p_val = None
+            tmp = {True:'ansired',False:'ansigreen'}[p_val is None]
+            p_text += "<%s>%s</%s>" % (tmp, {True:"Not selected",False:p_val}[p_val is None], tmp)
+            vals.append((lambda step=step, model=model, p=p: page_parameter_selection(step,model,p), HTML(p_text)))
+        tmp = radiolist_dialog(
+            title=step,
             text=HTML(text),
-            buttons=buttons,
+            values=vals,
+            cancel_text="Return",
         ).run()
         if tmp is None:
-            break
+            return page_dashboard
         elif tmp == 'prev':
             i -= 1
         elif tmp == 'next':
             i += 1
         else:
-            print_log("FAVITES-Lite bug")
-    return page_dashboard
+            return tmp
 
 # designer dashboard
 def page_dashboard():
@@ -289,18 +295,20 @@ def page_dashboard():
         # set dashboard text
         complete = True
         for k in GLOBAL['CONFIG_KEYS']:
-            if k not in GLOBAL['config'] or GLOBAL['config'][k] is None:
+            if k not in GLOBAL['config'] or GLOBAL['config'][k] is None or len(GLOBAL['config'][k]['param']) != len(GLOBAL['MODELS'][k][GLOBAL['config'][k]['model']]['PARAM']):
                 complete = False; break
         tmp = {True:"ansigreen", False:"ansired"}[complete]
         text = "<%s>Config File:</%s> %s" % (tmp, tmp, GLOBAL['app']['config_fn'])
         vals = list()
         for k in GLOBAL['CONFIG_KEYS']:
             if k in GLOBAL['config'] and GLOBAL['config'][k] is not None:
-                m = "<ansigreen>%s</ansigreen>" % GLOBAL['config'][k]['model']
+                tmp = {True:"ansigreen", False:"ansired"}[len(GLOBAL['config'][k]['param']) == len(GLOBAL['MODELS'][k][GLOBAL['config'][k]['model']]['PARAM'])]
+                m = "<%s>%s</%s>" % (tmp, GLOBAL['config'][k]['model'], tmp)
             else:
                 m = "<ansired>Not selected</ansired>"
             vals.append((STEP_TO_PAGE[k], HTML("%s: %s" % (k,m))))
         vals += [
+            (page_view_params, "View Parameters"),
             (page_save, "Save Changes"),
             (page_about, "About"),
         ]
