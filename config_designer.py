@@ -87,7 +87,7 @@ def page_welcome():
 def page_about():
     message_dialog(
         title="About",
-        text=HTML("<ansired>FAVITES-Lite Config Designer v%s</ansired> - Niema Moshiri 2022" % GLOBAL['VERSION']),
+        text=HTML("<ansigreen>FAVITES-Lite Config Designer v%s</ansigreen> - <ansired>Niema Moshiri 2022</ansired>" % GLOBAL['VERSION']),
     ).run()
     return GLOBAL['app']['prev_page']
 
@@ -114,7 +114,7 @@ def page_find_file(existing_file):
     curr_dir = "%s/" % abspath(expanduser(getcwd())).rstrip('/')
     while True:
         # create list of directories user can pick 
-        vals = [("", "Select current directory: %s" % curr_dir)]
+        vals = [("", HTML("<ansigreen>Select current directory: %s</ansigreen>" % curr_dir))]
         if curr_dir == '/':
             vals += [('%s/' % d, d[1:]) for d in sorted(glob('/*'))]
         else:
@@ -146,7 +146,7 @@ def page_find_file(existing_file):
                         out = '%s%s' % (curr_dir, fn)
                         if yes_no_dialog(
                             title="Confirm",
-                            text="Load the following FAVITES-Lite config file?\n\n%s" % out,
+                            text=HTML("Load the following FAVITES-Lite config file?\n\n<ansigreen>%s</ansigreen>" % out),
                         ).run():
                             return out
             else:             # if user is creating a new file, ask for file name
@@ -160,7 +160,7 @@ def page_find_file(existing_file):
                     elif isfile(fn) or isdir(fn):
                         if yes_no_dialog(
                             title="File Exists",
-                            text="File exists:\n\n%s\n\nOverwrite?" % fn,
+                            text=HTML("File exists:\n\n<ansired>%s</ansired>\n\nOverwrite?" % fn),
                         ).run():
                             return '%s%s' % (curr_dir, fn)
                     elif fn.strip() == "":
@@ -177,7 +177,7 @@ def page_find_file(existing_file):
                         out = '%s%s' % (curr_dir, fn)
                         if yes_no_dialog(
                             title="Confirm",
-                            text="Create new FAVITES-Lite config file with the following name?\n\n%s" % out,
+                            text=HTML("Create new FAVITES-Lite config file with the following name?\n\n<ansigreen>%s</ansigreen>" % out),
                         ).run():
                             return out
 
@@ -201,7 +201,7 @@ def page_model_selection(step):
         # pick model
         model = radiolist_dialog(
             title=step,
-            text=None,
+            text=HTML("<ansigreen>Description:</ansigreen>\n%s\n\n<ansigreen>Models:</ansigreen>" % GLOBAL['DESC'][step]),
             values=[(m, m) for m in GLOBAL['MODELS'][step]]
         ).run()
         if model is None:

@@ -2,6 +2,11 @@
     "VERSION": "0.0.1",
     "CONFIG_KEYS": ["Contact Network", "Seed Selection", "Transmission Network"],
     "TYPES": ["positive integer"],
+    "DESC": {
+        "Contact Network": "The <ansired>Contact Network</ansired> graph model describes all social interactions:\n  - Nodes represent individuals in the population\n  - Edges represent all interactions across which the pathogen can transmit\n  - Currently, FAVITES-Lite only supports static (i.e., unchanging) contact networks",
+        "Seed Selection": "The <ansired>Seed Selection</ansired> model describes how to select \"seed\" individuals\n(i.e., individuals infected at the start of the simulation).",
+        "Transmission Network": "The <ansired>Transmission Network</ansired> compartmental model describes how\nthe pathogen propagates along the contact network."
+    },
     "MODELS": {
         "Contact Network": {
             "Barabasi-Albert": {
