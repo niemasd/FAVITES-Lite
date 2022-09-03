@@ -9,7 +9,7 @@
     },
     "MODELS": {
         "Contact Network": {
-            "Barabasi-Albert": {
+            "Barabasi-Albert (BA)": {
                 "PARAM": {
                     "n": {
                         "TYPE": "positive integer",
@@ -20,7 +20,7 @@
                         "DESC": "Number of edges attached from new nodes to existing nodes"
                     }
                 },
-                "DESC": "The <ansired>Barabasi-Albert</ansired> (BA) model is an algorithm for generating undirected\nrandom scale-free networks using a preferential attachment mechanism.",
+                "DESC": "The <ansired>Barabasi-Albert (BA)</ansired> model is an algorithm for generating undirected\nrandom scale-free networks using a preferential attachment mechanism.",
                 "PROP": [
                     "The total number of edges is: <ansired>m</ansired>(<ansired>n</ansired>-<ansired>m</ansired>)",
                     "The expected degree is approximately: 2<ansired>m</ansired>"
@@ -77,7 +77,7 @@
                 },
                 "DESC": "An <ansired>empty</ansired> graph is a graph that does not have any edges.\n\nNote that you very likely do not want to use this for epidemic simulations\n(as there will not be any edges across which the pathogen can transmit)."
             },
-            "Erdos-Renyi": {
+            "Erdos-Renyi (ER)": {
                 "PARAM": {
                     "n": {
                         "TYPE": "positive integer",
@@ -88,13 +88,13 @@
                         "DESC": "Probability of existence of an edge"
                     }
                 },
-                "DESC": "The <ansired>Erdos-Renyi</ansired> model is an undirected graph model in which\neach of the <ansired>n</ansired> choose 2 possible edges have probability <ansired>p</ansired> of existing.",
+                "DESC": "The <ansired>Erdos-Renyi (ER)</ansired> model is an undirected graph model in which\neach of the <ansired>n</ansired> choose 2 possible edges have probability <ansired>p</ansired> of existing.",
                 "PROP": [
                     "The expected degree is: <ansired>p</ansired>(<ansired>n</ansired> choose 2) = <ansired>pn</ansired>(<ansired>n</ansired>-1)/2",
                     "The degree distribution is: Binomial(<ansired>n</ansired>-1, k)"
                 ]
             },
-            "Newman-Watts-Strogatz": {
+            "Newman-Watts-Strogatz (NWS)": {
                 "PARAM": {
                     "n": {
                         "TYPE": "positive integer",
@@ -109,7 +109,7 @@
                         "DESC": "Probability of adding a new edge"
                     }
                 },
-                "DESC": "The <ansired>Newman-Watts-Strogatz</ansired> model is an undirected graph model as follows:\n  1. Start with a ring of <ansired>n</ansired> nodes\n  2. Connect each node with its <ansired>k</ansired> nearest neighbors\n  3. For each edge (u,v) in the ring, add a new random edge (u,w) with probability <ansired>p</ansired>",
+                "DESC": "The <ansired>Newman-Watts-Strogatz (NWS)</ansired> model is an undirected graph model as follows:\n  1. Start with a ring of <ansired>n</ansired> nodes\n  2. Connect each node with its <ansired>k</ansired> nearest neighbors\n  3. For each edge (u,v) in the ring, add a new random edge (u,w) with probability <ansired>p</ansired>",
                 "PROP": [
                     "The number of edges in the connected ring is: <ansired>nk</ansired>/2",
                     "The number of newly added edges is: Binomial(<ansired>nk</ansired>/2, <ansired>p</ansired>)"
@@ -155,7 +155,7 @@
             }
         },
         "Transmission Network": {
-            "SAIS": {
+            "Susceptible-Alert-Infected-Susceptible (SAIS)": {
                 "PARAM": {
                     "S-A": {
                         "TYPE": "non-negative float",
@@ -192,7 +192,7 @@
                 },
                 "DESC": "The <ansired>Susceptible-Alert-Infected-Susceptible (SAIS)</ansired> model has three states:\n  - S: Susceptible\n  - A: Alert\n  - I: Infected\n\nThe following transitions are possible:\n  - S -> A (nodal or induced by A or I)\n  - S -> I (induced by I or outside)\n  - A -> I (induced by I or outside)\n  - I -> S (nodal)"
             },
-            "SEIR": {
+            "Susceptible-Exposed-Infected-Removed (SEIR)": {
                 "PARAM": {
                     "S-E": {
                         "TYPE": "non-negative float",
@@ -213,7 +213,7 @@
                 },
                 "DESC": "The <ansired>Susceptible-Exposed-Infected-Removed (SEIR)</ansired> model has four states:\n  - S: Susceptible\n  - E: Exposed\n  - I: Infected\n  - R: Removed\n\nThe following transitions are possible:\n  - S -> E (induced by I or outside)\n  - E -> I (nodal)\n  - I -> R (nodal)"
             },
-            "SI": {
+            "Susceptible-Infected (SI)": {
                 "PARAM": {
                     "S-I": {
                         "TYPE": "non-negative float",
@@ -226,7 +226,7 @@
                 },
                 "DESC": "The <ansired>Susceptible-Infected (SI)</ansired> model has two states:\n  - S: Susceptible\n  - I: Infected\n\nThe following transition is possible:\n  - S -> I (induced by I or outside)"
             },
-            "SIR": {
+            "Susceptible-Infected-Removed (SIR)": {
                 "PARAM": {
                     "S-I": {
                         "TYPE": "non-negative float",
@@ -243,7 +243,7 @@
                 },
                 "DESC": "The <ansired>Susceptible-Infected-Removed (SIR)</ansired> model has three states:\n  - S: Susceptible\n  - I: Infected\n  - R: Removed\n\nThe following transitions are possible:\n  - S -> I (induced by I or outside)\n  - I -> R"
             },
-            "SIS": {
+            "Susceptible-Infected-Susceptible (SIS)": {
                 "PARAM": {
                     "S-I": {
                         "TYPE": "non-negative float",

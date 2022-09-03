@@ -256,26 +256,30 @@ def page_view_params(i=0, show_nav=True):
         else:
             model = None
         tmp = {True:'ansired',False:'ansigreen'}[model is None]
-        text = "Model: <%s>%s</%s>" % (tmp, {True:"Not selected",False:model}[model is None], tmp)
+        text = "Model: <%s>%s</%s>\n\nParameters:" % (tmp, {True:"Not selected",False:model}[model is None], tmp)
         vals = list()
         if show_nav:
+            title = "%s (%d/%d)" % (step, i+1, len(GLOBAL['CONFIG_KEYS']))
             if i != len(GLOBAL['CONFIG_KEYS'])-1:
                 vals.append(('next', 'Next Step (%s)' % GLOBAL['CONFIG_KEYS'][i+1]))
             if i != 0:
                 vals.append(('prev', 'Previous Step (%s)' % GLOBAL['CONFIG_KEYS'][i-1]))
-        for p in GLOBAL['MODELS'][step][model]['PARAM']:
-            if p in GLOBAL['config'][step]['param']:
-                p_val = GLOBAL['config'][step]['param'][p]
-            else:
-                p_val = None
-            tmp = {True:'ansired',False:'ansigreen'}[p_val is None]
-            p_text = "<%s>%s</%s>: " % (tmp, p, tmp)
-            if 'DESC' in GLOBAL['MODELS'][step][model]['PARAM'][p]:
-                p_text += "%s: " % GLOBAL['MODELS'][step][model]['PARAM'][p]['DESC']
-            p_text += "<%s>%s</%s>" % (tmp, {True:"Not selected",False:p_val}[p_val is None], tmp)
-            vals.append((lambda step=step, model=model, p=p: page_parameter_selection(step,model,p), HTML(p_text)))
+        else:
+            title = step
+        if model is not None:
+            for p in GLOBAL['MODELS'][step][model]['PARAM']:
+                if p in GLOBAL['config'][step]['param']:
+                    p_val = GLOBAL['config'][step]['param'][p]
+                else:
+                    p_val = None
+                tmp = {True:'ansired',False:'ansigreen'}[p_val is None]
+                p_text = "<%s>%s</%s>: " % (tmp, p, tmp)
+                if 'DESC' in GLOBAL['MODELS'][step][model]['PARAM'][p]:
+                    p_text += "%s: " % GLOBAL['MODELS'][step][model]['PARAM'][p]['DESC']
+                p_text += "<%s>%s</%s>" % (tmp, {True:"Not selected",False:p_val}[p_val is None], tmp)
+                vals.append((lambda step=step, model=model, p=p: page_parameter_selection(step,model,p), HTML(p_text)))
         tmp = radiolist_dialog(
-            title=step,
+            title=title,
             text=HTML(text),
             values=vals,
             cancel_text="Return",
@@ -308,7 +312,7 @@ def page_dashboard():
                 m = "<ansired>Not selected</ansired>"
             vals.append((STEP_TO_PAGE[k], HTML("%s: %s" % (k,m))))
         vals += [
-            (page_view_params, "View Parameters"),
+            (page_view_params, "View/Edit Parameters"),
             (page_save, "Save Changes"),
             (page_about, "About"),
         ]
