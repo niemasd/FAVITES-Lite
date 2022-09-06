@@ -155,6 +155,139 @@
             }
         },
         "Transmission Network": {
+            "Hethcote and Yorke (1984)": {
+                "PARAM": {
+                    "MA-MS": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate MA -> MS (nodal)"
+                    },
+                    "MS-MA": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate MS -> MA (nodal)"
+                    },
+                    "MS-MIS": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate MS -> MIS (nodal, e.g. outside infection)"
+                    },
+                    "MS-MIS_MIS": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate MS -> MIS induced by neighbors in MIS"
+                    },
+                    "MS-MIS_MIA": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate MS -> MIS induced by neighbors in MIA"
+                    },
+                    "MS-MIS_FIS": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate MS -> MIS induced by neighbors in FIS"
+                    },
+                    "MS-MIS_FIA": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate MS -> MIS induced by neighbors in FIA"
+                    },
+                    "MS-MIA": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate MS -> MIA (nodal, e.g. outside infection)"
+                    },
+                    "MS-MIA_MIS": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate MS -> MIA induced by neighbors in MIS"
+                    },
+                    "MS-MIA_MIA": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate MS -> MIA induced by neighbors in MIA"
+                    },
+                    "MS-MIA_FIS": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate MS -> MIA induced by neighbors in FIS"
+                    },
+                    "MS-MIA_FIA": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate MS -> MIA induced by neighbors in FIA"
+                    },
+                    "MIS-MA": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate MIS -> MA"
+                    },
+                    "MIS-MS": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate MIS -> MS"
+                    },
+                    "MIA-MA": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate MIA -> MA"
+                    },
+                    "MIA-MS": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate MIA -> MS"
+                    },
+                    "FA-FS": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate FA -> FS (nodal)"
+                    },
+                    "FS-FA": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate FS -> FA (nodal)"
+                    },
+                    "FS-FIS": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate FS -> FIS (nodal, e.g. outside infection)"
+                    },
+                    "FS-FIS_MIS": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate FS -> FIS induced by neighbors in MIS"
+                    },
+                    "FS-FIS_MIA": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate FS -> FIS induced by neighbors in MIA"
+                    },
+                    "FS-FIS_FIS": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate FS -> FIS induced by neighbors in FIS"
+                    },
+                    "FS-FIS_FIA": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate FS -> FIS induced by neighbors in FIA"
+                    },
+                    "FS-FIA": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate FS -> FIA (nodal, e.g. outside infection)"
+                    },
+                    "FS-FIA_MIS": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate FS -> FIA induced by neighbors in MIS"
+                    },
+                    "FS-FIA_MIA": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate FS -> FIA induced by neighbors in MIA"
+                    },
+                    "FS-FIA_FIS": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate FS -> FIA induced by neighbors in FIS"
+                    },
+                    "FS-FIA_FIA": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate FS -> FIA induced by neighbors in FIA"
+                    },
+                    "FIS-FA": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate FIS -> FA"
+                    },
+                    "FIS-FS": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate FIS -> FS"
+                    },
+                    "FIA-FA": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate FIA -> FA"
+                    },
+                    "FIA-FS": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate FIA -> FS"
+                    }
+                },
+                "DESC": "The <ansired>Hethcote and Yorke (1984)</ansired> model for gonorrhea has 8 states:\n  - MA and FA: Male/Female Abstinent\n  - MS and FS: Male/Female Susceptible\n  - MIS and FIS: Male/Female Symptomatic Infected\n  - MIA and FIA: Male/Female Asymptomatic Infected\n\nThe following transitions are possible:\n  - MA -> MS and FA -> FS (nodal)\n  - MS -> MA and FS -> FA (nodal)\n  - MS -> MIA and FS -> FIA (induced by MIA/MIS/FIA/FIS or outside)\n  - MS -> MIS and FS -> FIS (induced by MIA/MIS/FIA/FIS or outside)\n  - MIA -> MS and FIA -> FS (nodal)\n  - MIS -> MS and FIS -> FS (nodal)"
+            },
             "Susceptible-Alert-Infected-Susceptible (SAIS)": {
                 "PARAM": {
                     "S-A": {
