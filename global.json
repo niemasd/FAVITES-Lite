@@ -155,8 +155,46 @@
             }
         },
         "Transmission Network": {
+            "Granich et al. (2008)": {
+                "PARAM": {
+                    "TODO": "TODO"
+                },
+                "DESC": "The <ansired>Granich et al. (2008)</ansired> model for HIV has 11 states:\n  - NS: Non-Susceptible\n  - S: Susceptible\n  - I1, I2, I3, and I4: Untreated HIV stage 1, 2, 3, and 4\n  - A1, A2, A3, and A4: ART-treated HIV stage 1, 2, 3, and 4\n  - D: Deceased"
+            },
             "Hethcote and Yorke (1984)": {
                 "PARAM": {
+                    "N_MA": {
+                        "TYPE": "non-negative integer",
+                        "DESC": "The number of individuals in state MA at the start of the simulation"
+                    },
+                    "N_FA": {
+                        "TYPE": "non-negative integer",
+                        "DESC": "The number of individuals in state FA at the start of the simulation"
+                    },
+                    "N_MS": {
+                        "TYPE": "non-negative integer",
+                        "DESC": "The number of individuals in state MS at the start of the simulation"
+                    },
+                    "N_FS": {
+                        "TYPE": "non-negative integer",
+                        "DESC": "The number of individuals in state FS at the start of the simulation"
+                    },
+                    "N_MIS": {
+                        "TYPE": "non-negative integer",
+                        "DESC": "The number of individuals in state MIS at the start of the simulation"
+                    },
+                    "N_FIS": {
+                        "TYPE": "non-negative integer",
+                        "DESC": "The number of individuals in state FIS at the start of the simulation"
+                    },
+                    "N_MIA": {
+                        "TYPE": "non-negative integer",
+                        "DESC": "The number of individuals in state MIA at the start of the simulation"
+                    },
+                    "N_FIA": {
+                        "TYPE": "non-negative integer",
+                        "DESC": "The number of individuals in state FIA at the start of the simulation"
+                    },
                     "MA-MS": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate MA -> MS (nodal)"
@@ -290,6 +328,18 @@
             },
             "Susceptible-Alert-Infected-Susceptible (SAIS)": {
                 "PARAM": {
+                    "N_S": {
+                        "TYPE": "non-negative integer",
+                        "DESC": "The number of individuals in state S at the start of the simulation"
+                    },
+                    "N_A": {
+                        "TYPE": "non-negative integer",
+                        "DESC": "The number of individuals in state A at the start of the simulation"
+                    },
+                    "N_I": {
+                        "TYPE": "non-negative integer",
+                        "DESC": "The number of individuals in state I at the start of the simulation"
+                    },
                     "S-A": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate S -> A (nodal)"
@@ -327,6 +377,22 @@
             },
             "Susceptible-Exposed-Infected-Removed (SEIR)": {
                 "PARAM": {
+                    "N_S": {
+                        "TYPE": "non-negative integer",
+                        "DESC": "The number of individuals in state S at the start of the simulation"
+                    },
+                    "N_E": {
+                        "TYPE": "non-negative integer",
+                        "DESC": "The number of individuals in state E at the start of the simulation"
+                    },
+                    "N_I": {
+                        "TYPE": "non-negative integer",
+                        "DESC": "The number of individuals in state I at the start of the simulation"
+                    },
+                    "N_R": {
+                        "TYPE": "non-negative integer",
+                        "DESC": "The number of individuals in state R at the start of the simulation"
+                    },
                     "S-E": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate S -> E (nodal, e.g. outside infection)"
@@ -348,6 +414,14 @@
             },
             "Susceptible-Infected (SI)": {
                 "PARAM": {
+                    "N_S": {
+                        "TYPE": "non-negative integer",
+                        "DESC": "The number of individuals in state S at the start of the simulation"
+                    },
+                    "N_I": {
+                        "TYPE": "non-negative integer",
+                        "DESC": "The number of individuals in state I at the start of the simulation"
+                    },
                     "S-I": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate S -> I (nodal, e.g. outside infection)"
@@ -361,6 +435,18 @@
             },
             "Susceptible-Infected-Removed (SIR)": {
                 "PARAM": {
+                    "N_S": {
+                        "TYPE": "non-negative integer",
+                        "DESC": "The number of individuals in state S at the start of the simulation"
+                    },
+                    "N_I": {
+                        "TYPE": "non-negative integer",
+                        "DESC": "The number of individuals in state I at the start of the simulation"
+                    },
+                    "N_R": {
+                        "TYPE": "non-negative integer",
+                        "DESC": "The number of individuals in state R at the start of the simulation"
+                    },
                     "S-I": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate S -> I (nodal, e.g. outside infection)"
@@ -378,6 +464,14 @@
             },
             "Susceptible-Infected-Susceptible (SIS)": {
                 "PARAM": {
+                    "N_S": {
+                        "TYPE": "non-negative integer",
+                        "DESC": "The number of individuals in state S at the start of the simulation"
+                    },
+                    "N_I": {
+                        "TYPE": "non-negative integer",
+                        "DESC": "The number of individuals in state I at the start of the simulation"
+                    },
                     "S-I": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate S -> I (nodal, e.g. outside infection)"
