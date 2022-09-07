@@ -157,9 +157,188 @@
         "Transmission Network": {
             "Granich et al. (2008)": {
                 "PARAM": {
-                    "TODO": "TODO"
+                    "N_NS": {
+                        "TYPE": "non-negative integer",
+                        "DESC": "The number of individuals in state NS at the start of the simulation"
+                    },
+                    "N_S": {
+                        "TYPE": "non-negative integer",
+                        "DESC": "The number of individuals in state S at the start of the simulation"
+                    },
+                    "N_I1": {
+                        "TYPE": "non-negative integer",
+                        "DESC": "The number of individuals in state I1 at the start of the simulation"
+                    },
+                    "N_I2": {
+                        "TYPE": "non-negative integer",
+                        "DESC": "The number of individuals in state I2 at the start of the simulation"
+                    },
+                    "N_I3": {
+                        "TYPE": "non-negative integer",
+                        "DESC": "The number of individuals in state I3 at the start of the simulation"
+                    },
+                    "N_I4": {
+                        "TYPE": "non-negative integer",
+                        "DESC": "The number of individuals in state I4 at the start of the simulation"
+                    },
+                    "N_A1": {
+                        "TYPE": "non-negative integer",
+                        "DESC": "The number of individuals in state A1 at the start of the simulation"
+                    },
+                    "N_A2": {
+                        "TYPE": "non-negative integer",
+                        "DESC": "The number of individuals in state A2 at the start of the simulation"
+                    },
+                    "N_A3": {
+                        "TYPE": "non-negative integer",
+                        "DESC": "The number of individuals in state A3 at the start of the simulation"
+                    },
+                    "N_A4": {
+                        "TYPE": "non-negative integer",
+                        "DESC": "The number of individuals in state A4 at the start of the simulation"
+                    },
+                    "N_D": {
+                        "TYPE": "non-negative integer",
+                        "DESC": "The number of individuals in state D at the start of the simulation"
+                    },
+                    "NS-D": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate NS -> D (nodal)"
+                    },
+                    "NS-S": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate NS -> S (nodal)"
+                    },
+                    "S-D": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate S -> D (nodal)"
+                    },
+                    "S-I1": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate S -> I1 (nodal, e.g. outside infection)"
+                    },
+                    "S-I1_I1": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate S -> I1 induced by neighbors in I1"
+                    },
+                    "S-I1_I2": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate S -> I1 induced by neighbors in I2"
+                    },
+                    "S-I1_I3": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate S -> I1 induced by neighbors in I3"
+                    },
+                    "S-I1_I4": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate S -> I1 induced by neighbors in I4"
+                    },
+                    "S-I1_A1": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate S -> I1 induced by neighbors in A1"
+                    },
+                    "S-I1_A2": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate S -> I1 induced by neighbors in A2"
+                    },
+                    "S-I1_A3": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate S -> I1 induced by neighbors in A3"
+                    },
+                    "S-I1_A4": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate S -> I1 induced by neighbors in A4"
+                    },
+                    "I1-D": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate I1 -> D (nodal)"
+                    },
+                    "I1-I2": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate I1 -> I2 (nodal)"
+                    },
+                    "I1-A1": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate I1 -> A1 (nodal)"
+                    },
+                    "A1-D": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate A1 -> D (nodal)"
+                    },
+                    "A1-A2": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate A1 -> A2 (nodal)"
+                    },
+                    "A1-I1": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate A1 -> I1 (nodal)"
+                    },
+                    "I2-D": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate I2 -> D (nodal)"
+                    },
+                    "I2-I3": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate I2 -> I3 (nodal)"
+                    },
+                    "I2-A2": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate I2 -> A2 (nodal)"
+                    },
+                    "A2-D": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate A2 -> D (nodal)"
+                    },
+                    "A2-A3": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate A2 -> A3 (nodal)"
+                    },
+                    "A2-I2": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate A1 -> I2 (nodal)"
+                    },
+                    "I3-D": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate I3 -> D (nodal)"
+                    },
+                    "I3-I4": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate I3 -> I4 (nodal)"
+                    },
+                    "I3-A3": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate I3 -> A3 (nodal)"
+                    },
+                    "A3-D": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate A3 -> D (nodal)"
+                    },
+                    "A3-A4": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate A3 -> A4 (nodal)"
+                    },
+                    "A3-I3": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate A3 -> I3 (nodal)"
+                    },
+                    "I4-D": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate I4 -> D (nodal)"
+                    },
+                    "I4-A4": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate I4 -> A4 (nodal)"
+                    },
+                    "A4-D": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate A4 -> D (nodal)"
+                    },
+                    "A4-I4": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate A4 -> I4 (nodal)"
+                    }
                 },
-                "DESC": "The <ansired>Granich et al. (2008)</ansired> model for HIV has 11 states:\n  - NS: Non-Susceptible\n  - S: Susceptible\n  - I1, I2, I3, and I4: Untreated HIV stage 1, 2, 3, and 4\n  - A1, A2, A3, and A4: ART-treated HIV stage 1, 2, 3, and 4\n  - D: Deceased"
+                "DESC": "The <ansired>Granich et al. (2008)</ansired> model for HIV has 11 states:\n  - NS: Non-Susceptible\n  - S: Susceptible\n  - I1, I2, I3, and I4: Untreated HIV stage 1, 2, 3, and 4\n  - A1, A2, A3, and A4: ART-treated HIV stage 1, 2, 3, and 4\n  - D: Deceased\n\nThe following transitions are possible:\n  - NS -> S (nodal)\n  - S -> I1 (induced by I1-I4/A1-A4 or outside)\n  - I1 -> A1, I2 -> A2, I3 -> A3, and I4 -> A4 (nodal)\n  - A1 -> I1, A2 -> I2, A3 -> I3, and A4 -> I4 (nodal)\n  - I1 -> I2 -> I3 -> I4 (nodal)\n  - A1 -> A2 -> A3 -> A4 (nodal)\n  - All non-D states -> D"
             },
             "Hethcote and Yorke (1984)": {
                 "PARAM": {

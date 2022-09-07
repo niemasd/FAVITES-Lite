@@ -256,16 +256,18 @@ def page_view_params(i=0, show_nav=True):
         else:
             model = None
         tmp = {True:'ansired',False:'ansigreen'}[model is None]
-        text = "Model: <%s>%s</%s>\n\nParameters:" % (tmp, {True:"Not selected",False:model}[model is None], tmp)
+        text = "Model: <%s>%s</%s>" % (tmp, {True:"Not selected",False:model}[model is None], tmp)
         vals = list()
         if show_nav:
             title = "%s (%d/%d)" % (step, i+1, len(GLOBAL['CONFIG_KEYS']))
             if i != len(GLOBAL['CONFIG_KEYS'])-1:
-                vals.append(('next', 'Next Step (%s)' % GLOBAL['CONFIG_KEYS'][i+1]))
+                vals.append(('next', HTML('<ansimagenta>Next Step (%s)</ansimagenta>' % GLOBAL['CONFIG_KEYS'][i+1])))
             if i != 0:
-                vals.append(('prev', 'Previous Step (%s)' % GLOBAL['CONFIG_KEYS'][i-1]))
+                vals.append(('prev', HTML('<ansimagenta>Previous Step (%s)</ansimagenta>' % GLOBAL['CONFIG_KEYS'][i-1])))
         else:
             title = step
+            if model is not None and len(GLOBAL['MODELS'][step][model]['PARAM']) != 0:
+                text += "\n\nParameters:"
         if model is not None:
             for p in GLOBAL['MODELS'][step][model]['PARAM']:
                 if p in GLOBAL['config'][step]['param']:
@@ -278,6 +280,8 @@ def page_view_params(i=0, show_nav=True):
                     p_text += "%s: " % GLOBAL['MODELS'][step][model]['PARAM'][p]['DESC']
                 p_text += "<%s>%s</%s>" % (tmp, {True:"Not selected",False:p_val}[p_val is None], tmp)
                 vals.append((lambda step=step, model=model, p=p: page_parameter_selection(step,model,p), HTML(p_text)))
+        if len(vals) == 0:
+            return page_dashboard
         tmp = radiolist_dialog(
             title=title,
             text=HTML(text),
