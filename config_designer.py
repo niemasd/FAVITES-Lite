@@ -223,8 +223,9 @@ def page_model_selection(step):
             return lambda step=step: page_view_params(i=STEP_TO_IND[step], show_nav=False)
 
 # page to set a specific model parameter
-def page_parameter_selection(step, model, p):
+def page_parameter_selection(step, model, p, prev_show_nav=True):
     while True:
+        prev_page = lambda step=step: page_view_params(i=STEP_TO_IND[step], show_nav=prev_show_nav)
         text = "Please enter value for <ansired>%s</ansired> model parameter: <ansired>%s</ansired>\n\n<ansigreen>Type:</ansigreen> %s" % (model, p, GLOBAL['MODELS'][step][model]['PARAM'][p]['TYPE'])
         if 'DESC' in GLOBAL['MODELS'][step][model]['PARAM'][p]:
             text += "\n\n<ansigreen>Description:</ansigreen> %s" % GLOBAL['MODELS'][step][model]['PARAM'][p]['DESC']
@@ -233,7 +234,7 @@ def page_parameter_selection(step, model, p):
             text=HTML(text)
         ).run()
         if v is None:
-            return GLOBAL['app']['prev_page']
+            return prev_page
         v = v.strip()
         if len(v) == 0:
             message_dialog(
@@ -249,13 +250,10 @@ def page_parameter_selection(step, model, p):
             ).run()
         else:
             GLOBAL['config'][step]['param'][p] = v_parse
-            GLOBAL['app']['page_view_params_i'] = None
-            return GLOBAL['app']['prev_page']
+            return prev_page
 
 # view parameter selection from dashboard
 def page_view_params(i=0, show_nav=True):
-    if 'page_view_params_i' in GLOBAL['app'] and GLOBAL['app']['page_view_params_i'] is not None:
-        i = GLOBAL['app']['page_view_params_i']
     while True:
         step = GLOBAL['CONFIG_KEYS'][i]
         if step in GLOBAL['config'] and GLOBAL['config'][step] is not None and 'model' in GLOBAL['config'][step]:
@@ -286,7 +284,7 @@ def page_view_params(i=0, show_nav=True):
                 if 'DESC' in GLOBAL['MODELS'][step][model]['PARAM'][p]:
                     p_text += "%s: " % GLOBAL['MODELS'][step][model]['PARAM'][p]['DESC']
                 p_text += "<%s>%s</%s>" % (tmp, {True:"Not selected",False:p_val}[p_val is None], tmp)
-                vals.append((lambda step=step, model=model, p=p: page_parameter_selection(step,model,p), HTML(p_text)))
+                vals.append((lambda step=step, model=model, p=p: page_parameter_selection(step,model,p,prev_show_nav=show_nav), HTML(p_text)))
         if len(vals) == 0:
             return page_dashboard
         tmp = radiolist_dialog(
@@ -302,7 +300,6 @@ def page_view_params(i=0, show_nav=True):
         elif tmp == 'next':
             i += 1
         else:
-            GLOBAL['app']['page_view_params_i'] = i
             return tmp
 
 # designer dashboard
