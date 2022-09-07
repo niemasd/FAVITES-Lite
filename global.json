@@ -678,10 +678,27 @@
                     },
                     "num_samples": {
                         "TYPE": "positive integer",
-                        "DESC": "The number of times every person is sampled"
+                        "DESC": "The number of times every individual is sampled"
                     }
                 },
                 "DESC": "All individuals who are in any of the specified states at the end time\nwill be sampled the specified number of times."
+            },
+            "Specific Time": {
+                "PARAM": {
+                    "sampled_states": {
+                        "TYPE": "comma-separated list",
+                        "DESC": "Comma-separated list of states in which individuals are sampled"
+                    },
+                    "sample_time": {
+                        "TYPE": "positive float",
+                        "DESC": "The time at which individuals are sampled"
+                    },
+                    "num_samples": {
+                        "TYPE": "positive integer",
+                        "DESC": "The number of times every individual is sampled"
+                    }
+                },
+                "DESC": "All individuals who are in any of the specified states at a specified time\nwill be sampled the specified number of times."
             },
             "State Entry": {
                 "PARAM": {
@@ -690,7 +707,7 @@
                         "DESC": "Comma-separated list of states in which individuals are sampled"
                     }
                 },
-                "DESC": "Individuals are sampled every time they enter any of the specified states."
+                "DESC": "Individuals are sampled every time they enter any of the specified states.\nIndividuals who never enter any of the specified states are never sampled."
             }
         },
         "Viral Time Phylogeny": {
