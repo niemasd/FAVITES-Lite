@@ -65,6 +65,10 @@ def parse_param_value(value, param_type):
             value = float(value)
             if 0 <= value <= 1:
                 return value
+        elif param_type == "comma-separated list":
+            return ','.join(v.strip() for v in value.split(','))
+        elif param_type == "string":
+            return value.strip()
         else:
             print_log("FAVITES-Lite bug: Invalid parameter type: %s" % param_type); exit(1)
     except:
@@ -202,7 +206,7 @@ def page_model_selection(step):
         model = radiolist_dialog(
             title=step,
             text=HTML("<ansigreen>Description:</ansigreen>\n%s\n\n<ansigreen>Models:</ansigreen>" % GLOBAL['DESC'][step]),
-            values=[(m, m) for m in GLOBAL['MODELS'][step]]
+            values=[(m, m) for m in sorted(GLOBAL['MODELS'][step].keys())]
         ).run()
         if model is None:
             return GLOBAL['app']['prev_page']
@@ -245,10 +249,13 @@ def page_parameter_selection(step, model, p):
             ).run()
         else:
             GLOBAL['config'][step]['param'][p] = v_parse
+            GLOBAL['app']['page_view_params_i'] = None
             return GLOBAL['app']['prev_page']
 
 # view parameter selection from dashboard
 def page_view_params(i=0, show_nav=True):
+    if 'page_view_params_i' in GLOBAL['app'] and GLOBAL['app']['page_view_params_i'] is not None:
+        i = GLOBAL['app']['page_view_params_i']
     while True:
         step = GLOBAL['CONFIG_KEYS'][i]
         if step in GLOBAL['config'] and GLOBAL['config'][step] is not None and 'model' in GLOBAL['config'][step]:
@@ -269,7 +276,7 @@ def page_view_params(i=0, show_nav=True):
             if model is not None and len(GLOBAL['MODELS'][step][model]['PARAM']) != 0:
                 text += "\n\nParameters:"
         if model is not None:
-            for p in GLOBAL['MODELS'][step][model]['PARAM']:
+            for p in sorted(GLOBAL['MODELS'][step][model]['PARAM'].keys()):
                 if p in GLOBAL['config'][step]['param']:
                     p_val = GLOBAL['config'][step]['param'][p]
                 else:
@@ -295,6 +302,7 @@ def page_view_params(i=0, show_nav=True):
         elif tmp == 'next':
             i += 1
         else:
+            GLOBAL['app']['page_view_params_i'] = i
             return tmp
 
 # designer dashboard
