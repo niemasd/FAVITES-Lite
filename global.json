@@ -951,16 +951,16 @@
             },
             "Log-Normal": {
                 "PARAM": {
-                    "mean": {
+                    "mu": {
                         "TYPE": "positive float",
                         "DESC": "Mean of the underlying Normal distribution"
                     },
-                    "stdev": {
+                    "sigma": {
                         "TYPE": "positive float",
                         "DESC": "Standard deviation of the underlying Normal distribution"
                     }
                 },
-                "DESC": "Each branch's length is multiplied by a rate that is sampled from\n<ansired>LogNormal</ansired>(<ansired>mean</ansired>, <ansired>stdev</ansired>^2)."
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from\n<ansired>LogNormal</ansired>(<ansired>mu</ansired>, <ansired>sigma</ansired>^2)."
             },
             "Noncentral Chi-Squared": {
                 "PARAM": {
@@ -1013,6 +1013,15 @@
                     }
                 },
                 "DESC": "Each branch's length is multiplied by a rate that is sampled from\n<ansired>Power</ansired>(<ansired>c</ansired>)."
+            },
+            "Rayleigh": {
+                "PARAM": {
+                    "sigma": {
+                        "TYPE": "positive float",
+                        "DESC": "Scale parameter of the Rayleigh distribution"
+                    }
+                },
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from\n<ansired>Rayleigh</ansired>(<ansired>sigma</ansired>)."
             }
         }
     }
