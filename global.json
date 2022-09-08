@@ -1027,7 +1027,15 @@
                 "PARAM": {
                     "a": {
                         "TYPE": "positive float",
-                        "DESC": "Lower-limit parameter of the Triangular distribution"
+                        "DESC": "Lower-limit of the Triangular distribution"
+                    },
+                    "b": {
+                        "TYPE": "positive float",
+                        "DESC": "Upper-limit of the Triangular distribution"
+                    },
+                    "c": {
+                        "TYPE": "positive float",
+                        "DESC": "Mode of the Triangular distribution"
                     }
                 },
                 "DESC": "Each branch's length is multiplied by a rate that is sampled from\n<ansired>Triangular</ansired>(<ansired>a</ansired>, <ansired>b</ansired>, <ansired>c</ansired>)."
