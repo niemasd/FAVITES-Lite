@@ -1073,6 +1073,19 @@
                     }
                 },
                 "DESC": "Each branch's length is multiplied by a rate that is sampled from\n<ansired>Uniform</ansired>(<ansired>a</ansired>, <ansired>b</ansired>)."
+            },
+            "Weibull": {
+                "PARAM": {
+                    "lambda": {
+                        "TYPE": "positive float",
+                        "DESC": "Scale parameter of the Weibull distribution"
+                    },
+                    "k": {
+                        "TYPE": "positive float",
+                        "DESC": "Shape parameter of the Weibull distribution"
+                    }
+                },
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from\n<ansired>Weibull</ansired>(<ansired>lambda</ansired>, <ansired>k</ansired>)."
             }
         }
     }
