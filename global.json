@@ -900,6 +900,15 @@
                     }
                 },
                 "DESC": "Each branch's length is multiplied by a constant rate."
+            },
+            "Exponential": {
+                "PARAM": {
+                    "scale": {
+                        "TYPE": "positive float",
+                        "DESC": "The scale parameter of the Exponential distribution"
+                    }
+                },
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from an\n<ansired>Exponential</ansired> distribution with scale parameter <ansired>scale</ansired>."
             }
         }
     }
