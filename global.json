@@ -1060,6 +1060,19 @@
                     }
                 },
                 "DESC": "Each branch's length is multiplied by a rate that is sampled from\n<ansired>TruncatedNormal</ansired>(<ansired>mu</ansired>, <ansired>sigma</ansired>, <ansired>a</ansired>, <ansired>b</ansired>)."
+            },
+            "Uniform": {
+                "PARAM": {
+                    "a": {
+                        "TYPE": "positive float",
+                        "DESC": "Minimum of the Uniform distribution"
+                    },
+                    "b": {
+                        "TYPE": "positive float",
+                        "DESC": "Maximum of the Uniform distribution"
+                    }
+                },
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from\n<ansired>Uniform</ansired>(<ansired>a</ansired>, <ansired>b</ansired>)."
             }
         }
     }
