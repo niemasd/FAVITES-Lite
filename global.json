@@ -854,6 +854,20 @@
                 },
                 "DESC": "Each branch's length is multiplied by a rate that is sampled from an\n<ansired>Exponential</ansired> distribution whose mean is the rate of the parent branch.",
                 "CITE": "Aris-Brosou S, Yang Z (2002). \"Effects of Models of Rate Evolution\n    on Estimation of Divergence Dates with Special Reference to the\n    Metazoan 18S Ribosomal RNA Phylogeny.\" Syst Biol. 51(5):703-714.\n    doi:10.1080/10635150290102375"
+            },
+            "Autocorrelated Gamma": {
+                "PARAM": {
+                    "R0": {
+                        "TYPE": "positive float",
+                        "DESC": "The mutation rate of the root edge"
+                    },
+                    "v": {
+                        "TYPE": "positive float",
+                        "DESC": "The scaling factor of the Gamma distribution's variance"
+                    }
+                },
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from a\n<ansired>Gamma</ansired> distribution whose mean is the rate of the parent branch\nand whose variance is the branch length multiplied by <ansired>v</ansired>.",
+                "CITE": "Aris-Brosou S, Yang Z (2002). \"Effects of Models of Rate Evolution\n    on Estimation of Divergence Dates with Special Reference to the\n    Metazoan 18S Ribosomal RNA Phylogeny.\" Syst Biol. 51(5):703-714.\n    doi:10.1080/10635150290102375"
             }
         }
     }
