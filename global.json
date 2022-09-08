@@ -754,7 +754,8 @@
                         "DESC": "The probability that a child branch will have a different rate than its parent"
                     }
                 },
-                "DESC": "Each branch's length is multiplied by one of the following rates:\n  - The rate of its parent, with probability 1-<ansired>p</ansired>\n  - The rate of its parent + <ansired>delta</ansired>, with probability <ansired>p</ansired>/2\n  - The rate of its parent - <ansired>delta</ansired>, with probability <ansired>p</ansired>/2\n  - The root edge has rate <ansired>R0</ansired>\n  - All rates must be in the range [<ansired>R_min</ansired>, <ansired>R_max</ansired>]\n\nThis model is described in Sanderson (Mol. Biol. Evol. 1997)."
+                "DESC": "Each branch's length is multiplied by one of the following rates:\n  - The rate of its parent, with probability 1-<ansired>p</ansired>\n  - The rate of its parent + <ansired>delta</ansired>, with probability <ansired>p</ansired>/2\n  - The rate of its parent - <ansired>delta</ansired>, with probability <ansired>p</ansired>/2\n  - The root edge has rate <ansired>R0</ansired>\n  - All rates must be in the range [<ansired>R_min</ansired>, <ansired>R_max</ansired>]",
+                "CITE": "Sanderson MJ (1997). \"A Nonparametric Approach to Estimating\n    Divergence Times in the Absence of Rate Constancy.\"\n    Mol Biol Evol. 14(12):1218.\n    doi:10.1093/oxfordjournals.molbev.a025731"
             },
             "Autocorrelated Exponential": {
                 "PARAM": {
@@ -763,7 +764,8 @@
                         "DESC": "The mutation rate of the root edge"
                     }
                 },
-                "DESC": "Each branch's length is multiplied by a rate that is sampled from an\n<ansired>Exponential</ansired> distribution whose mean is the rate of the parent branch.\nThis model is described in Aris-Brosou and Yang (Syst. Biol. 2002)."
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from an\n<ansired>Exponential</ansired> distribution whose mean is the rate of the parent branch.",
+                "CITE": "Aris-Brosou S, Yang Z (2002). \"Effects of Models of Rate Evolution\n    on Estimation of Divergence Dates with Special Reference to the\n    Metazoan 18S Ribosomal RNA Phylogeny.\" Syst Biol. 51(5):703-714.\n    doi:10.1080/10635150290102375"
             }
         }
     }

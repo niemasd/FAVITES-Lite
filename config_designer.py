@@ -211,8 +211,10 @@ def page_model_selection(step):
         if model is None:
             return GLOBAL['app']['prev_page']
         text = "Do you want to select the <ansired>%s</ansired> model?" % model
-        if 'DESC' in GLOBAL['MODELS'][step][model]:
+        if 'DESC' in GLOBAL['MODELS'][step][model] and len(GLOBAL['MODELS'][step][model]['DESC']) != 0:
             text += ("\n\n<ansigreen>Description:</ansigreen>\n%s" % GLOBAL['MODELS'][step][model]['DESC'])
+        if 'CITE' in  GLOBAL['MODELS'][step][model] and len(GLOBAL['MODELS'][step][model]['CITE']) != 0:
+            text += ("\n\n<ansigreen>Citation:</ansigreen>\n%s" % GLOBAL['MODELS'][step][model]['CITE'])
         if 'PROP' in GLOBAL['MODELS'][step][model] and len(GLOBAL['MODELS'][step][model]['PROP']) != 0:
             text += ("\n\n<ansigreen>Properties:</ansigreen>\n%s" % '\n'.join(("  - %s" % p) for p in GLOBAL['MODELS'][step][model]['PROP']))
         if yes_no_dialog(
