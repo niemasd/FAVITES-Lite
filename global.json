@@ -700,11 +700,11 @@
                         "TYPE": "positive integer",
                         "DESC": "The number of times every individual is sampled"
                     },
-                    "shape": {
+                    "k": {
                         "TYPE": "positive float",
                         "DESC": "Shape parameter of the Gamma distribution"
                     },
-                    "scale": {
+                    "theta": {
                         "TYPE": "positive float",
                         "DESC": "Scale parameter of the Gamma distribution"
                     }
@@ -903,12 +903,12 @@
             },
             "Exponential": {
                 "PARAM": {
-                    "scale": {
+                    "beta": {
                         "TYPE": "positive float",
                         "DESC": "Scale parameter of the Exponential distribution"
                     }
                 },
-                "DESC": "Each branch's length is multiplied by a rate that is sampled from\n<ansired>Exponential</ansired>(<ansired>scale</ansired>)."
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from\n<ansired>Exponential</ansired>(<ansired>beta</ansired>)."
             },
             "F": {
                 "PARAM": {
@@ -925,29 +925,29 @@
             },
             "Gamma": {
                 "PARAM": {
-                    "shape": {
+                    "k": {
                         "TYPE": "positive float",
                         "DESC": "Shape parameter of the Gamma distribution"
                     },
-                    "scale": {
+                    "theta": {
                         "TYPE": "positive float",
                         "DESC": "Scale parameter of the Gamma distribution"
                     }
                 },
-                "DESC": "Each branch's length is multiplied by a rate that is sampled from\n<ansired>Gamma</ansired>(<ansired>shape</ansired>, <ansired>scale</ansired>)."
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from\n<ansired>Gamma</ansired>(<ansired>k</ansired>, <ansired>theta</ansired>)."
             },
             "Inverse Gaussian (Wald)": {
                 "PARAM": {
-                    "mean": {
+                    "mu": {
                         "TYPE": "positive float",
                         "DESC": "Mean of the Inverse Gaussian (Wald) distribution"
                     },
-                    "shape": {
+                    "lambda": {
                         "TYPE": "positive float",
                         "DESC": "Shape parameter of the Inverse Gaussian (Wald) distribution"
                     }
                 },
-                "DESC": "Each branch's length is multiplied by a rate that is sampled from\n<ansired>InverseGaussian</ansired>(<ansired>mean</ansired>, <ansired>shape</ansired>)."
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from\n<ansired>InverseGaussian</ansired>(<ansired>mu</ansired>, <ansired>lambda</ansired>)."
             },
             "Log-Normal": {
                 "PARAM": {
@@ -961,6 +961,19 @@
                     }
                 },
                 "DESC": "Each branch's length is multiplied by a rate that is sampled from\n<ansired>LogNormal</ansired>(<ansired>mean</ansired>, <ansired>stdev</ansired>^2)."
+            },
+            "Noncentral Chi-Squared": {
+                "PARAM": {
+                    "k": {
+                        "TYPE": "positive integer",
+                        "DESC": "Degrees of freedom of the Noncentral Chi-Squared distribution"
+                    },
+                    "lambda": {
+                        "TYPE": "positive float",
+                        "DESC": "Non-centrality parameter of the Noncentral Chi-Squared distribution"
+                    }
+                },
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from a\n<ansired>Noncentral Chi-Squared</ansired> distribution with <ansired>k</ansired> degrees of freedom and shape parameter <ansired>lambda</ansired>."
             }
         }
     }
