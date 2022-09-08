@@ -1,13 +1,14 @@
 {
     "VERSION": "0.0.1",
-    "CONFIG_KEYS": ["Contact Network", "Seed Selection", "Transmission Network", "Sample Times", "Viral Time Phylogeny"],
+    "CONFIG_KEYS": ["Contact Network", "Seed Selection", "Transmission Network", "Sample Times", "Viral Time Phylogeny", "Mutation Rates"],
     "TYPES": ["positive integer"],
     "DESC": {
         "Contact Network": "The <ansired>Contact Network</ansired> graph model describes all social interactions:\n  - Nodes represent individuals in the population\n  - Edges represent all interactions across which the pathogen can transmit\n  - Currently, FAVITES-Lite only supports static (i.e., unchanging) contact networks",
         "Seed Selection": "The <ansired>Seed Selection</ansired> model describes how to select \"seed\" individuals\n(i.e., individuals infected at the start of the simulation).",
         "Transmission Network": "The <ansired>Transmission Network</ansired> compartmental model describes how\nthe pathogen propagates along the contact network.\n\nState transition rates are in unit of Poisson process arrivals per time\n(reciprocal of expected time to next arrival).",
         "Sample Times": "The <ansired>Sample Times</ansired> model describes the time(s) at which individuals\nin the transmission network are sampled (i.e., sequenced).",
-        "Viral Time Phylogeny": "The <ansired>Viral Time Phylogeny</ansired> coalescent model describes the topology\nand branch lengths (in unit of time) of the viral phylogeny,\nwhich is constrained by the transmission network."
+        "Viral Time Phylogeny": "The <ansired>Viral Time Phylogeny</ansired> coalescent model describes the topology\nand branch lengths (in unit of time) of the viral phylogeny,\nwhich is constrained by the transmission network.",
+        "Mutation Rates": "The <ansired>Mutation Rates</ansired> model describes how mutation rates (i.e., mutations/time)\nare sampled along each branch of the viral time phylogeny."
     },
     "MODELS": {
         "Contact Network": {
@@ -727,6 +728,33 @@
             "Transmission Tree": {
                 "PARAM": {},
                 "DESC": "Coalescent events occur as late in time as possible."
+            }
+        },
+        "Mutation Rates": {
+            "Autocorrelated Constant Increment": {
+                "PARAM": {
+                    "R0": {
+                        "TYPE": "positive float",
+                        "DESC": "The mutation rate of the root edge"
+                    },
+                    "R_min": {
+                        "TYPE": "positive float",
+                        "DESC": "The minimum possible mutation rate"
+                    },
+                    "R_max": {
+                        "TYPE": "positive float",
+                        "DESC": "The maximum possible mutation rate"
+                    },
+                    "delta": {
+                        "TYPE": "positive float",
+                        "DESC": "The amount a rate can change from parent to child"
+                    },
+                    "p": {
+                        "TYPE": "probability",
+                        "DESC": "The probability that a child branch will have a different rate than its parent"
+                    }
+                },
+                "DESC": "Each branch's length is multiplied by one of the following rates:\n  - The rate of its parent, with probability 1-<ansired>p</ansired>\n  - The rate of its parent + <ansired>delta</ansired>, with probability <ansired>p</ansired>/2\n  - The rate of its parent - <ansired>delta</ansired>, with probability <ansired>p</ansired>/2\n  - The root edge has rate <ansired>R0</ansired>\n  - All rates must be in the range [<ansired>R_min</ansired>, <ansired>R_max</ansired>]\n\nThis model is described in Sanderson (Mol. Biol. Evol. 1997)."
             }
         }
     }
