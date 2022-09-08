@@ -925,12 +925,29 @@
             },
             "Gamma": {
                 "PARAM": {
+                    "shape": {
+                        "TYPE": "positive float",
+                        "DESC": "Shape parameter of the Gamma distribution"
+                    },
                     "scale": {
                         "TYPE": "positive float",
                         "DESC": "Scale parameter of the Gamma distribution"
                     }
                 },
-                "DESC": "Each branch's length is multiplied by a rate that is sampled from\n<ansired>Gamma</ansired>(<ansired>shape</ansired>,<ansired>scale</ansired>)."
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from\n<ansired>Gamma</ansired>(<ansired>shape</ansired>, <ansired>scale</ansired>)."
+            },
+            "Gumbel": {
+                "PARAM": {
+                    "location": {
+                        "TYPE": "positive float",
+                        "DESC": "Location parameter of the Gumbel distribution"
+                    },
+                    "scale": {
+                        "TYPE": "positive float",
+                        "DESC": "Scale parameter of the Gumbel distribution"
+                    }
+                },
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from\n<ansired>Gumbel</ansired>(<ansired>location</ansired>, <ansired>scale</ansired>)."
             }
         }
     }
