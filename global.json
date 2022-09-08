@@ -24,6 +24,7 @@
                     }
                 },
                 "DESC": "The <ansired>Barabasi-Albert (BA)</ansired> model is an algorithm for generating undirected\nrandom scale-free networks using a preferential attachment mechanism.",
+                "CITE": "Albert R, Barabasi AL (2002). \"Statistical mechanics of complex networks.\"\n    Rev Mod Phys. 74(1):47-97. doi:10.1103/RevModPhys.74.47",
                 "PROP": [
                     "The total number of edges is: <ansired>m</ansired>(<ansired>n</ansired>-<ansired>m</ansired>)",
                     "The expected degree is approximately: 2<ansired>m</ansired>"
@@ -41,6 +42,7 @@
                     }
                 },
                 "DESC": "A <ansired>barbell</ansired> graph is an undirected graph composed of two complete graphs,\neach with <ansired>m1</ansired> nodes, connected by a path of <ansired>m2</ansired> nodes.",
+                "CITE": "Ghosh A, Boyd S, Saberi A (2006). \"Minimizing Effective Resistance of a Graph.\"\n    Proc 17th Internat Sympos Math Th Network and Systems. 1185-1196.\n    doi:10.1137/050645452",
                 "PROP": [
                     "The total number of nodes is: 2<ansired>m1</ansired> + <ansired>m2</ansired>",
                     "The total number of edges is: <ansired>m1</ansired>(<ansired>m1</ansired>-1) + <ansired>m2</ansired> + 1"
@@ -92,6 +94,7 @@
                     }
                 },
                 "DESC": "The <ansired>Erdos-Renyi (ER)</ansired> model is an undirected graph model in which\neach of the <ansired>n</ansired> choose 2 possible edges have probability <ansired>p</ansired> of existing.",
+                "CITE": "Erdos P, Renyi A (1959). \"On Random Graphs. I.\" Publ Math. 6:290-297.\nGilbert EN (1959). \"Random Graphs.\" Ann Math Stat. 30(4):1141-1144.\n    doi:10.1214/aoms/1177706098",
                 "PROP": [
                     "The expected degree is: <ansired>p</ansired>(<ansired>n</ansired> choose 2) = <ansired>pn</ansired>(<ansired>n</ansired>-1)/2",
                     "The degree distribution is: Binomial(<ansired>n</ansired>-1, k)"
@@ -113,6 +116,7 @@
                     }
                 },
                 "DESC": "The <ansired>Newman-Watts-Strogatz (NWS)</ansired> model is an undirected graph model as follows:\n  1. Start with a ring of <ansired>n</ansired> nodes\n  2. Connect each node with its <ansired>k</ansired> nearest neighbors\n  3. For each edge (u,v) in the ring, add a new random edge (u,w) with probability <ansired>p</ansired>",
+                "CITE": "Newman MEJ, Watts DJ (1999). \"Renormalization group analysis of the small-world\n    network model.\" Phys Lett A. 263(4-6):341-346. doi:10.1016/S0375-9601(99)00757-4",
                 "PROP": [
                     "The number of edges in the connected ring is: <ansired>nk</ansired>/2",
                     "The number of newly added edges is: Binomial(<ansired>nk</ansired>/2, <ansired>p</ansired>)"
@@ -341,7 +345,8 @@
                         "DESC": "The transition rate A4 -> I4 (nodal)"
                     }
                 },
-                "DESC": "The <ansired>Granich et al. (2008)</ansired> model for HIV has 11 states:\n  - NS: Non-Susceptible\n  - S: Susceptible\n  - I1, I2, I3, and I4: Untreated HIV stage 1, 2, 3, and 4\n  - A1, A2, A3, and A4: ART-treated HIV stage 1, 2, 3, and 4\n  - D: Deceased\n\nThe following transitions are possible:\n  - NS -> S (nodal)\n  - S -> I1 (induced by I1-I4/A1-A4 or outside)\n  - I1 -> A1, I2 -> A2, I3 -> A3, and I4 -> A4 (nodal)\n  - A1 -> I1, A2 -> I2, A3 -> I3, and A4 -> I4 (nodal)\n  - I1 -> I2 -> I3 -> I4 (nodal)\n  - A1 -> A2 -> A3 -> A4 (nodal)\n  - All non-D states -> D"
+                "DESC": "The <ansired>Granich et al. (2008)</ansired> model for HIV has 11 states:\n  - NS: Non-Susceptible\n  - S: Susceptible\n  - I1, I2, I3, and I4: Untreated HIV stage 1, 2, 3, and 4\n  - A1, A2, A3, and A4: ART-treated HIV stage 1, 2, 3, and 4\n  - D: Deceased\n\nThe following transitions are possible:\n  - NS -> S (nodal)\n  - S -> I1 (induced by I1-I4/A1-A4 or outside)\n  - I1 -> A1, I2 -> A2, I3 -> A3, and I4 -> A4 (nodal)\n  - A1 -> I1, A2 -> I2, A3 -> I3, and A4 -> I4 (nodal)\n  - I1 -> I2 -> I3 -> I4 (nodal)\n  - A1 -> A2 -> A3 -> A4 (nodal)\n  - All non-D states -> D",
+                "CITE": "Granich RM, Gilks CF, Dye C, De Cock KM, Williams BG (2008).\n    \"Universal voluntary HIV testing with immediate antiretroviral\n    therapy as a strategy for elimination of HIV transmission:\n    a mathematical model.\" The Lancet. 373(9657):48-57.\n    doi:10.1016/S0140-6736(08)61697-9"
             },
             "Hethcote and Yorke (1984)": {
                 "PARAM": {
@@ -506,7 +511,8 @@
                         "DESC": "The transition rate FIA -> FS"
                     }
                 },
-                "DESC": "The <ansired>Hethcote and Yorke (1984)</ansired> model for gonorrhea has 8 states:\n  - MA and FA: Male/Female Abstinent\n  - MS and FS: Male/Female Susceptible\n  - MIS and FIS: Male/Female Symptomatic Infected\n  - MIA and FIA: Male/Female Asymptomatic Infected\n\nThe following transitions are possible:\n  - MA -> MS and FA -> FS (nodal)\n  - MS -> MA and FS -> FA (nodal)\n  - MS -> MIA and FS -> FIA (induced by MIA/MIS/FIA/FIS or outside)\n  - MS -> MIS and FS -> FIS (induced by MIA/MIS/FIA/FIS or outside)\n  - MIA -> MS and FIA -> FS (nodal)\n  - MIS -> MS and FIS -> FS (nodal)"
+                "DESC": "The <ansired>Hethcote and Yorke (1984)</ansired> model for gonorrhea has 8 states:\n  - MA and FA: Male/Female Abstinent\n  - MS and FS: Male/Female Susceptible\n  - MIS and FIS: Male/Female Symptomatic Infected\n  - MIA and FIA: Male/Female Asymptomatic Infected\n\nThe following transitions are possible:\n  - MA -> MS and FA -> FS (nodal)\n  - MS -> MA and FS -> FA (nodal)\n  - MS -> MIA and FS -> FIA (induced by MIA/MIS/FIA/FIS or outside)\n  - MS -> MIS and FS -> FIS (induced by MIA/MIS/FIA/FIS or outside)\n  - MIA -> MS and FIA -> FS (nodal)\n  - MIS -> MS and FIS -> FS (nodal)",
+                "CITE": "Hethcote HW, Yorke JA (1984). \"Gonorrhea transmission dynamics and\n    control.\" Lect Notes Math. 56. doi:10.1007/978-3-662-07544-9"
             },
             "Susceptible-Alert-Infected-Susceptible (SAIS)": {
                 "PARAM": {
