@@ -1004,6 +1004,15 @@
                     }
                 },
                 "DESC": "Each branch's length is multiplied by a rate that is sampled from\n<ansired>Pareto</ansired>(<ansired>x_m</ansired>, <ansired>alpha</ansired>)."
+            },
+            "Power": {
+                "PARAM": {
+                    "c": {
+                        "TYPE": "positive float",
+                        "DESC": "Shape parameter of the Power distribution"
+                    }
+                },
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from\n<ansired>Power</ansired>(<ansired>c</ansired>)."
             }
         }
     }
