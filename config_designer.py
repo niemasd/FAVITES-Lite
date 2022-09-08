@@ -276,7 +276,7 @@ def page_view_params(i=0, show_nav=True):
             if model is not None and len(GLOBAL['MODELS'][step][model]['PARAM']) != 0:
                 text += "\n\nParameters:"
         if model is not None:
-            for p in sorted(GLOBAL['MODELS'][step][model]['PARAM'].keys()):
+            for p in GLOBAL['MODELS'][step][model]['PARAM']:
                 if p in GLOBAL['config'][step]['param']:
                     p_val = GLOBAL['config'][step]['param'][p]
                 else:
