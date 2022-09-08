@@ -1022,6 +1022,15 @@
                     }
                 },
                 "DESC": "Each branch's length is multiplied by a rate that is sampled from\n<ansired>Rayleigh</ansired>(<ansired>sigma</ansired>)."
+            },
+            "Triangular": {
+                "PARAM": {
+                    "a": {
+                        "TYPE": "positive float",
+                        "DESC": "Lower-limit parameter of the Triangular distribution"
+                    }
+                },
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from\n<ansired>Triangular</ansired>(<ansired>a</ansired>, <ansired>b</ansired>, <ansired>c</ansired>)."
             }
         }
     }
