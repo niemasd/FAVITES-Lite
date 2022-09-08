@@ -991,6 +991,19 @@
                     }
                 },
                 "DESC": "Each branch's length is multiplied by a rate that is sampled from a\n<ansired>Noncentral F</ansired> distribution with degrees of freedom parameters <ansired>d1</ansired> and <ansired>d2</ansired>,\nand with non-centrality parameter <ansired>lambda</ansired>."
+            },
+            "Pareto": {
+                "PARAM": {
+                    "x_m": {
+                        "TYPE": "positive float",
+                        "DESC": "Scale parameter of the Pareto distribution"
+                    },
+                    "alpha": {
+                        "TYPE": "positive float",
+                        "DESC": "Shape parameter of the Pareto distribution"
+                    }
+                },
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from\n<ansired>Pareto</ansired>(<ansired>x_m</ansired>, <ansired>alpha</ansired>)."
             }
         }
     }
