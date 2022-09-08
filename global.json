@@ -936,19 +936,6 @@
                 },
                 "DESC": "Each branch's length is multiplied by a rate that is sampled from\n<ansired>Gamma</ansired>(<ansired>shape</ansired>, <ansired>scale</ansired>)."
             },
-            "Gumbel": {
-                "PARAM": {
-                    "location": {
-                        "TYPE": "positive float",
-                        "DESC": "Location parameter of the Gumbel distribution"
-                    },
-                    "scale": {
-                        "TYPE": "positive float",
-                        "DESC": "Scale parameter of the Gumbel distribution"
-                    }
-                },
-                "DESC": "Each branch's length is multiplied by a rate that is sampled from\n<ansired>Gumbel</ansired>(<ansired>location</ansired>, <ansired>scale</ansired>)."
-            },
             "Inverse Gaussian (Wald)": {
                 "PARAM": {
                     "mean": {
@@ -961,6 +948,19 @@
                     }
                 },
                 "DESC": "Each branch's length is multiplied by a rate that is sampled from\n<ansired>InverseGaussian</ansired>(<ansired>mean</ansired>, <ansired>shape</ansired>)."
+            },
+            "Log-Normal": {
+                "PARAM": {
+                    "mean": {
+                        "TYPE": "positive float",
+                        "DESC": "Mean of the underlying Normal distribution"
+                    },
+                    "stdev": {
+                        "TYPE": "positive float",
+                        "DESC": "Standard deviation of the underlying Normal distribution"
+                    }
+                },
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from\n<ansired>LogNormal</ansired>(<ansired>mean</ansired>, <ansired>stdev</ansired>^2)."
             }
         }
     }
