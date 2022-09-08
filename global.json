@@ -755,13 +755,9 @@
                     "num_samples": {
                         "TYPE": "positive integer",
                         "DESC": "The number of times every individual is sampled"
-                    },
-                    "shape": {
-                        "TYPE": "positive float",
-                        "DESC": "Shape parameter of the Truncated Exponential distribution"
                     }
                 },
-                "DESC": "Each sample time of a given individual is sampled from a <ansired>Truncated Exponential</ansired>\ndistribution of the individual's infection time window.\n\nIf the individual has multiple infection time windows\n(i.e., from recovery and subsequent reinfection),\na single time window is chosen randomly with equal probability."
+                "DESC": "Each sample time of a given individual is sampled from a \"standardized form\"\n<ansired>Truncated Exponential</ansired> distribution of the individual's infection time window.\n\nIf the individual has multiple infection time windows\n(i.e., from recovery and subsequent reinfection),\na single time window is chosen randomly with equal probability."
             },
             "Truncated Normal": {
                 "PARAM": {
