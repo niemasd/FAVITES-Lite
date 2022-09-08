@@ -909,6 +909,19 @@
                     }
                 },
                 "DESC": "Each branch's length is multiplied by a rate that is sampled from an\n<ansired>Exponential</ansired> distribution with scale parameter <ansired>scale</ansired>."
+            },
+            "F": {
+                "PARAM": {
+                    "d1": {
+                        "TYPE": "positive integer",
+                        "DESC": "The degrees of freedom in the F-distrbution's numerator"
+                    },
+                    "d2": {
+                        "TYPE": "positive integer",
+                        "DESC": "The degrees of freedom in the F-distrbution's denominator"
+                    }
+                },
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from an\n<ansired>F</ansired> distribution with degrees of freedom parameters <ansired>d1</ansired> and <ansired>d2</ansired>."
             }
         }
     }
