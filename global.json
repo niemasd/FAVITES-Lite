@@ -784,6 +784,19 @@
                     "To center the underlying Normal at the left of the [0,1] window: <ansired>location</ansired> = 0",
                     "To center the underlying Normal at the right of the [0,1] window: <ansired>location</ansired> = 1"
                 ]
+            },
+            "Uniform": {
+                "PARAM": {
+                    "sampled_states": {
+                        "TYPE": "comma-separated list",
+                        "DESC": "Comma-separated list of states in which individuals are sampled"
+                    },
+                    "num_samples": {
+                        "TYPE": "positive integer",
+                        "DESC": "The number of times every individual is sampled"
+                    }
+                },
+                "DESC": "Each sample time of a given individual is sampled from a <ansired>Uniform</ansired>\ndistribution of the individual's infection time window.\n\nIf the individual has multiple infection time windows\n(i.e., from recovery and subsequent reinfection),\na single time window is chosen randomly with equal probability."
             }
         },
         "Viral Time Phylogeny": {
