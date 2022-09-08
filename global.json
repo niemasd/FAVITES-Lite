@@ -690,6 +690,27 @@
                 },
                 "DESC": "All individuals who are in any of the specified states at the end time\nwill be sampled the specified number of times."
             },
+            "Gamma": {
+                "PARAM": {
+                    "sampled_states": {
+                        "TYPE": "comma-separated list",
+                        "DESC": "Comma-separated list of states in which individuals are sampled"
+                    },
+                    "num_samples": {
+                        "TYPE": "positive integer",
+                        "DESC": "The number of times every individual is sampled"
+                    },
+                    "shape": {
+                        "TYPE": "non-negative float",
+                        "DESC": "Shape parameter of the Gamma distribution"
+                    },
+                    "scale": {
+                        "TYPE": "non-negative float",
+                        "DESC": "Scale parameter of the Gamma distribution"
+                    }
+                },
+                "DESC": "Each sample time of a given individual is sampled from a <ansired>Gamma</ansired>\ndistribution of the individual's infection time window.\nIf the individual has multiple infection time windows\n(i.e., from recovery and subsequent reinfection),\na single time window is chosen randomly with equal probability."
+            },
             "Specific Time": {
                 "PARAM": {
                     "sampled_states": {
@@ -707,7 +728,7 @@
                 },
                 "DESC": "All individuals who are in any of the specified states at a specified time\nwill be sampled the specified number of times."
             },
-            "State Entry": {
+            "State Entry (All)": {
                 "PARAM": {
                     "sampled_states": {
                         "TYPE": "comma-separated list",
@@ -715,6 +736,15 @@
                     }
                 },
                 "DESC": "Individuals are sampled every time they enter any of the specified states.\nIndividuals who never enter any of the specified states are never sampled."
+            },
+            "State Entry (Initial)": {
+                "PARAM": {
+                    "sampled_states": {
+                        "TYPE": "comma-separated list",
+                        "DESC": "Comma-separated list of states in which individuals are sampled"
+                    }
+                },
+                "DESC": "Individuals are sampled the first time they enter any of the specified states.\nIndividuals who never enter any of the specified states are never sampled."
             }
         },
         "Viral Time Phylogeny": {
