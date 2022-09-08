@@ -701,11 +701,11 @@
                         "DESC": "The number of times every individual is sampled"
                     },
                     "shape": {
-                        "TYPE": "non-negative float",
+                        "TYPE": "positive float",
                         "DESC": "Shape parameter of the Gamma distribution"
                     },
                     "scale": {
-                        "TYPE": "non-negative float",
+                        "TYPE": "positive float",
                         "DESC": "Scale parameter of the Gamma distribution"
                     }
                 },
@@ -745,6 +745,23 @@
                     }
                 },
                 "DESC": "Individuals are sampled the first time they enter any of the specified states.\nIndividuals who never enter any of the specified states are never sampled."
+            },
+            "Truncated Exponential": {
+                "PARAM": {
+                    "sampled_states": {
+                        "TYPE": "comma-separated list",
+                        "DESC": "Comma-separated list of states in which individuals are sampled"
+                    },
+                    "num_samples": {
+                        "TYPE": "positive integer",
+                        "DESC": "The number of times every individual is sampled"
+                    },
+                    "shape": {
+                        "TYPE": "positive float",
+                        "DESC": "Shape parameter of the Truncated Exponential distribution"
+                    }
+                },
+                "DESC": "Each sample time of a given individual is sampled from a <ansired>Truncated Exponential</ansired>\ndistribution of the individual's infection time window.\nIf the individual has multiple infection time windows\n(i.e., from recovery and subsequent reinfection),\na single time window is chosen randomly with equal probability."
             }
         },
         "Viral Time Phylogeny": {
