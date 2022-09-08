@@ -709,7 +709,7 @@
                         "DESC": "Scale parameter of the Gamma distribution"
                     }
                 },
-                "DESC": "Each sample time of a given individual is sampled from a <ansired>Gamma</ansired>\ndistribution of the individual's infection time window.\nIf the individual has multiple infection time windows\n(i.e., from recovery and subsequent reinfection),\na single time window is chosen randomly with equal probability."
+                "DESC": "Each sample time of a given individual is sampled from a <ansired>Gamma</ansired>\ndistribution of the individual's infection time window.\n\nIf the individual has multiple infection time windows\n(i.e., from recovery and subsequent reinfection),\na single time window is chosen randomly with equal probability."
             },
             "Specific Time": {
                 "PARAM": {
@@ -761,7 +761,33 @@
                         "DESC": "Shape parameter of the Truncated Exponential distribution"
                     }
                 },
-                "DESC": "Each sample time of a given individual is sampled from a <ansired>Truncated Exponential</ansired>\ndistribution of the individual's infection time window.\nIf the individual has multiple infection time windows\n(i.e., from recovery and subsequent reinfection),\na single time window is chosen randomly with equal probability."
+                "DESC": "Each sample time of a given individual is sampled from a <ansired>Truncated Exponential</ansired>\ndistribution of the individual's infection time window.\n\nIf the individual has multiple infection time windows\n(i.e., from recovery and subsequent reinfection),\na single time window is chosen randomly with equal probability."
+            },
+            "Truncated Normal": {
+                "PARAM": {
+                    "sampled_states": {
+                        "TYPE": "comma-separated list",
+                        "DESC": "Comma-separated list of states in which individuals are sampled"
+                    },
+                    "num_samples": {
+                        "TYPE": "positive integer",
+                        "DESC": "The number of times every individual is sampled"
+                    },
+                    "location": {
+                        "TYPE": "float",
+                        "DESC": "Location parameter (i.e., mode) of the Truncated Normal distribution"
+                    },
+                    "scale": {
+                        "TYPE": "positive float",
+                        "DESC": "Scale parameter of the Truncated Normal distribution"
+                    }
+                },
+                "DESC": "Each sample time of a given individual is sampled from a <ansired>Truncated Normal</ansired>\ndistribution of the individual's infection time window.\n\nIf the individual has multiple infection time windows\n(i.e., from recovery and subsequent reinfection),\na single time window is chosen randomly with equal probability.\n\nThe distribution is in the window [0,1]:\n  - The user can move the mode of the underlying Normal distribution via the <ansired>location</ansired> parameter\n  - The user can scale the underlying Normal distribution via the <ansired>scale</ansired> parameter",
+                "PROP": [
+                    "To center the underlying Normal at the center of the [0,1] window: <ansired>location</ansired> = 0.5",
+                    "To center the underlying Normal at the left of the [0,1] window: <ansired>location</ansired> = 0",
+                    "To center the underlying Normal at the right of the [0,1] window: <ansired>location</ansired> = 1"
+                ]
             }
         },
         "Viral Time Phylogeny": {
