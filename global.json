@@ -973,7 +973,7 @@
                         "DESC": "Non-centrality parameter of the Noncentral Chi-Squared distribution"
                     }
                 },
-                "DESC": "Each branch's length is multiplied by a rate that is sampled from a\n<ansired>Noncentral Chi-Squared</ansired> distribution with <ansired>k</ansired> degrees of freedom and shape parameter <ansired>lambda</ansired>."
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from a\n<ansired>Noncentral Chi-Squared</ansired> distribution with <ansired>k</ansired> degrees of freedom and\nshape parameter <ansired>lambda</ansired>."
             }
         }
     }
