@@ -1298,11 +1298,11 @@
                     },
                     "alpha": {
                         "TYPE": "positive float",
-                        "DESC": "Shape parameter of Gamma distribution of rate heterogeneity"
+                        "DESC": "Shape parameter of Gamma model of rate heterogeneity"
                     },
                     "num_cats": {
                         "TYPE": "non-negative integer",
-                        "DESC": "Number of categories in discrete Gamma rate heterogeneity (0 = continuous)"
+                        "DESC": "Number of categories in discrete Gamma model (or 0 for continuous)"
                     },
                     "prop_invariable": {
                         "TYPE": "probability",
