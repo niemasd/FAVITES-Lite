@@ -790,14 +790,40 @@
             }
         },
         "Viral Phylogeny (Seeds)": {
-            "Coalescent: Constant Effective Population Size": {
+            "Birth-Death": {
                 "PARAM": {
-                    "N": {
+                    "birth_rate": {
                         "TYPE": "positive float",
-                        "DESC": "Effective intra-host viral population size"
+                        "DESC": "Birth rate of the initial Birth-Death tree"
+                    },
+                    "death_rate": {
+                        "TYPE": "non-negative float",
+                        "DESC": "Death rate of the initial Birth-Death tree"
+                    },
+                    "height": {
+                        "TYPE": "positive float",
+                        "DESC": "Height of the resulting tree"
                     }
                 },
-                "DESC": "Coalescent model in which the effective intra-host viral population size is constant."
+                "DESC": "The seed tree is sampled from a <ansired>Birth-Death</ansired> model\nand is scaled to the specified <ansired>height</ansired>."
+            },
+            "Coalescent (Neutral)": {
+                "PARAM": {
+                    "height": {
+                        "TYPE": "positive float",
+                        "DESC": "Height of the resulting tree"
+                    }
+                },
+                "DESC": "The seed tree is sampled from a <ansired>Neutral Coalescent</ansired> model\nand is scaled to the specified <ansired>height</ansired>."
+            },
+            "Yule ": {
+                "PARAM": {
+                    "height": {
+                        "TYPE": "positive float",
+                        "DESC": "Height of the resulting tree"
+                    }
+                },
+                "DESC": "The seed tree is sampled from a <ansired>Yule</ansired> model\nand is scaled to the specified <ansired>height</ansired>."
             }
         },
         "Viral Phylogeny (Transmissions)": {
