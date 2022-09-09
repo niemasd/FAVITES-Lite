@@ -1187,7 +1187,64 @@
                         "DESC": "Transition rate between G and T"
                     }
                 },
-                "DESC": "Sequences evolve according to a <ansired>General Time-Reversible (GTR)</ansired> substitution model."
+                "DESC": "Sequences evolve according to a <ansired>General Time-Reversible (GTR)</ansired>\nsubstitution model."
+            },
+            "General Time-Reversible (GTR) + Codon": {
+                "PARAM": {
+                    "p_A": {
+                        "TYPE": "probability",
+                        "DESC": "Frequency of A"
+                    },
+                    "p_C": {
+                        "TYPE": "probability",
+                        "DESC": "Frequency of C"
+                    },
+                    "p_G": {
+                        "TYPE": "probability",
+                        "DESC": "Frequency of G"
+                    },
+                    "p_T": {
+                        "TYPE": "probability",
+                        "DESC": "Frequency of T"
+                    },
+                    "r_A-C": {
+                        "TYPE": "non-negative float",
+                        "DESC": "Transition rate between A and C"
+                    },
+                    "r_A-G": {
+                        "TYPE": "non-negative float",
+                        "DESC": "Transition rate between A and G"
+                    },
+                    "r_A-T": {
+                        "TYPE": "non-negative float",
+                        "DESC": "Transition rate between A and T"
+                    },
+                    "r_C-G": {
+                        "TYPE": "non-negative float",
+                        "DESC": "Transition rate between C and G"
+                    },
+                    "r_C-T": {
+                        "TYPE": "non-negative float",
+                        "DESC": "Transition rate between C and T"
+                    },
+                    "r_G-T": {
+                        "TYPE": "non-negative float",
+                        "DESC": "Transition rate between G and T"
+                    },
+                    "r_site1": {
+                        "TYPE": "non-negative float",
+                        "DESC": "Relative rate of substitution at codon site 1"
+                    },
+                    "r_site2": {
+                        "TYPE": "non-negative float",
+                        "DESC": "Relative rate of substitution at codon site 2"
+                    },
+                    "r_site3": {
+                        "TYPE": "non-negative float",
+                        "DESC": "Relative rate of substitution at codon site 3"
+                    }
+                },
+                "DESC": "Sequences evolve according to a <ansired>General Time-Reversible (GTR)</ansired>\nsubstitution model with <ansired>codon</ansired>-specific rate heterogeneity."
             }
         }
     }
