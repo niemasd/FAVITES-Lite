@@ -1254,7 +1254,7 @@
                 },
                 "DESC": "Sequences evolve according to a <ansired>General Time-Reversible (GTR)</ansired>\nsubstitution model with <ansired>codon</ansired>-specific rate heterogeneity."
             },
-            "General Time-Reversible (GTR) + Continuous Gamma": {
+            "General Time-Reversible (GTR) + Gamma": {
                 "PARAM": {
                     "p_A": {
                         "TYPE": "probability",
@@ -1298,14 +1298,18 @@
                     },
                     "alpha": {
                         "TYPE": "positive float",
-                        "DESC": "Relative rate of substitution at codon site 1"
+                        "DESC": "Shape parameter of Gamma distribution of rate heterogeneity"
+                    },
+                    "num_cats": {
+                        "TYPE": "non-negative integer",
+                        "DESC": "Number of categories in discrete Gamma rate heterogeneity (0 = continuous)"
                     },
                     "prop_invariable": {
                         "TYPE": "probability",
                         "DESC": "Proportion of invariable sites"
                     }
                 },
-                "DESC": "Sequences evolve according to a <ansired>General Time-Reversible (GTR)</ansired>\nsubstitution model with <ansired>Continuous Gamma</ansired> rate heterogeneity."
+                "DESC": "Sequences evolve according to a <ansired>General Time-Reversible (GTR)</ansired>\nsubstitution model with <ansired>Gamma</ansired>-distributed rate heterogeneity."
             }
         }
     }
