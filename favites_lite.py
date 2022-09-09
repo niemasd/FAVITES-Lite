@@ -73,6 +73,7 @@ if __name__ == "__main__":
         'all_state_transitions': "%s/all_state_transitions.tsv" % args.output,
         'sample_times': "%s/sample_times.tsv" % args.output,
         'viral_phylogeny_seeds': "%s/intermediate_files/viral_phylogeny_seed.nwk" % args.output,
+        'viral_phylogeny': "%s/phylogeny.time.nwk" % args.output
     }
     makedirs(out_fn['intermediate']); print_log("Intermediate Files: %s" % out_fn['intermediate'])
     for step in GLOBAL['CONFIG_KEYS']:
@@ -84,6 +85,5 @@ if __name__ == "__main__":
         if step not in PLUGIN_FUNCTIONS:
             error("Step not implemented yet: %s" % step)
         if model not in PLUGIN_FUNCTIONS[step]:
-            print(PLUGIN_FUNCTIONS[step])
             error("%s model not implemented yet: %s" % (step, model))
         PLUGIN_FUNCTIONS[step][model](params, out_fn)

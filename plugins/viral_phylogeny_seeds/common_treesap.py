@@ -6,6 +6,9 @@ from treesap import yule_tree
 def treesap_yule(params, out_fn, verbose=True):
     seeds = [l.split('\t')[1].strip() for l in open(out_fn['transmission_network']) if l.startswith('None\t')]
     tree = yule_tree(1, end_num_leaves=len(seeds))
+    tree.scale_edges(params['height']/tree.height())
     for i, node in enumerate(tree.traverse_leaves()):
         node.label = seeds[i]
     tree.write_tree_newick(out_fn['viral_phylogeny_seeds'])
+    if verbose:
+        print_log("Seed Viral Phylogeny (Time) written to: %s" % out_fn['viral_phylogeny_seeds'])

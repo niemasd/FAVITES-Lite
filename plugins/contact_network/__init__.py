@@ -1,6 +1,6 @@
 #! /usr/bin/env python3
 from .. import *
-from . import complete
+from . import ngg
 PLUGIN_FUNCTIONS = {
-    "Complete": complete.ngg_complete,
+    "Complete": ngg.ngg_complete,
 }
