@@ -5,13 +5,13 @@ Niema Moshiri 2022
 '''
 
 # general imports and load global.json
+from json import loads as jloads
 from os import remove
 from os.path import abspath, expanduser, isdir, isfile
 from shutil import rmtree
 from sys import argv, stderr
-import json
 GLOBAL_JSON_PATH = "%s/global.json" % '/'.join(abspath(expanduser(argv[0])).split('/')[:-1])
-GLOBAL = json.loads(open(GLOBAL_JSON_PATH).read())
+GLOBAL = jloads(open(GLOBAL_JSON_PATH).read())
 
 # FAVITES-Lite-specific imports
 from plugins.common import *
@@ -24,7 +24,10 @@ def parse_args():
     parser.add_argument('-o', '--output', required=True, type=str, help="Output Directory")
     parser.add_argument('--overwrite', action="store_true", help="Overwrite output directory if it exists")
     parser.add_argument('--version', action="store_true", help="Show FAVITES-Lite version")
-    args = parser.parse_args()
+    return parser.parse_args()
+
+# validate user args
+def validate_args(args):
     if not isfile(args.config):
         error("Config file not found: %s" % args.config)
     print_log("Config File: %s" % args.config)
@@ -39,9 +42,23 @@ def parse_args():
             error("Didn't overwrite output directory: %s" % args.output)
     else:
         print_log("Output Directory: %s" % args.output)
-    return args
+
+# validate FAVITES-Lite config
+def validate_config(config):
+    for step in GLOBAL['CONFIG_KEYS']:
+        if step not in config:
+            error("Invalid config file: Missing step: %s" % step)
+        if 'model' not in config[step]:
+            error("Invalid config file: Missing model in step: %s" % step)
+        model = config[step]['model']
+        for p in GLOBAL['MODELS'][step][model]['PARAM']:
+            if p not in config[step]['param']:
+                error("Invalid config file: Missing parameter for step \"%s\" model \"%s\": %s" % (step, model, p))
 
 # run FAVITES-Lite
 if __name__ == "__main__":
     print_log("=== FAVITES-Lite v%s ===" % GLOBAL['VERSION'])
-    args = parse_args()
+    args = parse_args(); validate_args(args)
+    config = jloads(open(args.config).read()); validate_config(config)
+    for step in GLOBAL['CONFIG_KEYS']:
+        print_log(); print_log("=== %s ===" % step)
