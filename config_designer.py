@@ -357,10 +357,13 @@ def page_dashboard():
 if __name__ == "__main__":
     if len(argv) == 1:
         GLOBAL['app'] = {'prev_page':None, 'curr_page':page_welcome}
-    elif len(argv) == 2 and isfile(argv[1]):
+    elif len(argv) == 2 and argv[1].lower().endswith('.json'):
         GLOBAL['app'] = {'prev_page':None, 'curr_page':page_dashboard}
         GLOBAL['app']['config_fn'] = abspath(expanduser(argv[1]))
-        GLOBAL['config'] = json.loads(open(GLOBAL['app']['config_fn']).read())
+        if isfile(GLOBAL['app']['config_fn']):
+            GLOBAL['config'] = json.loads(open(GLOBAL['app']['config_fn']).read())
+        else:
+            GLOBAL['config'] = dict()
     else:
         print("USAGE: %s [config_filename]" % argv[0], file=stderr); exit(1)
     while GLOBAL['app']['curr_page'] is not None:
