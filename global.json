@@ -505,6 +505,9 @@
                 "DESC": "The <ansired>Hethcote and Yorke (1984)</ansired> model for gonorrhea has 8 states:\n  - MA and FA: Male/Female Abstinent\n  - MS and FS: Male/Female Susceptible\n  - MIS and FIS: Male/Female Symptomatic Infected\n  - MIA and FIA: Male/Female Asymptomatic Infected\n\nThe following transitions are possible:\n  - MA -> MS and FA -> FS (nodal)\n  - MS -> MA and FS -> FA (nodal)\n  - MS -> MIA and FS -> FIA (induced by MIA/MIS/FIA/FIS or outside)\n  - MS -> MIS and FS -> FIS (induced by MIA/MIS/FIA/FIS or outside)\n  - MIA -> MS and FIA -> FS (nodal)\n  - MIS -> MS and FIS -> FS (nodal)",
                 "CITE": "Hethcote HW, Yorke JA (1984). \"Gonorrhea transmission dynamics and\n    control.\" Lect Notes Math. 56. doi:10.1007/978-3-662-07544-9"
             },
+            "None": {
+                "DESC": "No transmission network is simulated.\n\nMust select \"None\" for all downstream steps."
+            },
             "Susceptible-Alert-Infected-Susceptible (SAIS)": {
                 "PARAM": {
                     "N_S": {
@@ -702,6 +705,9 @@
                 },
                 "DESC": "Each sample time of a given individual is sampled from a <ansired>Gamma</ansired>\ndistribution of the individual's infection time window.\n\nIf the individual has multiple infection time windows\n(i.e., from recovery and subsequent reinfection),\na single time window is chosen randomly with equal probability."
             },
+            "None": {
+                "DESC": "No individuals are sampled.\n\nMust select \"None\" for all downstream steps."
+            },
             "Specific Time": {
                 "PARAM": {
                     "sampled_states": {
@@ -844,6 +850,9 @@
                 },
                 "DESC": "The seed tree is sampled from a <ansired>Non-Homogeneous Yule</ansired> model\nwith <ansired>rate_func</ansired> and is scaled to the specified <ansired>height</ansired>."
             },
+            "None": {
+                "DESC": "No phylogeny is simulated.\n\nMust select \"None\" for all downstream steps."
+            },
             "Yule ": {
                 "PARAM": {
                     "height": {
@@ -867,6 +876,9 @@
             "Infection Time": {
                 "PARAM": {},
                 "DESC": "Coalescent events occur as early in time as possible."
+            },
+            "None": {
+                "DESC": "No phylogeny is simulated.\n\nMust select \"None\" for all downstream steps."
             },
             "Transmission Tree": {
                 "PARAM": {},
@@ -1046,6 +1058,9 @@
                     }
                 },
                 "DESC": "Each branch's length is multiplied by a rate that is sampled from a\n<ansired>Noncentral F</ansired> distribution with degrees of freedom parameters <ansired>d1</ansired> and <ansired>d2</ansired>,\nand with non-centrality parameter <ansired>lambda</ansired>."
+            },
+            "None": {
+                "DESC": "No mutation rates are sampled (i.e., no mutation tree is output).\n\nMust select \"None\" for all downstream steps."
             },
             "Pareto": {
                 "PARAM": {
@@ -1310,6 +1325,9 @@
                     }
                 },
                 "DESC": "Sequences evolve according to a <ansired>General Time-Reversible (GTR)</ansired>\nsubstitution model with <ansired>Gamma</ansired>-distributed rate heterogeneity."
+            },
+            "None": {
+                "DESC": "No sequences are simulated.\n\nMust select \"None\" for all downstream steps."
             }
         }
     }
