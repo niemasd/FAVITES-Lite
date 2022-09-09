@@ -155,6 +155,10 @@
         "Transmission Network": {
             "Granich et al. (2008)": {
                 "PARAM": {
+                    "duration": {
+                        "TYPE": "positive float",
+                        "DESC": "The duration of the epidemic"
+                    },
                     "N_NS": {
                         "TYPE": "non-negative integer",
                         "DESC": "The number of individuals in state NS at the start of the simulation"
@@ -341,6 +345,10 @@
             },
             "Hethcote and Yorke (1984)": {
                 "PARAM": {
+                    "duration": {
+                        "TYPE": "positive float",
+                        "DESC": "The duration of the epidemic"
+                    },
                     "N_MA": {
                         "TYPE": "non-negative integer",
                         "DESC": "The number of individuals in state MA at the start of the simulation"
@@ -510,6 +518,10 @@
             },
             "Susceptible-Alert-Infected-Susceptible (SAIS)": {
                 "PARAM": {
+                    "duration": {
+                        "TYPE": "positive float",
+                        "DESC": "The duration of the epidemic"
+                    },
                     "N_S": {
                         "TYPE": "non-negative integer",
                         "DESC": "The number of individuals in state S at the start of the simulation"
@@ -559,6 +571,10 @@
             },
             "Susceptible-Exposed-Infected-Removed (SEIR)": {
                 "PARAM": {
+                    "duration": {
+                        "TYPE": "positive float",
+                        "DESC": "The duration of the epidemic"
+                    },
                     "N_S": {
                         "TYPE": "non-negative integer",
                         "DESC": "The number of individuals in state S at the start of the simulation"
@@ -596,6 +612,10 @@
             },
             "Susceptible-Infected (SI)": {
                 "PARAM": {
+                    "duration": {
+                        "TYPE": "positive float",
+                        "DESC": "The duration of the epidemic"
+                    },
                     "N_S": {
                         "TYPE": "non-negative integer",
                         "DESC": "The number of individuals in state S at the start of the simulation"
@@ -617,6 +637,10 @@
             },
             "Susceptible-Infected-Removed (SIR)": {
                 "PARAM": {
+                    "duration": {
+                        "TYPE": "positive float",
+                        "DESC": "The duration of the epidemic"
+                    },
                     "N_S": {
                         "TYPE": "non-negative integer",
                         "DESC": "The number of individuals in state S at the start of the simulation"
@@ -646,6 +670,10 @@
             },
             "Susceptible-Infected-Susceptible (SIS)": {
                 "PARAM": {
+                    "duration": {
+                        "TYPE": "positive float",
+                        "DESC": "The duration of the epidemic"
+                    },
                     "N_S": {
                         "TYPE": "non-negative integer",
                         "DESC": "The number of individuals in state S at the start of the simulation"
