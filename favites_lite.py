@@ -72,16 +72,18 @@ if __name__ == "__main__":
         'transmission_network': "%s/transmission_network.tsv" % args.output,
         'all_state_transitions': "%s/all_state_transitions.tsv" % args.output,
         'sample_times': "%s/sample_times.tsv" % args.output,
+        'viral_phylogeny_seeds': "%s/intermediate_files/viral_phylogeny_seed.nwk" % args.output,
     }
     makedirs(out_fn['intermediate']); print_log("Intermediate Files: %s" % out_fn['intermediate'])
     for step in GLOBAL['CONFIG_KEYS']:
         print_log(); print_log("=== %s ===" % step)
-        model = config[step]['model']; print_log("Model: %s" % model)
+        model = config[step]['model'].strip(); print_log("Model: %s" % model)
         params = config[step]['param']
         for p in GLOBAL['MODELS'][step][model]['PARAM']:
             print_log("Parameter: %s: %s" % (p, params[p]))
         if step not in PLUGIN_FUNCTIONS:
             error("Step not implemented yet: %s" % step)
         if model not in PLUGIN_FUNCTIONS[step]:
+            print(PLUGIN_FUNCTIONS[step])
             error("%s model not implemented yet: %s" % (step, model))
         PLUGIN_FUNCTIONS[step][model](params, out_fn)
