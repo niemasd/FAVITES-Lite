@@ -816,6 +816,20 @@
                 },
                 "DESC": "The seed tree is sampled from a <ansired>Neutral Coalescent</ansired> model\nand is scaled to the specified <ansired>height</ansired>."
             },
+            "Dual-Birth": {
+                "PARAM": {
+                    "r": {
+                        "TYPE": "positive float",
+                        "DESC": "The ratio lambda_a / lambda_b (i.e., activation rate / birth rate)"
+                    },
+                    "height": {
+                        "TYPE": "positive float",
+                        "DESC": "Height of the resulting tree"
+                    }
+                },
+                "DESC": "The seed tree is sampled from a <ansired>Dual-Birth</ansired> model\nand is scaled to the specified <ansired>height</ansired>.",
+                "CITE": "Moshiri N, Mirarab S (2018). \"A Two-State Model of Tree Evolution and\n    Its Applications to Alu Retrotransposition.\" Syst Biol.\n    67(3):475-489. doi:10.1093/sysbio/syx088"
+            },
             "Yule ": {
                 "PARAM": {
                     "height": {
