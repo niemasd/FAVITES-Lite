@@ -71,6 +71,7 @@ if __name__ == "__main__":
     out_fn = {
         'contact_network': "%s/contact_network.tsv" % args.output,
         'transmission_network': "%s/transmission_network.tsv" % args.output,
+        'all_state_transitions': "%s/all_state_transitions.tsv" % args.output,
     }
     for step in GLOBAL['CONFIG_KEYS']:
         print_log(); print_log("=== %s ===" % step)
@@ -86,7 +87,8 @@ if __name__ == "__main__":
             PLUGIN_FUNCTIONS[step][model](params, out_fn['contact_network'], intermediate_path=intermediate_path)
             print_log("Contact Network written to: %s" % out_fn['contact_network'])
         elif step == "Transmission Network":
-            PLUGIN_FUNCTIONS[step][model](params, out_fn['contact_network'], out_fn['transmission_network'], intermediate_path=intermediate_path)
+            PLUGIN_FUNCTIONS[step][model](params, out_fn['contact_network'], out_fn['transmission_network'], out_fn['all_state_transitions'], intermediate_path=intermediate_path)
             print_log("Transmission Network written to: %s" % out_fn['transmission_network'])
+            print_log("All State Transitions written to: %s" % out_fn['all_state_transitions'])
         else:
             error("Step not implemented yet: %s" % step)
