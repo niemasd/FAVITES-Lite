@@ -104,7 +104,7 @@ def page_newload_config(existing_file):
         GLOBAL['app']['config_fn'] = tmp
         return page_dashboard
 def page_new_config():
-    GLOBAL['config'] = {"Contact Network":None}
+    GLOBAL['config'] = dict()
     return page_newload_config(existing_file=False)
 def page_load_config():
     tmp = page_newload_config(existing_file=True)
@@ -355,6 +355,13 @@ def page_dashboard():
 
 # run the config designer app
 if __name__ == "__main__":
-    GLOBAL['app'] = {'prev_page':None, 'curr_page':page_welcome}
+    if len(argv) == 1:
+        GLOBAL['app'] = {'prev_page':None, 'curr_page':page_welcome}
+    elif len(argv) == 2 and isfile(argv[1]):
+        GLOBAL['app'] = {'prev_page':None, 'curr_page':page_dashboard}
+        GLOBAL['app']['config_fn'] = abspath(expanduser(argv[1]))
+        GLOBAL['config'] = json.loads(open(GLOBAL['app']['config_fn']).read())
+    else:
+        print("USAGE: %s [config_filename]" % argv[0], file=stderr); exit(1)
     while GLOBAL['app']['curr_page'] is not None:
         GLOBAL['app']['curr_page'], GLOBAL['app']['prev_page'] = GLOBAL['app']['curr_page'](), GLOBAL['app']['curr_page']
