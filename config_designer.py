@@ -5,30 +5,22 @@ Niema Moshiri 2022
 '''
 
 # general imports and load global.json
-from datetime import datetime
+from plugins.common import *
 from glob import glob
 from os import getcwd
 from os.path import abspath, expanduser, isdir, isfile
-from sys import argv, stderr
+from sys import argv
 import json
 GLOBAL_JSON_PATH = "%s/global.json" % '/'.join(abspath(expanduser(argv[0])).split('/')[:-1])
 GLOBAL = json.loads(open(GLOBAL_JSON_PATH).read())
 STEP_TO_IND = {k:i for i,k in enumerate(GLOBAL['CONFIG_KEYS'])}
-
-# return the current time as a string
-def get_time():
-    return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-
-# print to log (prefixed by current time)
-def print_log(s='', end='\n'):
-    print("[%s] %s" % (get_time(), s), end=end, file=stderr); stderr.flush()
 
 # import prompt_toolkit stuff
 try:
     from prompt_toolkit.formatted_text import HTML
     from prompt_toolkit.shortcuts import button_dialog, input_dialog, message_dialog, radiolist_dialog, yes_no_dialog
 except:
-    print_log("Unable to import prompt_toolkit. Install with: pip install prompt_toolkit"); exit(1)
+    error("Unable to import prompt_toolkit. Install with: pip install prompt_toolkit")
 
 # save config file
 def save_config():
@@ -70,7 +62,7 @@ def parse_param_value(value, param_type):
         elif param_type == "string":
             return value.strip()
         else:
-            print_log("FAVITES-Lite bug: Invalid parameter type: %s" % param_type); exit(1)
+            error("FAVITES-Lite bug: Invalid parameter type: %s" % param_type)
     except:
         return None
 
@@ -365,6 +357,6 @@ if __name__ == "__main__":
         else:
             GLOBAL['config'] = dict()
     else:
-        print("USAGE: %s [config_filename]" % argv[0], file=stderr); exit(1)
+        print("USAGE: %s [config_filename]" % argv[0]); exit(1)
     while GLOBAL['app']['curr_page'] is not None:
         GLOBAL['app']['curr_page'], GLOBAL['app']['prev_page'] = GLOBAL['app']['curr_page'](), GLOBAL['app']['curr_page']
