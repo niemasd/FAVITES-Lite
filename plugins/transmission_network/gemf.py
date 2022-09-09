@@ -46,21 +46,21 @@ def gemf_write_transition_rates(params, transition_rates_fn):
     f.close()
 
 # simulate an epidemic using GEMF_FAVITES
-def gemf_favites(model, params, input_cn_fn, output_transmission_fn, output_all_transitions_fn, intermediate_path, verbose=True):
+def gemf_favites(model, params, out_fn, verbose=True):
     # set things up
-    intermediate_gemf = "%s/GEMF_FAVITES" % intermediate_path; makedirs(intermediate_gemf)
+    intermediate_gemf = "%s/GEMF_FAVITES" % out_fn['intermediate']; makedirs(intermediate_gemf)
     initial_states_fn = "%s/initial_states.tsv" % intermediate_gemf
     infected_states_fn ="%s/infected_states.txt" % intermediate_gemf
     transition_rates_fn = "%s/transition_rates.tsv" % intermediate_gemf
     gemf_out = "%s/output" % intermediate_gemf
 
     # run
-    gemf_determine_initial_states(params, input_cn_fn, initial_states_fn)
+    gemf_determine_initial_states(params, out_fn['contact_network'], initial_states_fn)
     gemf_write_infected_states(model, infected_states_fn)
     gemf_write_transition_rates(params, transition_rates_fn)
     command = [
         'GEMF_FAVITES.py',
-        '-c', input_cn_fn,
+        '-c', out_fn['contact_network'],
         '-s', initial_states_fn,
         '-i', infected_states_fn,
         '-r', transition_rates_fn,
@@ -72,9 +72,11 @@ def gemf_favites(model, params, input_cn_fn, output_transmission_fn, output_all_
     if verbose:
         print_log("Command: %s" % ' '.join(command))
     call(command)
-    copy2('%s/transmission_network.txt' % gemf_out, output_transmission_fn)
-    copy2('%s/all_state_transitions.txt' % gemf_out, output_all_transitions_fn)
+    copy2('%s/transmission_network.txt' % gemf_out, out_fn['transmission_network'])
+    print_log("Transmission Network written to: %s" % out_fn['transmission_network'])
+    copy2('%s/all_state_transitions.txt' % gemf_out, out_fn['all_state_transitions'])
+    print_log("All State Transitions written to: %s" % out_fn['all_state_transitions'])
 
 # model-specific functions
-def gemf_favites_sir(params, input_cn_fn, output_transmission_fn, output_all_transitions_fn, intermediate_path, verbose=True):
-    gemf_favites("SIR", params, input_cn_fn, output_transmission_fn, output_all_transitions_fn, intermediate_path, verbose=verbose)
+def gemf_favites_sir(params, out_fn, verbose=True):
+    gemf_favites("SIR", params, out_fn, verbose=verbose)

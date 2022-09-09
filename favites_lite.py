@@ -66,13 +66,14 @@ if __name__ == "__main__":
     args = parse_args(); validate_args(args)
     config = json.loads(open(args.config).read()); validate_config(config)
     makedirs(args.output); f = open("%s/config.json" % args.output, 'w'); json.dump(config, f); f.close()
-    intermediate_path = "%s/intermediate_files" % args.output; makedirs(intermediate_path)
-    print_log("Intermediate Files: %s" % intermediate_path)
     out_fn = {
+        'intermediate': "%s/intermediate_files" % args.output,
         'contact_network': "%s/contact_network.tsv" % args.output,
         'transmission_network': "%s/transmission_network.tsv" % args.output,
         'all_state_transitions': "%s/all_state_transitions.tsv" % args.output,
+        'sample_times': "%s/sample_times.tsv" % args.output,
     }
+    makedirs(out_fn['intermediate']); print_log("Intermediate Files: %s" % out_fn['intermediate'])
     for step in GLOBAL['CONFIG_KEYS']:
         print_log(); print_log("=== %s ===" % step)
         model = config[step]['model']; print_log("Model: %s" % model)
@@ -83,12 +84,4 @@ if __name__ == "__main__":
             error("Step not implemented yet: %s" % step)
         if model not in PLUGIN_FUNCTIONS[step]:
             error("%s model not implemented yet: %s" % (step, model))
-        if step == "Contact Network":
-            PLUGIN_FUNCTIONS[step][model](params, out_fn['contact_network'], intermediate_path=intermediate_path)
-            print_log("Contact Network written to: %s" % out_fn['contact_network'])
-        elif step == "Transmission Network":
-            PLUGIN_FUNCTIONS[step][model](params, out_fn['contact_network'], out_fn['transmission_network'], out_fn['all_state_transitions'], intermediate_path=intermediate_path)
-            print_log("Transmission Network written to: %s" % out_fn['transmission_network'])
-            print_log("All State Transitions written to: %s" % out_fn['all_state_transitions'])
-        else:
-            error("Step not implemented yet: %s" % step)
+        PLUGIN_FUNCTIONS[step][model](params, out_fn)
