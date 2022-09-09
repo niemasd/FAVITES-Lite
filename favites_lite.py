@@ -5,13 +5,13 @@ Niema Moshiri 2022
 '''
 
 # general imports and load global.json
-from json import loads as jloads
 from os import makedirs, remove
 from os.path import abspath, expanduser, isdir, isfile
 from shutil import rmtree
 from sys import argv, stderr
+import json
 GLOBAL_JSON_PATH = "%s/global.json" % '/'.join(abspath(expanduser(argv[0])).split('/')[:-1])
-GLOBAL = jloads(open(GLOBAL_JSON_PATH).read())
+GLOBAL = json.loads(open(GLOBAL_JSON_PATH).read())
 
 # FAVITES-Lite-specific imports
 from plugins import PLUGIN_FUNCTIONS
@@ -57,21 +57,36 @@ def validate_config(config):
         for p in GLOBAL['MODELS'][step][model]['PARAM']:
             if p not in config[step]['param']:
                 error('Invalid config file: Missing parameter for step "%s" model "%s": %s' % (step, model, p))
+        if len(config[step]['param']) != len(GLOBAL['MODELS'][step][model]['PARAM']):
+            error('Invalid config file: Too many parameters for step "%s" model "%s"' % (step, model))
 
 # run FAVITES-Lite
 if __name__ == "__main__":
     print_log("=== FAVITES-Lite v%s ===" % GLOBAL['VERSION'])
     args = parse_args(); validate_args(args)
-    config = jloads(open(args.config).read()); validate_config(config)
-    makedirs(args.output)
+    config = json.loads(open(args.config).read()); validate_config(config)
+    makedirs(args.output); f = open("%s/config.json" % args.output, 'w'); json.dump(config, f); f.close()
+    intermediate_path = "%s/intermediate_files" % args.output; makedirs(intermediate_path)
+    print_log("Intermediate Files: %s" % intermediate_path)
+    out_fn = {
+        'contact_network': "%s/contact_network.tsv" % args.output,
+        'transmission_network': "%s/transmission_network.tsv" % args.output,
+    }
     for step in GLOBAL['CONFIG_KEYS']:
         print_log(); print_log("=== %s ===" % step)
         model = config[step]['model']; print_log("Model: %s" % model)
+        params = config[step]['param']
         for p in GLOBAL['MODELS'][step][model]['PARAM']:
-            print_log("Parameter: %s: %s" % (p, config[step]['param'][p]))
+            print_log("Parameter: %s: %s" % (p, params[p]))
+        if step not in PLUGIN_FUNCTIONS:
+            error("Step not implemented yet: %s" % step)
+        if model not in PLUGIN_FUNCTIONS[step]:
+            error("%s model not implemented yet: %s" % (step, model))
         if step == "Contact Network":
-            if model not in PLUGIN_FUNCTIONS[step]:
-                error("%s model not implemented yet: %s" % (step, model))
-            PLUGIN_FUNCTIONS[step][model](config[step]['param'], "%s/contact_network.tsv" % args.output)
+            PLUGIN_FUNCTIONS[step][model](params, out_fn['contact_network'], intermediate_path=intermediate_path)
+            print_log("Contact Network written to: %s" % out_fn['contact_network'])
+        elif step == "Transmission Network":
+            PLUGIN_FUNCTIONS[step][model](params, out_fn['contact_network'], out_fn['transmission_network'], intermediate_path=intermediate_path)
+            print_log("Transmission Network written to: %s" % out_fn['transmission_network'])
         else:
             error("Step not implemented yet: %s" % step)
