@@ -830,6 +830,19 @@
                 "DESC": "The seed tree is sampled from a <ansired>Dual-Birth</ansired> model\nand is scaled to the specified <ansired>height</ansired>.",
                 "CITE": "Moshiri N, Mirarab S (2018). \"A Two-State Model of Tree Evolution and\n    Its Applications to Alu Retrotransposition.\" Syst Biol.\n    67(3):475-489. doi:10.1093/sysbio/syx088"
             },
+            "Non-Homogeneous Yule": {
+                "PARAM": {
+                    "rate_func": {
+                        "TYPE": "function",
+                        "DESC": "The rate function of the initial Non-Homogeneous Yule tree"
+                    },
+                    "height": {
+                        "TYPE": "positive float",
+                        "DESC": "Height of the resulting tree"
+                    }
+                },
+                "DESC": "The seed tree is sampled from a <ansired>Non-Homogeneous Yule</ansired> model\nwith <ansired>rate_func</ansired> and is scaled to the specified <ansired>height</ansired>."
+            },
             "Yule ": {
                 "PARAM": {
                     "height": {
