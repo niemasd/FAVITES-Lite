@@ -881,7 +881,7 @@
             "None": {
                 "DESC": "No phylogeny is simulated.\n\nMust select \"None\" for all downstream steps."
             },
-            "Yule ": {
+            "Yule": {
                 "PARAM": {
                     "height": {
                         "TYPE": "positive float",
