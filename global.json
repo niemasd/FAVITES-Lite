@@ -199,139 +199,139 @@
                         "TYPE": "non-negative integer",
                         "DESC": "The number of individuals in state D at the start of the simulation"
                     },
-                    "NS-D": {
+                    "R_NS-D": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate NS -> D (nodal)"
                     },
-                    "NS-S": {
+                    "R_NS-S": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate NS -> S (nodal)"
                     },
-                    "S-D": {
+                    "R_S-D": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate S -> D (nodal)"
                     },
-                    "S-I1": {
+                    "R_S-I1": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate S -> I1 (nodal, e.g. outside infection)"
                     },
-                    "S-I1_I1": {
+                    "R_S-I1_I1": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate S -> I1 induced by neighbors in I1"
                     },
-                    "S-I1_I2": {
+                    "R_S-I1_I2": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate S -> I1 induced by neighbors in I2"
                     },
-                    "S-I1_I3": {
+                    "R_S-I1_I3": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate S -> I1 induced by neighbors in I3"
                     },
-                    "S-I1_I4": {
+                    "R_S-I1_I4": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate S -> I1 induced by neighbors in I4"
                     },
-                    "S-I1_A1": {
+                    "R_S-I1_A1": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate S -> I1 induced by neighbors in A1"
                     },
-                    "S-I1_A2": {
+                    "R_S-I1_A2": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate S -> I1 induced by neighbors in A2"
                     },
-                    "S-I1_A3": {
+                    "R_S-I1_A3": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate S -> I1 induced by neighbors in A3"
                     },
-                    "S-I1_A4": {
+                    "R_S-I1_A4": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate S -> I1 induced by neighbors in A4"
                     },
-                    "I1-D": {
+                    "R_I1-D": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate I1 -> D (nodal)"
                     },
-                    "I1-I2": {
+                    "R_I1-I2": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate I1 -> I2 (nodal)"
                     },
-                    "I1-A1": {
+                    "R_I1-A1": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate I1 -> A1 (nodal)"
                     },
-                    "A1-D": {
+                    "R_A1-D": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate A1 -> D (nodal)"
                     },
-                    "A1-A2": {
+                    "R_A1-A2": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate A1 -> A2 (nodal)"
                     },
-                    "A1-I1": {
+                    "R_A1-I1": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate A1 -> I1 (nodal)"
                     },
-                    "I2-D": {
+                    "R_I2-D": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate I2 -> D (nodal)"
                     },
-                    "I2-I3": {
+                    "R_I2-I3": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate I2 -> I3 (nodal)"
                     },
-                    "I2-A2": {
+                    "R_I2-A2": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate I2 -> A2 (nodal)"
                     },
-                    "A2-D": {
+                    "R_A2-D": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate A2 -> D (nodal)"
                     },
-                    "A2-A3": {
+                    "R_A2-A3": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate A2 -> A3 (nodal)"
                     },
-                    "A2-I2": {
+                    "R_A2-I2": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate A1 -> I2 (nodal)"
                     },
-                    "I3-D": {
+                    "R_I3-D": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate I3 -> D (nodal)"
                     },
-                    "I3-I4": {
+                    "R_I3-I4": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate I3 -> I4 (nodal)"
                     },
-                    "I3-A3": {
+                    "R_I3-A3": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate I3 -> A3 (nodal)"
                     },
-                    "A3-D": {
+                    "R_A3-D": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate A3 -> D (nodal)"
                     },
-                    "A3-A4": {
+                    "R_A3-A4": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate A3 -> A4 (nodal)"
                     },
-                    "A3-I3": {
+                    "R_A3-I3": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate A3 -> I3 (nodal)"
                     },
-                    "I4-D": {
+                    "R_I4-D": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate I4 -> D (nodal)"
                     },
-                    "I4-A4": {
+                    "R_I4-A4": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate I4 -> A4 (nodal)"
                     },
-                    "A4-D": {
+                    "R_A4-D": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate A4 -> D (nodal)"
                     },
-                    "A4-I4": {
+                    "R_A4-I4": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate A4 -> I4 (nodal)"
                     }
@@ -373,131 +373,131 @@
                         "TYPE": "non-negative integer",
                         "DESC": "The number of individuals in state FIA at the start of the simulation"
                     },
-                    "MA-MS": {
+                    "R_MA-MS": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate MA -> MS (nodal)"
                     },
-                    "MS-MA": {
+                    "R_MS-MA": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate MS -> MA (nodal)"
                     },
-                    "MS-MIS": {
+                    "R_MS-MIS": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate MS -> MIS (nodal, e.g. outside infection)"
                     },
-                    "MS-MIS_MIS": {
+                    "R_MS-MIS_MIS": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate MS -> MIS induced by neighbors in MIS"
                     },
-                    "MS-MIS_MIA": {
+                    "R_MS-MIS_MIA": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate MS -> MIS induced by neighbors in MIA"
                     },
-                    "MS-MIS_FIS": {
+                    "R_MS-MIS_FIS": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate MS -> MIS induced by neighbors in FIS"
                     },
-                    "MS-MIS_FIA": {
+                    "R_MS-MIS_FIA": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate MS -> MIS induced by neighbors in FIA"
                     },
-                    "MS-MIA": {
+                    "R_MS-MIA": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate MS -> MIA (nodal, e.g. outside infection)"
                     },
-                    "MS-MIA_MIS": {
+                    "R_MS-MIA_MIS": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate MS -> MIA induced by neighbors in MIS"
                     },
-                    "MS-MIA_MIA": {
+                    "R_MS-MIA_MIA": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate MS -> MIA induced by neighbors in MIA"
                     },
-                    "MS-MIA_FIS": {
+                    "R_MS-MIA_FIS": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate MS -> MIA induced by neighbors in FIS"
                     },
-                    "MS-MIA_FIA": {
+                    "R_MS-MIA_FIA": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate MS -> MIA induced by neighbors in FIA"
                     },
-                    "MIS-MA": {
+                    "R_MIS-MA": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate MIS -> MA"
                     },
-                    "MIS-MS": {
+                    "R_MIS-MS": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate MIS -> MS"
                     },
-                    "MIA-MA": {
+                    "R_MIA-MA": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate MIA -> MA"
                     },
-                    "MIA-MS": {
+                    "R_MIA-MS": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate MIA -> MS"
                     },
-                    "FA-FS": {
+                    "R_FA-FS": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate FA -> FS (nodal)"
                     },
-                    "FS-FA": {
+                    "R_FS-FA": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate FS -> FA (nodal)"
                     },
-                    "FS-FIS": {
+                    "R_FS-FIS": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate FS -> FIS (nodal, e.g. outside infection)"
                     },
-                    "FS-FIS_MIS": {
+                    "R_FS-FIS_MIS": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate FS -> FIS induced by neighbors in MIS"
                     },
-                    "FS-FIS_MIA": {
+                    "R_FS-FIS_MIA": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate FS -> FIS induced by neighbors in MIA"
                     },
-                    "FS-FIS_FIS": {
+                    "R_FS-FIS_FIS": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate FS -> FIS induced by neighbors in FIS"
                     },
-                    "FS-FIS_FIA": {
+                    "R_FS-FIS_FIA": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate FS -> FIS induced by neighbors in FIA"
                     },
-                    "FS-FIA": {
+                    "R_FS-FIA": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate FS -> FIA (nodal, e.g. outside infection)"
                     },
-                    "FS-FIA_MIS": {
+                    "R_FS-FIA_MIS": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate FS -> FIA induced by neighbors in MIS"
                     },
-                    "FS-FIA_MIA": {
+                    "R_FS-FIA_MIA": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate FS -> FIA induced by neighbors in MIA"
                     },
-                    "FS-FIA_FIS": {
+                    "R_FS-FIA_FIS": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate FS -> FIA induced by neighbors in FIS"
                     },
-                    "FS-FIA_FIA": {
+                    "R_FS-FIA_FIA": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate FS -> FIA induced by neighbors in FIA"
                     },
-                    "FIS-FA": {
+                    "R_FIS-FA": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate FIS -> FA"
                     },
-                    "FIS-FS": {
+                    "R_FIS-FS": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate FIS -> FS"
                     },
-                    "FIA-FA": {
+                    "R_FIA-FA": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate FIA -> FA"
                     },
-                    "FIA-FS": {
+                    "R_FIA-FS": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate FIA -> FS"
                     }
@@ -522,35 +522,35 @@
                         "TYPE": "non-negative integer",
                         "DESC": "The number of individuals in state I at the start of the simulation"
                     },
-                    "S-A": {
+                    "R_S-A": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate S -> A (nodal)"
                     },
-                    "S-A_A": {
+                    "R_S-A_A": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate S -> A induced by neighbors in A"
                     },
-                    "S-A_I": {
+                    "R_S-A_I": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate S -> A induced by neighbors in I"
                     },
-                    "S-I": {
+                    "R_S-I": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate S -> I (nodal, e.g. outside infection)"
                     },
-                    "S-I_I": {
+                    "R_S-I_I": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate S -> I induced by neighbors in I"
                     },
-                    "A-I": {
+                    "R_A-I": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate A -> I (nodal, e.g. outside infection)"
                     },
-                    "A-I_I": {
+                    "R_A-I_I": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate A -> I induced by neighbors in I"
                     },
-                    "I-S": {
+                    "R_I-S": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate I -> S (nodal)"
                     }
@@ -575,19 +575,19 @@
                         "TYPE": "non-negative integer",
                         "DESC": "The number of individuals in state R at the start of the simulation"
                     },
-                    "S-E": {
+                    "R_S-E": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate S -> E (nodal, e.g. outside infection)"
                     },
-                    "S-E_I": {
+                    "R_S-E_I": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate S -> E induced by neighbors in I"
                     },
-                    "E-I": {
+                    "R_E-I": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate E -> I (nodal)"
                     },
-                    "I-R": {
+                    "R_I-R": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate I -> R (nodal)"
                     }
@@ -604,11 +604,11 @@
                         "TYPE": "non-negative integer",
                         "DESC": "The number of individuals in state I at the start of the simulation"
                     },
-                    "S-I": {
+                    "R_S-I": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate S -> I (nodal, e.g. outside infection)"
                     },
-                    "S-I_I": {
+                    "R_S-I_I": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate S -> I induced by neighbors in I"
                     }
@@ -629,15 +629,15 @@
                         "TYPE": "non-negative integer",
                         "DESC": "The number of individuals in state R at the start of the simulation"
                     },
-                    "S-I": {
+                    "R_S-I": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate S -> I (nodal, e.g. outside infection)"
                     },
-                    "S-I_I": {
+                    "R_S-I_I": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate S -> I induced by neighbors in I"
                     },
-                    "I-R": {
+                    "R_I-R": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate I -> R (nodal)"
                     }
@@ -654,15 +654,15 @@
                         "TYPE": "non-negative integer",
                         "DESC": "The number of individuals in state I at the start of the simulation"
                     },
-                    "S-I": {
+                    "R_S-I": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate S -> I (nodal, e.g. outside infection)"
                     },
-                    "S-I_I": {
+                    "R_S-I_I": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate S -> I induced by neighbors in I"
                     },
-                    "I-S": {
+                    "R_I-S": {
                         "TYPE": "non-negative float",
                         "DESC": "The transition rate I -> S (nodal)"
                     }
