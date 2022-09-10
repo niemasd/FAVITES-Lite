@@ -19,9 +19,9 @@ def coatran(mode, params, out_fn, verbose=True):
     for i in range(len(trees)):
         seed_tree_leaves[i].children.append(trees[i].root)
     seed_tree.suppress_unifurcations()
-    seed_tree.write_tree_newick(out_fn['viral_phylogeny'])
+    seed_tree.write_tree_newick(out_fn['viral_phylogeny_time'])
     if verbose:
-        print_log("Viral Phylogeny (Time) written to: %s" % out_fn['viral_phylogeny'])
+        print_log("Viral Phylogeny (Time) written to: %s" % out_fn['viral_phylogeny_time'])
 
 def coatran_transtree(params, out_fn, verbose=True):
     coatran("transtree", params, out_fn, verbose=verbose)

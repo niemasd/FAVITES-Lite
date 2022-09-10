@@ -73,7 +73,8 @@ if __name__ == "__main__":
         'all_state_transitions': "%s/all_state_transitions.tsv" % args.output,
         'sample_times': "%s/sample_times.tsv" % args.output,
         'viral_phylogeny_seeds': "%s/intermediate_files/viral_phylogeny_seed.nwk" % args.output,
-        'viral_phylogeny': "%s/phylogeny.time.nwk" % args.output
+        'viral_phylogeny_time': "%s/phylogeny.time.nwk" % args.output,
+        'viral_phylogeny_mut': "%s/phylogeny.mutations.nwk" % args.output,
     }
     makedirs(out_fn['intermediate']); print_log("Intermediate Files: %s" % out_fn['intermediate'])
     for step in GLOBAL['CONFIG_KEYS']:
