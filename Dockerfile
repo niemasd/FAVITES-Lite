@@ -42,8 +42,9 @@ RUN apt-get update && apt-get -y upgrade && \
     rm -rf Seq-Gen-* && \
 
     # set up FAVITES-Lite
-    mv FAVITES-Lite* /usr/local/bin/ && \
-    ln -s /usr/local/bin/FAVITES-Lite*/favites_lite.py /usr/local/bin/favites_lite.py && \
+    wget -qO- "https://github.com/niemasd/FAVITES-Lite/tarball/master" | tar -zx && \
+    mv *FAVITES-Lite* /usr/local/bin/FAVITES-Lite && \
+    ln -s /usr/local/bin/FAVITES-Lite/favites_lite.py /usr/local/bin/favites_lite.py && \
 
     # Clean up
     rm -rf /root/.cache /tmp/*
