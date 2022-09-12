@@ -8,4 +8,4 @@ jobs:
         steps:
             - name: Run FAVITES-Lite Tests
               run: |
-                  ls -la ${{ github.workspace }}
+                  ls -la
