@@ -6,6 +6,8 @@ jobs:
         container:
             image: niemasd/favites_lite:latest
         steps:
+            - name: Set up Git repository
+              uses: actions/checkout@v2
             - name: Run FAVITES-Lite Tests
               run: |
                   ls -la
