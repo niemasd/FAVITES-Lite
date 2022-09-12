@@ -1199,6 +1199,31 @@
                     }
                 },
                 "DESC": "The ancestral sequence is randomly generated with the exact\nuser-provided base frequencies (as proportions)."
+            },
+            "Base Probabilities": {
+                "PARAM": {
+                    "k": {
+                        "TYPE": "positive integer",
+                        "DESC": "Length of ancestral sequence"
+                    },
+                    "p_A": {
+                        "TYPE": "probability",
+                        "DESC": "Probability of A"
+                    },
+                    "p_C": {
+                        "TYPE": "probability",
+                        "DESC": "Probability of C"
+                    },
+                    "p_G": {
+                        "TYPE": "probability",
+                        "DESC": "Probability of G"
+                    },
+                    "p_T": {
+                        "TYPE": "probability",
+                        "DESC": "Probability of T"
+                    }
+                },
+                "DESC": "Each letter of the ancestral sequence is randomly selected\naccording to the user-provided base probabilities."
             }
         },
         "Sequence Evolution": {
