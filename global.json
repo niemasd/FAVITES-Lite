@@ -812,6 +812,28 @@
                 "DESC": "Each sample time of a given individual is sampled from a <ansired>Uniform</ansired>\ndistribution of the individual's infection time window.\n\nIf the individual has multiple infection time windows\n(i.e., from recovery and subsequent reinfection),\na single time window is chosen randomly with equal probability."
             }
         },
+        "Viral Phylogeny (Transmissions)": {
+            "Constant Effective Population Size": {
+                "PARAM": {
+                    "N": {
+                        "TYPE": "positive float",
+                        "DESC": "Effective intra-host viral population size"
+                    }
+                },
+                "DESC": "The effective intra-host viral population size is constant."
+            },
+            "Infection Time": {
+                "PARAM": {},
+                "DESC": "Coalescent events occur as early in time as possible."
+            },
+            "None": {
+                "DESC": "No phylogeny is simulated.\n\nMust select \"None\" for all downstream steps."
+            },
+            "Transmission Tree": {
+                "PARAM": {},
+                "DESC": "Coalescent events occur as late in time as possible."
+            }
+        },
         "Viral Phylogeny (Seeds)": {
             "Birth-Death": {
                 "PARAM": {
@@ -877,28 +899,6 @@
                     }
                 },
                 "DESC": "The seed tree is sampled from a <ansired>Yule</ansired> model\nand is scaled to the specified <ansired>height</ansired>."
-            }
-        },
-        "Viral Phylogeny (Transmissions)": {
-            "Constant Effective Population Size": {
-                "PARAM": {
-                    "N": {
-                        "TYPE": "positive float",
-                        "DESC": "Effective intra-host viral population size"
-                    }
-                },
-                "DESC": "The effective intra-host viral population size is constant."
-            },
-            "Infection Time": {
-                "PARAM": {},
-                "DESC": "Coalescent events occur as early in time as possible."
-            },
-            "None": {
-                "DESC": "No phylogeny is simulated.\n\nMust select \"None\" for all downstream steps."
-            },
-            "Transmission Tree": {
-                "PARAM": {},
-                "DESC": "Coalescent events occur as late in time as possible."
             }
         },
         "Mutation Rates": {
