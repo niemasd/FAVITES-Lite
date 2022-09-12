@@ -9,6 +9,7 @@ from os import makedirs, remove
 from os.path import abspath, expanduser, isdir, isfile
 from shutil import rmtree
 from sys import argv, stderr
+from time import time
 import json
 GLOBAL_JSON_PATH = "%s/global.json" % '/'.join(abspath(expanduser(argv[0])).split('/')[:-1])
 GLOBAL = json.loads(open(GLOBAL_JSON_PATH).read())
@@ -62,6 +63,7 @@ def validate_config(config):
 
 # run FAVITES-Lite
 if __name__ == "__main__":
+    start_time = time()
     print_log("=== FAVITES-Lite v%s ===" % GLOBAL['VERSION'])
     args = parse_args(); validate_args(args)
     config = json.loads(open(args.config).read()); validate_config(config)
@@ -91,3 +93,6 @@ if __name__ == "__main__":
         if model not in PLUGIN_FUNCTIONS[step]:
             error("%s model not implemented yet: %s" % (step, model))
         PLUGIN_FUNCTIONS[step][model](params, out_fn)
+    end_time = time()
+    print_log(); print_log("=== Completion ===")
+    print_log("Total runtime: %s seconds" % (end_time-start_time))
