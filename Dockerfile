@@ -41,5 +41,9 @@ RUN apt-get update && apt-get -y upgrade && \
     cd ../.. && \
     rm -rf Seq-Gen-* && \
 
+    # set up FAVITES-Lite
+    mv FAVITES-Lite* /usr/local/bin/ && \
+    ln -s /usr/local/bin/FAVITES-Lite*/favites_lite.py /usr/local/bin/favites_lite.py && \
+
     # Clean up
     rm -rf /root/.cache /tmp/*
