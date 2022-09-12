@@ -1175,7 +1175,7 @@
             }
         },
         "Ancestral Sequence": {
-            "Exact Frequencies": {
+            "Exact Base Frequencies": {
                 "PARAM": {
                     "k": {
                         "TYPE": "positive integer",
@@ -1198,7 +1198,7 @@
                         "DESC": "Frequency of T"
                     }
                 },
-                "DESC": "The ancestral sequence is randomly generated with the exact\nuser-provided base proportions."
+                "DESC": "The ancestral sequence is randomly generated with the exact\nuser-provided base frequencies (as proportions)."
             }
         },
         "Sequence Evolution": {
