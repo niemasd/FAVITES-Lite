@@ -2,6 +2,7 @@ on: [push]
 
 jobs:
     favites_lite_tests:
+        runs-on: ubuntu-latest
         container:
             image: niemasd/favites_lite:latest
         steps:
