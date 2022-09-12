@@ -1,0 +1,10 @@
+on: [push]
+
+jobs:
+    favites_lite_tests:
+        container:
+            image: niemasd/favites_lite:latest
+        steps:
+            - name: Run FAVITES-Lite Tests
+              run: |
+                  ls -la ${{ github.workspace }}
