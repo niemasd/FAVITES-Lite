@@ -1,6 +1,6 @@
 {
     "VERSION": "0.0.1",
-    "CONFIG_KEYS": ["Contact Network", "Transmission Network", "Sample Times", "Viral Phylogeny (Seeds)", "Viral Phylogeny (Transmissions)", "Mutation Rates", "Sequence Evolution"],
+    "CONFIG_KEYS": ["Contact Network", "Transmission Network", "Sample Times", "Viral Phylogeny (Seeds)", "Viral Phylogeny (Transmissions)", "Mutation Rates", "Ancestral Sequence", "Sequence Evolution"],
     "TYPES": ["positive integer"],
     "DESC": {
         "Contact Network": "The <ansired>Contact Network</ansired> graph model describes all social interactions:\n  - Nodes represent individuals in the population\n  - Edges represent all interactions across which the pathogen can transmit\n  - Currently, FAVITES-Lite only supports static (i.e., unchanging) contact networks",
@@ -9,6 +9,7 @@
         "Viral Phylogeny (Seeds)": "The <ansired>Viral Phylogeny (Seeds)</ansired> phylogenetic model describes the topology and\nbranch lengths (in unit of time) of the viral phylogeny prior to the epidemic\n(i.e., the viral phylogeny of the seed individuals).",
         "Viral Phylogeny (Transmissions)": "The <ansired>Viral Phylogeny (Transmissions)</ansired> coalescent model describes the topology and\nbranch lengths (in unit of time) of the viral phylogeny throughout the epidemic,\nwhich is constrained by the transmission network.",
         "Mutation Rates": "The <ansired>Mutation Rates</ansired> model describes how mutation rates (i.e., mutations/time)\nare sampled along each branch of the viral time phylogeny.",
+        "Ancestral Sequence": "The <ansired>Ancestral Sequence</ansired> model describes how the ancestral (i.e., root)\nsequence is generated/selected.",
         "Sequence Evolution": "The <ansired>Sequence Evolution</ansired> model describes how sequences evolve down the phylogeny."
     },
     "MODELS": {
@@ -1171,6 +1172,33 @@
                     }
                 },
                 "DESC": "Each branch's length is multiplied by a rate that is sampled from\n<ansired>Weibull</ansired>(<ansired>lambda</ansired>, <ansired>k</ansired>)."
+            }
+        },
+        "Ancestral Sequence": {
+            "Exact Frequencies": {
+                "PARAM": {
+                    "k": {
+                        "TYPE": "positive integer",
+                        "DESC": "Length of ancestral sequence"
+                    },
+                    "p_A": {
+                        "TYPE": "probability",
+                        "DESC": "Frequency of A"
+                    },
+                    "p_C": {
+                        "TYPE": "probability",
+                        "DESC": "Frequency of C"
+                    },
+                    "p_G": {
+                        "TYPE": "probability",
+                        "DESC": "Frequency of G"
+                    },
+                    "p_T": {
+                        "TYPE": "probability",
+                        "DESC": "Frequency of T"
+                    }
+                },
+                "DESC": "The ancestral sequence is randomly generated with the exact\nuser-provided base proportions."
             }
         },
         "Sequence Evolution": {
