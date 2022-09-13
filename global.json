@@ -576,7 +576,15 @@
                         "DESC": "The transition rate I -> S (nodal)"
                     }
                 },
-                "DESC": "The <ansired>Susceptible-Alert-Infected-Susceptible (SAIS)</ansired> model has three states:\n  - S: Susceptible\n  - A: Alert\n  - I: Infected\n\nThe following transitions are possible:\n  - S -> A (nodal or induced by A or I)\n  - S -> I (induced by I or outside)\n  - A -> I (induced by I or outside)\n  - I -> S (nodal)"
+                "REQS": {
+                    "Sample Times": "None",
+                    "Viral Phylogeny (Transmissions)": "None",
+                    "Viral Phylogeny (Seeds)": "None",
+                    "Mutation Rates": "None",
+                    "Ancestral Sequence": "None",
+                    "Sequence Evolution": "None"
+                },
+                "DESC": "The <ansired>Susceptible-Alert-Infected-Susceptible (SAIS)</ansired> model has three states:\n  - S: Susceptible\n  - A: Alert\n  - I: Infected\n\nThe following transitions are possible:\n  - S -> A (nodal or induced by A or I)\n  - S -> I (induced by I or outside)\n  - A -> I (induced by I or outside)\n  - I -> S (nodal)\n\nMust select \"None\" for all downstream steps."
             },
             "Susceptible-Exposed-Infected-Removed (SEIR)": {
                 "PARAM": {

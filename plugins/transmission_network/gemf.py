@@ -25,6 +25,7 @@ def gemf_write_infected_states(model, infected_states_fn):
     infected_states = {
         "Granich": ['I1', 'I2', 'I3', 'I4', 'A1', 'A2', 'A3', 'A4'],
         "Hethcote-Yorke": ['MIS', 'MIA', 'FIS', 'FIA'],
+        "SAIS": ['I'],
         "SIR": ['I'],
     }
     if model not in infected_states:
@@ -86,5 +87,7 @@ def gemf_favites_granich(params, out_fn, verbose=True):
     gemf_favites("Granich", params, out_fn, verbose=verbose)
 def gemf_favites_hethcote_yorke(params, out_fn, verbose=True):
     gemf_favites("Hethcote-Yorke", params, out_fn, verbose=verbose)
+def gemf_favites_sais(params, out_fn, verbose=True):
+    gemf_favites("SAIS", params, out_fn, verbose=verbose)
 def gemf_favites_sir(params, out_fn, verbose=True):
     gemf_favites("SIR", params, out_fn, verbose=verbose)
