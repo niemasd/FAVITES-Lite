@@ -10,8 +10,8 @@ def state_entry(params, out_fn, mode, verbose=True):
         sampled_nodes = None
     f = open(out_fn['sample_times'], 'w')
     for line in open(out_fn['all_state_transitions']):
-        node, s, t = [v.strip() for v in line.split('\t')]; t = float(t)
-        if s not in sampled_states:
+        node, from_s, to_s, t = [v.strip() for v in line.split('\t')]; t = float(t)
+        if to_s not in sampled_states:
             continue
         out = "%s\t%s\n" % (node, t)
         if mode == 'all':
