@@ -18,7 +18,7 @@ RUN apt-get update && apt-get -y upgrade && \
     rm -rf NiemaGraphGen-* && \
 
     # install GEMF_FAVITES
-    wget -qO- "https://github.com/niemasd/GEMF/archive/refs/tags/1.0.2.tar.gz" | tar -zx && \
+    wget -qO- "https://github.com/niemasd/GEMF/archive/refs/tags/1.0.3.tar.gz" | tar -zx && \
     cd GEMF-* && \
     make && \
     mv GEMF GEMF_FAVITES.py /usr/local/bin/ && \
