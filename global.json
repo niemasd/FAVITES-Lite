@@ -515,6 +515,7 @@
                 "CITE": "Hethcote HW, Yorke JA (1984). \"Gonorrhea transmission dynamics and\n    control.\" Lect Notes Math. 56. doi:10.1007/978-3-662-07544-9"
             },
             "None": {
+                "PARAM": {},
                 "DESC": "No transmission network is simulated.\n\nMust select \"None\" for all downstream steps."
             },
             "Susceptible-Alert-Infected-Susceptible (SAIS)": {
@@ -722,6 +723,7 @@
                 "DESC": "Each sample time of a given individual is sampled from a <ansired>Gamma</ansired>\ndistribution of the individual's infection time window.\n\nIf the individual has multiple infection time windows\n(i.e., from recovery and subsequent reinfection),\na single time window is chosen randomly with equal probability."
             },
             "None": {
+                "PARAM": {},
                 "DESC": "No individuals are sampled.\n\nMust select \"None\" for all downstream steps."
             },
             "Specific Time": {
@@ -827,6 +829,7 @@
                 "DESC": "Coalescent events occur as early in time as possible."
             },
             "None": {
+                "PARAM": {},
                 "DESC": "No phylogeny is simulated.\n\nMust select \"None\" for all downstream steps."
             },
             "Transmission Tree": {
@@ -889,6 +892,7 @@
                 "DESC": "The seed tree is sampled from a <ansired>Non-Homogeneous Yule</ansired> model\nwith <ansired>rate_func</ansired> and is scaled to the specified <ansired>height</ansired>."
             },
             "None": {
+                "PARAM": {},
                 "DESC": "No phylogeny is simulated.\n\nMust select \"None\" for all downstream steps."
             },
             "Yule": {
@@ -1076,6 +1080,7 @@
                 "DESC": "Each branch's length is multiplied by a rate that is sampled from a\n<ansired>Noncentral F</ansired> distribution with degrees of freedom parameters <ansired>d1</ansired> and <ansired>d2</ansired>,\nand with non-centrality parameter <ansired>lambda</ansired>."
             },
             "None": {
+                "PARAM": {},
                 "DESC": "No mutation rates are sampled (i.e., no mutation tree is output).\n\nMust select \"None\" for all downstream steps."
             },
             "Pareto": {
@@ -1224,6 +1229,10 @@
                     }
                 },
                 "DESC": "Each letter of the ancestral sequence is randomly selected\naccording to the user-provided base probabilities."
+            },
+            "None": {
+                "PARAM": {},
+                "DESC": "No ancestral sequence is simulated.\n\nMust select \"None\" for all downstream steps."
             }
         },
         "Sequence Evolution": {
@@ -1395,6 +1404,7 @@
                 "DESC": "Sequences evolve according to a <ansired>General Time-Reversible (GTR)</ansired>\nsubstitution model with <ansired>Gamma</ansired>-distributed rate heterogeneity."
             },
             "None": {
+                "PARAM": {},
                 "DESC": "No sequences are simulated.\n\nMust select \"None\" for all downstream steps."
             }
         }
