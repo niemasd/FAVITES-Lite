@@ -25,6 +25,7 @@ def parse_args():
     parser.add_argument('-c', '--config', required=True, type=str, help="FAVITES-Lite Config File")
     parser.add_argument('-o', '--output', required=True, type=str, help="Output Directory")
     parser.add_argument('--overwrite', action="store_true", help="Overwrite output directory if it exists")
+    parser.add_argument('--quiet', action="store_true", help="Suppress Log Messages")
     parser.add_argument('--version', action="store_true", help="Show FAVITES-Lite version")
     return parser.parse_args()
 
@@ -64,8 +65,10 @@ def validate_config(config):
 # run FAVITES-Lite
 if __name__ == "__main__":
     start_time = time()
-    print_log("=== FAVITES-Lite v%s ===" % GLOBAL['VERSION'])
-    args = parse_args(); validate_args(args)
+    args = parse_args(); verbose = not args.quiet
+    if verbose:
+        print_log("=== FAVITES-Lite v%s ===" % GLOBAL['VERSION'])
+    validate_args(args, verbose=verbose)
     config = json.loads(open(args.config).read()); validate_config(config)
     makedirs(args.output); f = open("%s/config.json" % args.output, 'w'); json.dump(config, f); f.close()
     out_fn = {
@@ -81,18 +84,25 @@ if __name__ == "__main__":
         'ancestral_seq': "%s/ancestral_sequence.fas" % args.output,
         'sequences': "%s/sequences.fas" % args.output,
     }
-    makedirs(out_fn['intermediate']); print_log("Intermediate Files: %s" % out_fn['intermediate'])
+    makedirs(out_fn['intermediate'])
+    if verbose:
+        print_log("Intermediate Files: %s" % out_fn['intermediate'])
     for step in GLOBAL['CONFIG_KEYS']:
-        print_log(); print_log("=== %s ===" % step)
-        model = config[step]['model'].strip(); print_log("Model: %s" % model)
+        if verbose:
+            print_log(); print_log("=== %s ===" % step)
+        model = config[step]['model'].strip()
+        if verbose:
+            print_log("Model: %s" % model)
         params = config[step]['param']
-        for p in GLOBAL['MODELS'][step][model]['PARAM']:
-            print_log("Parameter: %s: %s" % (p, params[p]))
+        if verbose:
+            for p in GLOBAL['MODELS'][step][model]['PARAM']:
+                print_log("Parameter: %s: %s" % (p, params[p]))
         if step not in PLUGIN_FUNCTIONS:
             error("Step not implemented yet: %s" % step)
         if model not in PLUGIN_FUNCTIONS[step]:
             error("%s model not implemented yet: %s" % (step, model))
-        PLUGIN_FUNCTIONS[step][model](params, out_fn)
+        PLUGIN_FUNCTIONS[step][model](params, out_fn, verbose=verbose)
     end_time = time()
-    print_log(); print_log("=== Completion ===")
-    print_log("Total runtime: %s seconds" % (end_time-start_time))
+    if verbose:
+        print_log(); print_log("=== Completion ===")
+        print_log("Total runtime: %s seconds" % (end_time-start_time))

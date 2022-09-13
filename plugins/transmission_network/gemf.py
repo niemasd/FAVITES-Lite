@@ -73,9 +73,11 @@ def gemf_favites(model, params, out_fn, verbose=True):
         print_log("Command: %s" % ' '.join(command))
     call(command)
     copy2('%s/transmission_network.txt' % gemf_out, out_fn['transmission_network'])
-    print_log("Transmission Network written to: %s" % out_fn['transmission_network'])
+    if verbose:
+        print_log("Transmission Network written to: %s" % out_fn['transmission_network'])
     copy2('%s/all_state_transitions.txt' % gemf_out, out_fn['all_state_transitions'])
-    print_log("All State Transitions written to: %s" % out_fn['all_state_transitions'])
+    if verbose:
+        print_log("All State Transitions written to: %s" % out_fn['all_state_transitions'])
 
 # model-specific functions
 def gemf_favites_sir(params, out_fn, verbose=True):
