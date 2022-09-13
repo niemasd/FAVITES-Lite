@@ -68,6 +68,8 @@ def validate_config(config):
 
 # run FAVITES-Lite
 if __name__ == "__main__":
+    if len(argv) > 1 and argv[1].lower().lstrip('-') == 'version':
+        print("FAVITES-Lite v%s" % GLOBAL['VERSION']); exit()
     start_time = time()
     args = parse_args(); verbose = not args.quiet
     if verbose:

@@ -735,7 +735,7 @@
                         "DESC": "Scale parameter of the Gamma distribution"
                     }
                 },
-                "DESC": "Each sample time of a given individual is sampled from a <ansired>Gamma</ansired>\ndistribution of the individual's infection time window.\n\nIf the individual has multiple infection time windows\n(i.e., from recovery and subsequent reinfection),\na single time window is chosen randomly with equal probability."
+                "DESC": "Each sample time of a given individual is sampled from a <ansired>Gamma</ansired>\ndistribution of the individual's time window of specified states.\n\nIf the individual has multiple time windows,\na single time window is chosen randomly with equal probability."
             },
             "None": {
                 "PARAM": {},
@@ -794,7 +794,7 @@
                         "DESC": "The number of times every individual is sampled"
                     }
                 },
-                "DESC": "Each sample time of a given individual is sampled from a \"standardized form\"\n<ansired>Truncated Exponential</ansired> distribution of the individual's infection time window.\n\nIf the individual has multiple infection time windows\n(i.e., from recovery and subsequent reinfection),\na single time window is chosen randomly with equal probability."
+                "DESC": "Each sample time of a given individual is sampled from a \"standardized form\"\n<ansired>Truncated Exponential</ansired> distribution of the individual's infection time window.\n\nIf the individual has multiple time windows,\na single time window is chosen randomly with equal probability."
             },
             "Truncated Normal": {
                 "PARAM": {
@@ -815,7 +815,7 @@
                         "DESC": "Scale parameter of the Truncated Normal distribution"
                     }
                 },
-                "DESC": "Each sample time of a given individual is sampled from a <ansired>Truncated Normal</ansired>\ndistribution of the individual's infection time window.\n\nIf the individual has multiple infection time windows\n(i.e., from recovery and subsequent reinfection),\na single time window is chosen randomly with equal probability.\n\nThe distribution is in the window [0,1]:\n  - The user can move the mode of the underlying Normal distribution via the <ansired>mu</ansired> parameter\n  - The user can scale the underlying Normal distribution via the <ansired>sigma</ansired> parameter",
+                "DESC": "Each sample time of a given individual is sampled from a <ansired>Truncated Normal</ansired>\ndistribution of the individual's infection time window.\n\nIf the individual has multiple time windows,\na single time window is chosen randomly with equal probability.",
                 "PROP": [
                     "To center the underlying Normal at the center of the [0,1] window: <ansired>mu</ansired> = 0.5",
                     "To center the underlying Normal at the left of the [0,1] window: <ansired>mu</ansired> = 0",
@@ -833,7 +833,7 @@
                         "DESC": "The number of times every individual is sampled"
                     }
                 },
-                "DESC": "Each sample time of a given individual is sampled from a <ansired>Uniform</ansired>\ndistribution of the individual's infection time window.\n\nIf the individual has multiple infection time windows\n(i.e., from recovery and subsequent reinfection),\na single time window is chosen randomly with equal probability."
+                "DESC": "Each sample time of a given individual is sampled from a <ansired>Uniform</ansired>\ndistribution of the individual's infection time window.\n\nIf the individual has multiple time windows,\na single time window is chosen randomly with equal probability."
             }
         },
         "Viral Phylogeny (Transmissions)": {
