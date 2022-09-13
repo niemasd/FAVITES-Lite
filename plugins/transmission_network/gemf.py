@@ -27,6 +27,7 @@ def gemf_write_infected_states(model, infected_states_fn):
         "Hethcote-Yorke": ['MIS', 'MIA', 'FIS', 'FIA'],
         "SAIS": ['I'],
         "SIR": ['I'],
+        "SIS": ['I'],
     }
     if model not in infected_states:
         error("Invalid GEMF model: %s" % model)
@@ -91,3 +92,5 @@ def gemf_favites_sais(params, out_fn, verbose=True):
     gemf_favites("SAIS", params, out_fn, verbose=verbose)
 def gemf_favites_sir(params, out_fn, verbose=True):
     gemf_favites("SIR", params, out_fn, verbose=verbose)
+def gemf_favites_sis(params, out_fn, verbose=True):
+    gemf_favites("SIS", params, out_fn, verbose=verbose)

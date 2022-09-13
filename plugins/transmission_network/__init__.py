@@ -7,4 +7,5 @@ PLUGIN_FUNCTIONS = {
     "None": lambda x=None,y=None,verbose=None: None,
     "Susceptible-Alert-Infected-Susceptible (SAIS)": gemf.gemf_favites_sais,
     "Susceptible-Infected-Removed (SIR)": gemf.gemf_favites_sir,
+    "Susceptible-Infected-Susceptible (SIS)": gemf.gemf_favites_sis,
 }
