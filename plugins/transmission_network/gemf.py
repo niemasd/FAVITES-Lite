@@ -27,6 +27,7 @@ def gemf_write_infected_states(model, infected_states_fn):
         "Hethcote-Yorke": ['MIS', 'MIA', 'FIS', 'FIA'],
         "SAIS": ['I'],
         "SEIR": ['I'],
+        "SI": ['I'],
         "SIR": ['I'],
         "SIS": ['I'],
     }
@@ -93,6 +94,8 @@ def gemf_favites_sais(params, out_fn, verbose=True):
     gemf_favites("SAIS", params, out_fn, verbose=verbose)
 def gemf_favites_seir(params, out_fn, verbose=True):
     gemf_favites("SEIR", params, out_fn, verbose=verbose)
+def gemf_favites_si(params, out_fn, verbose=True):
+    gemf_favites("SI", params, out_fn, verbose=verbose)
 def gemf_favites_sir(params, out_fn, verbose=True):
     gemf_favites("SIR", params, out_fn, verbose=verbose)
 def gemf_favites_sis(params, out_fn, verbose=True):

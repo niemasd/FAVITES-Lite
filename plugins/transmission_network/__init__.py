@@ -8,5 +8,6 @@ PLUGIN_FUNCTIONS = {
     "Susceptible-Alert-Infected-Susceptible (SAIS)": gemf.gemf_favites_sais,
     "Susceptible-Exposed-Infected-Removed (SEIR)": gemf.gemf_favites_seir,
     "Susceptible-Infected-Removed (SIR)": gemf.gemf_favites_sir,
+    "Susceptible-Infected (SI)": gemf.gemf_favites_si,
     "Susceptible-Infected-Susceptible (SIS)": gemf.gemf_favites_sis,
 }
