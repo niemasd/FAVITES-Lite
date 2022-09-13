@@ -3,5 +3,6 @@ from .. import *
 from . import ngg
 PLUGIN_FUNCTIONS = {
     "Barabasi-Albert (BA)": ngg.ngg_barabasi_albert,
+    "Barbell": ngg.ngg_barbell,
     "Complete": ngg.ngg_complete,
 }

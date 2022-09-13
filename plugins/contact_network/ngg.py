@@ -6,6 +6,8 @@ from subprocess import call
 def ngg(exe, params, out_fn, verbose=True):
     if exe == 'ngg_barabasi_albert':
         command = ['ngg_barabasi_albert', str(params['n']), str(params['m'])]
+    elif exe == 'ngg_barbell':
+        command = ['ngg_barbell', str(params['m1']), str(params['m2'])]
     elif exe == 'ngg_complete':
         command = ['ngg_complete', str(params['n'])]
     else:
@@ -17,5 +19,7 @@ def ngg(exe, params, out_fn, verbose=True):
         print_log("Contact Network written to: %s" % out_fn['contact_network'])
 def ngg_barabasi_albert(params, out_fn, verbose=True):
     ngg("ngg_barabasi_albert", params, out_fn, verbose=verbose)
+def ngg_barbell(params, out_fn, verbose=True):
+    ngg("ngg_barbell", params, out_fn, verbose=verbose)
 def ngg_complete(params, out_fn, verbose=True):
     ngg("ngg_complete", params, out_fn, verbose=verbose)
