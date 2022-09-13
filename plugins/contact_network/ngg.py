@@ -5,11 +5,11 @@ from subprocess import call
 # simulate contact network using NiemaGraphGen
 def ngg(exe, params, out_fn, verbose=True):
     if exe == 'ngg_barabasi_albert':
-        command = ['ngg_barabasi_albert', str(params['n']), str(params['m'])]
+        command = [exe, str(params['n']), str(params['m'])]
     elif exe == 'ngg_barbell':
-        command = ['ngg_barbell', str(params['m1']), str(params['m2'])]
-    elif exe == 'ngg_complete':
-        command = ['ngg_complete', str(params['n'])]
+        command = [exe, str(params['m1']), str(params['m2'])]
+    elif exe in {'ngg_complete', 'ngg_cycle', 'ngg_empty'}:
+        command = [exe, str(params['n'])]
     else:
         error("Invalid NiemaGraphGen exe: %s" % exe)
     if verbose:
@@ -23,3 +23,7 @@ def ngg_barbell(params, out_fn, verbose=True):
     ngg("ngg_barbell", params, out_fn, verbose=verbose)
 def ngg_complete(params, out_fn, verbose=True):
     ngg("ngg_complete", params, out_fn, verbose=verbose)
+def ngg_cycle(params, out_fn, verbose=True):
+    ngg("ngg_cycle", params, out_fn, verbose=verbose)
+def ngg_empty(params, out_fn, verbose=True):
+    ngg("ngg_empty", params, out_fn, verbose=verbose)

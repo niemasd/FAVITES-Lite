@@ -75,15 +75,6 @@
                     "When <ansired>n</ansired> > 2, the number of edges is: <ansired>n</ansired>"
                 ]
             },
-            "Empty": {
-                "PARAM": {
-                    "n": {
-                        "TYPE": "positive integer",
-                        "DESC": "Number of nodes"
-                    }
-                },
-                "DESC": "An <ansired>empty</ansired> graph is a graph that does not have any edges.\n\nNote that you very likely do not want to use this for epidemic simulations\n(as there will not be any edges across which the pathogen can transmit)."
-            },
             "Erdos-Renyi (ER)": {
                 "PARAM": {
                     "n": {
