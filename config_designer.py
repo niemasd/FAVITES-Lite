@@ -300,16 +300,20 @@ def page_view_params(i=0, show_nav=True):
 def page_dashboard():
     while True:
         # set dashboard text
-        complete = True
+        incomplete = set()
         for k in GLOBAL['CONFIG_KEYS']:
             if k not in GLOBAL['config'] or GLOBAL['config'][k] is None or len(GLOBAL['config'][k]['param']) != len(GLOBAL['MODELS'][k][GLOBAL['config'][k]['model']]['PARAM']):
-                complete = False; break
-        tmp = {True:"ansigreen", False:"ansired"}[complete]
+                incomplete.add(k); continue
+            if 'REQS' in GLOBAL['MODELS'][k][GLOBAL['config'][k]['model']]:
+                for k2 in GLOBAL['MODELS'][k][GLOBAL['config'][k]['model']]['REQS']:
+                    if GLOBAL['config'][k2]['model'] != GLOBAL['MODELS'][k][GLOBAL['config'][k]['model']]['REQS'][k2]:
+                        incomplete.add(k); break
+        tmp = {True:"ansigreen", False:"ansired"}[len(incomplete) == 0]
         text = "<%s>Config File:</%s> %s" % (tmp, tmp, GLOBAL['app']['config_fn'])
         vals = list()
         for k in GLOBAL['CONFIG_KEYS']:
             if k in GLOBAL['config'] and GLOBAL['config'][k] is not None:
-                tmp = {True:"ansigreen", False:"ansired"}[len(GLOBAL['config'][k]['param']) == len(GLOBAL['MODELS'][k][GLOBAL['config'][k]['model']]['PARAM'])]
+                tmp = {True:"ansigreen", False:"ansired"}[k not in incomplete]
                 m = "<%s>%s</%s>" % (tmp, GLOBAL['config'][k]['model'], tmp)
             else:
                 m = "<ansired>Not selected</ansired>"

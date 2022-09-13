@@ -516,6 +516,14 @@
             },
             "None": {
                 "PARAM": {},
+                "REQS": {
+                    "Sample Times": "None",
+                    "Viral Phylogeny (Transmissions)": "None",
+                    "Viral Phylogeny (Seeds)": "None",
+                    "Mutation Rates": "None",
+                    "Ancestral Sequence": "None",
+                    "Sequence Evolution": "None"
+                },
                 "DESC": "No transmission network is simulated.\n\nMust select \"None\" for all downstream steps."
             },
             "Susceptible-Alert-Infected-Susceptible (SAIS)": {
@@ -724,6 +732,13 @@
             },
             "None": {
                 "PARAM": {},
+                "REQS": {
+                    "Viral Phylogeny (Transmissions)": "None",
+                    "Viral Phylogeny (Seeds)": "None",
+                    "Mutation Rates": "None",
+                    "Ancestral Sequence": "None",
+                    "Sequence Evolution": "None"
+                },
                 "DESC": "No individuals are sampled.\n\nMust select \"None\" for all downstream steps."
             },
             "Specific Time": {
@@ -830,6 +845,12 @@
             },
             "None": {
                 "PARAM": {},
+                "REQS": {
+                    "Viral Phylogeny (Seeds)": "None",
+                    "Mutation Rates": "None",
+                    "Ancestral Sequence": "None",
+                    "Sequence Evolution": "None"
+                },
                 "DESC": "No phylogeny is simulated.\n\nMust select \"None\" for all downstream steps."
             },
             "Transmission Tree": {
@@ -893,6 +914,11 @@
             },
             "None": {
                 "PARAM": {},
+                "REQS": {
+                    "Mutation Rates": "None",
+                    "Ancestral Sequence": "None",
+                    "Sequence Evolution": "None"
+                },
                 "DESC": "No phylogeny is simulated.\n\nMust select \"None\" for all downstream steps."
             },
             "Yule": {
@@ -1081,6 +1107,10 @@
             },
             "None": {
                 "PARAM": {},
+                "REQS": {
+                    "Ancestral Sequence": "None",
+                    "Sequence Evolution": "None"
+                },
                 "DESC": "No mutation rates are sampled (i.e., no mutation tree is output).\n\nMust select \"None\" for all downstream steps."
             },
             "Pareto": {
@@ -1232,6 +1262,9 @@
             },
             "None": {
                 "PARAM": {},
+                "REQS": {
+                    "Sequence Evolution": "None"
+                },
                 "DESC": "No ancestral sequence is simulated.\n\nMust select \"None\" for all downstream steps."
             }
         },
@@ -1405,7 +1438,7 @@
             },
             "None": {
                 "PARAM": {},
-                "DESC": "No sequences are simulated.\n\nMust select \"None\" for all downstream steps."
+                "DESC": "No sequences are simulated."
             }
         }
     }
