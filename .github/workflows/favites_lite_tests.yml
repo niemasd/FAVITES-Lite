@@ -10,4 +10,4 @@ jobs:
               uses: actions/checkout@v2
             - name: Run FAVITES-Lite Tests
               run: |
-                  for f in .tests/*.json ; do echo "$f" | rev | cut -d'/' -f1 | rev && ./favites_lite.py -c "$f" -o tmp --overwrite --quiet && echo -e "Success\n" && rm -rf tmp || exit 1 ; done
+                  for f in .tests/*.json ; do echo "$f" | rev | cut -d'/' -f1 | rev && ./favites_lite.py -c "$f" -o tmp --overwrite --quiet && echo "Success" && rm -rf tmp && echo "" || exit 1 ; done
