@@ -502,7 +502,15 @@
                         "DESC": "The transition rate FIA -> FS"
                     }
                 },
-                "DESC": "The <ansired>Hethcote and Yorke (1984)</ansired> model for gonorrhea has 8 states:\n  - MA and FA: Male/Female Abstinent\n  - MS and FS: Male/Female Susceptible\n  - MIS and FIS: Male/Female Symptomatic Infected\n  - MIA and FIA: Male/Female Asymptomatic Infected\n\nThe following transitions are possible:\n  - MA -> MS and FA -> FS (nodal)\n  - MS -> MA and FS -> FA (nodal)\n  - MS -> MIA and FS -> FIA (induced by MIA/MIS/FIA/FIS or outside)\n  - MS -> MIS and FS -> FIS (induced by MIA/MIS/FIA/FIS or outside)\n  - MIA -> MS and FIA -> FS (nodal)\n  - MIS -> MS and FIS -> FS (nodal)",
+                "REQS": {
+                    "Sample Times": "None",
+                    "Viral Phylogeny (Transmissions)": "None",
+                    "Viral Phylogeny (Seeds)": "None",
+                    "Mutation Rates": "None",
+                    "Ancestral Sequence": "None",
+                    "Sequence Evolution": "None"
+                },
+                "DESC": "The <ansired>Hethcote and Yorke (1984)</ansired> model for gonorrhea has 8 states:\n  - MA and FA: Male/Female Abstinent\n  - MS and FS: Male/Female Susceptible\n  - MIS and FIS: Male/Female Symptomatic Infected\n  - MIA and FIA: Male/Female Asymptomatic Infected\n\nThe following transitions are possible:\n  - MA -> MS and FA -> FS (nodal)\n  - MS -> MA and FS -> FA (nodal)\n  - MS -> MIA and FS -> FIA (induced by MIA/MIS/FIA/FIS or outside)\n  - MS -> MIS and FS -> FIS (induced by MIA/MIS/FIA/FIS or outside)\n  - MIA -> MS and FIA -> FS (nodal)\n  - MIS -> MS and FIS -> FS (nodal)\n\nMust select \"None\" for all downstream steps.",
                 "CITE": "Hethcote HW, Yorke JA (1984). \"Gonorrhea transmission dynamics and\n    control.\" Lect Notes Math. 56. doi:10.1007/978-3-662-07544-9"
             },
             "None": {
