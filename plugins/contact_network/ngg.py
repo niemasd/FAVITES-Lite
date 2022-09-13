@@ -8,8 +8,14 @@ def ngg(exe, params, out_fn, verbose=True):
         command = [exe, str(params['n']), str(params['m'])]
     elif exe == 'ngg_barbell':
         command = [exe, str(params['m1']), str(params['m2'])]
-    elif exe in {'ngg_complete', 'ngg_cycle', 'ngg_empty'}:
+    elif exe in {'ngg_complete', 'ngg_cycle', 'ngg_empty', 'ngg_path'}:
         command = [exe, str(params['n'])]
+    elif exe == 'ngg_erdos_renyi':
+        command = [exe, str(params['n']), str(params['p'])]
+    elif exe == 'ngg_newman_watts_strogatz':
+        command = [exe, str(params['n']), str(params['k']), str(params['p'])]
+    elif exe == 'ngg_ring_lattice':
+        command = [exe, str(params['n']), str(params['k'])]
     else:
         error("Invalid NiemaGraphGen exe: %s" % exe)
     if verbose:
@@ -27,3 +33,11 @@ def ngg_cycle(params, out_fn, verbose=True):
     ngg("ngg_cycle", params, out_fn, verbose=verbose)
 def ngg_empty(params, out_fn, verbose=True):
     ngg("ngg_empty", params, out_fn, verbose=verbose)
+def ngg_erdos_renyi(params, out_fn, verbose=True):
+    ngg("ngg_erdos_renyi", params, out_fn, verbose=verbose)
+def ngg_newman_watts_strogatz(params, out_fn, verbose=True):
+    ngg("ngg_newman_watts_strogatz", params, out_fn, verbose=verbose)
+def ngg_path(params, out_fn, verbose=True):
+    ngg("ngg_path", params, out_fn, verbose=verbose)
+def ngg_ring_lattice(params, out_fn, verbose=True):
+    ngg("ngg_ring_lattice", params, out_fn, verbose=verbose)

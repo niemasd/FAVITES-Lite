@@ -7,4 +7,8 @@ PLUGIN_FUNCTIONS = {
     "Complete": ngg.ngg_complete,
     "Cycle": ngg.ngg_cycle,
     "Empty": ngg.ngg_empty,
+    "Erdos-Renyi (ER)": ngg.ngg_erdos_renyi,
+    "Newman-Watts-Strogatz (NWS)": ngg.ngg_newman_watts_strogatz,
+    "Path": ngg.ngg_path,
+    "Ring Lattice": ngg.ngg_ring_lattice,
 }
