@@ -6,6 +6,7 @@ PLUGIN_FUNCTIONS = {
     "Hethcote and Yorke (1984)": gemf.gemf_favites_hethcote_yorke,
     "None": lambda x=None,y=None,verbose=None: None,
     "Susceptible-Alert-Infected-Susceptible (SAIS)": gemf.gemf_favites_sais,
+    "Susceptible-Exposed-Infected-Removed (SEIR)": gemf.gemf_favites_seir,
     "Susceptible-Infected-Removed (SIR)": gemf.gemf_favites_sir,
     "Susceptible-Infected-Susceptible (SIS)": gemf.gemf_favites_sis,
 }
