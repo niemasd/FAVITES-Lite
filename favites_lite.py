@@ -56,6 +56,10 @@ def validate_config(config):
         if 'model' not in config[step]:
             error("Invalid config file: Missing model in step: %s" % step)
         model = config[step]['model']
+        if 'REQS' in GLOBAL['MODELS'][step][model]:
+            for req_step in GLOBAL['MODELS'][step][model]['REQS']:
+                if config[req_step]['model'] != GLOBAL['MODELS'][step][model]['REQS'][req_step]:
+                    error('Invalid config file: Step "%s" model "%s" requires step "%s" model "%s", but you selected: %s' % (step, model, req_step, GLOBAL['MODELS'][step][model]['REQS'][req_step], config[req_step]['model']))
         for p in GLOBAL['MODELS'][step][model]['PARAM']:
             if p not in config[step]['param']:
                 error('Invalid config file: Missing parameter for step "%s" model "%s": %s' % (step, model, p))
