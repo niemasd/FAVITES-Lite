@@ -7,6 +7,11 @@ for name, val in common.__dict__.items():
     if callable(val):
         vars()[name] = val; __all__.append(name)
 
+# dummy plugin function
+def DUMMY_PLUGIN_FUNC(params, out_fn, config, verbose=True):
+    pass
+__all__.append('DUMMY_PLUGIN_FUNC')
+
 # load plugin functions
 from . import contact_network, transmission_network, sample_times, viral_phylogeny_seeds, viral_phylogeny_trans, mutation_rates, ancestral_sequence, sequence_evolution
 PLUGIN_FUNCTIONS = {

@@ -2,6 +2,6 @@
 from .. import *
 from . import coatran
 PLUGIN_FUNCTIONS = {
-    "None": lambda x=None,y=None,verbose=None: None,
+    "None": DUMMY_PLUGIN_FUNC,
     "Transmission Tree": coatran.coatran_transtree
 }

@@ -3,5 +3,5 @@ from .. import *
 from . import constant
 PLUGIN_FUNCTIONS = {
     "Constant": constant.treeswift_constant,
-    "None": lambda x=None,y=None,verbose=None: None,
+    "None": DUMMY_PLUGIN_FUNC,
 }
