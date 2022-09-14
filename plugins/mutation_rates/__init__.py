@@ -10,5 +10,6 @@ PLUGIN_FUNCTIONS = {
     "Constant": common_treeswift.treeswift_constant,
     "Exponential": common_treeswift.treeswift_exp,
     "F": common_treeswift.treeswift_f_dist,
+    "Gamma": common_treeswift.treeswift_gamma,
     "None": DUMMY_PLUGIN_FUNC,
 }
