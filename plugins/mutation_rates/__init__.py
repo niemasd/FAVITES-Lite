@@ -8,5 +8,6 @@ PLUGIN_FUNCTIONS = {
     "Autocorrelated Log-Normal": common_treeswift.treeswift_autocorr_lognorm,
     "Chi-Squared": common_treeswift.treeswift_chisq,
     "Constant": common_treeswift.treeswift_constant,
+    "Exponential": common_treeswift.treeswift_exp,
     "None": DUMMY_PLUGIN_FUNC,
 }
