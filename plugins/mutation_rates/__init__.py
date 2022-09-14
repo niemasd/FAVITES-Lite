@@ -11,5 +11,6 @@ PLUGIN_FUNCTIONS = {
     "Exponential": common_treeswift.treeswift_exp,
     "F": common_treeswift.treeswift_f_dist,
     "Gamma": common_treeswift.treeswift_gamma,
+    "Inverse Gaussian (Wald)": common_treeswift.treeswift_inverse_gaussian,
     "None": DUMMY_PLUGIN_FUNC,
 }
