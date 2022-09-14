@@ -17,4 +17,5 @@ PLUGIN_FUNCTIONS = {
     "Noncentral F": common_treeswift.treeswift_noncentral_f,
     "None": DUMMY_PLUGIN_FUNC,
     "Pareto": common_treeswift.treeswift_pareto,
+    "Power": common_treeswift.treeswift_power,
 }
