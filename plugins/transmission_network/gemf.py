@@ -52,7 +52,7 @@ def gemf_write_transition_rates(params, transition_rates_fn):
     f.close()
 
 # simulate an epidemic using GEMF_FAVITES
-def gemf_favites(model, params, out_fn, verbose=True):
+def gemf_favites(model, params, out_fn, config, verbose=True):
     # set things up
     intermediate_gemf = "%s/GEMF_FAVITES" % out_fn['intermediate']; makedirs(intermediate_gemf)
     initial_states_fn = "%s/initial_states.tsv" % intermediate_gemf
@@ -86,17 +86,17 @@ def gemf_favites(model, params, out_fn, verbose=True):
         print_log("All State Transitions written to: %s" % out_fn['all_state_transitions'])
 
 # model-specific functions
-def gemf_favites_granich(params, out_fn, verbose=True):
-    gemf_favites("Granich", params, out_fn, verbose=verbose)
-def gemf_favites_hethcote_yorke(params, out_fn, verbose=True):
-    gemf_favites("Hethcote-Yorke", params, out_fn, verbose=verbose)
-def gemf_favites_sais(params, out_fn, verbose=True):
-    gemf_favites("SAIS", params, out_fn, verbose=verbose)
-def gemf_favites_seir(params, out_fn, verbose=True):
-    gemf_favites("SEIR", params, out_fn, verbose=verbose)
-def gemf_favites_si(params, out_fn, verbose=True):
-    gemf_favites("SI", params, out_fn, verbose=verbose)
-def gemf_favites_sir(params, out_fn, verbose=True):
-    gemf_favites("SIR", params, out_fn, verbose=verbose)
-def gemf_favites_sis(params, out_fn, verbose=True):
-    gemf_favites("SIS", params, out_fn, verbose=verbose)
+def gemf_favites_granich(params, out_fn, config, verbose=True):
+    gemf_favites("Granich", params, out_fn, config, verbose=verbose)
+def gemf_favites_hethcote_yorke(params, out_fn, config, verbose=True):
+    gemf_favites("Hethcote-Yorke", params, out_fn, config, verbose=verbose)
+def gemf_favites_sais(params, out_fn, config, verbose=True):
+    gemf_favites("SAIS", params, out_fn, config, verbose=verbose)
+def gemf_favites_seir(params, out_fn, config, verbose=True):
+    gemf_favites("SEIR", params, out_fn, config, verbose=verbose)
+def gemf_favites_si(params, out_fn, config, verbose=True):
+    gemf_favites("SI", params, out_fn, config, verbose=verbose)
+def gemf_favites_sir(params, out_fn, config, verbose=True):
+    gemf_favites("SIR", params, out_fn, config, verbose=verbose)
+def gemf_favites_sis(params, out_fn, config, verbose=True):
+    gemf_favites("SIS", params, out_fn, config, verbose=verbose)

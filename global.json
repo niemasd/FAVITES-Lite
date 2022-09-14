@@ -716,27 +716,6 @@
             }
         },
         "Sample Times": {
-            "Gamma": {
-                "PARAM": {
-                    "sampled_states": {
-                        "TYPE": "comma-separated list",
-                        "DESC": "Comma-separated list of states in which individuals are sampled"
-                    },
-                    "num_samples": {
-                        "TYPE": "positive integer",
-                        "DESC": "The number of times every individual is sampled"
-                    },
-                    "k": {
-                        "TYPE": "positive float",
-                        "DESC": "Shape parameter of the Gamma distribution"
-                    },
-                    "theta": {
-                        "TYPE": "positive float",
-                        "DESC": "Scale parameter of the Gamma distribution"
-                    }
-                },
-                "DESC": "Each sample time of a given individual is sampled from a <ansired>Gamma</ansired>\ndistribution of the individual's time window of specified states.\n\nIf the individual has multiple time windows,\na single time window is chosen randomly with equal probability."
-            },
             "None": {
                 "PARAM": {},
                 "REQS": {
@@ -795,6 +774,27 @@
                     }
                 },
                 "DESC": "Each sample time of a given individual is sampled from a \"standardized form\"\n<ansired>Truncated Exponential</ansired> distribution of the individual's infection time window.\n\nIf the individual has multiple time windows,\na single time window is chosen randomly with equal probability."
+            },
+            "Truncated Gamma": {
+                "PARAM": {
+                    "sampled_states": {
+                        "TYPE": "comma-separated list",
+                        "DESC": "Comma-separated list of states in which individuals are sampled"
+                    },
+                    "num_samples": {
+                        "TYPE": "positive integer",
+                        "DESC": "The number of times every individual is sampled"
+                    },
+                    "k": {
+                        "TYPE": "positive float",
+                        "DESC": "Shape parameter of the Gamma distribution"
+                    },
+                    "theta": {
+                        "TYPE": "positive float",
+                        "DESC": "Scale parameter of the Gamma distribution"
+                    }
+                },
+                "DESC": "Each sample time of a given individual is sampled from a <ansired>Truncated Gamma</ansired>\ndistribution of the individual's time window of specified states.\n\nIf the individual has multiple time windows,\na single time window is chosen randomly with equal probability."
             },
             "Truncated Normal": {
                 "PARAM": {

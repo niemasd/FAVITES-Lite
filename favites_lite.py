@@ -107,7 +107,7 @@ if __name__ == "__main__":
             error("Step not implemented yet: %s" % step)
         if model not in PLUGIN_FUNCTIONS[step]:
             error("%s model not implemented yet: %s" % (step, model))
-        PLUGIN_FUNCTIONS[step][model](params, out_fn, verbose=verbose)
+        PLUGIN_FUNCTIONS[step][model](params, out_fn, config, verbose=verbose)
     end_time = time()
     if verbose:
         print_log(); print_log("=== Completion ===")

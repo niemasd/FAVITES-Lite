@@ -3,7 +3,7 @@ from .. import *
 from treeswift import read_tree_newick
 
 # constant mutation rate
-def treeswift_constant(params, out_fn, verbose=True):
+def treeswift_constant(params, out_fn, config, verbose=True):
     tree = read_tree_newick(out_fn['viral_phylogeny_time'])
     for node in tree.traverse_preorder():
         if node.edge_length is not None:

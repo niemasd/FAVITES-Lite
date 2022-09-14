@@ -5,7 +5,7 @@ from subprocess import call
 from treeswift import read_tree_newick
 
 # run seq-gen
-def seqgen(mode, params, out_fn, verbose=True):
+def seqgen(mode, params, out_fn, config, verbose=True):
     treestr = open(out_fn['viral_phylogeny_mut']).read().strip().replace('[&R] ','')
     if ',' not in treestr: # if one-node tree, add DUMMY 0-length leaf
         treestr = "(DUMMY:0,%s);" % treestr.replace('(','').replace(')','')[:-1]
@@ -38,5 +38,5 @@ def seqgen(mode, params, out_fn, verbose=True):
         print_log("Sequences written to: %s" % out_fn['sequences'])
 
 # model-specific functions
-def seqgen_gtr(params, out_fn, verbose=True):
-    seqgen("GTR", params, out_fn, verbose=verbose)
+def seqgen_gtr(params, out_fn, config, verbose=True):
+    seqgen("GTR", params, out_fn, config, verbose=verbose)

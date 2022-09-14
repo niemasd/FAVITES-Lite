@@ -21,7 +21,7 @@ def state_entry(params, out_fn, mode, verbose=True):
     f.close()
     if verbose:
         print_log("Sample Times written to: %s" % out_fn['sample_times'])
-def state_entry_first(params, out_fn, verbose=True):
+def state_entry_first(params, out_fn, config, verbose=True):
     state_entry(params, out_fn, "first", verbose=verbose)
-def state_entry_all(params, out_fn, verbose=True):
+def state_entry_all(params, out_fn, config, verbose=True):
     state_entry(params, out_fn, "all", verbose=verbose)

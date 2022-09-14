@@ -5,7 +5,7 @@ from treesap import yule_tree
 from treeswift import read_tree_newick
 
 # sample a seed tree under Yule
-def treesap_yule(params, out_fn, verbose=True):
+def treesap_yule(params, out_fn, config, verbose=True):
     chain_trees = [read_tree_newick(l) for l in open(out_fn['viral_phylogeny_all_chains_time']).read().strip().splitlines()]
     tree = yule_tree(1, end_num_leaves=len(chain_trees))
     tree.scale_edges(params['height']/tree.height())
