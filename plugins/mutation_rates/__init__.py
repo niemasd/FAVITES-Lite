@@ -19,4 +19,5 @@ PLUGIN_FUNCTIONS = {
     "Pareto": common_treeswift.treeswift_pareto,
     "Power": common_treeswift.treeswift_power,
     "Rayleigh": common_treeswift.treeswift_rayleigh,
+    "Triangular": common_treeswift.treeswift_triangular,
 }
