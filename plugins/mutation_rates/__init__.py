@@ -22,4 +22,5 @@ PLUGIN_FUNCTIONS = {
     "Triangular": common_treeswift.treeswift_triangular,
     "Truncated Normal": common_treeswift.treeswift_truncnorm,
     "Uniform": common_treeswift.treeswift_uniform,
+    "Weibull": common_treeswift.treeswift_weibull,
 }
