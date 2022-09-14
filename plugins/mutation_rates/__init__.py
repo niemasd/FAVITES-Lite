@@ -20,4 +20,5 @@ PLUGIN_FUNCTIONS = {
     "Power": common_treeswift.treeswift_power,
     "Rayleigh": common_treeswift.treeswift_rayleigh,
     "Triangular": common_treeswift.treeswift_triangular,
+    "Truncated Normal": common_treeswift.treeswift_truncnorm,
 }
