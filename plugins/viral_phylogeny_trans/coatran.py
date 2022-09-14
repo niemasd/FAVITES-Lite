@@ -1,5 +1,6 @@
 #! /usr/bin/env python3
 from .. import *
+from os import stat
 from subprocess import call
 from treeswift import read_tree_newick
 
@@ -12,6 +13,8 @@ def coatran(mode, params, out_fn, config, verbose=True):
     if verbose:
         print_log("Command: %s" % ' '.join(command))
     f = open(out_fn['viral_phylogeny_all_chains_time'], 'w'); call(command, stdout=f); f.close()
+    if stat(out_fn['viral_phylogeny_all_chains_time']).st_size < 2:
+        error("CoaTran crashed")
     if verbose:
         print_log("Transmission Chain Viral Phylogenies (Time) written to: %s" % out_fn['viral_phylogeny_all_chains_time'])
 

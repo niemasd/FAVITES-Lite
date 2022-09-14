@@ -716,6 +716,19 @@
             }
         },
         "Sample Times": {
+            "End": {
+                "PARAM": {
+                    "sampled_states": {
+                        "TYPE": "comma-separated list",
+                        "DESC": "Comma-separated list of states in which individuals are sampled"
+                    },
+                    "num_samples": {
+                        "TYPE": "positive integer",
+                        "DESC": "The number of times every individual is sampled"
+                    }
+                },
+                "DESC": "All individuals who are in any of the specified states at the end time\nof the simulation will be sampled the specified number of times."
+            },
             "None": {
                 "PARAM": {},
                 "REQS": {

@@ -17,7 +17,7 @@ def time_windows(model, params, out_fn, config, verbose=True):
             if node not in windows:
                 windows[node] = list()
             windows[node].append([to_s, t, end_time])
-    f = open(out_fn['sample_times'], 'w')
+    sample_times = list()
     for node in windows:
         for _ in range(params['num_samples']):
             state, start, end = choice(windows[node]); length = end - start; delta = None
@@ -28,7 +28,11 @@ def time_windows(model, params, out_fn, config, verbose=True):
                 error("Model not yet implemented: %s" % model)
             if delta is None:
                 error("Failed to generate sample time")
-            f.write("%s\t%s\n" % (node, start+delta))
+            sample_times.append((start+delta, node))
+    sample_times.sort()
+    f = open(out_fn['sample_times'], 'w')
+    for t, node in sample_times:
+        f.write("%s\t%s\n" % (node, t))
     f.close()
 
 # model-specific functions
