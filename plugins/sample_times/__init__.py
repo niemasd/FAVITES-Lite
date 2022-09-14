@@ -10,4 +10,5 @@ PLUGIN_FUNCTIONS = {
     "Truncated Exponential": time_windows.time_windows_trunc_expon,
     "Truncated Gamma": time_windows.time_windows_trunc_gamma,
     "Truncated Normal": time_windows.time_windows_trunc_normal,
+    "Uniform": time_windows.time_windows_uniform,
 }

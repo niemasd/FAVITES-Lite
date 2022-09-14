@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 from .. import *
 from numpy.random import gamma
-from random import choice
+from random import choice, uniform
 from scipy.stats import truncexpon, truncnorm
 
 # sample individuals according to some distribution in their time windows
@@ -32,6 +32,8 @@ def time_windows(model, params, out_fn, config, verbose=True):
             elif model == "Truncated Gamma":
                 for i in range(100): # 100 attempts
                     delta = gamma(params['k'], params['theta']); break
+            elif model == "Uniform":
+                delta = uniform(0, length)
             else:
                 error("Model not yet implemented: %s" % model)
             if delta is None:
@@ -50,3 +52,5 @@ def time_windows_trunc_gamma(params, out_fn, config, verbose=True):
     time_windows("Truncated Gamma", params, out_fn, config, verbose=verbose)
 def time_windows_trunc_normal(params, out_fn, config, verbose=True):
     time_windows("Truncated Normal", params, out_fn, config, verbose=verbose)
+def time_windows_uniform(params, out_fn, config, verbose=True):
+    time_windows("Uniform", params, out_fn, config, verbose=verbose)
