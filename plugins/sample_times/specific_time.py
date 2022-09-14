@@ -20,3 +20,8 @@ def specific_time(params, out_fn, config, verbose=True):
     f.close()
     if verbose:
         print_log("Sample Times written to: %s" % out_fn['sample_times'])
+
+# sample individuals at end time
+def end_time(params, out_fn, config, verbose=True):
+    p = params.copy(); p['sample_time'] = config["Transmission Network"]['param']['duration']
+    specific_time(p, out_fn, config, verbose=verbose)
