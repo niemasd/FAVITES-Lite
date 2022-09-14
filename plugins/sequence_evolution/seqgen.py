@@ -20,11 +20,11 @@ def seqgen(mode, params, out_fn, config, verbose=True):
     seqgen_log_fn = "%s/seqgen.log" % out_fn['intermediate']
     f = open(seqgen_tree_fn, 'w'); f.write("1 %d\nROOT %s\n1\n%s" % (len(root_seq),root_seq,treestr)); f.close()
     command = ['seq-gen', '-of', '-k1']
-    if mode in {'GTR', 'GTR+G'}: # add model
+    if mode in {'GTR', 'GTR+G', 'GTR+Codon'}: # GTR model
         command += ['-m', 'GTR']
-    if mode in {'GTR', 'GTR+G'}: # add base frequencies
+    if mode in {'GTR', 'GTR+G', 'GTR+Codon'}: # add base frequencies
         command += (['-f'] + [str(params['p_%s' % n]) for n in 'ACGT'])
-    if mode in {'GTR', 'GTR+G'}: # add GTR transition rates
+    if mode in {'GTR', 'GTR+G', 'GTR+Codon'}: # add GTR transition rates
         command += (['-r'] + [str(params['r_%s-%s' % tuple(pair)]) for pair in ['AC', 'AG', 'AT', 'CG', 'CT', 'GT']])
     if mode in {'GTR', 'GTR+G'}: # add proportion invariable
         command += ['-i', str(params['prop_invariable'])]
@@ -32,6 +32,8 @@ def seqgen(mode, params, out_fn, config, verbose=True):
         command += ['-a', str(params['alpha'])]
         if params['num_cats'] > 0:
             command += ['-g', str(params['num_cats'])]
+    if mode in {'GTR+Codon'}: # add Codon parameters
+        command += ['-c', str(params['r_site1']), str(params['r_site2']), str(params['r_site3'])]
     command += [seqgen_tree_fn]
     if verbose:
         print_log("Command: %s" % ' '.join(command))
@@ -44,5 +46,7 @@ def seqgen(mode, params, out_fn, config, verbose=True):
 # model-specific functions
 def seqgen_gtr(params, out_fn, config, verbose=True):
     seqgen("GTR", params, out_fn, config, verbose=verbose)
+def seqgen_gtr_codon(params, out_fn, config, verbose=True):
+    seqgen("GTR+Codon", params, out_fn, config, verbose=verbose)
 def seqgen_gtr_gamma(params, out_fn, config, verbose=True):
     seqgen("GTR+G", params, out_fn, config, verbose=verbose)
