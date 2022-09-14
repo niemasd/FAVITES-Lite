@@ -6,6 +6,7 @@ PLUGIN_FUNCTIONS = {
     "Autocorrelated Exponential": common_treeswift.treeswift_autocorr_exp,
     "Autocorrelated Gamma": common_treeswift.treeswift_autocorr_gamma,
     "Autocorrelated Log-Normal": common_treeswift.treeswift_autocorr_lognorm,
+    "Chi-Squared": common_treeswift.treeswift_chisq,
     "Constant": common_treeswift.treeswift_constant,
     "None": DUMMY_PLUGIN_FUNC,
 }
