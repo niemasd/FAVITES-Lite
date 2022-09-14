@@ -13,5 +13,6 @@ PLUGIN_FUNCTIONS = {
     "Gamma": common_treeswift.treeswift_gamma,
     "Inverse Gaussian (Wald)": common_treeswift.treeswift_inverse_gaussian,
     "Log-Normal": common_treeswift.treeswift_lognorm,
+    "Noncentral Chi-Squared": common_treeswift.treeswift_noncentral_chisq,
     "None": DUMMY_PLUGIN_FUNC,
 }
