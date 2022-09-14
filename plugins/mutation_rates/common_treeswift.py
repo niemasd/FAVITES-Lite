@@ -1,6 +1,6 @@
 #! /usr/bin/env python3
 from .. import *
-from numpy.random import chisquare, exponential, gamma, lognormal, noncentral_chisquare, noncentral_f, pareto, power, wald
+from numpy.random import chisquare, exponential, gamma, lognormal, noncentral_chisquare, noncentral_f, pareto, power, rayleigh, wald
 from numpy.random import f as f_dist
 from random import random
 from treeswift import read_tree_newick
@@ -178,6 +178,16 @@ def treeswift_power(params, out_fn, config, verbose=True):
     for node in tree.traverse_preorder():
         if node.edge_length is not None:
             node.edge_length *= power(a=c)
+    tree.write_tree_newick(out_fn['viral_phylogeny_mut'])
+    if verbose:
+        print_log("Viral Phylogeny (Mutations) written to: %s" % out_fn['viral_phylogeny_mut'])
+
+# Rayleigh
+def treeswift_rayleigh(params, out_fn, config, verbose=True):
+    tree = read_tree_newick(out_fn['viral_phylogeny_time']); sigma = params['sigma']
+    for node in tree.traverse_preorder():
+        if node.edge_length is not None:
+            node.edge_length *= rayleigh(scale=sigma)
     tree.write_tree_newick(out_fn['viral_phylogeny_mut'])
     if verbose:
         print_log("Viral Phylogeny (Mutations) written to: %s" % out_fn['viral_phylogeny_mut'])
