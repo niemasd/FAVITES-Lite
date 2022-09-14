@@ -1,6 +1,7 @@
 #! /usr/bin/env python3
 from .. import *
 from numpy.random import chisquare, exponential, gamma, lognormal
+from numpy.random import f as f_dist
 from random import random
 from treeswift import read_tree_newick
 
@@ -97,6 +98,16 @@ def treeswift_exp(params, out_fn, config, verbose=True):
     for node in tree.traverse_preorder():
         if node.edge_length is not None:
             node.edge_length *= exponential(scale=b)
+    tree.write_tree_newick(out_fn['viral_phylogeny_mut'])
+    if verbose:
+        print_log("Viral Phylogeny (Mutations) written to: %s" % out_fn['viral_phylogeny_mut'])
+
+# F
+def treeswift_f_dist(params, out_fn, config, verbose=True):
+    tree = read_tree_newick(out_fn['viral_phylogeny_time']); d1 = params['d1']; d2 = params['d2']
+    for node in tree.traverse_preorder():
+        if node.edge_length is not None:
+            node.edge_length *= f_dist(dfnum=d1, dfden=d2)
     tree.write_tree_newick(out_fn['viral_phylogeny_mut'])
     if verbose:
         print_log("Viral Phylogeny (Mutations) written to: %s" % out_fn['viral_phylogeny_mut'])

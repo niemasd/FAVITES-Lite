@@ -9,5 +9,6 @@ PLUGIN_FUNCTIONS = {
     "Chi-Squared": common_treeswift.treeswift_chisq,
     "Constant": common_treeswift.treeswift_constant,
     "Exponential": common_treeswift.treeswift_exp,
+    "F": common_treeswift.treeswift_f_dist,
     "None": DUMMY_PLUGIN_FUNC,
 }
