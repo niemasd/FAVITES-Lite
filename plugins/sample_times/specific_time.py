@@ -15,7 +15,8 @@ def specific_time(params, out_fn, config, verbose=True):
             nodes_to_sample.discard(node)
     f = open(out_fn['sample_times'], 'w')
     for node in nodes_to_sample:
-        f.write("%s\t%s\n" % (node, params['sample_time']))
+        for _ in range(params['num_samples']):
+            f.write("%s\t%s\n" % (node, params['sample_time']))
     f.close()
     if verbose:
         print_log("Sample Times written to: %s" % out_fn['sample_times'])
