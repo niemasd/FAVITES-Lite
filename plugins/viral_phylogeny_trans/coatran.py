@@ -5,11 +5,11 @@ from subprocess import call
 from treeswift import read_tree_newick
 
 # simulate a coalescent viral phylogeny using CoaTran
-def coatran(mode, params, out_fn, config, verbose=True):
-    if mode == 'transtree':
-        command = ['coatran_transtree', out_fn['transmission_network'], out_fn['sample_times']]
+def coatran(exe, params, out_fn, config, verbose=True):
+    if exe in {'coatran_inftime', 'coatran_transtree'}:
+        command = [exe, out_fn['transmission_network'], out_fn['sample_times']]
     else:
-        error("Invalid CoaTran mode: %s" % mode)
+        error("Invalid CoaTran exe: %s" % exe)
     if verbose:
         print_log("Command: %s" % ' '.join(command))
     f = open(out_fn['viral_phylogeny_all_chains_time'], 'w'); call(command, stdout=f); f.close()
@@ -18,5 +18,8 @@ def coatran(mode, params, out_fn, config, verbose=True):
     if verbose:
         print_log("Transmission Chain Viral Phylogenies (Time) written to: %s" % out_fn['viral_phylogeny_all_chains_time'])
 
+# model-specific plugins
+def coatran_inftime(params, out_fn, config, verbose=True):
+    coatran("coatran_inftime", params, out_fn, config, verbose=verbose)
 def coatran_transtree(params, out_fn, config, verbose=True):
-    coatran("transtree", params, out_fn, config, verbose=verbose)
+    coatran("coatran_transtree", params, out_fn, config, verbose=verbose)
