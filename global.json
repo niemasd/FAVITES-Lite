@@ -1196,16 +1196,16 @@
             },
             "Weibull": {
                 "PARAM": {
-                    "lambda": {
-                        "TYPE": "positive float",
-                        "DESC": "Scale parameter of the Weibull distribution"
-                    },
-                    "k": {
+                    "shape": {
                         "TYPE": "positive float",
                         "DESC": "Shape parameter of the Weibull distribution"
+                    },
+                    "scale": {
+                        "TYPE": "positive float",
+                        "DESC": "Scale parameter of the Weibull distribution"
                     }
                 },
-                "DESC": "Each branch's length is multiplied by a rate that is sampled from\n<ansired>Weibull</ansired>(<ansired>lambda</ansired>, <ansired>k</ansired>)."
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from\n<ansired>Weibull</ansired>(<ansired>shape</ansired>, <ansired>scale</ansired>)."
             }
         },
         "Ancestral Sequence": {
