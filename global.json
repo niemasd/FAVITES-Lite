@@ -879,23 +879,6 @@
             }
         },
         "Viral Phylogeny (Seeds)": {
-            "Birth-Death": {
-                "PARAM": {
-                    "birth_rate": {
-                        "TYPE": "positive float",
-                        "DESC": "Birth rate of the initial Birth-Death tree"
-                    },
-                    "death_rate": {
-                        "TYPE": "non-negative float",
-                        "DESC": "Death rate of the initial Birth-Death tree"
-                    },
-                    "height": {
-                        "TYPE": "positive float",
-                        "DESC": "Height of the resulting tree"
-                    }
-                },
-                "DESC": "The seed tree is sampled from a <ansired>Birth-Death</ansired> model\nand is scaled to the specified <ansired>height</ansired>."
-            },
             "Coalescent (Neutral)": {
                 "PARAM": {
                     "height": {
