@@ -1,6 +1,6 @@
 #! /usr/bin/env python3
 from .. import *
-from numpy.random import exponential
+from numpy.random import exponential, gamma
 from random import random
 from treeswift import read_tree_newick
 
@@ -35,6 +35,22 @@ def treeswift_autocorr_exp(params, out_fn, config, verbose=True):
             node.rate = params['R0']
         else:
             node.rate = exponential(scale=node.parent.rate)
+        if node.edge_length is not None:
+            node.edge_length *= node.rate
+    tree.write_tree_newick(out_fn['viral_phylogeny_mut'])
+    if verbose:
+        print_log("Viral Phylogeny (Mutations) written to: %s" % out_fn['viral_phylogeny_mut'])
+
+# Autocorrelated Gamma
+def treeswift_autocorr_gamma(params, out_fn, config, verbose=True):
+    tree = read_tree_newick(out_fn['viral_phylogeny_time']); v = params['v']
+    for node in tree.traverse_preorder():
+        if node.is_root():
+            node.rate = params['R0']
+        else:
+            scale = v * node.edge_length / node.parent.rate
+            shape = node.parent.rate / scale
+            node.rate = gamma(shape=shape, scale=scale)
         if node.edge_length is not None:
             node.edge_length *= node.rate
     tree.write_tree_newick(out_fn['viral_phylogeny_mut'])
