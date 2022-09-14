@@ -2,6 +2,7 @@
 from .. import *
 from numpy.random import gamma
 from random import choice
+from scipy.stats import truncexpon
 
 # sample individuals according to some distribution in their time windows
 def time_windows(model, params, out_fn, config, verbose=True):
@@ -18,16 +19,20 @@ def time_windows(model, params, out_fn, config, verbose=True):
                 windows[node] = list()
             windows[node].append([to_s, t, end_time])
     sample_times = list()
+    if model == "Truncated Exponential":
+        variates = list(truncexpon.rvs(1, size=len(windows)*params['num_samples']))
     for node in windows:
         for _ in range(params['num_samples']):
             state, start, end = choice(windows[node]); length = end - start; delta = None
-            if model == "Truncated Gamma":
+            if model == "Truncated Exponential":
+                delta = variates.pop() * length
+            elif model == "Truncated Gamma":
                 for i in range(100): # 100 attempts
                     delta = gamma(params['k'], params['theta']); break
             else:
                 error("Model not yet implemented: %s" % model)
             if delta is None:
-                error("Failed to generate sample time")
+                error("Failed to generate sample time for individual: %s" % node)
             sample_times.append((start+delta, node))
     sample_times.sort()
     f = open(out_fn['sample_times'], 'w')
@@ -36,5 +41,7 @@ def time_windows(model, params, out_fn, config, verbose=True):
     f.close()
 
 # model-specific functions
+def time_windows_trunc_expon(params, out_fn, config, verbose=True):
+    time_windows("Truncated Exponential", params, out_fn, config, verbose=verbose)
 def time_windows_trunc_gamma(params, out_fn, config, verbose=True):
     time_windows("Truncated Gamma", params, out_fn, config, verbose=verbose)
