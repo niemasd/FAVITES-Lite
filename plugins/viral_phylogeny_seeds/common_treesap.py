@@ -1,8 +1,10 @@
 #! /usr/bin/env python3
 from .. import *
 from . import common
-from treesap import coalescent_const_pop_tree, dualbirth_tree, yule_tree
+from math import *
+from treesap import coalescent_const_pop_tree, dualbirth_tree, nonhomogeneous_yule_tree, yule_tree
 from treeswift import read_tree_newick
+import math
 
 # sample a seed tree with TreeSAP
 def treesap_seed(model, params, out_fn, config, verbose=True):
@@ -11,6 +13,8 @@ def treesap_seed(model, params, out_fn, config, verbose=True):
         tree = coalescent_const_pop_tree(100., len(chain_trees), continuous=True)
     elif model == "Dual-Birth":
         tree = dualbirth_tree(params['r'], 1., end_num_leaves=len(chain_trees))
+    elif model == "Non-Homogeneous Yule":
+        tree = nonhomogeneous_yule_tree(lambda t: eval(params['rate_func']), end_num_leaves=len(chain_trees))
     elif model == "Yule":
         tree = yule_tree(1, end_num_leaves=len(chain_trees))
     else:
@@ -31,5 +35,7 @@ def treesap_coalescent_const_pop(params, out_fn, config, verbose=True):
     treesap_seed("Coalescent (Neutral)", params, out_fn, config, verbose=verbose)
 def treesap_dualbirth(params, out_fn, config, verbose=True):
     treesap_seed("Dual-Birth", params, out_fn, config, verbose=verbose)
+def treesap_nonhom_yule(params, out_fn, config, verbose=True):
+    treesap_seed("Non-Homogeneous Yule", params, out_fn, config, verbose=verbose)
 def treesap_yule(params, out_fn, config, verbose=True):
     treesap_seed("Yule", params, out_fn, config, verbose=verbose)

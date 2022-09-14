@@ -906,14 +906,14 @@
                 "PARAM": {
                     "rate_func": {
                         "TYPE": "function",
-                        "DESC": "The rate function of the initial Non-Homogeneous Yule tree"
+                        "DESC": "The rate function f(t) of the initial Non-Homogeneous Yule tree"
                     },
                     "height": {
                         "TYPE": "positive float",
                         "DESC": "Height of the resulting tree"
                     }
                 },
-                "DESC": "The seed tree is sampled from a <ansired>Non-Homogeneous Yule</ansired> model\nwith <ansired>rate_func</ansired> and is scaled to the specified <ansired>height</ansired>."
+                "DESC": "The seed tree is sampled from a <ansired>Non-Homogeneous Yule</ansired> model\nwith <ansired>rate_func</ansired> f(t) and is scaled to the specified <ansired>height</ansired>.\n\n<ansired>WARNING: This plugin uses eval() to execute f(t), which is unsafe!!!\nDon't use a config file that uses this plugin without verifying!</ansired>"
             },
             "None": {
                 "PARAM": {},

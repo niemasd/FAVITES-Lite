@@ -61,6 +61,8 @@ def parse_param_value(value, param_type):
             return ','.join(v.strip() for v in value.split(','))
         elif param_type == "string":
             return value.strip()
+        elif param_type == "function":
+            return value.strip() # TODO maybe do something more sophisticated for functions?
         else:
             error("FAVITES-Lite bug: Invalid parameter type: %s" % param_type)
     except:

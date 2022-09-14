@@ -1,7 +1,12 @@
 #! /usr/bin/env python3
 from datetime import datetime
 from sys import stderr
+import math
 ZERO_THRESH = 0.000001
+
+# dummy plugin function
+def DUMMY_PLUGIN_FUNC(params, out_fn, config, verbose=True):
+    pass
 
 # return the current time as a string
 def get_time():
