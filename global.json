@@ -1118,16 +1118,12 @@
             },
             "Pareto": {
                 "PARAM": {
-                    "x_m": {
-                        "TYPE": "positive float",
-                        "DESC": "Scale parameter of the Pareto distribution"
-                    },
                     "alpha": {
                         "TYPE": "positive float",
                         "DESC": "Shape parameter of the Pareto distribution"
                     }
                 },
-                "DESC": "Each branch's length is multiplied by a rate that is sampled from\n<ansired>Pareto</ansired>(<ansired>x_m</ansired>, <ansired>alpha</ansired>)."
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from\n<ansired>Pareto</ansired>(<ansired>alpha</ansired>)."
             },
             "Power": {
                 "PARAM": {

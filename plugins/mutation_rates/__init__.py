@@ -16,4 +16,5 @@ PLUGIN_FUNCTIONS = {
     "Noncentral Chi-Squared": common_treeswift.treeswift_noncentral_chisq,
     "Noncentral F": common_treeswift.treeswift_noncentral_f,
     "None": DUMMY_PLUGIN_FUNC,
+    "Pareto": common_treeswift.treeswift_pareto,
 }

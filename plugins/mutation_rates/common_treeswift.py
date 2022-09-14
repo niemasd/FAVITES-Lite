@@ -1,6 +1,6 @@
 #! /usr/bin/env python3
 from .. import *
-from numpy.random import chisquare, exponential, gamma, lognormal, noncentral_chisquare, noncentral_f, wald
+from numpy.random import chisquare, exponential, gamma, lognormal, noncentral_chisquare, noncentral_f, pareto, wald
 from numpy.random import f as f_dist
 from random import random
 from treeswift import read_tree_newick
@@ -158,6 +158,16 @@ def treeswift_noncentral_f(params, out_fn, config, verbose=True):
     for node in tree.traverse_preorder():
         if node.edge_length is not None:
             node.edge_length *= noncentral_f(dfnum=d1, dfden=d2, nonc=lam)
+    tree.write_tree_newick(out_fn['viral_phylogeny_mut'])
+    if verbose:
+        print_log("Viral Phylogeny (Mutations) written to: %s" % out_fn['viral_phylogeny_mut'])
+
+# Pareto
+def treeswift_pareto(params, out_fn, config, verbose=True):
+    tree = read_tree_newick(out_fn['viral_phylogeny_time']); alpha = params['alpha']
+    for node in tree.traverse_preorder():
+        if node.edge_length is not None:
+            node.edge_length *= pareto(a=alpha)
     tree.write_tree_newick(out_fn['viral_phylogeny_mut'])
     if verbose:
         print_log("Viral Phylogeny (Mutations) written to: %s" % out_fn['viral_phylogeny_mut'])
