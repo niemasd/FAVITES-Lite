@@ -9,4 +9,5 @@ PLUGIN_FUNCTIONS = {
     "State Entry (Initial)": state_entry.state_entry_first,
     "Truncated Exponential": time_windows.time_windows_trunc_expon,
     "Truncated Gamma": time_windows.time_windows_trunc_gamma,
+    "Truncated Normal": time_windows.time_windows_trunc_normal,
 }

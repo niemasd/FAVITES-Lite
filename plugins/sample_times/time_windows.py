@@ -2,7 +2,7 @@
 from .. import *
 from numpy.random import gamma
 from random import choice
-from scipy.stats import truncexpon
+from scipy.stats import truncexpon, truncnorm
 
 # sample individuals according to some distribution in their time windows
 def time_windows(model, params, out_fn, config, verbose=True):
@@ -18,13 +18,16 @@ def time_windows(model, params, out_fn, config, verbose=True):
             if node not in windows:
                 windows[node] = list()
             windows[node].append([to_s, t, end_time])
-    sample_times = list()
+    sample_times = list(); tot_num_samples = len(windows)*params['num_samples']
     if model == "Truncated Exponential":
-        variates = list(truncexpon.rvs(1, size=len(windows)*params['num_samples']))
+        variates = list(truncexpon.rvs(1, size=tot_num_samples))
+    elif model == "Truncated Normal":
+        corrected_min = (0-params['mu'])/params['sigma']; corrected_max = (1-params['mu'])/params['sigma']
+        variates = list(truncnorm.rvs(corrected_min, corrected_max, loc=params['mu'], scale=params['sigma'], size=tot_num_samples))
     for node in windows:
         for _ in range(params['num_samples']):
             state, start, end = choice(windows[node]); length = end - start; delta = None
-            if model == "Truncated Exponential":
+            if model in {"Truncated Exponential", "Truncated Normal"}:
                 delta = variates.pop() * length
             elif model == "Truncated Gamma":
                 for i in range(100): # 100 attempts
@@ -45,3 +48,5 @@ def time_windows_trunc_expon(params, out_fn, config, verbose=True):
     time_windows("Truncated Exponential", params, out_fn, config, verbose=verbose)
 def time_windows_trunc_gamma(params, out_fn, config, verbose=True):
     time_windows("Truncated Gamma", params, out_fn, config, verbose=verbose)
+def time_windows_trunc_normal(params, out_fn, config, verbose=True):
+    time_windows("Truncated Normal", params, out_fn, config, verbose=verbose)
