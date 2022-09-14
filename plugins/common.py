@@ -2,7 +2,7 @@
 from datetime import datetime
 from sys import stderr
 import math
-ZERO_THRESH = 0.000001
+ZERO_THRESH = 0.00000000001
 
 # dummy plugin function
 def DUMMY_PLUGIN_FUNC(params, out_fn, config, verbose=True):

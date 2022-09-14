@@ -49,6 +49,8 @@ def treeswift_autocorr_gamma(params, out_fn, config, verbose=True):
     for node in tree.traverse_preorder():
         if node.is_root():
             node.rate = params['R0']
+        elif node.parent.rate <= ZERO_THRESH:
+            node.rate = 0
         else:
             scale = v * node.edge_length / node.parent.rate
             shape = node.parent.rate / scale

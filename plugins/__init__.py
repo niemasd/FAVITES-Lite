@@ -4,7 +4,7 @@ __all__ = list()
 # import common functions
 from . import common
 for name, val in common.__dict__.items():
-    if callable(val):
+    if callable(val) or name in {'ZERO_THRESH'}:
         vars()[name] = val; __all__.append(name)
 
 # load plugin functions
