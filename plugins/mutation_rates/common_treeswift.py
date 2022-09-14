@@ -131,3 +131,13 @@ def treeswift_inverse_gaussian(params, out_fn, config, verbose=True):
     tree.write_tree_newick(out_fn['viral_phylogeny_mut'])
     if verbose:
         print_log("Viral Phylogeny (Mutations) written to: %s" % out_fn['viral_phylogeny_mut'])
+
+# Log-Normal
+def treeswift_lognorm(params, out_fn, config, verbose=True):
+    tree = read_tree_newick(out_fn['viral_phylogeny_time']); mu = params['mu']; sigma = params['sigma']
+    for node in tree.traverse_preorder():
+        if node.edge_length is not None:
+            node.edge_length *= lognormal(mean=mu, sigma=sigma)
+    tree.write_tree_newick(out_fn['viral_phylogeny_mut'])
+    if verbose:
+        print_log("Viral Phylogeny (Mutations) written to: %s" % out_fn['viral_phylogeny_mut'])
