@@ -2,7 +2,7 @@
 from .. import *
 from os import makedirs
 from random import choice
-from shutil import copy2
+from shutil import move
 from subprocess import call
 
 # determine initial states
@@ -78,10 +78,10 @@ def gemf_favites(model, params, out_fn, config, verbose=True):
     if verbose:
         print_log("Command: %s" % ' '.join(command))
     call(command)
-    copy2('%s/transmission_network.txt' % gemf_out, out_fn['transmission_network'])
+    move('%s/transmission_network.txt' % gemf_out, out_fn['transmission_network'])
     if verbose:
         print_log("Transmission Network written to: %s" % out_fn['transmission_network'])
-    copy2('%s/all_state_transitions.txt' % gemf_out, out_fn['all_state_transitions'])
+    move('%s/all_state_transitions.txt' % gemf_out, out_fn['all_state_transitions'])
     if verbose:
         print_log("All State Transitions written to: %s" % out_fn['all_state_transitions'])
 
