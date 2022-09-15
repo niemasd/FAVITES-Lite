@@ -55,3 +55,6 @@ usage: favites_lite.py [-h] -c CONFIG -o OUTPUT [--overwrite] [--quiet] [--versi
   --quiet                      Suppress Log Messages (default: False)
   --version                    Show FAVITES-Lite version (default: False)
 ```
+
+## Scripts
+To aid with common downstream analyses, you can find some helper scripts in the [`scripts`](scripts) folder of this repository. The scripts will be organized by step(s) of the FAVITES-Lite simulation workflow, and each subdirectory will have a README describing the scripts in that folder.
