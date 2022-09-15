@@ -2,18 +2,25 @@
 FAVITES-Lite is a lightweight framework for viral transmission and evolution simulation. It is a spin-off of [FAVITES](https://github.com/niemasd/FAVITES) that is designed to be much simpler and faster, but at the expense of reduced flexibility. FAVITES-Lite was designed to incorporate the just key functionality of FAVITES that most users require. In general, we strongly recommend using FAVITES-Lite instead of FAVITES for epidemic simulation projects.
 
 ## Installation
-FAVITES-Lite is written in Python, but it calls many command-line tools. To install FAVITES-Lite itself, you can either download the latest [release](https://github.com/niemasd/FAVITES-Lite/releases), or you can clone this GitHub repository:
+FAVITES-Lite is written in Python and depends on the following Python packages:
 
-```bash
-git clone https://github.com/niemasd/FAVITES-Lite.git
-```
+* [NumPy](https://numpy.org/)
+* [SciPy](https://scipy.org/)
+* [TreeSAP](https://github.com/niemasd/treesap)
+* [TreeSwift](https://github.com/niemasd/TreeSwift)
 
-You must also install all of the FAVITES-Lite dependencies to your `PATH`:
+FAVITES-Lite also calls many command-line tools, which must be installed in your `PATH`:
 
 * [CoaTran](https://github.com/niemasd/CoaTran)
 * [GEMF_FAVITES](https://github.com/niemasd/GEMF)
 * [NiemaGraphGen](https://github.com/niemasd/NiemaGraphGen)
 * [Seq-Gen](https://github.com/rambaut/Seq-Gen)
+
+To install FAVITES-Lite itself, you can either download the latest [release](https://github.com/niemasd/FAVITES-Lite/releases), or you can clone this GitHub repository:
+
+```bash
+git clone https://github.com/niemasd/FAVITES-Lite.git
+```
 
 For convenience, you can also use the [FAVITES-Lite Docker image](https://hub.docker.com/r/niemasd/favites_lite), or you can refer to the [`Dockerfile`](https://github.com/niemasd/FAVITES-Lite/blob/main/Dockerfile#L12-L42) for installation commands.
 
