@@ -22,7 +22,7 @@ To install FAVITES-Lite itself, you can either download the latest [release](htt
 git clone https://github.com/niemasd/FAVITES-Lite.git
 ```
 
-For convenience, you can also use the [FAVITES-Lite Docker image](https://hub.docker.com/r/niemasd/favites_lite), or you can refer to the [`Dockerfile`](https://github.com/niemasd/FAVITES-Lite/blob/main/Dockerfile#L12-L42) for installation commands.
+For convenience, you can also use the [FAVITES-Lite Docker image](https://hub.docker.com/r/niemasd/favites_lite), or you can refer to the [`Dockerfile`](https://github.com/niemasd/FAVITES-Lite/blob/main/Dockerfile#L9-L42) for installation commands.
 
 ## Usage
 There are two primary components to FAVITES-Lite: the [Config Designer](config_designer.py) and the [FAVITES-Lite executable](favites_lite.py).
