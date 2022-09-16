@@ -36,7 +36,7 @@ def validate_args(args, verbose=True):
     if verbose:
         print_log("Config File: %s" % args.config)
     if isdir(args.output) or isfile(args.output):
-        if args.overwrite or input('Output directory exists: "%s". Overwrite? (Y/N)' % args.output).upper().startswith('Y'):
+        if args.overwrite or input('Output directory exists: "%s". Overwrite? (Y/N) ' % args.output).upper().startswith('Y'):
             if verbose:
                 print_log("Overwriting output directory: %s" % args.output)
             if isdir(args.output):
