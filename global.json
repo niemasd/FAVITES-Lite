@@ -525,6 +525,92 @@
                 },
                 "DESC": "No transmission network is simulated.\n\nMust select \"None\" for all downstream steps."
             },
+            "SAPHIRE": {
+                "PARAM": {
+                    "duration": {
+                        "TYPE": "positive float",
+                        "DESC": "The duration of the epidemic"
+                    },
+                    "N_S": {
+                        "TYPE": "non-negative integer",
+                        "DESC": "The number of individuals in state S at the start of the simulation"
+                    },
+                    "N_A": {
+                        "TYPE": "non-negative integer",
+                        "DESC": "The number of individuals in state A at the start of the simulation"
+                    },
+                    "N_P": {
+                        "TYPE": "non-negative integer",
+                        "DESC": "The number of individuals in state P at the start of the simulation"
+                    },
+                    "N_H": {
+                        "TYPE": "non-negative integer",
+                        "DESC": "The number of individuals in state H at the start of the simulation"
+                    },
+                    "N_I": {
+                        "TYPE": "non-negative integer",
+                        "DESC": "The number of individuals in state I at the start of the simulation"
+                    },
+                    "N_R": {
+                        "TYPE": "non-negative integer",
+                        "DESC": "The number of individuals in state R at the start of the simulation"
+                    },
+                    "N_E": {
+                        "TYPE": "non-negative integer",
+                        "DESC": "The number of individuals in state E at the start of the simulation"
+                    },
+                    "R_S-E": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate S -> E (nodal, e.g. outside infection)"
+                    },
+                    "R_S-E_E": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate S -> E induced by neighbors in E"
+                    },
+                    "R_S-E_P": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate S -> E induced by neighbors in P"
+                    },
+                    "R_S-E_I": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate S -> E induced by neighbors in I"
+                    },
+                    "R_S-E_A": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate S -> E induced by neighbors in A"
+                    },
+                    "R_E-P": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate E -> P (nodal)"
+                    },
+                    "R_P-A": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate P -> A (nodal)"
+                    },
+                    "R_P-I": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate P -> I (nodal)"
+                    },
+                    "R_A-R": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate A -> R (nodal)"
+                    },
+                    "R_I-H": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate I -> H (nodal)"
+                    },
+                    "R_I-R": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate I -> R (nodal)"
+                    },
+                    "R_H-R": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate H -> R (nodal)"
+                    }
+                },
+                "DESC": "The <ansired>SAPHIRE</ansired> model (Hao et al., Nature 2020) has 7 states:\n  - S: Susceptible\n  - A: Unascertained Case\n  - P: Presymptomatic Infectious Case\n  - H: Hospitalized Case\n  - I: Ascertained Infectious Case\n  - R: Removed\n  - E: Exposed\n\nThe following transitions are possible:\n  - S -> E (induced by E/P/I/A or outside)\n  - E -> P (nodal)\n  - P -> A and P -> I (nodal)\n  - I -> H and I -> R (nodal)\n  - A -> R (nodal)\n  - H -> R (nodal)",
+                "CITE": "Hao X, Cheng S, Wu D, Wu T, Lin X, Wang C (2020). \"Reconstruction\n    of the full transmission dynamics of COVID-19 in Wuhan.\"\n    Nature. 584:420-424. doi:10.1038/s41586-020-2554-8"
+            },
             "Susceptible-Alert-Infected-Susceptible (SAIS)": {
                 "PARAM": {
                     "duration": {
