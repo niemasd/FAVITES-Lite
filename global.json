@@ -613,6 +613,126 @@
             },
             "SAAPPHIIRE": {
                 "PARAM": {
+                    "duration": {
+                        "TYPE": "positive float",
+                        "DESC": "The duration of the epidemic"
+                    },
+                    "N_S": {
+                        "TYPE": "non-negative integer",
+                        "DESC": "The number of individuals in state S at the start of the simulation"
+                    },
+                    "N_A1": {
+                        "TYPE": "non-negative integer",
+                        "DESC": "The number of individuals in state A1 at the start of the simulation"
+                    },
+                    "N_A2": {
+                        "TYPE": "non-negative integer",
+                        "DESC": "The number of individuals in state A2 at the start of the simulation"
+                    },
+                    "N_P1": {
+                        "TYPE": "non-negative integer",
+                        "DESC": "The number of individuals in state P1 at the start of the simulation"
+                    },
+                    "N_P2": {
+                        "TYPE": "non-negative integer",
+                        "DESC": "The number of individuals in state P2 at the start of the simulation"
+                    },
+                    "N_H": {
+                        "TYPE": "non-negative integer",
+                        "DESC": "The number of individuals in state H at the start of the simulation"
+                    },
+                    "N_I1": {
+                        "TYPE": "non-negative integer",
+                        "DESC": "The number of individuals in state I1 at the start of the simulation"
+                    },
+                    "N_I2": {
+                        "TYPE": "non-negative integer",
+                        "DESC": "The number of individuals in state I2 at the start of the simulation"
+                    },
+                    "N_R": {
+                        "TYPE": "non-negative integer",
+                        "DESC": "The number of individuals in state R at the start of the simulation"
+                    },
+                    "N_E": {
+                        "TYPE": "non-negative integer",
+                        "DESC": "The number of individuals in state E at the start of the simulation"
+                    },
+                    "R_S-E": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate S -> E (nodal, e.g. outside infection)"
+                    },
+                    "R_S-E_E": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate S -> E induced by neighbors in E"
+                    },
+                    "R_S-E_P1": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate S -> E induced by neighbors in P1"
+                    },
+                    "R_S-E_P2": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate S -> E induced by neighbors in P2"
+                    },
+                    "R_S-E_I1": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate S -> E induced by neighbors in I1"
+                    },
+                    "R_S-E_I2": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate S -> E induced by neighbors in I2"
+                    },
+                    "R_S-E_A1": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate S -> E induced by neighbors in A1"
+                    },
+                    "R_S-E_A2": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate S -> E induced by neighbors in A2"
+                    },
+                    "R_E-P1": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate E -> P1 (nodal)"
+                    },
+                    "R_P1-P2": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate P1 -> P2 (nodal)"
+                    },
+                    "R_P2-I1": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate P2 -> I1 (nodal)"
+                    },
+                    "R_P2-A1": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate P2 -> A1 (nodal)"
+                    },
+                    "R_I1-I2": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate I1 -> I2 (nodal)"
+                    },
+                    "R_I1-H": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate I1 -> H (nodal)"
+                    },
+                    "R_I2-H": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate I2 -> H (nodal)"
+                    },
+                    "R_I2-R": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate I2 -> R (nodal)"
+                    },
+                    "R_A1-A2": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate A1 -> A2 (nodal)"
+                    },
+                    "R_A2-R": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate A2 -> R (nodal)"
+                    },
+                    "R_H-R": {
+                        "TYPE": "non-negative float",
+                        "DESC": "The transition rate H -> R (nodal)"
+                    }
                 },
                 "DESC": "The <ansired>SAAPPHIIRE</ansired> model (Pekar et al., Science 2022) has 10 states:\n  - S: Susceptible\n  - A1 and A2: Unascertained Case (Stage 1 and Stage 2)\n  - P1 and P2: Presymptomatic Infectious Case (Stage 1 and Stage 2)\n  - H: Hospitalized Case\n  - I1 and I2: Ascertained Infectious Case (Stage 1 and Stage 2)\n  - R: Removed\n  - E: Exposed\n\nThe following transitions are possible:\n  - TODO",
                 "CITE": "Pekar JE, Magee A, Parker E, Moshiri N, Izhikevich K, Havens JL,\n    Gangavarapu K, Malpica Serrano LM, Crits-Christoph A, Matteson NL,\n    Zeller M, Levy JI, Wang JC, Hughes S, Lee J, Park H, Park MS,\n    Ching Zi Yan K, Tzer Pin Lin R, Mat Isa MN, Muhammad Noor Y,\n    Vasylyeva TI, Garry RF, Holmes EC, Rambaut A, Suchard MA,\n    Andersen KG, Worobey M, Wertheim JO (2022). \"The molecular\n    epidemiology of multiple zoonotic origins of SARS-CoV-2.\"\n    Science. 377(6609):960-966. doi:10.1126/science.abp8337"
