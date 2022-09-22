@@ -1,3 +1,4 @@
+name: FAVITES-Lite Tests
 on: [push]
 
 jobs:
