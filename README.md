@@ -1,4 +1,4 @@
-# FAVITES-Lite
+# FAVITES-Lite ![FAVITES-Lite Tests Status](https://github.com/niemasd/FAVITES-Lite/actions/workflows/favites_lite_tests.yml/badge.svg)
 FAVITES-Lite is a lightweight framework for viral transmission and evolution simulation. It is a spin-off of [FAVITES](https://github.com/niemasd/FAVITES) that is designed to be much simpler and faster, but at the expense of reduced flexibility. FAVITES-Lite was designed to incorporate the just key functionality of FAVITES that most users require. In general, we strongly recommend using FAVITES-Lite instead of FAVITES for epidemic simulation projects.
 
 ## Installation
