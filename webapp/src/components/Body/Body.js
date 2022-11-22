@@ -1,19 +1,20 @@
 import { useSelector, useDispatch } from "react-redux";
-import { set } from "../../features/config/configSlice";
+import { setConfig } from "../../features/config/configSlice";
+import { Typography } from "@mui/material";
 import styles from "./Body.module.css";
+import globalJSON from "../../files/global.json";
 
 const Body = (props) => {
   const { className } = props;
   const config = useSelector((state) => state.config.value);
   const dispatch = useDispatch();
+  const selected = useSelector((state) => state.selected.value);
 
   return (
-    <div className={className}>
-      {JSON.stringify(config)}
-      <br />
-      <button onClick={() => dispatch(set({test: "test"}))}>Test 1</button>
-      <button onClick={() => dispatch(set({}))}>Test 2</button>
-      <button onClick={() => dispatch(set({test: "test", test2: {test: "test"}}))}>Test 3</button>
+    <div className={`${className} ${styles.Main}`}>
+      <Typography variant="h4">{selected}</Typography>
+      <br/>
+      <Typography>{globalJSON.DESC[selected]}</Typography>
     </div>
   );
 };
