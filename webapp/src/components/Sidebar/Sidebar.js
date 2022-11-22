@@ -1,9 +1,16 @@
-import styles from "./Sidebar.module.css"
+import Component from "./Component/Component";
+import styles from "./Sidebar.module.css";
 
 const Sidebar = (props) => {
-    const { className } = props;
+  const { className } = props;
 
-    return <div className={className}></div>;
-}
+  const li = ["Contact Network", "Transmission Network", "Sample Times", "Viral Phylogeny (Transmissions)", "Viral Phylogeny (Seeds)"]
+
+  return (
+    <div className={className}>
+      {li.map(name => <Component key={name} name={name} />)}
+    </div>
+  );
+};
 
 export default Sidebar;
