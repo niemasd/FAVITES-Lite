@@ -17,8 +17,6 @@ const Body = (props) => {
   const config = useSelector((state) => state.config.value);
   const selected = useSelector((state) => state.selected.value);
 
-  console.log(config);
-
   return (
     <div className={`${className} ${styles.Main}`}>
       {selected && (

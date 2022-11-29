@@ -8,7 +8,7 @@ import globalJSON from "../../files/global.json";
 const Sidebar = (props) => {
   const { className } = props;
   const { CONFIG_KEYS } = globalJSON;
-
+  
   const selected = useSelector((state) => state.selected.value);
   const dispatch = useDispatch();
 
