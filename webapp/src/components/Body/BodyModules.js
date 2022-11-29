@@ -112,17 +112,17 @@ export const ModelRequirements = () => {
   const config = useSelector((state) => state.config.value);
   const selected = useSelector((state) => state.selected.value);
 
-  const properties =
+  const requirements =
     globalJSON.MODELS[selected][config[selected]["model"]].REQS;
 
-  if (properties) {
+  if (requirements) {
     return (
       <>
-        <Typography variant="h5">Properties</Typography>
+        <Typography variant="h5">Requirements</Typography>
         <ul>
-          {Object.keys(properties).map((req) => (
+          {Object.keys(requirements).map((req) => (
             <li key={req}>
-              {req}: {properties[req]}
+              {req}: {requirements[req]}
             </li>
           ))}
         </ul>
@@ -178,6 +178,8 @@ export const ParametersSelect = () => {
         {Object.keys(parameters).map((param) => {
           /**
            * TODO: implement restrictions based on param type
+           *  
+           * This can be found in line 30 of the config designer python
            *
            * possible types:
            * - positive integer

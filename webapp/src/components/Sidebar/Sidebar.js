@@ -13,7 +13,7 @@ const Sidebar = (props) => {
   const dispatch = useDispatch();
 
   return (
-    <div className={className}>
+    <div className={`${className} ${styles.Main}`}>
       {CONFIG_KEYS.map((name) => (
         <Component
           key={name}

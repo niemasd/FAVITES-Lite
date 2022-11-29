@@ -38,10 +38,15 @@ const Body = (props) => {
           <ModelProperties />
           <ModelRequirements />
 
-          <Typography variant="h4">Step 2: Choose Parameters</Typography>
-          <br />
-          {/* <ModelParameters /> */}
-          <ParametersSelect />
+          {Object.keys(
+            globalJSON.MODELS[selected][config[selected]["model"]].PARAM
+          ).length !== 0 && (
+            <>
+              <Typography variant="h4">Step 2: Choose Parameters</Typography>
+              <br />
+              <ParametersSelect />
+            </>
+          )}
         </>
       )}
     </div>
