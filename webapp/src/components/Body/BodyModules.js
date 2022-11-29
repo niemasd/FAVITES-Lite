@@ -28,7 +28,7 @@ export const ModelSelect = () => {
         onChange={(e) => {
           let newConfig = { ...config };
           newConfig[selected] = { model: e.target.value };
-
+          console.log(newConfig);
           dispatch(setConfig(newConfig));
         }}
       >
