@@ -40,7 +40,7 @@ const Body = (props) => {
 
           <Typography variant="h4">Step 2: Choose Parameters</Typography>
           <br />
-          <ModelParameters />
+          {/* <ModelParameters /> */}
           <ParametersSelect />
         </>
       )}

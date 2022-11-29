@@ -10,3 +10,12 @@
 .Main {
   padding: 2em;
 }
+
+.ModalButton {
+    margin-top: 10px;
+    margin-right: 10px
+}
+
+.ModalAlert {
+    margin-top: 10px;
+}

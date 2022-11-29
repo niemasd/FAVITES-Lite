@@ -97,7 +97,7 @@ export const ModelProperties = () => {
         <Typography variant="h5">Properties</Typography>
         <ul>
           {properties.map((prop) => (
-            <li>{prop}</li>
+            <li key={prop}>{prop}</li>
           ))}
         </ul>
         <br />
@@ -121,7 +121,7 @@ export const ModelRequirements = () => {
         <Typography variant="h5">Properties</Typography>
         <ul>
           {Object.keys(properties).map((req) => (
-            <li>
+            <li key={req}>
               {req}: {properties[req]}
             </li>
           ))}
@@ -134,35 +134,35 @@ export const ModelRequirements = () => {
   return <></>;
 };
 
-export const ModelParameters = () => {
-  const config = useSelector((state) => state.config.value);
-  const selected = useSelector((state) => state.selected.value);
+// export const ModelParameters = () => {
+//   const config = useSelector((state) => state.config.value);
+//   const selected = useSelector((state) => state.selected.value);
 
-  const parameters =
-    globalJSON.MODELS[selected][config[selected]["model"]].PARAM;
+//   const parameters =
+//     globalJSON.MODELS[selected][config[selected]["model"]].PARAM;
 
-  if (parameters) {
-    return (
-      <>
-        <Typography variant="h5">Parameters</Typography>
-        <ul>
-          {Object.keys(parameters).map((param) => (
-            <li>
-              {param}
-              <ul>
-                <li>Type: {parameters[param].TYPE}</li>
-                <li>Description: {parameters[param].DESC}</li>
-              </ul>
-            </li>
-          ))}
-        </ul>
-        <br />
-      </>
-    );
-  }
+//   if (parameters) {
+//     return (
+//       <>
+//         <Typography variant="h5">Parameters</Typography>
+//         <ul>
+//           {Object.keys(parameters).map((param) => (
+//             <li key={param}>
+//               {param}
+//               <ul>
+//                 <li>Type: {parameters[param].TYPE}</li>
+//                 <li>Description: {parameters[param].DESC}</li>
+//               </ul>
+//             </li>
+//           ))}
+//         </ul>
+//         <br />
+//       </>
+//     );
+//   }
 
-  return <></>;
-};
+//   return <></>;
+// };
 
 export const ParametersSelect = () => {
   const config = useSelector((state) => state.config.value);
@@ -176,25 +176,48 @@ export const ParametersSelect = () => {
     return (
       <>
         {Object.keys(parameters).map((param) => {
-            /**
-             * TODO: implement restrictions based on param type
-             * 
-             * possible types:
-             * - positive integer
-             * - positive float
-             * - probability
-             * - non-negative float
-             * - comma-separated list
-             */
+          /**
+           * TODO: implement restrictions based on param type
+           *
+           * possible types:
+           * - positive integer
+           * - positive float
+           * - probability
+           * - non-negative float
+           * - comma-separated list
+           */
 
           return (
-            <>
-              <TextField label={param} variant="standard" onChange={(e) => {console.log(e.target.value)}} />
-              <br />
-            </>
+            <div key={param}>
+              <TextField
+                label={param}
+                variant="standard"
+                value={
+                  config[selected]["param"]
+                    ? config[selected]["param"][param] || ""
+                    : ""
+                }
+                onChange={(e) => {
+                  let newConfig = { ...config };
+                  newConfig[selected] = {
+                    ...newConfig[selected],
+                    param: { ...newConfig[selected]["param"] },
+                  };
+                  newConfig[selected]["param"][param] = e.target.value;
+
+                  dispatch(setConfig(newConfig));
+                }}
+              />
+              <ul>
+                <li>Type: {parameters[param].TYPE}</li>
+                <li>Description: {parameters[param].DESC}</li>
+              </ul>
+            </div>
           );
         })}
       </>
     );
   }
+
+  return <></>;
 };
