@@ -8,3 +8,8 @@
 .Main > * {
   padding: 0px 1em;
 }
+
+.InProgress {
+  background-color: #FFF3D3;
+  border: 1px solid #ca9d2c;
+}
