@@ -15,7 +15,12 @@ const Sidebar = (props) => {
   return (
     <div className={className}>
       {CONFIG_KEYS.map((name) => (
-        <Component key={name} name={name} onClick={() => dispatch(setSelected(name))} />
+        <Component
+          key={name}
+          name={name}
+          className={name === selected ? styles.SelectedComponent : ""}
+          onClick={() => dispatch(setSelected(name))}
+        />
       ))}
     </div>
   );

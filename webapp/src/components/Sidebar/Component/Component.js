@@ -1,10 +1,10 @@
 import styles from "./Component.module.css";
 
 const Component = (props) => {
-  const { name, onClick } = props;
+  const { name, onClick, className } = props;
 
   return (
-    <div className={styles.Main} onClick={onClick}>
+    <div className={`${className} ${styles.Main}`} onClick={onClick}>
       <h4>{name}</h4>
       <span>Not Selected</span>
     </div>
