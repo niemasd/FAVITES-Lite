@@ -1,8 +1,8 @@
 :root {
-    --indicator-width: 3px;
+  --indicator-width: 3px;
 }
 
 .SelectedComponent {
-    border-right: solid var(--indicator-width) #3e68ff;
-    width: calc(100% - var(--indicator-width))
+  border-right: solid var(--indicator-width) #3e68ff;
+  width: calc(100% - var(--indicator-width));
 }

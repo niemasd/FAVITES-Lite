@@ -1,18 +1,13 @@
 import { useSelector, useDispatch } from "react-redux";
-import { setConfig } from "../../features/config/configSlice";
-import {
-  Typography,
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
-} from "@mui/material";
+import { Typography } from "@mui/material";
 import {
   ModelCitation,
   ModelDescription,
+  ModelParameters,
   ModelProperties,
   ModelRequirements,
   ModelSelect,
+  ParametersSelect,
 } from "./BodyModules";
 import styles from "./Body.module.css";
 import globalJSON from "../../files/global.json";
@@ -20,20 +15,23 @@ import globalJSON from "../../files/global.json";
 const Body = (props) => {
   const { className } = props;
   const config = useSelector((state) => state.config.value);
-  const dispatch = useDispatch();
   const selected = useSelector((state) => state.selected.value);
 
   console.log(config);
 
   return (
     <div className={`${className} ${styles.Main}`}>
-      <Typography variant="h3">{selected}</Typography>
-      <br />
-      <Typography>{globalJSON.DESC[selected]}</Typography>
-      <br />
-      <Typography variant="h4">Step 1: Choose Model</Typography>
+      {selected && (
+        <>
+          <Typography variant="h3">{selected}</Typography>
+          <br />
+          <Typography>{globalJSON.DESC[selected]}</Typography>
+          <br />
+          <Typography variant="h4">Step 1: Choose Model</Typography>
 
-      <ModelSelect />
+          <ModelSelect />
+        </>
+      )}
 
       {config[selected] && config[selected]["model"] && (
         <>
@@ -44,6 +42,8 @@ const Body = (props) => {
 
           <Typography variant="h4">Step 2: Choose Parameters</Typography>
           <br />
+          <ModelParameters />
+          <ParametersSelect />
         </>
       )}
     </div>
