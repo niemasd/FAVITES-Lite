@@ -203,8 +203,12 @@ export const ParametersSelect = () => {
                     ...newConfig[selected],
                     param: { ...newConfig[selected]["param"] },
                   };
-                  newConfig[selected]["param"][param] = e.target.value;
-
+                  // Remove the param from newConfig if user deletes entry from corresponding text box
+                  if (e.target.value === "") {
+                    delete newConfig[selected]["param"][param];
+                  } else {
+                    newConfig[selected]["param"][param] = e.target.value;
+                  }
                   dispatch(setConfig(newConfig));
                 }}
               />
