@@ -20,7 +20,12 @@ def ngg(exe, params, out_fn, config, verbose=True):
         error("Invalid NiemaGraphGen exe: %s" % exe)
     if verbose:
         print_log("Command: %s" % ' '.join(command))
-    f = open(out_fn['contact_network'], 'w'); call(command, stdout=f); f.close()
+    f = open(out_fn['contact_network'], 'w')
+    try:
+        call(command, stdout=f)
+    except FileNotFoundError as e:
+        error("Unable to run NiemaGraphGen. Make sure all ngg_* executables are in your PATH (e.g. /usr/local/bin)")
+    f.close()
     if verbose:
         print_log("Contact Network written to: %s" % out_fn['contact_network'])
 def ngg_barabasi_albert(params, out_fn, config, verbose=True):

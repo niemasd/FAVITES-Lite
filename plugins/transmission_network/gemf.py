@@ -79,7 +79,10 @@ def gemf_favites(model, params, out_fn, config, verbose=True):
     ]
     if verbose:
         print_log("Command: %s" % ' '.join(command))
-    call(command)
+    try:
+        call(command)
+    except FileNotFoundError as e:
+        error("Unable to run GEMF_FAVITES. Make sure GEMF_FAVITES.py and GEMF executables are in your PATH (e.g. /usr/local/bin)")
     move('%s/transmission_network.txt' % gemf_out, out_fn['transmission_network'])
     if verbose:
         print_log("Transmission Network written to: %s" % out_fn['transmission_network'])

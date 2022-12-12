@@ -40,7 +40,12 @@ def seqgen(mode, params, out_fn, config, verbose=True):
     command += [seqgen_tree_fn]
     if verbose:
         print_log("Command: %s" % ' '.join(command))
-    out_f = open(out_fn['sequences'], 'w'); log_f = open(seqgen_log_fn, 'w'); call(command, stdout=out_f, stderr=log_f); log_f.close(); out_f.close()
+    out_f = open(out_fn['sequences'], 'w'); log_f = open(seqgen_log_fn, 'w')
+    try:
+        call(command, stdout=out_f, stderr=log_f)
+    except FileNotFoundError as e:
+        error("Unable to run seq-gen. Make sure seq-gen executable is in your PATH (e.g. /usr/local/bin)")
+    log_f.close(); out_f.close()
     if stat(out_fn['sequences']).st_size < 2:
         error("Seq-Gen crashed. See log file: %s" % seqgen_log_fn)
     if verbose:

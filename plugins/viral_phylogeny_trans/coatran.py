@@ -17,7 +17,12 @@ def coatran(exe, params, out_fn, config, verbose=True):
         error("Invalid CoaTran exe: %s" % exe)
     if verbose:
         print_log("Command: %s" % ' '.join(command))
-    f = open(out_fn['viral_phylogeny_all_chains_time'], 'w'); call(command, stdout=f); f.close()
+    f = open(out_fn['viral_phylogeny_all_chains_time'], 'w')
+    try:
+        call(command, stdout=f)
+    except FileNotFoundError as e:
+        error("Unable to run CoaTran. Make sure all coatran_* executables are in your PATH (e.g. /usr/local/bin)")
+    f.close()
     if stat(out_fn['viral_phylogeny_all_chains_time']).st_size < 2:
         error("CoaTran crashed")
     if verbose:
