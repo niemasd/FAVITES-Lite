@@ -12,7 +12,7 @@ except:
     error("Unable to import treeswift. Install with: pip install treeswift")
 
 # sample a seed tree with TreeSAP
-def treesap_seed(model, params, out_fn, config, verbose=True):
+def treesap_seed(model, params, out_fn, config, GLOBAL, verbose=True):
     chain_trees = [read_tree_newick(l) for l in open(out_fn['viral_phylogeny_all_chains_time']).read().strip().splitlines()]
     if model == "Coalescent (Neutral)":
         tree = coalescent_const_pop_tree(100., len(chain_trees), continuous=True)
@@ -36,11 +36,11 @@ def treesap_seed(model, params, out_fn, config, verbose=True):
         print_log("Viral Phylogeny (Time) written to: %s" % out_fn['viral_phylogeny_time'])
 
 # model-specific
-def treesap_coalescent_const_pop(params, out_fn, config, verbose=True):
-    treesap_seed("Coalescent (Neutral)", params, out_fn, config, verbose=verbose)
-def treesap_dualbirth(params, out_fn, config, verbose=True):
-    treesap_seed("Dual-Birth", params, out_fn, config, verbose=verbose)
-def treesap_nonhom_yule(params, out_fn, config, verbose=True):
-    treesap_seed("Non-Homogeneous Yule", params, out_fn, config, verbose=verbose)
-def treesap_yule(params, out_fn, config, verbose=True):
-    treesap_seed("Yule", params, out_fn, config, verbose=verbose)
+def treesap_coalescent_const_pop(params, out_fn, config, GLOBAL, verbose=True):
+    treesap_seed("Coalescent (Neutral)", params, out_fn, config, GLOBAL, verbose=verbose)
+def treesap_dualbirth(params, out_fn, config, GLOBAL, verbose=True):
+    treesap_seed("Dual-Birth", params, out_fn, config, GLOBAL, verbose=verbose)
+def treesap_nonhom_yule(params, out_fn, config, GLOBAL, verbose=True):
+    treesap_seed("Non-Homogeneous Yule", params, out_fn, config, GLOBAL, verbose=verbose)
+def treesap_yule(params, out_fn, config, GLOBAL, verbose=True):
+    treesap_seed("Yule", params, out_fn, config, GLOBAL, verbose=verbose)

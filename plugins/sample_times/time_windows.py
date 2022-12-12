@@ -11,7 +11,7 @@ except:
     error("Unable to import scipy. Install with: pip install scipy")
 
 # sample individuals according to some distribution in their time windows
-def time_windows(model, params, out_fn, config, verbose=True):
+def time_windows(model, params, out_fn, config, GLOBAL, verbose=True):
     end_time = config["Transmission Network"]['param']['duration']
     states_to_sample = {s.strip() for s in params['sampled_states'].split(',')}
     windows = dict() # windows[node] = list of [state, start, end]
@@ -52,11 +52,11 @@ def time_windows(model, params, out_fn, config, verbose=True):
     f.close()
 
 # model-specific functions
-def time_windows_trunc_expon(params, out_fn, config, verbose=True):
-    time_windows("Truncated Exponential", params, out_fn, config, verbose=verbose)
-def time_windows_trunc_gamma(params, out_fn, config, verbose=True):
-    time_windows("Truncated Gamma", params, out_fn, config, verbose=verbose)
-def time_windows_trunc_normal(params, out_fn, config, verbose=True):
-    time_windows("Truncated Normal", params, out_fn, config, verbose=verbose)
-def time_windows_uniform(params, out_fn, config, verbose=True):
-    time_windows("Uniform", params, out_fn, config, verbose=verbose)
+def time_windows_trunc_expon(params, out_fn, config, GLOBAL, verbose=True):
+    time_windows("Truncated Exponential", params, out_fn, config, GLOBAL, verbose=verbose)
+def time_windows_trunc_gamma(params, out_fn, config, GLOBAL, verbose=True):
+    time_windows("Truncated Gamma", params, out_fn, config, GLOBAL, verbose=verbose)
+def time_windows_trunc_normal(params, out_fn, config, GLOBAL, verbose=True):
+    time_windows("Truncated Normal", params, out_fn, config, GLOBAL, verbose=verbose)
+def time_windows_uniform(params, out_fn, config, GLOBAL, verbose=True):
+    time_windows("Uniform", params, out_fn, config, GLOBAL, verbose=verbose)
