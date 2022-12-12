@@ -1,8 +1,14 @@
 #! /usr/bin/env python3
 from .. import *
-from numpy.random import gamma
 from random import choice, uniform
-from scipy.stats import truncexpon, truncnorm
+try:
+    from numpy.random import gamma
+except:
+    error("Unable to import numpy. Install with: pip install numpy")
+try:
+    from scipy.stats import truncexpon, truncnorm
+except:
+    error("Unable to import scipy. Install with: pip install scipy")
 
 # sample individuals according to some distribution in their time windows
 def time_windows(model, params, out_fn, config, verbose=True):

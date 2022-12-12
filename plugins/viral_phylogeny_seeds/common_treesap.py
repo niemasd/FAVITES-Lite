@@ -2,9 +2,14 @@
 from .. import *
 from . import common
 from math import *
-from treesap import coalescent_const_pop_tree, dualbirth_tree, nonhomogeneous_yule_tree, yule_tree
-from treeswift import read_tree_newick
-import math
+try:
+    from treesap import coalescent_const_pop_tree, dualbirth_tree, nonhomogeneous_yule_tree, yule_tree
+except:
+    error("Unable to import treesap. Install with: pip install treesap")
+try:
+    from treeswift import read_tree_newick
+except:
+    error("Unable to import treeswift. Install with: pip install treeswift")
 
 # sample a seed tree with TreeSAP
 def treesap_seed(model, params, out_fn, config, verbose=True):

@@ -2,7 +2,10 @@
 from .. import *
 from os import stat
 from subprocess import call
-from treeswift import read_tree_newick
+try:
+    from treeswift import read_tree_newick
+except:
+    error("Unable to import treeswift. Install with: pip install treeswift")
 
 # simulate a coalescent viral phylogeny using CoaTran
 def coatran(exe, params, out_fn, config, verbose=True):

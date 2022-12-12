@@ -1,10 +1,19 @@
 #! /usr/bin/env python3
 from .. import *
-from numpy.random import chisquare, exponential, gamma, lognormal, noncentral_chisquare, noncentral_f, pareto, power, rayleigh, triangular, wald, weibull
-from numpy.random import f as f_dist
 from random import random, uniform
-from scipy.stats import truncnorm
-from treeswift import read_tree_newick
+try:
+    from numpy.random import chisquare, exponential, gamma, lognormal, noncentral_chisquare, noncentral_f, pareto, power, rayleigh, triangular, wald, weibull
+    from numpy.random import f as f_dist
+except:
+    error("Unable to import numpy. Install with: pip install numpy")
+try:
+    from scipy.stats import truncnorm
+except:
+    error("Unable to import scipy. Install with: pip install scipy")
+try:
+    from treeswift import read_tree_newick
+except:
+    error("Unable to import treeswift. Install with: pip install treeswift")
 
 # Autocorrelated Constant Increment
 def treeswift_autocorr_const_inc(params, out_fn, config, verbose=True):

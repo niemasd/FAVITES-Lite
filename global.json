@@ -1,5 +1,5 @@
 {
-    "VERSION": "0.0.2",
+    "VERSION": "0.0.3",
     "CONFIG_KEYS": ["Contact Network", "Transmission Network", "Sample Times", "Viral Phylogeny (Transmissions)", "Viral Phylogeny (Seeds)", "Mutation Rates", "Ancestral Sequence", "Sequence Evolution"],
     "TYPES": ["positive integer"],
     "DESC": {

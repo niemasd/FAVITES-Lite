@@ -2,7 +2,10 @@
 from .. import *
 from os import stat
 from subprocess import call
-from treeswift import read_tree_newick
+try:
+    from treeswift import read_tree_newick
+except:
+    error("Unable to import treeswift. Install with: pip install treeswift")
 
 # run seq-gen
 def seqgen(mode, params, out_fn, config, verbose=True):
