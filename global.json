@@ -146,6 +146,7 @@
         },
         "Transmission Network": {
             "Granich et al. (2008)": {
+                "INF_STATES": ["I1", "I2", "I3", "I4", "A1", "A2", "A3", "A4"],
                 "PARAM": {
                     "duration": {
                         "TYPE": "positive float",
@@ -336,6 +337,7 @@
                 "CITE": "Granich RM, Gilks CF, Dye C, De Cock KM, Williams BG (2008).\n    \"Universal voluntary HIV testing with immediate antiretroviral\n    therapy as a strategy for elimination of HIV transmission:\n    a mathematical model.\" The Lancet. 373(9657):48-57.\n    doi:10.1016/S0140-6736(08)61697-9"
             },
             "Hethcote and Yorke (1984)": {
+                "INF_STATES": ["MIS", "MIA", "FIS", "FIA"],
                 "PARAM": {
                     "duration": {
                         "TYPE": "positive float",
@@ -514,6 +516,7 @@
                 "CITE": "Hethcote HW, Yorke JA (1984). \"Gonorrhea transmission dynamics and\n    control.\" Lect Notes Math. 56. doi:10.1007/978-3-662-07544-9"
             },
             "None": {
+                "INF_STATES": [],
                 "PARAM": {},
                 "REQS": {
                     "Sample Times": "None",
@@ -526,6 +529,7 @@
                 "DESC": "No transmission network is simulated.\n\nMust select \"None\" for all downstream steps."
             },
             "SAPHIRE": {
+                "INF_STATES": ["E", "P", "I", "A"],
                 "PARAM": {
                     "duration": {
                         "TYPE": "positive float",
@@ -612,6 +616,7 @@
                 "CITE": "Hao X, Cheng S, Wu D, Wu T, Lin X, Wang C (2020). \"Reconstruction\n    of the full transmission dynamics of COVID-19 in Wuhan.\"\n    Nature. 584:420-424. doi:10.1038/s41586-020-2554-8"
             },
             "SAAPPHIIRE": {
+                "INF_STATES": ["E", "P1", "P2", "I1", "I2", "A1", "A2"],
                 "PARAM": {
                     "duration": {
                         "TYPE": "positive float",
@@ -738,6 +743,7 @@
                 "CITE": "Pekar JE, Magee A, Parker E, Moshiri N, Izhikevich K, Havens JL,\n    Gangavarapu K, Malpica Serrano LM, Crits-Christoph A, Matteson NL,\n    Zeller M, Levy JI, Wang JC, Hughes S, Lee J, Park H, Park MS,\n    Ching Zi Yan K, Tzer Pin Lin R, Mat Isa MN, Muhammad Noor Y,\n    Vasylyeva TI, Garry RF, Holmes EC, Rambaut A, Suchard MA,\n    Andersen KG, Worobey M, Wertheim JO (2022). \"The molecular\n    epidemiology of multiple zoonotic origins of SARS-CoV-2.\"\n    Science. 377(6609):960-966. doi:10.1126/science.abp8337"
             },
             "Susceptible-Alert-Infected-Susceptible (SAIS)": {
+                "INF_STATES": ["I"],
                 "PARAM": {
                     "duration": {
                         "TYPE": "positive float",
@@ -799,6 +805,7 @@
                 "DESC": "The <ansired>Susceptible-Alert-Infected-Susceptible (SAIS)</ansired> model has three states:\n  - S: Susceptible\n  - A: Alert\n  - I: Infected\n\nThe following transitions are possible:\n  - S -> A (nodal or induced by A or I)\n  - S -> I (induced by I or outside)\n  - A -> I (induced by I or outside)\n  - I -> S (nodal)\n\nMust select \"None\" for all downstream steps."
             },
             "Susceptible-Exposed-Infected-Removed (SEIR)": {
+                "INF_STATES": ["E", "I"],
                 "PARAM": {
                     "duration": {
                         "TYPE": "positive float",
@@ -840,6 +847,7 @@
                 "DESC": "The <ansired>Susceptible-Exposed-Infected-Removed (SEIR)</ansired> model has four states:\n  - S: Susceptible\n  - E: Exposed\n  - I: Infected\n  - R: Removed\n\nThe following transitions are possible:\n  - S -> E (induced by I or outside)\n  - E -> I (nodal)\n  - I -> R (nodal)"
             },
             "Susceptible-Infected (SI)": {
+                "INF_STATES": ["I"],
                 "PARAM": {
                     "duration": {
                         "TYPE": "positive float",
@@ -865,6 +873,7 @@
                 "DESC": "The <ansired>Susceptible-Infected (SI)</ansired> model has two states:\n  - S: Susceptible\n  - I: Infected\n\nThe following transition is possible:\n  - S -> I (induced by I or outside)"
             },
             "Susceptible-Infected-Removed (SIR)": {
+                "INF_STATES": ["I"],
                 "PARAM": {
                     "duration": {
                         "TYPE": "positive float",
@@ -898,6 +907,7 @@
                 "DESC": "The <ansired>Susceptible-Infected-Removed (SIR)</ansired> model has three states:\n  - S: Susceptible\n  - I: Infected\n  - R: Removed\n\nThe following transitions are possible:\n  - S -> I (induced by I or outside)\n  - I -> R"
             },
             "Susceptible-Infected-Susceptible (SIS)": {
+                "INF_STATES": ["I"],
                 "PARAM": {
                     "duration": {
                         "TYPE": "positive float",
