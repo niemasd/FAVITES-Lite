@@ -16,11 +16,11 @@ const downloadJson = (config) => {
   const str = JSON.stringify(config);
   const bytes = new TextEncoder().encode(str);
   const blob = new Blob([bytes], {
-      type: "application/json;charset=utf-8"
+    type: "application/json;charset=utf-8",
   });
   const href = URL.createObjectURL(blob);
   return href;
-}
+};
 
 const Header = (props) => {
   const config = useSelector((state) => state.config.value);
@@ -71,6 +71,7 @@ const Header = (props) => {
           {/* <Typography id="modal-modal-description" sx={{ mt: 2 }}>
             {JSON.stringify(config)}
           </Typography> */}
+          <div className={styles.ButtonContainer}>
             <Button
               variant="contained"
               className={styles.ModalButton}
@@ -81,7 +82,7 @@ const Header = (props) => {
             >
               Copy to Clipboard
             </Button>
-            <br />
+            {/* <br /> */}
             <Button
               variant="contained"
               className={styles.ModalButton}
@@ -93,7 +94,7 @@ const Header = (props) => {
                 Download JSON File
               </a>
             </Button>
-          <br />
+          </div>
           <Collapse in={openAlert}>
             <Alert
               severity="success"
