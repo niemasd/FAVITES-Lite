@@ -12,8 +12,12 @@
 }
 
 .ModalButton {
-    margin-top: 10px;
-    margin-right: 10px
+  margin: 5px 10px 5px 0;
+}
+
+.ModalButton a {
+  text-decoration: none;
+  color: white;
 }
 
 .ModalAlert {

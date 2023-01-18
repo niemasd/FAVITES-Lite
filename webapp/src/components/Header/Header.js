@@ -11,7 +11,7 @@ import {
 import { useSelector } from "react-redux";
 import styles from "./Header.module.css";
 
-
+// Returns URL for download given config object
 const downloadJson = (config) => {
   const str = JSON.stringify(config);
   const bytes = new TextEncoder().encode(str);
