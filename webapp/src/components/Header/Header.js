@@ -71,29 +71,28 @@ const Header = (props) => {
           {/* <Typography id="modal-modal-description" sx={{ mt: 2 }}>
             {JSON.stringify(config)}
           </Typography> */}
-          <Button
-            variant="contained"
-            className={styles.ModalButton}
-            onClick={() => {
-              navigator.clipboard.writeText(JSON.stringify(config));
-              setOpenAlert(true);
-            }}
-          >
-            Copy to Clipboard
-          </Button>
-          <br />
-          <Button
-            variant="contained"
-            className={styles.ModalButton}
-            onClick={() => {
-              downloadJson(config);
-              setOpenAlert(true);
-            }}
-          >
-            <a href={downloadJson(config)} download="config.json">
-              Download JSON File
-            </a>
-          </Button>
+            <Button
+              variant="contained"
+              className={styles.ModalButton}
+              onClick={() => {
+                navigator.clipboard.writeText(JSON.stringify(config));
+                setOpenAlert(true);
+              }}
+            >
+              Copy to Clipboard
+            </Button>
+            <br />
+            <Button
+              variant="contained"
+              className={styles.ModalButton}
+              onClick={() => {
+                setOpenAlert(true);
+              }}
+            >
+              <a href={downloadJson(config)} download="config.json">
+                Download JSON File
+              </a>
+            </Button>
           <br />
           <Collapse in={openAlert}>
             <Alert
