@@ -11,9 +11,20 @@
   padding: 2em;
 }
 
-.ModalButton {
-    margin-top: 10px;
-    margin-right: 10px
+.ButtonContainer {
+  margin: 1rem 0 0 0;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+/* .ModalButton {
+  margin: 5px 10px 5px 0;
+} */
+
+.ModalButton a {
+  text-decoration: none;
+  color: white;
 }
 
 .ModalAlert {
