@@ -11,6 +11,8 @@ import {
 } from "./BodyModules";
 import styles from "./Body.module.css";
 import globalJSON from "../../files/global.json";
+import { textParse } from "../../utils/utils";
+import parse from 'html-react-parser';
 
 const Body = (props) => {
   const { className } = props;
@@ -23,7 +25,7 @@ const Body = (props) => {
         <>
           <Typography variant="h3">{selected}</Typography>
           <br />
-          <Typography>{globalJSON.DESC[selected]}</Typography>
+          <Typography>{textParse(globalJSON.DESC[selected], "HTML")}</Typography>
           <br />
           <Typography variant="h4">Step 1: Choose Model</Typography>
 

@@ -9,6 +9,7 @@ import {
   TextField,
 } from "@mui/material";
 import globalJSON from "../../files/global.json";
+import { textParse, isValidParameter } from "../../utils/utils";
 
 export const ModelSelect = () => {
   const config = useSelector((state) => state.config.value);
@@ -75,7 +76,7 @@ export const ModelDescription = () => {
     return (
       <>
         <Typography variant="h5">Description</Typography>
-        <Typography>{description}</Typography>
+        <Typography>{textParse(description, "HTML")}</Typography>
         <br />
       </>
     );
@@ -97,7 +98,7 @@ export const ModelProperties = () => {
         <Typography variant="h5">Properties</Typography>
         <ul>
           {properties.map((prop) => (
-            <li key={prop}>{prop}</li>
+            <li key={prop}>{textParse(prop, "HTML")}</li>
           ))}
         </ul>
         <br />
@@ -176,29 +177,19 @@ export const ParametersSelect = () => {
     return (
       <>
         {Object.keys(parameters).map((param) => {
-          /**
-           * TODO: implement restrictions based on param type
-           *  
-           * This can be found in line 30 of the config designer python
-           *
-           * possible types:
-           * - positive integer
-           * - positive float
-           * - probability
-           * - non-negative float
-           * - comma-separated list
-           */
+          const val = config[selected]["param"]
+            ? config[selected]["param"][param] || ""
+            : "";
+
+          console.log(parameters[param].TYPE)
 
           return (
             <div key={param}>
               <TextField
+                error={!isValidParameter(val, parameters[param].TYPE)}
                 label={param}
                 variant="standard"
-                value={
-                  config[selected]["param"]
-                    ? config[selected]["param"][param] || ""
-                    : ""
-                }
+                value={val}
                 onChange={(e) => {
                   let newConfig = { ...config };
                   newConfig[selected] = {
