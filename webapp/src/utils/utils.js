@@ -52,13 +52,13 @@ export function isValidParameter(value, param_type) {
     return value > 0 && Number.isInteger(value);
   } else if (param_type === "even positive integer") {
     value = Number(value);
-    return value > 0 && Number.isInteger(value) && value % 2 == 0;
+    return value > 0 && Number.isInteger(value) && value % 2 === 0;
   } else if (param_type === "non-negative integer") {
     value = Number(value);
     return value >= 0 && Number.isInteger(value);
   } else if (param_type === "float") {
     value = Number(value);
-    return !(value % 1 === 0);
+    return !(value % 1 === 0) && value > 0 or value <= 0;
   } else if (param_type === "positive float") {
     value = Number(value);
     return !(value % 1 === 0) && value > 0;
