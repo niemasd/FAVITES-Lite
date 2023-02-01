@@ -60,17 +60,16 @@ export function isValidParameter(value, param_type) {
     value = Number(value);
     return value >= 0 && Number.isInteger(value);
   } else if (param_type === "float") {
-    value = Number(value);
-    return !(value % 1 === 0);
+    return value == Number(value);
   } else if (param_type === "positive float") {
     value = Number(value);
-    return !(value % 1 === 0) && value > 0;
+    return value > 0;
   } else if (param_type === "non-negative float") {
     value = Number(value);
-    return !(value % 1 === 0) && value >= 0;
+    return value >= 0;
   } else if (param_type === "probability") {
     value = Number(value);
-    return !(value % 1 === 0) && value >= 0 && value <= 1;
+    return value >= 0 && value <= 1;
   } else if (param_type === "comma-separated list") {
     // return ','.join(v.strip() for v in value.split(','))
     // what makes a string not a good list?
