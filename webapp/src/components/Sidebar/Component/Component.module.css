@@ -8,6 +8,11 @@
 }
 
 .NotStarted {
+  background-color: #c9c8d8;
+  border: 1px solid #8f8d9e
+}
+
+.Error {
   background-color: #ffe4e9;
   border: 1px solid #de7474;
 }

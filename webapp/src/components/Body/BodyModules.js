@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { setConfig } from "../../features/config/configSlice";
+import { setStatuses } from "../../features/statuses/statusesSlice";
 import {
   Typography,
   FormControl,
@@ -9,14 +10,91 @@ import {
   TextField,
 } from "@mui/material";
 import globalJSON from "../../files/global.json";
-import { textParse, isValidParameter } from "../../utils/utils";
+import { textParse, isValidParameter, status } from "../../utils/utils";
+import { useEffect } from "react";
 
 export const ModelSelect = () => {
   const config = useSelector((state) => state.config.value);
   const selected = useSelector((state) => state.selected.value);
+  const statuses = useSelector((state) => state.statuses.value);
   const dispatch = useDispatch();
 
   const models = globalJSON["MODELS"][selected] || {};
+
+  const checkParams = (model) => {
+    // Case 1: checking for errors
+    const parameters = config[model]
+      ? globalJSON.MODELS[model][config[model]["model"]].PARAM
+      : null;
+
+    let hasError = false;
+
+    if (!parameters) return status.NOT_SELECTED;
+
+    Object.keys(parameters).forEach((param) => {
+      const val = config[model]["param"]
+        ? config[model]["param"][param] || ""
+        : "";
+
+      const isError = !isValidParameter(val, parameters[param].TYPE);
+
+      hasError = hasError || isError;
+    });
+
+    if (hasError) return status.ERROR;
+
+    // Case 2: check for completeness
+    let totalParams =
+      globalJSON.MODELS[model][config[model]["model"]].PARAM;
+    let totalParamCount = Object.keys(totalParams).length;
+
+    let modelStatus = status.INCOMPLETE;
+
+    // Checks if no params
+    if (totalParamCount === 0) {
+      modelStatus = status.COMPLETE;
+    } else if (config[model]["param"]) {
+      let completedParamCount = Object.keys(config[model]["param"]).length;
+      if (completedParamCount === totalParamCount) {
+        modelStatus = status.COMPLETE;
+      }
+    }
+
+    return modelStatus;
+  };
+
+  const checkReqs = (model) => {
+    let hasError = false;
+    const requirements = config[model]
+      ? globalJSON.MODELS[model][config[model]["model"]].REQS
+      : null;
+
+    // TODO: add check in error for model requirements
+    if (!requirements) return checkParams(model);
+
+    Object.keys(requirements).forEach((req) => {
+      const expected = requirements[req];
+      const actual = config[req] ? config[req]["model"] : null;
+
+      const isError = expected !== actual;
+
+      hasError = hasError || isError;
+    });
+
+    if (hasError) return status.ERROR;
+
+    return checkParams(model);
+  };
+
+  useEffect(() => {
+    let newStatuses = {}
+
+    Object.keys(config).forEach((model) => {
+      newStatuses[model] = checkReqs(model);
+    })
+
+    dispatch(setStatuses(newStatuses))
+  }, [config]);
 
   return (
     <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
@@ -29,7 +107,6 @@ export const ModelSelect = () => {
         onChange={(e) => {
           let newConfig = { ...config };
           newConfig[selected] = { model: e.target.value };
-          console.log(newConfig);
           dispatch(setConfig(newConfig));
         }}
       >
@@ -135,36 +212,6 @@ export const ModelRequirements = () => {
   return <></>;
 };
 
-// export const ModelParameters = () => {
-//   const config = useSelector((state) => state.config.value);
-//   const selected = useSelector((state) => state.selected.value);
-
-//   const parameters =
-//     globalJSON.MODELS[selected][config[selected]["model"]].PARAM;
-
-//   if (parameters) {
-//     return (
-//       <>
-//         <Typography variant="h5">Parameters</Typography>
-//         <ul>
-//           {Object.keys(parameters).map((param) => (
-//             <li key={param}>
-//               {param}
-//               <ul>
-//                 <li>Type: {parameters[param].TYPE}</li>
-//                 <li>Description: {parameters[param].DESC}</li>
-//               </ul>
-//             </li>
-//           ))}
-//         </ul>
-//         <br />
-//       </>
-//     );
-//   }
-
-//   return <></>;
-// };
-
 export const ParametersSelect = () => {
   const config = useSelector((state) => state.config.value);
   const selected = useSelector((state) => state.selected.value);
@@ -181,12 +228,12 @@ export const ParametersSelect = () => {
             ? config[selected]["param"][param] || ""
             : "";
 
-          console.log(parameters[param].TYPE)
+          const isError = !isValidParameter(val, parameters[param].TYPE);
 
           return (
             <div key={param}>
               <TextField
-                error={!isValidParameter(val, parameters[param].TYPE)}
+                error={isError}
                 label={param}
                 variant="standard"
                 value={val}
@@ -204,6 +251,7 @@ export const ParametersSelect = () => {
                   }
                   dispatch(setConfig(newConfig));
                 }}
+                helperText={isError ? "Invalid input" : ""}
               />
               <ul>
                 <li>Type: {parameters[param].TYPE}</li>

@@ -44,6 +44,9 @@ export function textParse(string, language) {
 }
 
 export function isValidParameter(value, param_type) {
+  // make null inputs valid to avoid handling as an error
+  if (value === "") return true;
+
   if (param_type === "integer") {
     value = Number(value);
     return Number.isInteger(value);
@@ -86,4 +89,11 @@ export function isValidParameter(value, param_type) {
   }
 
   return false;
+}
+
+export const status = {
+  NOT_SELECTED: 0,
+  INCOMPLETE: 1,
+  COMPLETE: 2,
+  ERROR: 3
 }
