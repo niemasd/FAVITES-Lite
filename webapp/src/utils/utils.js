@@ -73,11 +73,14 @@ export function isValidParameter(value, param_type) {
   } else if (param_type === "comma-separated list") {
     // return ','.join(v.strip() for v in value.split(','))
     // what makes a string not a good list?
-    valueSplit = value.split(",");
+    let valueSplit = value.split(",");
     valueSplit.forEach(v => v.trim());
-    valueString = valueSplit.join(",");
+    let valueString = valueSplit.join(",");
 
-    return(typeof valueString == 'string');  } else if (param_type === "string") {
+    return(typeof valueString == 'string');  
+  } 
+  else if (param_type === "string") {
+    return(typeof value === 'string' || value instanceof String);
   } 
   else if (param_type == "function"){
     return(typeof value == 'string' && value.length > 0);
