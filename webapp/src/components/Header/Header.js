@@ -22,6 +22,23 @@ const downloadJson = (config) => {
   return href;
 };
 
+// Turn numbers in config file (currently strings) into number types
+const parseNums = (config_obj) => {
+  // Use new config b/c config_obj is read-only
+  let string = JSON.stringify(config_obj);
+  let config = JSON.parse(string);
+
+  for (const step in config) {
+    for (const param in config[step]["param"] ) {
+      let value = config[step]["param"][param];
+      if (!isNaN(value)) {
+        config[step]["param"][param] = Number(value);
+      }
+    }
+  }
+  return config;
+}
+
 const Header = (props) => {
   const config = useSelector((state) => state.config.value);
   const [openExport, setOpenExport] = useState(false);
@@ -38,7 +55,7 @@ const Header = (props) => {
       <Button
         variant="contained"
         onClick={() => {
-          console.log(JSON.stringify(config));
+          console.log(JSON.stringify(parseNums(config)));
           // alert("Config has been printed into the console.");
           setOpenExport(true);
         }}
@@ -76,7 +93,7 @@ const Header = (props) => {
               variant="contained"
               className={styles.ModalButton}
               onClick={() => {
-                navigator.clipboard.writeText(JSON.stringify(config));
+                navigator.clipboard.writeText(JSON.stringify(parseNums(config)));
                 setOpenAlert(true);
               }}
             >
@@ -90,7 +107,7 @@ const Header = (props) => {
                 setOpenAlert(true);
               }}
             >
-              <a href={downloadJson(config)} download="config.json">
+              <a href={downloadJson(parseNums(config))} download="config.json">
                 Download JSON File
               </a>
             </Button>
