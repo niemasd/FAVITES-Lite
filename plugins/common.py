@@ -5,7 +5,7 @@ import math
 ZERO_THRESH = 0.00000000001
 
 # dummy plugin function
-def DUMMY_PLUGIN_FUNC(params, out_fn, config, verbose=True):
+def DUMMY_PLUGIN_FUNC(params, out_fn, config, GLOBAL, verbose=True):
     pass
 
 # return the current time as a string

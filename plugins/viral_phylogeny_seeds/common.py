@@ -1,6 +1,9 @@
 #! /usr/bin/env python3
 from .. import *
-from treeswift import Tree
+try:
+    from treeswift import Tree
+except:
+    error("Unable to import treeswift. Install with: pip install treeswift")
 
 # merge seed tree and transmission chain trees
 def merge_trees(seed_tree, transmission_chain_trees):
