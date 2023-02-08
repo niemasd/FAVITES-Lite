@@ -21,22 +21,12 @@ def gemf_determine_initial_states(params, input_cn_fn, initial_states_fn):
     f.close()
 
 # write infected states
-def gemf_write_infected_states(model, infected_states_fn):
-    infected_states = {
-        "Granich": ['I1', 'I2', 'I3', 'I4', 'A1', 'A2', 'A3', 'A4'],
-        "Hethcote-Yorke": ['MIS', 'MIA', 'FIS', 'FIA'],
-        "SAIS": ['I'],
-        "SAAPPHIIRE": ['E', 'P1', 'P2', 'I1', 'I2', 'A1', 'A2'],
-        "SAPHIRE": ['E', 'P', 'I', 'A'],
-        "SEIR": ['I'],
-        "SI": ['I'],
-        "SIR": ['I'],
-        "SIS": ['I'],
-    }
-    if model not in infected_states:
+def gemf_write_infected_states(model, infected_states_fn, GLOBAL):
+    TN_MODELS = GLOBAL["MODELS"]["Transmission Network"]
+    if model not in TN_MODELS:
         error("Invalid GEMF model: %s" % model)
     f = open(infected_states_fn, 'w')
-    for s in infected_states[model]:
+    for s in TN_MODELS[model]["INF_STATES"]:
         f.write('%s\n' % s)
     f.close()
 
@@ -54,7 +44,7 @@ def gemf_write_transition_rates(params, transition_rates_fn):
     f.close()
 
 # simulate an epidemic using GEMF_FAVITES
-def gemf_favites(model, params, out_fn, config, verbose=True):
+def gemf_favites(model, params, out_fn, config, GLOBAL, verbose=True):
     # set things up
     intermediate_gemf = "%s/GEMF_FAVITES" % out_fn['intermediate']; makedirs(intermediate_gemf)
     initial_states_fn = "%s/initial_states.tsv" % intermediate_gemf
@@ -64,7 +54,7 @@ def gemf_favites(model, params, out_fn, config, verbose=True):
 
     # run
     gemf_determine_initial_states(params, out_fn['contact_network'], initial_states_fn)
-    gemf_write_infected_states(model, infected_states_fn)
+    gemf_write_infected_states(model, infected_states_fn, GLOBAL)
     gemf_write_transition_rates(params, transition_rates_fn)
     command = [
         'GEMF_FAVITES.py',
@@ -79,7 +69,10 @@ def gemf_favites(model, params, out_fn, config, verbose=True):
     ]
     if verbose:
         print_log("Command: %s" % ' '.join(command))
-    call(command)
+    try:
+        call(command)
+    except FileNotFoundError as e:
+        error("Unable to run GEMF_FAVITES. Make sure GEMF_FAVITES.py and GEMF executables are in your PATH (e.g. /usr/local/bin)")
     move('%s/transmission_network.txt' % gemf_out, out_fn['transmission_network'])
     if verbose:
         print_log("Transmission Network written to: %s" % out_fn['transmission_network'])
@@ -88,21 +81,21 @@ def gemf_favites(model, params, out_fn, config, verbose=True):
         print_log("All State Transitions written to: %s" % out_fn['all_state_transitions'])
 
 # model-specific functions
-def gemf_favites_granich(params, out_fn, config, verbose=True):
-    gemf_favites("Granich", params, out_fn, config, verbose=verbose)
-def gemf_favites_hethcote_yorke(params, out_fn, config, verbose=True):
-    gemf_favites("Hethcote-Yorke", params, out_fn, config, verbose=verbose)
-def gemf_favites_sais(params, out_fn, config, verbose=True):
-    gemf_favites("SAIS", params, out_fn, config, verbose=verbose)
-def gemf_favites_saapphiire(params, out_fn, config, verbose=True):
-    gemf_favites("SAAPPHIIRE", params, out_fn, config, verbose=verbose)
-def gemf_favites_saphire(params, out_fn, config, verbose=True):
-    gemf_favites("SAPHIRE", params, out_fn, config, verbose=verbose)
-def gemf_favites_seir(params, out_fn, config, verbose=True):
-    gemf_favites("SEIR", params, out_fn, config, verbose=verbose)
-def gemf_favites_si(params, out_fn, config, verbose=True):
-    gemf_favites("SI", params, out_fn, config, verbose=verbose)
-def gemf_favites_sir(params, out_fn, config, verbose=True):
-    gemf_favites("SIR", params, out_fn, config, verbose=verbose)
-def gemf_favites_sis(params, out_fn, config, verbose=True):
-    gemf_favites("SIS", params, out_fn, config, verbose=verbose)
+def gemf_favites_granich(params, out_fn, config, GLOBAL, verbose=True):
+    gemf_favites("Granich et al. (2008)", params, out_fn, config, GLOBAL, verbose=verbose)
+def gemf_favites_hethcote_yorke(params, out_fn, config, GLOBAL, verbose=True):
+    gemf_favites("Hethcote and Yorke (1984)", params, out_fn, config, GLOBAL, verbose=verbose)
+def gemf_favites_sais(params, out_fn, config, GLOBAL, verbose=True):
+    gemf_favites("Susceptible-Alert-Infected-Susceptible (SAIS)", params, out_fn, config, GLOBAL, verbose=verbose)
+def gemf_favites_saapphiire(params, out_fn, config, GLOBAL, verbose=True):
+    gemf_favites("SAAPPHIIRE", params, out_fn, config, GLOBAL, verbose=verbose)
+def gemf_favites_saphire(params, out_fn, config, GLOBAL, verbose=True):
+    gemf_favites("SAPHIRE", params, out_fn, config, GLOBAL, verbose=verbose)
+def gemf_favites_seir(params, out_fn, config, GLOBAL, verbose=True):
+    gemf_favites("Susceptible-Exposed-Infected-Removed (SEIR)", params, out_fn, config, GLOBAL, verbose=verbose)
+def gemf_favites_si(params, out_fn, config, GLOBAL, verbose=True):
+    gemf_favites("Susceptible-Infected (SI)", params, out_fn, config, GLOBAL, verbose=verbose)
+def gemf_favites_sir(params, out_fn, config, GLOBAL, verbose=True):
+    gemf_favites("Susceptible-Infected-Removed (SIR)", params, out_fn, config, GLOBAL, verbose=verbose)
+def gemf_favites_sis(params, out_fn, config, GLOBAL, verbose=True):
+    gemf_favites("Susceptible-Infected-Susceptible (SIS)", params, out_fn, config, GLOBAL, verbose=verbose)

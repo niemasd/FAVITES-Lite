@@ -3,11 +3,17 @@
 Plot the number of individuals in each state of the transmission network over time
 '''
 from os.path import isdir, isfile
-from seaborn import lineplot, set_context, set_style
 from sys import stderr
 import argparse
-import matplotlib
-import matplotlib.pyplot as plt
+try:
+    from seaborn import lineplot, set_context, set_style
+except:
+    stderr.write("ERROR: Unable to import seaborn. Install with: pip install seaborn\n"); exit(1)
+try:
+    import matplotlib
+    import matplotlib.pyplot as plt
+except:
+    stderr.write("ERROR: Unable to import matplotlib. Install with: pip install matplotlib\n"); exit(1)
 RC = {"font.size":12,"axes.titlesize":16,"axes.labelsize":14,"legend.fontsize":10,"xtick.labelsize":10,"ytick.labelsize":10}
 set_context("paper", rc=RC); set_style("ticks"); matplotlib.rcParams['font.family'] = 'serif'
 matplotlib.use('Agg')

@@ -9,6 +9,8 @@
 
 .Main {
   padding: 2em;
+  display: flex;
+  justify-content: space-between;
 }
 
 .ButtonContainer {
@@ -28,5 +30,5 @@
 }
 
 .ModalAlert {
-    margin-top: 10px;
+  margin-top: 10px;
 }

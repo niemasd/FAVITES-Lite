@@ -73,15 +73,15 @@ export function isValidParameter(value, param_type) {
   } else if (param_type === "comma-separated list") {
     // return ','.join(v.strip() for v in value.split(','))
     // what makes a string not a good list?
-    return typeof value == "string" && value.indexOf(",") > 0;
+    return typeof value == "string";
   } else if (param_type === "string") {
     return typeof value === "string" || value instanceof String;
   } else {
-  /*
-  else if param_type == "function":
-      return value.strip() # TODO maybe do something more sophisticated for functions?
-  
-  */
+    /*
+    else if param_type == "function":
+        return value.strip() # TODO maybe do something more sophisticated for functions?
+    
+    */
     //throw new CustomException('FAVITES-Lite bug: Invalid parameter type: %s' % param_type);
     //console.log("FAVITES-Lite bug: Invalid parameter type: %s" % param_type);
     //throw new ReferenceError('FAVITES-Lite bug: Invalid parameter type: %s' % param_type);
