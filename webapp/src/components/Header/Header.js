@@ -30,21 +30,23 @@ const Header = (props) => {
   const { className } = props;
 
   return (
-    <div className={`${className} ${styles.Main}`}>
-      <h1 className={styles.Title}>
-        FAVITES-Lite <span className={styles.AltText}>Config Designer</span>
-      </h1>
-      <br />
-      <Button
-        variant="contained"
-        onClick={() => {
-          console.log(JSON.stringify(config));
-          // alert("Config has been printed into the console.");
-          setOpenExport(true);
-        }}
-      >
-        Export
-      </Button>
+    <>
+      <div className={`${className} ${styles.Main}`}>
+        <h1 className={styles.Title}>
+          FAVITES-Lite <span className={styles.AltText}>Config Designer</span>
+        </h1>
+        <Button
+          variant="contained"
+          onClick={() => {
+            console.log(JSON.stringify(config));
+            // alert("Config has been printed into the console.");
+            setOpenExport(true);
+          }}
+          className={styles.Button}
+        >
+          Export
+        </Button>
+      </div>
       <Modal
         open={openExport}
         onClose={() => {
@@ -121,7 +123,8 @@ const Header = (props) => {
           </Button> */}
         </Box>
       </Modal>
-    </div>
+    </>
+
   );
 };
 
