@@ -2,7 +2,7 @@
 from .. import *
 
 # sample individuals at a specific time
-def specific_time(params, out_fn, config, verbose=True):
+def specific_time(params, out_fn, config, GLOBAL, verbose=True):
     states_to_sample = {s.strip() for s in params['sampled_states'].split(',')}
     nodes_to_sample = set()
     for l in open(out_fn['all_state_transitions']):
@@ -22,6 +22,6 @@ def specific_time(params, out_fn, config, verbose=True):
         print_log("Sample Times written to: %s" % out_fn['sample_times'])
 
 # sample individuals at end time
-def end_time(params, out_fn, config, verbose=True):
+def end_time(params, out_fn, config, GLOBAL, verbose=True):
     p = params.copy(); p['sample_time'] = config["Transmission Network"]['param']['duration']
-    specific_time(p, out_fn, config, verbose=verbose)
+    specific_time(p, out_fn, config, GLOBAL, verbose=verbose)
