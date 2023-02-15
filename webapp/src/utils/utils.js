@@ -71,9 +71,7 @@ export function isValidParameter(value, param_type) {
     value = Number(value);
     return value >= 0 && value <= 1;
   } else if (param_type === "comma-separated list") {
-    // return ','.join(v.strip() for v in value.split(','))
-    // what makes a string not a good list?
-    return typeof value == "string" && value.indexOf(",") > 0;
+    return typeof value == "string";
   } else if (param_type === "string") {
     return typeof value === "string" || value instanceof String;
   } else {
