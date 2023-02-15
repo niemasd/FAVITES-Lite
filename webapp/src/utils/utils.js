@@ -71,21 +71,21 @@ export function isValidParameter(value, param_type) {
     value = Number(value);
     return value >= 0 && value <= 1;
   } else if (param_type === "comma-separated list") {
-    return typeof value == "string";
-  } else if (param_type === "string") {
-    return typeof value === "string" || value instanceof String;
-  } else {
-  /*
-  else if param_type == "function":
-      return value.strip() # TODO maybe do something more sophisticated for functions?
-  
-  */
-    //throw new CustomException('FAVITES-Lite bug: Invalid parameter type: %s' % param_type);
-    //console.log("FAVITES-Lite bug: Invalid parameter type: %s" % param_type);
-    //throw new ReferenceError('FAVITES-Lite bug: Invalid parameter type: %s' % param_type);
-  }
+    // return ','.join(v.strip() for v in value.split(','))
+    // what makes a string not a good list?
+    let valueSplit = value.split(",");
+    valueSplit.forEach(v => v.trim());
+    let valueString = valueSplit.join(",");
 
-  return false;
+    return(typeof valueString == 'string');  
+  } 
+  else if (param_type === "string") {
+    return(typeof value === 'string' || value instanceof String);
+  } 
+  else if (param_type == "function"){
+    return(typeof value == 'string' && value.length > 0);
+  } 
+  else return false;
 }
 
 export const status = {
