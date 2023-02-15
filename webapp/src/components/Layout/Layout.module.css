@@ -1,0 +1,28 @@
+.Main {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-areas:
+    "h h"
+    "s b";
+  grid-template-columns: 25% 75%;
+  grid-template-rows: auto;
+}
+
+.Header {
+  background-color: #f4f3ff;
+  border: 1px solid #cacdf8;
+  grid-area: h;
+}
+
+.Body {
+  background-color: #ffffff;
+  border: 1px solid #cacdf8;
+  grid-area: b;
+}
+
+.Sidebar {
+  background-color: #f4f3ff;
+  border: 1px solid #cacdf8;
+  grid-area: s;
+}
