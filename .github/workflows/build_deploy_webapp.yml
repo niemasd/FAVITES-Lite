@@ -22,6 +22,9 @@ jobs:
           npm i
           npm run predeploy
 
+          pwd
+          ls
+
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
