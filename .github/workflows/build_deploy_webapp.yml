@@ -15,15 +15,9 @@ jobs:
 
       - name: Install and Build
         run: |
-          git config user.email "chengxgrant@gmail.com"
-          git config user.name "CatFish47"
-
           cd webapp
           npm i
           npm run predeploy
-
-          pwd
-          ls
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
