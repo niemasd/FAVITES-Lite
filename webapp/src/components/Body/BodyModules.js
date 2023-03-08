@@ -16,7 +16,6 @@ import { useEffect } from "react";
 export const ModelSelect = () => {
   const config = useSelector((state) => state.config.value);
   const selected = useSelector((state) => state.selected.value);
-  const statuses = useSelector((state) => state.statuses.value);
   const dispatch = useDispatch();
 
   const models = globalJSON["MODELS"][selected] || {};
@@ -94,6 +93,7 @@ export const ModelSelect = () => {
     })
 
     dispatch(setStatuses(newStatuses))
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [config]);
 
   return (

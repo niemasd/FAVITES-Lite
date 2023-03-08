@@ -17,5 +17,5 @@ jobs:
         run: |
           cd webapp
           npm i
-          npm run build
+          npm run predeploy
           npm run deploy

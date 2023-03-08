@@ -1,9 +1,8 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { Typography } from "@mui/material";
 import {
   ModelCitation,
   ModelDescription,
-  ModelParameters,
   ModelProperties,
   ModelRequirements,
   ModelSelect,
@@ -12,7 +11,6 @@ import {
 import styles from "./Body.module.css";
 import globalJSON from "../../files/global.json";
 import { textParse } from "../../utils/utils";
-import parse from 'html-react-parser';
 
 const Body = (props) => {
   const { className } = props;
