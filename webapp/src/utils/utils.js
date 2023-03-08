@@ -60,7 +60,7 @@ export function isValidParameter(value, param_type) {
     value = Number(value);
     return value >= 0 && Number.isInteger(value);
   } else if (param_type === "float") {
-    return value == Number(value);
+    return value === Number(value);
   } else if (param_type === "positive float") {
     value = Number(value);
     return value > 0;
@@ -82,8 +82,8 @@ export function isValidParameter(value, param_type) {
   else if (param_type === "string") {
     return(typeof value === 'string' || value instanceof String);
   } 
-  else if (param_type == "function"){
-    return(typeof value == 'string' && value.length > 0);
+  else if (param_type === "function"){
+    return(typeof value === 'string' && value.length > 0);
   } 
   else return false;
 }
