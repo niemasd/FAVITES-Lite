@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import { useSelector } from "react-redux";
 import styles from "./Header.module.css";
+import globalJSON from "../../files/global.json";
 
 // Returns URL for download given config object
 const downloadJson = (config) => {
@@ -50,7 +51,7 @@ const Header = (props) => {
     <>
       <div className={`${className} ${styles.Main}`}>
         <h1 className={styles.Title}>
-          FAVITES-Lite <span className={styles.AltText}>Config Designer</span>
+          FAVITES-Lite <span className={styles.AltText}>Config Designer</span> v{globalJSON["VERSION"]}
         </h1>
         <Button
           variant="contained"
