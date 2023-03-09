@@ -26,7 +26,7 @@
                     }
                 },
                 "DESC": "The <b style='color:red;'>Barabasi-Albert (BA)</b> model is an algorithm for generating undirected random scale-free networks using a preferential attachment mechanism.",
-                "CITE": "<ul><li>Albert R, Barabasi AL (2002). \"Statistical mechanics of complex networks.\"<i>Rev Mod Phys</i>. 74(1):47-97. <a href='https://doi.org/10.1103/RevModPhys.74.47' target='_blank'>doi:10.1103/RevModPhys.74.47</a></li><ul>",
+                "CITE": "<ul><li>Albert R, Barabasi AL (2002). \"Statistical mechanics of complex networks.\" <i>Rev Mod Phys</i>. 74(1):47-97. <a href='https://doi.org/10.1103/RevModPhys.74.47' target='_blank'>doi:10.1103/RevModPhys.74.47</a></li><ul>",
                 "PROP": [
                     "The total number of edges is: <b style='color:red;'>m</b>(<b style='color:red;'>n</b>-<b style='color:red;'>m</b>)",
                     "The expected degree is approximately: 2<b style='color:red;'>m</b>"
@@ -109,7 +109,7 @@
                     }
                 },
                 "DESC": "The <b style='color:red;'>Newman-Watts-Strogatz (NWS)</b> model is an undirected graph model as follows:   1. Start with a ring of <b style='color:red;'>n</b> nodes   2. Connect each node with its <b style='color:red;'>k</b> nearest neighbors   3. For each edge (u,v) in the ring, add a new random edge (u,w) with probability <b style='color:red;'>p</b>",
-                "CITE": "<ul><li>Newman MEJ, Watts DJ (1999). \"Renormalization group analysis of the small-world network model.\" <i>Phys Lett A</i>. 263(4-6):341-346. <a href='10.1016/S0375-9601(99)00757-4' target='_blank'>doi:10.1016/S0375-9601(99)00757-4</a></li></ul>",
+                "CITE": "<ul><li>Newman MEJ, Watts DJ (1999). \"Renormalization group analysis of the small-world network model.\" <i>Phys Lett A</i>. 263(4-6):341-346. <a href='https://doi.org/10.1016/S0375-9601(99)00757-4' target='_blank'>doi:10.1016/S0375-9601(99)00757-4</a></li></ul>",
                 "PROP": [
                     "The number of edges in the connected ring is: <b style='color:red;'>nk</b>/2",
                     "The number of newly added edges is: Binomial(<b style='color:red;'>nk</b>/2, <b style='color:red;'>p</b>)"
@@ -198,142 +198,142 @@
                     },
                     "R_NS-D": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate NS -> D (nodal)"
+                        "DESC": "The transition rate NS → D (nodal)"
                     },
                     "R_NS-S": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate NS -> S (nodal)"
+                        "DESC": "The transition rate NS → S (nodal)"
                     },
                     "R_S-D": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate S -> D (nodal)"
+                        "DESC": "The transition rate S → D (nodal)"
                     },
                     "R_S-I1": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate S -> I1 (nodal, e.g. outside infection)"
+                        "DESC": "The transition rate S → I1 (nodal, e.g. outside infection)"
                     },
                     "R_S-I1_I1": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate S -> I1 induced by neighbors in I1"
+                        "DESC": "The transition rate S → I1 induced by neighbors in I1"
                     },
                     "R_S-I1_I2": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate S -> I1 induced by neighbors in I2"
+                        "DESC": "The transition rate S → I1 induced by neighbors in I2"
                     },
                     "R_S-I1_I3": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate S -> I1 induced by neighbors in I3"
+                        "DESC": "The transition rate S → I1 induced by neighbors in I3"
                     },
                     "R_S-I1_I4": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate S -> I1 induced by neighbors in I4"
+                        "DESC": "The transition rate S → I1 induced by neighbors in I4"
                     },
                     "R_S-I1_A1": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate S -> I1 induced by neighbors in A1"
+                        "DESC": "The transition rate S → I1 induced by neighbors in A1"
                     },
                     "R_S-I1_A2": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate S -> I1 induced by neighbors in A2"
+                        "DESC": "The transition rate S → I1 induced by neighbors in A2"
                     },
                     "R_S-I1_A3": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate S -> I1 induced by neighbors in A3"
+                        "DESC": "The transition rate S → I1 induced by neighbors in A3"
                     },
                     "R_S-I1_A4": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate S -> I1 induced by neighbors in A4"
+                        "DESC": "The transition rate S → I1 induced by neighbors in A4"
                     },
                     "R_I1-D": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate I1 -> D (nodal)"
+                        "DESC": "The transition rate I1 → D (nodal)"
                     },
                     "R_I1-I2": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate I1 -> I2 (nodal)"
+                        "DESC": "The transition rate I1 → I2 (nodal)"
                     },
                     "R_I1-A1": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate I1 -> A1 (nodal)"
+                        "DESC": "The transition rate I1 → A1 (nodal)"
                     },
                     "R_A1-D": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate A1 -> D (nodal)"
+                        "DESC": "The transition rate A1 → D (nodal)"
                     },
                     "R_A1-A2": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate A1 -> A2 (nodal)"
+                        "DESC": "The transition rate A1 → A2 (nodal)"
                     },
                     "R_A1-I1": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate A1 -> I1 (nodal)"
+                        "DESC": "The transition rate A1 → I1 (nodal)"
                     },
                     "R_I2-D": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate I2 -> D (nodal)"
+                        "DESC": "The transition rate I2 → D (nodal)"
                     },
                     "R_I2-I3": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate I2 -> I3 (nodal)"
+                        "DESC": "The transition rate I2 → I3 (nodal)"
                     },
                     "R_I2-A2": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate I2 -> A2 (nodal)"
+                        "DESC": "The transition rate I2 → A2 (nodal)"
                     },
                     "R_A2-D": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate A2 -> D (nodal)"
+                        "DESC": "The transition rate A2 → D (nodal)"
                     },
                     "R_A2-A3": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate A2 -> A3 (nodal)"
+                        "DESC": "The transition rate A2 → A3 (nodal)"
                     },
                     "R_A2-I2": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate A1 -> I2 (nodal)"
+                        "DESC": "The transition rate A1 → I2 (nodal)"
                     },
                     "R_I3-D": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate I3 -> D (nodal)"
+                        "DESC": "The transition rate I3 → D (nodal)"
                     },
                     "R_I3-I4": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate I3 -> I4 (nodal)"
+                        "DESC": "The transition rate I3 → I4 (nodal)"
                     },
                     "R_I3-A3": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate I3 -> A3 (nodal)"
+                        "DESC": "The transition rate I3 → A3 (nodal)"
                     },
                     "R_A3-D": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate A3 -> D (nodal)"
+                        "DESC": "The transition rate A3 → D (nodal)"
                     },
                     "R_A3-A4": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate A3 -> A4 (nodal)"
+                        "DESC": "The transition rate A3 → A4 (nodal)"
                     },
                     "R_A3-I3": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate A3 -> I3 (nodal)"
+                        "DESC": "The transition rate A3 → I3 (nodal)"
                     },
                     "R_I4-D": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate I4 -> D (nodal)"
+                        "DESC": "The transition rate I4 → D (nodal)"
                     },
                     "R_I4-A4": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate I4 -> A4 (nodal)"
+                        "DESC": "The transition rate I4 → A4 (nodal)"
                     },
                     "R_A4-D": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate A4 -> D (nodal)"
+                        "DESC": "The transition rate A4 → D (nodal)"
                     },
                     "R_A4-I4": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate A4 -> I4 (nodal)"
+                        "DESC": "The transition rate A4 → I4 (nodal)"
                     }
                 },
-                "DESC": "The <b style='color:red;'>Granich et al. (2008)</b> model for HIV has 11 states:<br><ul><li>NS: Non-Susceptible</li><li>S: Susceptible</li><li>I1, I2, I3, and I4: Untreated HIV stage 1, 2, 3, and 4</li><li>A1, A2, A3, and A4: ART-treated HIV stage 1, 2, 3, and 4</li><li>D: Deceased</li><ul><br>The following transitions are possible:<ul><li>NS -> S (nodal)</li><li>S -> I1 (induced by I1-I4/A1-A4 or outside)</li><li>I1 -> A1, I2 -> A2, I3 -> A3, and I4 -> A4 (nodal)</li><li>A1 -> I1, A2 -> I2, A3 -> I3, and A4 -> I4 (nodal)</li><li>I1 -> I2 -> I3 -> I4 (nodal)</li><li>A1 -> A2 -> A3 -> A4 (nodal)</li><li>All non-D states -> D</li></ul>",
+                "DESC": "The <b style='color:red;'>Granich et al. (2008)</b> model for HIV has 11 states:<br><ul><li>NS: Non-Susceptible</li><li>S: Susceptible</li><li>I1, I2, I3, and I4: Untreated HIV stage 1, 2, 3, and 4</li><li>A1, A2, A3, and A4: ART-treated HIV stage 1, 2, 3, and 4</li><li>D: Deceased</li><ul><br>The following transitions are possible:<ul><li>NS → S (nodal)</li><li>S → I1 (induced by I1-I4/A1-A4 or outside)</li><li>I1 → A1, I2 → A2, I3 → A3, and I4 → A4 (nodal)</li><li>A1 → I1, A2 → I2, A3 → I3, and A4 → I4 (nodal)</li><li>I1 → I2 → I3 → I4 (nodal)</li><li>A1 → A2 → A3 → A4 (nodal)</li><li>All non-D states → D</li></ul>",
                 "CITE": "<ul><li>Granich RM, Gilks CF, Dye C, De Cock KM, Williams BG (2008). \"Universal voluntary HIV testing with immediate antiretroviral therapy as a strategy for elimination of HIV transmission: a mathematical model.\" <i>The Lancet</i>. 373(9657):48-57. <a href='https://doi.org/10.1016/S0140-6736(08)61697-9' target='_blank'>doi:10.1016/S0140-6736(08)61697-9</a></li></ul>"
             },
             "Hethcote and Yorke (1984)": {
@@ -377,131 +377,131 @@
                     },
                     "R_MA-MS": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate MA -> MS (nodal)"
+                        "DESC": "The transition rate MA → MS (nodal)"
                     },
                     "R_MS-MA": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate MS -> MA (nodal)"
+                        "DESC": "The transition rate MS → MA (nodal)"
                     },
                     "R_MS-MIS": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate MS -> MIS (nodal, e.g. outside infection)"
+                        "DESC": "The transition rate MS → MIS (nodal, e.g. outside infection)"
                     },
                     "R_MS-MIS_MIS": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate MS -> MIS induced by neighbors in MIS"
+                        "DESC": "The transition rate MS → MIS induced by neighbors in MIS"
                     },
                     "R_MS-MIS_MIA": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate MS -> MIS induced by neighbors in MIA"
+                        "DESC": "The transition rate MS → MIS induced by neighbors in MIA"
                     },
                     "R_MS-MIS_FIS": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate MS -> MIS induced by neighbors in FIS"
+                        "DESC": "The transition rate MS → MIS induced by neighbors in FIS"
                     },
                     "R_MS-MIS_FIA": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate MS -> MIS induced by neighbors in FIA"
+                        "DESC": "The transition rate MS → MIS induced by neighbors in FIA"
                     },
                     "R_MS-MIA": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate MS -> MIA (nodal, e.g. outside infection)"
+                        "DESC": "The transition rate MS → MIA (nodal, e.g. outside infection)"
                     },
                     "R_MS-MIA_MIS": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate MS -> MIA induced by neighbors in MIS"
+                        "DESC": "The transition rate MS → MIA induced by neighbors in MIS"
                     },
                     "R_MS-MIA_MIA": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate MS -> MIA induced by neighbors in MIA"
+                        "DESC": "The transition rate MS → MIA induced by neighbors in MIA"
                     },
                     "R_MS-MIA_FIS": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate MS -> MIA induced by neighbors in FIS"
+                        "DESC": "The transition rate MS → MIA induced by neighbors in FIS"
                     },
                     "R_MS-MIA_FIA": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate MS -> MIA induced by neighbors in FIA"
+                        "DESC": "The transition rate MS → MIA induced by neighbors in FIA"
                     },
                     "R_MIS-MA": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate MIS -> MA"
+                        "DESC": "The transition rate MIS → MA"
                     },
                     "R_MIS-MS": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate MIS -> MS"
+                        "DESC": "The transition rate MIS → MS"
                     },
                     "R_MIA-MA": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate MIA -> MA"
+                        "DESC": "The transition rate MIA → MA"
                     },
                     "R_MIA-MS": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate MIA -> MS"
+                        "DESC": "The transition rate MIA → MS"
                     },
                     "R_FA-FS": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate FA -> FS (nodal)"
+                        "DESC": "The transition rate FA → FS (nodal)"
                     },
                     "R_FS-FA": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate FS -> FA (nodal)"
+                        "DESC": "The transition rate FS → FA (nodal)"
                     },
                     "R_FS-FIS": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate FS -> FIS (nodal, e.g. outside infection)"
+                        "DESC": "The transition rate FS → FIS (nodal, e.g. outside infection)"
                     },
                     "R_FS-FIS_MIS": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate FS -> FIS induced by neighbors in MIS"
+                        "DESC": "The transition rate FS → FIS induced by neighbors in MIS"
                     },
                     "R_FS-FIS_MIA": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate FS -> FIS induced by neighbors in MIA"
+                        "DESC": "The transition rate FS → FIS induced by neighbors in MIA"
                     },
                     "R_FS-FIS_FIS": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate FS -> FIS induced by neighbors in FIS"
+                        "DESC": "The transition rate FS → FIS induced by neighbors in FIS"
                     },
                     "R_FS-FIS_FIA": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate FS -> FIS induced by neighbors in FIA"
+                        "DESC": "The transition rate FS → FIS induced by neighbors in FIA"
                     },
                     "R_FS-FIA": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate FS -> FIA (nodal, e.g. outside infection)"
+                        "DESC": "The transition rate FS → FIA (nodal, e.g. outside infection)"
                     },
                     "R_FS-FIA_MIS": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate FS -> FIA induced by neighbors in MIS"
+                        "DESC": "The transition rate FS → FIA induced by neighbors in MIS"
                     },
                     "R_FS-FIA_MIA": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate FS -> FIA induced by neighbors in MIA"
+                        "DESC": "The transition rate FS → FIA induced by neighbors in MIA"
                     },
                     "R_FS-FIA_FIS": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate FS -> FIA induced by neighbors in FIS"
+                        "DESC": "The transition rate FS → FIA induced by neighbors in FIS"
                     },
                     "R_FS-FIA_FIA": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate FS -> FIA induced by neighbors in FIA"
+                        "DESC": "The transition rate FS → FIA induced by neighbors in FIA"
                     },
                     "R_FIS-FA": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate FIS -> FA"
+                        "DESC": "The transition rate FIS → FA"
                     },
                     "R_FIS-FS": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate FIS -> FS"
+                        "DESC": "The transition rate FIS → FS"
                     },
                     "R_FIA-FA": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate FIA -> FA"
+                        "DESC": "The transition rate FIA → FA"
                     },
                     "R_FIA-FS": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate FIA -> FS"
+                        "DESC": "The transition rate FIA → FS"
                     }
                 },
                 "REQS": {
@@ -512,7 +512,7 @@
                     "Ancestral Sequence": "None",
                     "Sequence Evolution": "None"
                 },
-                "DESC": "The <b style='color:red;'>Hethcote and Yorke (1984)</b> model for gonorrhea has 8 states:   - MA and FA: Male/Female Abstinent   - MS and FS: Male/Female Susceptible   - MIS and FIS: Male/Female Symptomatic Infected   - MIA and FIA: Male/Female Asymptomatic Infected<br>The following transitions are possible:   - MA -> MS and FA -> FS (nodal)   - MS -> MA and FS -> FA (nodal)   - MS -> MIA and FS -> FIA (induced by MIA/MIS/FIA/FIS or outside)   - MS -> MIS and FS -> FIS (induced by MIA/MIS/FIA/FIS or outside)   - MIA -> MS and FIA -> FS (nodal)   - MIS -> MS and FIS -> FS (nodal)<br>Must select \"None\" for all downstream steps.",
+                "DESC": "The <b style='color:red;'>Hethcote and Yorke (1984)</b> model for gonorrhea has 8 states:   - MA and FA: Male/Female Abstinent   - MS and FS: Male/Female Susceptible   - MIS and FIS: Male/Female Symptomatic Infected   - MIA and FIA: Male/Female Asymptomatic Infected<br>The following transitions are possible:   - MA → MS and FA → FS (nodal)   - MS → MA and FS → FA (nodal)   - MS → MIA and FS → FIA (induced by MIA/MIS/FIA/FIS or outside)   - MS → MIS and FS → FIS (induced by MIA/MIS/FIA/FIS or outside)   - MIA → MS and FIA → FS (nodal)   - MIS → MS and FIS → FS (nodal)<br>Must select \"None\" for all downstream steps.",
                 "CITE": "Hethcote HW, Yorke JA (1984). \"Gonorrhea transmission dynamics and     control.\" Lect Notes Math. 56. doi:10.1007/978-3-662-07544-9"
             },
             "None": {
@@ -565,54 +565,54 @@
                     },
                     "R_S-E": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate S -> E (nodal, e.g. outside infection)"
+                        "DESC": "The transition rate S → E (nodal, e.g. outside infection)"
                     },
                     "R_S-E_E": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate S -> E induced by neighbors in E"
+                        "DESC": "The transition rate S → E induced by neighbors in E"
                     },
                     "R_S-E_P": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate S -> E induced by neighbors in P"
+                        "DESC": "The transition rate S → E induced by neighbors in P"
                     },
                     "R_S-E_I": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate S -> E induced by neighbors in I"
+                        "DESC": "The transition rate S → E induced by neighbors in I"
                     },
                     "R_S-E_A": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate S -> E induced by neighbors in A"
+                        "DESC": "The transition rate S → E induced by neighbors in A"
                     },
                     "R_E-P": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate E -> P (nodal)"
+                        "DESC": "The transition rate E → P (nodal)"
                     },
                     "R_P-A": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate P -> A (nodal)"
+                        "DESC": "The transition rate P → A (nodal)"
                     },
                     "R_P-I": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate P -> I (nodal)"
+                        "DESC": "The transition rate P → I (nodal)"
                     },
                     "R_A-R": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate A -> R (nodal)"
+                        "DESC": "The transition rate A → R (nodal)"
                     },
                     "R_I-H": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate I -> H (nodal)"
+                        "DESC": "The transition rate I → H (nodal)"
                     },
                     "R_I-R": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate I -> R (nodal)"
+                        "DESC": "The transition rate I → R (nodal)"
                     },
                     "R_H-R": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate H -> R (nodal)"
+                        "DESC": "The transition rate H → R (nodal)"
                     }
                 },
-                "DESC": "The <b style='color:red;'>SAPHIRE</b> model (Hao et al., Nature 2020) has 7 states:   - S: Susceptible   - A: Unascertained Case   - P: Presymptomatic Infectious Case   - H: Hospitalized Case   - I: Ascertained Infectious Case   - R: Removed   - E: Exposed<br>The following transitions are possible:   - S -> E (induced by E/P/I/A or outside)   - E -> P (nodal)   - P -> A and P -> I (nodal)   - I -> H and I -> R (nodal)   - A -> R (nodal)   - H -> R (nodal)",
+                "DESC": "The <b style='color:red;'>SAPHIRE</b> model (Hao et al., Nature 2020) has 7 states:   - S: Susceptible   - A: Unascertained Case   - P: Presymptomatic Infectious Case   - H: Hospitalized Case   - I: Ascertained Infectious Case   - R: Removed   - E: Exposed<br>The following transitions are possible:   - S → E (induced by E/P/I/A or outside)   - E → P (nodal)   - P → A and P → I (nodal)   - I → H and I → R (nodal)   - A → R (nodal)   - H → R (nodal)",
                 "CITE": "Hao X, Cheng S, Wu D, Wu T, Lin X, Wang C (2020). \"Reconstruction     of the full transmission dynamics of COVID-19 in Wuhan.\"     Nature. 584:420-424. doi:10.1038/s41586-020-2554-8"
             },
             "SAAPPHIIRE": {
@@ -664,79 +664,79 @@
                     },
                     "R_S-E": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate S -> E (nodal, e.g. outside infection)"
+                        "DESC": "The transition rate S → E (nodal, e.g. outside infection)"
                     },
                     "R_S-E_E": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate S -> E induced by neighbors in E"
+                        "DESC": "The transition rate S → E induced by neighbors in E"
                     },
                     "R_S-E_P1": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate S -> E induced by neighbors in P1"
+                        "DESC": "The transition rate S → E induced by neighbors in P1"
                     },
                     "R_S-E_P2": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate S -> E induced by neighbors in P2"
+                        "DESC": "The transition rate S → E induced by neighbors in P2"
                     },
                     "R_S-E_I1": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate S -> E induced by neighbors in I1"
+                        "DESC": "The transition rate S → E induced by neighbors in I1"
                     },
                     "R_S-E_I2": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate S -> E induced by neighbors in I2"
+                        "DESC": "The transition rate S → E induced by neighbors in I2"
                     },
                     "R_S-E_A1": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate S -> E induced by neighbors in A1"
+                        "DESC": "The transition rate S → E induced by neighbors in A1"
                     },
                     "R_S-E_A2": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate S -> E induced by neighbors in A2"
+                        "DESC": "The transition rate S → E induced by neighbors in A2"
                     },
                     "R_E-P1": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate E -> P1 (nodal)"
+                        "DESC": "The transition rate E → P1 (nodal)"
                     },
                     "R_P1-P2": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate P1 -> P2 (nodal)"
+                        "DESC": "The transition rate P1 → P2 (nodal)"
                     },
                     "R_P2-I1": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate P2 -> I1 (nodal)"
+                        "DESC": "The transition rate P2 → I1 (nodal)"
                     },
                     "R_P2-A1": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate P2 -> A1 (nodal)"
+                        "DESC": "The transition rate P2 → A1 (nodal)"
                     },
                     "R_I1-I2": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate I1 -> I2 (nodal)"
+                        "DESC": "The transition rate I1 → I2 (nodal)"
                     },
                     "R_I1-H": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate I1 -> H (nodal)"
+                        "DESC": "The transition rate I1 → H (nodal)"
                     },
                     "R_I2-H": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate I2 -> H (nodal)"
+                        "DESC": "The transition rate I2 → H (nodal)"
                     },
                     "R_I2-R": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate I2 -> R (nodal)"
+                        "DESC": "The transition rate I2 → R (nodal)"
                     },
                     "R_A1-A2": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate A1 -> A2 (nodal)"
+                        "DESC": "The transition rate A1 → A2 (nodal)"
                     },
                     "R_A2-R": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate A2 -> R (nodal)"
+                        "DESC": "The transition rate A2 → R (nodal)"
                     },
                     "R_H-R": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate H -> R (nodal)"
+                        "DESC": "The transition rate H → R (nodal)"
                     }
                 },
                 "DESC": "The <b style='color:red;'>SAAPPHIIRE</b> model (Pekar et al., Science 2022) has 10 states:   - S: Susceptible   - A1 and A2: Unascertained Case (Stage 1 and Stage 2)   - P1 and P2: Presymptomatic Infectious Case (Stage 1 and Stage 2)   - H: Hospitalized Case   - I1 and I2: Ascertained Infectious Case (Stage 1 and Stage 2)   - R: Removed   - E: Exposed<br>The following transitions are possible:   - TODO",
@@ -763,35 +763,35 @@
                     },
                     "R_S-A": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate S -> A (nodal)"
+                        "DESC": "The transition rate S → A (nodal)"
                     },
                     "R_S-A_A": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate S -> A induced by neighbors in A"
+                        "DESC": "The transition rate S → A induced by neighbors in A"
                     },
                     "R_S-A_I": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate S -> A induced by neighbors in I"
+                        "DESC": "The transition rate S → A induced by neighbors in I"
                     },
                     "R_S-I": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate S -> I (nodal, e.g. outside infection)"
+                        "DESC": "The transition rate S → I (nodal, e.g. outside infection)"
                     },
                     "R_S-I_I": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate S -> I induced by neighbors in I"
+                        "DESC": "The transition rate S → I induced by neighbors in I"
                     },
                     "R_A-I": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate A -> I (nodal, e.g. outside infection)"
+                        "DESC": "The transition rate A → I (nodal, e.g. outside infection)"
                     },
                     "R_A-I_I": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate A -> I induced by neighbors in I"
+                        "DESC": "The transition rate A → I induced by neighbors in I"
                     },
                     "R_I-S": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate I -> S (nodal)"
+                        "DESC": "The transition rate I → S (nodal)"
                     }
                 },
                 "REQS": {
@@ -802,7 +802,7 @@
                     "Ancestral Sequence": "None",
                     "Sequence Evolution": "None"
                 },
-                "DESC": "The <b style='color:red;'>Susceptible-Alert-Infected-Susceptible (SAIS)</b> model has three states:   - S: Susceptible   - A: Alert   - I: Infected<br>The following transitions are possible:   - S -> A (nodal or induced by A or I)   - S -> I (induced by I or outside)   - A -> I (induced by I or outside)   - I -> S (nodal)<br>Must select \"None\" for all downstream steps."
+                "DESC": "The <b style='color:red;'>Susceptible-Alert-Infected-Susceptible (SAIS)</b> model has three states:   - S: Susceptible   - A: Alert   - I: Infected<br>The following transitions are possible:   - S → A (nodal or induced by A or I)   - S → I (induced by I or outside)   - A → I (induced by I or outside)   - I → S (nodal)<br>Must select \"None\" for all downstream steps."
             },
             "Susceptible-Exposed-Infected-Removed (SEIR)": {
                 "INF_STATES": ["E", "I"],
@@ -829,22 +829,22 @@
                     },
                     "R_S-E": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate S -> E (nodal, e.g. outside infection)"
+                        "DESC": "The transition rate S → E (nodal, e.g. outside infection)"
                     },
                     "R_S-E_I": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate S -> E induced by neighbors in I"
+                        "DESC": "The transition rate S → E induced by neighbors in I"
                     },
                     "R_E-I": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate E -> I (nodal)"
+                        "DESC": "The transition rate E → I (nodal)"
                     },
                     "R_I-R": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate I -> R (nodal)"
+                        "DESC": "The transition rate I → R (nodal)"
                     }
                 },
-                "DESC": "The <b style='color:red;'>Susceptible-Exposed-Infected-Removed (SEIR)</b> model has four states:   - S: Susceptible   - E: Exposed   - I: Infected   - R: Removed<br>The following transitions are possible:   - S -> E (induced by I or outside)   - E -> I (nodal)   - I -> R (nodal)"
+                "DESC": "The <b style='color:red;'>Susceptible-Exposed-Infected-Removed (SEIR)</b> model has four states:   - S: Susceptible   - E: Exposed   - I: Infected   - R: Removed<br>The following transitions are possible:   - S → E (induced by I or outside)   - E → I (nodal)   - I → R (nodal)"
             },
             "Susceptible-Infected (SI)": {
                 "INF_STATES": ["I"],
@@ -863,14 +863,14 @@
                     },
                     "R_S-I": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate S -> I (nodal, e.g. outside infection)"
+                        "DESC": "The transition rate S → I (nodal, e.g. outside infection)"
                     },
                     "R_S-I_I": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate S -> I induced by neighbors in I"
+                        "DESC": "The transition rate S → I induced by neighbors in I"
                     }
                 },
-                "DESC": "The <b style='color:red;'>Susceptible-Infected (SI)</b> model has two states:   - S: Susceptible   - I: Infected<br>The following transition is possible:   - S -> I (induced by I or outside)"
+                "DESC": "The <b style='color:red;'>Susceptible-Infected (SI)</b> model has two states:   - S: Susceptible   - I: Infected<br>The following transition is possible:   - S → I (induced by I or outside)"
             },
             "Susceptible-Infected-Removed (SIR)": {
                 "INF_STATES": ["I"],
@@ -893,18 +893,18 @@
                     },
                     "R_S-I": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate S -> I (nodal, e.g. outside infection)"
+                        "DESC": "The transition rate S → I (nodal, e.g. outside infection)"
                     },
                     "R_S-I_I": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate S -> I induced by neighbors in I"
+                        "DESC": "The transition rate S → I induced by neighbors in I"
                     },
                     "R_I-R": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate I -> R (nodal)"
+                        "DESC": "The transition rate I → R (nodal)"
                     }
                 },
-                "DESC": "The <b style='color:red;'>Susceptible-Infected-Removed (SIR)</b> model has three states:   - S: Susceptible   - I: Infected   - R: Removed<br>The following transitions are possible:   - S -> I (induced by I or outside)   - I -> R"
+                "DESC": "The <b style='color:red;'>Susceptible-Infected-Removed (SIR)</b> model has three states:   - S: Susceptible   - I: Infected   - R: Removed<br>The following transitions are possible:   - S → I (induced by I or outside)   - I → R"
             },
             "Susceptible-Infected-Susceptible (SIS)": {
                 "INF_STATES": ["I"],
@@ -923,18 +923,18 @@
                     },
                     "R_S-I": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate S -> I (nodal, e.g. outside infection)"
+                        "DESC": "The transition rate S → I (nodal, e.g. outside infection)"
                     },
                     "R_S-I_I": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate S -> I induced by neighbors in I"
+                        "DESC": "The transition rate S → I induced by neighbors in I"
                     },
                     "R_I-S": {
                         "TYPE": "non-negative float",
-                        "DESC": "The transition rate I -> S (nodal)"
+                        "DESC": "The transition rate I → S (nodal)"
                     }
                 },
-                "DESC": "The <b style='color:red;'>Susceptible-Infected-Susceptible (SIS)</b> model has two states:   - S: Susceptible   - I: Infected<br>The following transitions are possible:   - S -> I (induced by I or outside)   - I -> S"
+                "DESC": "The <b style='color:red;'>Susceptible-Infected-Susceptible (SIS)</b> model has two states:   - S: Susceptible   - I: Infected<br>The following transitions are possible:   - S → I (induced by I or outside)   - I → S"
             }
         },
         "Sample Times": {
