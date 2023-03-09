@@ -3,14 +3,14 @@
     "CONFIG_KEYS": ["Contact Network", "Transmission Network", "Sample Times", "Viral Phylogeny (Transmissions)", "Viral Phylogeny (Seeds)", "Mutation Rates", "Ancestral Sequence", "Sequence Evolution"],
     "TYPES": ["positive integer"],
     "DESC": {
-        "Contact Network": "The <ansired>Contact Network</ansired> graph model describes all social interactions:<br><ul><li>Nodes represent individuals in the population</li><li>Edges represent all interactions across which the pathogen can transmit</li><li>Currently, FAVITES-Lite only supports static (i.e., unchanging) contact networks</li></ul>",
-        "Transmission Network": "The <ansired>Transmission Network</ansired> compartmental model describes how\nthe pathogen propagates along the contact network.\n\nState transition rates are in unit of Poisson process arrivals per time\n(reciprocal of expected time to next arrival).\n\nThe user will specify the number of individuals in each compartment,\nand individuals will be placed into each compartment uniformly.",
-        "Sample Times": "The <ansired>Sample Times</ansired> model describes the time(s) at which individuals\nin the transmission network are sampled (i.e., sequenced).",
-        "Viral Phylogeny (Transmissions)": "The <ansired>Viral Phylogeny (Transmissions)</ansired> coalescent model describes the topology and\nbranch lengths (in unit of time) of the viral phylogeny throughout the epidemic,\nwhich is constrained by the transmission network.",
-        "Viral Phylogeny (Seeds)": "The <ansired>Viral Phylogeny (Seeds)</ansired> phylogenetic model describes the topology and\nbranch lengths (in unit of time) of the viral phylogeny prior to the epidemic\n(i.e., the viral phylogeny of the seed individuals).",
-        "Mutation Rates": "The <ansired>Mutation Rates</ansired> model describes how mutation rates (i.e., mutations/time)\nare sampled along each branch of the viral time phylogeny.",
-        "Ancestral Sequence": "The <ansired>Ancestral Sequence</ansired> model describes how the ancestral (i.e., root)\nsequence is generated/selected.",
-        "Sequence Evolution": "The <ansired>Sequence Evolution</ansired> model describes how sequences evolve down the phylogeny."
+        "Contact Network": "The <b style='color:red;'>Contact Network</b> graph model describes all social interactions:<br><ul><li>Nodes represent individuals in the population</li><li>Edges represent all interactions across which the pathogen can transmit</li><li>Currently, FAVITES-Lite only supports static (i.e., unchanging) contact networks</li></ul>",
+        "Transmission Network": "The <b style='color:red;'>Transmission Network</b> compartmental model describes how\nthe pathogen propagates along the contact network.\n\nState transition rates are in unit of Poisson process arrivals per time\n(reciprocal of expected time to next arrival).\n\nThe user will specify the number of individuals in each compartment,\nand individuals will be placed into each compartment uniformly.",
+        "Sample Times": "The <b style='color:red;'>Sample Times</b> model describes the time(s) at which individuals\nin the transmission network are sampled (i.e., sequenced).",
+        "Viral Phylogeny (Transmissions)": "The <b style='color:red;'>Viral Phylogeny (Transmissions)</b> coalescent model describes the topology and\nbranch lengths (in unit of time) of the viral phylogeny throughout the epidemic,\nwhich is constrained by the transmission network.",
+        "Viral Phylogeny (Seeds)": "The <b style='color:red;'>Viral Phylogeny (Seeds)</b> phylogenetic model describes the topology and\nbranch lengths (in unit of time) of the viral phylogeny prior to the epidemic\n(i.e., the viral phylogeny of the seed individuals).",
+        "Mutation Rates": "The <b style='color:red;'>Mutation Rates</b> model describes how mutation rates (i.e., mutations/time)\nare sampled along each branch of the viral time phylogeny.",
+        "Ancestral Sequence": "The <b style='color:red;'>Ancestral Sequence</b> model describes how the ancestral (i.e., root)\nsequence is generated/selected.",
+        "Sequence Evolution": "The <b style='color:red;'>Sequence Evolution</b> model describes how sequences evolve down the phylogeny."
     },
     "MODELS": {
         "Contact Network": {
@@ -25,11 +25,11 @@
                         "DESC": "Number of edges attached from new nodes to existing nodes"
                     }
                 },
-                "DESC": "The <ansired>Barabasi-Albert (BA)</ansired> model is an algorithm for generating undirected\nrandom scale-free networks using a preferential attachment mechanism.",
+                "DESC": "The <b style='color:red;'>Barabasi-Albert (BA)</b> model is an algorithm for generating undirected\nrandom scale-free networks using a preferential attachment mechanism.",
                 "CITE": "Albert R, Barabasi AL (2002). \"Statistical mechanics of complex networks.\"\n    Rev Mod Phys. 74(1):47-97. doi:10.1103/RevModPhys.74.47",
                 "PROP": [
-                    "The total number of edges is: <ansired>m</ansired>(<ansired>n</ansired>-<ansired>m</ansired>)",
-                    "The expected degree is approximately: 2<ansired>m</ansired>"
+                    "The total number of edges is: <b style='color:red;'>m</b>(<b style='color:red;'>n</b>-<b style='color:red;'>m</b>)",
+                    "The expected degree is approximately: 2<b style='color:red;'>m</b>"
                 ]
             },
             "Barbell": {
@@ -43,11 +43,11 @@
                         "DESC": "Number of nodes in the path connecting the two complete subgraphs"
                     }
                 },
-                "DESC": "A <ansired>barbell</ansired> graph is an undirected graph composed of two complete graphs,\neach with <ansired>m1</ansired> nodes, connected by a path of <ansired>m2</ansired> nodes.",
+                "DESC": "A <b style='color:red;'>barbell</b> graph is an undirected graph composed of two complete graphs,\neach with <b style='color:red;'>m1</b> nodes, connected by a path of <b style='color:red;'>m2</b> nodes.",
                 "CITE": "Ghosh A, Boyd S, Saberi A (2006). \"Minimizing Effective Resistance of a Graph.\"\n    Proc 17th Internat Sympos Math Th Network and Systems. 1185-1196.\n    doi:10.1137/050645452",
                 "PROP": [
-                    "The total number of nodes is: 2<ansired>m1</ansired> + <ansired>m2</ansired>",
-                    "The total number of edges is: <ansired>m1</ansired>(<ansired>m1</ansired>-1) + <ansired>m2</ansired> + 1"
+                    "The total number of nodes is: 2<b style='color:red;'>m1</b> + <b style='color:red;'>m2</b>",
+                    "The total number of edges is: <b style='color:red;'>m1</b>(<b style='color:red;'>m1</b>-1) + <b style='color:red;'>m2</b> + 1"
                 ]
             },
             "Complete": {
@@ -57,10 +57,10 @@
                         "DESC": "Number of nodes"
                     }
                 },
-                "DESC": "A <ansired>complete</ansired> graph is a simple undirected graph in which every\npair of distinct vertices is connected by a unique edge.",
+                "DESC": "A <b style='color:red;'>complete</b> graph is a simple undirected graph in which every\npair of distinct vertices is connected by a unique edge.",
                 "PROP": [
-                    "The total number of edges is: <ansired>n</ansired> choose 2 = <ansired>n</ansired>(<ansired>n</ansired>-1)/2",
-                    "The degree of every node (and thus also the average degree) is: <ansired>n</ansired>-1"
+                    "The total number of edges is: <b style='color:red;'>n</b> choose 2 = <b style='color:red;'>n</b>(<b style='color:red;'>n</b>-1)/2",
+                    "The degree of every node (and thus also the average degree) is: <b style='color:red;'>n</b>-1"
                 ]
             },
             "Cycle": {
@@ -70,9 +70,9 @@
                         "DESC": "Number of nodes"
                     }
                 },
-                "DESC": "A <ansired>cycle</ansired> graph is an undirected graph that consists of a single cycle.\nIn other words, the vertices are connected in a closed chain.",
+                "DESC": "A <b style='color:red;'>cycle</b> graph is an undirected graph that consists of a single cycle.\nIn other words, the vertices are connected in a closed chain.",
                 "PROP": [
-                    "When <ansired>n</ansired> > 2, the number of edges is: <ansired>n</ansired>"
+                    "When <b style='color:red;'>n</b> > 2, the number of edges is: <b style='color:red;'>n</b>"
                 ]
             },
             "Erdos-Renyi (ER)": {
@@ -86,11 +86,11 @@
                         "DESC": "Probability of existence of an edge"
                     }
                 },
-                "DESC": "The <ansired>Erdos-Renyi (ER)</ansired> model is an undirected graph model in which\neach of the <ansired>n</ansired> choose 2 possible edges have probability <ansired>p</ansired> of existing.",
+                "DESC": "The <b style='color:red;'>Erdos-Renyi (ER)</b> model is an undirected graph model in which\neach of the <b style='color:red;'>n</b> choose 2 possible edges have probability <b style='color:red;'>p</b> of existing.",
                 "CITE": "Erdos P, Renyi A (1959). \"On Random Graphs. I.\" Publ Math. 6:290-297.\nGilbert EN (1959). \"Random Graphs.\" Ann Math Stat. 30(4):1141-1144.\n    doi:10.1214/aoms/1177706098",
                 "PROP": [
-                    "The expected degree is: <ansired>p</ansired>(<ansired>n</ansired> choose 2) = <ansired>pn</ansired>(<ansired>n</ansired>-1)/2",
-                    "The degree distribution is: Binomial(<ansired>n</ansired>-1, k)"
+                    "The expected degree is: <b style='color:red;'>p</b>(<b style='color:red;'>n</b> choose 2) = <b style='color:red;'>pn</b>(<b style='color:red;'>n</b>-1)/2",
+                    "The degree distribution is: Binomial(<b style='color:red;'>n</b>-1, k)"
                 ]
             },
             "Newman-Watts-Strogatz (NWS)": {
@@ -108,11 +108,11 @@
                         "DESC": "Probability of adding a new edge"
                     }
                 },
-                "DESC": "The <ansired>Newman-Watts-Strogatz (NWS)</ansired> model is an undirected graph model as follows:\n  1. Start with a ring of <ansired>n</ansired> nodes\n  2. Connect each node with its <ansired>k</ansired> nearest neighbors\n  3. For each edge (u,v) in the ring, add a new random edge (u,w) with probability <ansired>p</ansired>",
+                "DESC": "The <b style='color:red;'>Newman-Watts-Strogatz (NWS)</b> model is an undirected graph model as follows:\n  1. Start with a ring of <b style='color:red;'>n</b> nodes\n  2. Connect each node with its <b style='color:red;'>k</b> nearest neighbors\n  3. For each edge (u,v) in the ring, add a new random edge (u,w) with probability <b style='color:red;'>p</b>",
                 "CITE": "Newman MEJ, Watts DJ (1999). \"Renormalization group analysis of the small-world\n    network model.\" Phys Lett A. 263(4-6):341-346. doi:10.1016/S0375-9601(99)00757-4",
                 "PROP": [
-                    "The number of edges in the connected ring is: <ansired>nk</ansired>/2",
-                    "The number of newly added edges is: Binomial(<ansired>nk</ansired>/2, <ansired>p</ansired>)"
+                    "The number of edges in the connected ring is: <b style='color:red;'>nk</b>/2",
+                    "The number of newly added edges is: Binomial(<b style='color:red;'>nk</b>/2, <b style='color:red;'>p</b>)"
                 ]
             },
             "Path": {
@@ -122,9 +122,9 @@
                         "DESC": "Number of nodes"
                     }
                 },
-                "DESC": "A <ansired>path</ansired> graph (or linear graph) is an undirected graph whose nodes can be ordered in a line,\nand there exists an edge between every adjacent pair of nodes.",
+                "DESC": "A <b style='color:red;'>path</b> graph (or linear graph) is an undirected graph whose nodes can be ordered in a line,\nand there exists an edge between every adjacent pair of nodes.",
                 "PROP": [
-                    "The number of edges is: <ansired>n</ansired>-1"
+                    "The number of edges is: <b style='color:red;'>n</b>-1"
                 ]
             },
             "Ring Lattice": {
@@ -138,9 +138,9 @@
                         "DESC": "Number of nearest neighbors to connect to"
                     }
                 },
-                "DESC": "A <ansired>ring lattice</ansired> graph is an undirected graph in which\nevery node has an edge to each of its <ansired>k</ansired> neighbors.",
+                "DESC": "A <b style='color:red;'>ring lattice</b> graph is an undirected graph in which\nevery node has an edge to each of its <b style='color:red;'>k</b> neighbors.",
                 "PROP": [
-                    "The number of edges is: <ansired>nk</ansired>/2"
+                    "The number of edges is: <b style='color:red;'>nk</b>/2"
                 ]
             }
         },
@@ -333,7 +333,7 @@
                         "DESC": "The transition rate A4 -> I4 (nodal)"
                     }
                 },
-                "DESC": "The <ansired>Granich et al. (2008)</ansired> model for HIV has 11 states:\n  - NS: Non-Susceptible\n  - S: Susceptible\n  - I1, I2, I3, and I4: Untreated HIV stage 1, 2, 3, and 4\n  - A1, A2, A3, and A4: ART-treated HIV stage 1, 2, 3, and 4\n  - D: Deceased\n\nThe following transitions are possible:\n  - NS -> S (nodal)\n  - S -> I1 (induced by I1-I4/A1-A4 or outside)\n  - I1 -> A1, I2 -> A2, I3 -> A3, and I4 -> A4 (nodal)\n  - A1 -> I1, A2 -> I2, A3 -> I3, and A4 -> I4 (nodal)\n  - I1 -> I2 -> I3 -> I4 (nodal)\n  - A1 -> A2 -> A3 -> A4 (nodal)\n  - All non-D states -> D",
+                "DESC": "The <b style='color:red;'>Granich et al. (2008)</b> model for HIV has 11 states:\n  - NS: Non-Susceptible\n  - S: Susceptible\n  - I1, I2, I3, and I4: Untreated HIV stage 1, 2, 3, and 4\n  - A1, A2, A3, and A4: ART-treated HIV stage 1, 2, 3, and 4\n  - D: Deceased\n\nThe following transitions are possible:\n  - NS -> S (nodal)\n  - S -> I1 (induced by I1-I4/A1-A4 or outside)\n  - I1 -> A1, I2 -> A2, I3 -> A3, and I4 -> A4 (nodal)\n  - A1 -> I1, A2 -> I2, A3 -> I3, and A4 -> I4 (nodal)\n  - I1 -> I2 -> I3 -> I4 (nodal)\n  - A1 -> A2 -> A3 -> A4 (nodal)\n  - All non-D states -> D",
                 "CITE": "Granich RM, Gilks CF, Dye C, De Cock KM, Williams BG (2008).\n    \"Universal voluntary HIV testing with immediate antiretroviral\n    therapy as a strategy for elimination of HIV transmission:\n    a mathematical model.\" The Lancet. 373(9657):48-57.\n    doi:10.1016/S0140-6736(08)61697-9"
             },
             "Hethcote and Yorke (1984)": {
@@ -512,7 +512,7 @@
                     "Ancestral Sequence": "None",
                     "Sequence Evolution": "None"
                 },
-                "DESC": "The <ansired>Hethcote and Yorke (1984)</ansired> model for gonorrhea has 8 states:\n  - MA and FA: Male/Female Abstinent\n  - MS and FS: Male/Female Susceptible\n  - MIS and FIS: Male/Female Symptomatic Infected\n  - MIA and FIA: Male/Female Asymptomatic Infected\n\nThe following transitions are possible:\n  - MA -> MS and FA -> FS (nodal)\n  - MS -> MA and FS -> FA (nodal)\n  - MS -> MIA and FS -> FIA (induced by MIA/MIS/FIA/FIS or outside)\n  - MS -> MIS and FS -> FIS (induced by MIA/MIS/FIA/FIS or outside)\n  - MIA -> MS and FIA -> FS (nodal)\n  - MIS -> MS and FIS -> FS (nodal)\n\nMust select \"None\" for all downstream steps.",
+                "DESC": "The <b style='color:red;'>Hethcote and Yorke (1984)</b> model for gonorrhea has 8 states:\n  - MA and FA: Male/Female Abstinent\n  - MS and FS: Male/Female Susceptible\n  - MIS and FIS: Male/Female Symptomatic Infected\n  - MIA and FIA: Male/Female Asymptomatic Infected\n\nThe following transitions are possible:\n  - MA -> MS and FA -> FS (nodal)\n  - MS -> MA and FS -> FA (nodal)\n  - MS -> MIA and FS -> FIA (induced by MIA/MIS/FIA/FIS or outside)\n  - MS -> MIS and FS -> FIS (induced by MIA/MIS/FIA/FIS or outside)\n  - MIA -> MS and FIA -> FS (nodal)\n  - MIS -> MS and FIS -> FS (nodal)\n\nMust select \"None\" for all downstream steps.",
                 "CITE": "Hethcote HW, Yorke JA (1984). \"Gonorrhea transmission dynamics and\n    control.\" Lect Notes Math. 56. doi:10.1007/978-3-662-07544-9"
             },
             "None": {
@@ -612,7 +612,7 @@
                         "DESC": "The transition rate H -> R (nodal)"
                     }
                 },
-                "DESC": "The <ansired>SAPHIRE</ansired> model (Hao et al., Nature 2020) has 7 states:\n  - S: Susceptible\n  - A: Unascertained Case\n  - P: Presymptomatic Infectious Case\n  - H: Hospitalized Case\n  - I: Ascertained Infectious Case\n  - R: Removed\n  - E: Exposed\n\nThe following transitions are possible:\n  - S -> E (induced by E/P/I/A or outside)\n  - E -> P (nodal)\n  - P -> A and P -> I (nodal)\n  - I -> H and I -> R (nodal)\n  - A -> R (nodal)\n  - H -> R (nodal)",
+                "DESC": "The <b style='color:red;'>SAPHIRE</b> model (Hao et al., Nature 2020) has 7 states:\n  - S: Susceptible\n  - A: Unascertained Case\n  - P: Presymptomatic Infectious Case\n  - H: Hospitalized Case\n  - I: Ascertained Infectious Case\n  - R: Removed\n  - E: Exposed\n\nThe following transitions are possible:\n  - S -> E (induced by E/P/I/A or outside)\n  - E -> P (nodal)\n  - P -> A and P -> I (nodal)\n  - I -> H and I -> R (nodal)\n  - A -> R (nodal)\n  - H -> R (nodal)",
                 "CITE": "Hao X, Cheng S, Wu D, Wu T, Lin X, Wang C (2020). \"Reconstruction\n    of the full transmission dynamics of COVID-19 in Wuhan.\"\n    Nature. 584:420-424. doi:10.1038/s41586-020-2554-8"
             },
             "SAAPPHIIRE": {
@@ -739,7 +739,7 @@
                         "DESC": "The transition rate H -> R (nodal)"
                     }
                 },
-                "DESC": "The <ansired>SAAPPHIIRE</ansired> model (Pekar et al., Science 2022) has 10 states:\n  - S: Susceptible\n  - A1 and A2: Unascertained Case (Stage 1 and Stage 2)\n  - P1 and P2: Presymptomatic Infectious Case (Stage 1 and Stage 2)\n  - H: Hospitalized Case\n  - I1 and I2: Ascertained Infectious Case (Stage 1 and Stage 2)\n  - R: Removed\n  - E: Exposed\n\nThe following transitions are possible:\n  - TODO",
+                "DESC": "The <b style='color:red;'>SAAPPHIIRE</b> model (Pekar et al., Science 2022) has 10 states:\n  - S: Susceptible\n  - A1 and A2: Unascertained Case (Stage 1 and Stage 2)\n  - P1 and P2: Presymptomatic Infectious Case (Stage 1 and Stage 2)\n  - H: Hospitalized Case\n  - I1 and I2: Ascertained Infectious Case (Stage 1 and Stage 2)\n  - R: Removed\n  - E: Exposed\n\nThe following transitions are possible:\n  - TODO",
                 "CITE": "Pekar JE, Magee A, Parker E, Moshiri N, Izhikevich K, Havens JL,\n    Gangavarapu K, Malpica Serrano LM, Crits-Christoph A, Matteson NL,\n    Zeller M, Levy JI, Wang JC, Hughes S, Lee J, Park H, Park MS,\n    Ching Zi Yan K, Tzer Pin Lin R, Mat Isa MN, Muhammad Noor Y,\n    Vasylyeva TI, Garry RF, Holmes EC, Rambaut A, Suchard MA,\n    Andersen KG, Worobey M, Wertheim JO (2022). \"The molecular\n    epidemiology of multiple zoonotic origins of SARS-CoV-2.\"\n    Science. 377(6609):960-966. doi:10.1126/science.abp8337"
             },
             "Susceptible-Alert-Infected-Susceptible (SAIS)": {
@@ -802,7 +802,7 @@
                     "Ancestral Sequence": "None",
                     "Sequence Evolution": "None"
                 },
-                "DESC": "The <ansired>Susceptible-Alert-Infected-Susceptible (SAIS)</ansired> model has three states:\n  - S: Susceptible\n  - A: Alert\n  - I: Infected\n\nThe following transitions are possible:\n  - S -> A (nodal or induced by A or I)\n  - S -> I (induced by I or outside)\n  - A -> I (induced by I or outside)\n  - I -> S (nodal)\n\nMust select \"None\" for all downstream steps."
+                "DESC": "The <b style='color:red;'>Susceptible-Alert-Infected-Susceptible (SAIS)</b> model has three states:\n  - S: Susceptible\n  - A: Alert\n  - I: Infected\n\nThe following transitions are possible:\n  - S -> A (nodal or induced by A or I)\n  - S -> I (induced by I or outside)\n  - A -> I (induced by I or outside)\n  - I -> S (nodal)\n\nMust select \"None\" for all downstream steps."
             },
             "Susceptible-Exposed-Infected-Removed (SEIR)": {
                 "INF_STATES": ["E", "I"],
@@ -844,7 +844,7 @@
                         "DESC": "The transition rate I -> R (nodal)"
                     }
                 },
-                "DESC": "The <ansired>Susceptible-Exposed-Infected-Removed (SEIR)</ansired> model has four states:\n  - S: Susceptible\n  - E: Exposed\n  - I: Infected\n  - R: Removed\n\nThe following transitions are possible:\n  - S -> E (induced by I or outside)\n  - E -> I (nodal)\n  - I -> R (nodal)"
+                "DESC": "The <b style='color:red;'>Susceptible-Exposed-Infected-Removed (SEIR)</b> model has four states:\n  - S: Susceptible\n  - E: Exposed\n  - I: Infected\n  - R: Removed\n\nThe following transitions are possible:\n  - S -> E (induced by I or outside)\n  - E -> I (nodal)\n  - I -> R (nodal)"
             },
             "Susceptible-Infected (SI)": {
                 "INF_STATES": ["I"],
@@ -870,7 +870,7 @@
                         "DESC": "The transition rate S -> I induced by neighbors in I"
                     }
                 },
-                "DESC": "The <ansired>Susceptible-Infected (SI)</ansired> model has two states:\n  - S: Susceptible\n  - I: Infected\n\nThe following transition is possible:\n  - S -> I (induced by I or outside)"
+                "DESC": "The <b style='color:red;'>Susceptible-Infected (SI)</b> model has two states:\n  - S: Susceptible\n  - I: Infected\n\nThe following transition is possible:\n  - S -> I (induced by I or outside)"
             },
             "Susceptible-Infected-Removed (SIR)": {
                 "INF_STATES": ["I"],
@@ -904,7 +904,7 @@
                         "DESC": "The transition rate I -> R (nodal)"
                     }
                 },
-                "DESC": "The <ansired>Susceptible-Infected-Removed (SIR)</ansired> model has three states:\n  - S: Susceptible\n  - I: Infected\n  - R: Removed\n\nThe following transitions are possible:\n  - S -> I (induced by I or outside)\n  - I -> R"
+                "DESC": "The <b style='color:red;'>Susceptible-Infected-Removed (SIR)</b> model has three states:\n  - S: Susceptible\n  - I: Infected\n  - R: Removed\n\nThe following transitions are possible:\n  - S -> I (induced by I or outside)\n  - I -> R"
             },
             "Susceptible-Infected-Susceptible (SIS)": {
                 "INF_STATES": ["I"],
@@ -934,7 +934,7 @@
                         "DESC": "The transition rate I -> S (nodal)"
                     }
                 },
-                "DESC": "The <ansired>Susceptible-Infected-Susceptible (SIS)</ansired> model has two states:\n  - S: Susceptible\n  - I: Infected\n\nThe following transitions are possible:\n  - S -> I (induced by I or outside)\n  - I -> S"
+                "DESC": "The <b style='color:red;'>Susceptible-Infected-Susceptible (SIS)</b> model has two states:\n  - S: Susceptible\n  - I: Infected\n\nThe following transitions are possible:\n  - S -> I (induced by I or outside)\n  - I -> S"
             }
         },
         "Sample Times": {
@@ -1008,7 +1008,7 @@
                         "DESC": "The number of times every individual is sampled"
                     }
                 },
-                "DESC": "Each sample time of a given individual is sampled from a \"standardized form\"\n<ansired>Truncated Exponential</ansired> distribution of the individual's infection time window.\n\nIf the individual has multiple time windows,\na single time window is chosen randomly with equal probability."
+                "DESC": "Each sample time of a given individual is sampled from a \"standardized form\"\n<b style='color:red;'>Truncated Exponential</b> distribution of the individual's infection time window.\n\nIf the individual has multiple time windows,\na single time window is chosen randomly with equal probability."
             },
             "Truncated Gamma": {
                 "PARAM": {
@@ -1029,7 +1029,7 @@
                         "DESC": "Scale parameter of the Gamma distribution"
                     }
                 },
-                "DESC": "Each sample time of a given individual is sampled from a <ansired>Truncated Gamma</ansired>\ndistribution of the individual's time window of specified states.\n\nIf the individual has multiple time windows,\na single time window is chosen randomly with equal probability."
+                "DESC": "Each sample time of a given individual is sampled from a <b style='color:red;'>Truncated Gamma</b>\ndistribution of the individual's time window of specified states.\n\nIf the individual has multiple time windows,\na single time window is chosen randomly with equal probability."
             },
             "Truncated Normal": {
                 "PARAM": {
@@ -1050,11 +1050,11 @@
                         "DESC": "Scale parameter of the Truncated Normal distribution"
                     }
                 },
-                "DESC": "Each sample time of a given individual is sampled from a <ansired>Truncated Normal</ansired>\ndistribution of the individual's infection time window.\n\nIf the individual has multiple time windows,\na single time window is chosen randomly with equal probability.",
+                "DESC": "Each sample time of a given individual is sampled from a <b style='color:red;'>Truncated Normal</b>\ndistribution of the individual's infection time window.\n\nIf the individual has multiple time windows,\na single time window is chosen randomly with equal probability.",
                 "PROP": [
-                    "To center the underlying Normal at the center of the [0,1] window: <ansired>mu</ansired> = 0.5",
-                    "To center the underlying Normal at the left of the [0,1] window: <ansired>mu</ansired> = 0",
-                    "To center the underlying Normal at the right of the [0,1] window: <ansired>mu</ansired> = 1"
+                    "To center the underlying Normal at the center of the [0,1] window: <b style='color:red;'>mu</b> = 0.5",
+                    "To center the underlying Normal at the left of the [0,1] window: <b style='color:red;'>mu</b> = 0",
+                    "To center the underlying Normal at the right of the [0,1] window: <b style='color:red;'>mu</b> = 1"
                 ]
             },
             "Uniform": {
@@ -1068,7 +1068,7 @@
                         "DESC": "The number of times every individual is sampled"
                     }
                 },
-                "DESC": "Each sample time of a given individual is sampled from a <ansired>Uniform</ansired>\ndistribution of the individual's infection time window.\n\nIf the individual has multiple time windows,\na single time window is chosen randomly with equal probability."
+                "DESC": "Each sample time of a given individual is sampled from a <b style='color:red;'>Uniform</b>\ndistribution of the individual's infection time window.\n\nIf the individual has multiple time windows,\na single time window is chosen randomly with equal probability."
             }
         },
         "Viral Phylogeny (Transmissions)": {
@@ -1108,7 +1108,7 @@
                         "DESC": "Height of the resulting tree"
                     }
                 },
-                "DESC": "The seed tree is sampled from a <ansired>Neutral Coalescent</ansired> model\nand is scaled to the specified <ansired>height</ansired>."
+                "DESC": "The seed tree is sampled from a <b style='color:red;'>Neutral Coalescent</b> model\nand is scaled to the specified <b style='color:red;'>height</b>."
             },
             "Dual-Birth": {
                 "PARAM": {
@@ -1121,7 +1121,7 @@
                         "DESC": "Height of the resulting tree"
                     }
                 },
-                "DESC": "The seed tree is sampled from a <ansired>Dual-Birth</ansired> model\nand is scaled to the specified <ansired>height</ansired>.",
+                "DESC": "The seed tree is sampled from a <b style='color:red;'>Dual-Birth</b> model\nand is scaled to the specified <b style='color:red;'>height</b>.",
                 "CITE": "Moshiri N, Mirarab S (2018). \"A Two-State Model of Tree Evolution and\n    Its Applications to Alu Retrotransposition.\" Syst Biol.\n    67(3):475-489. doi:10.1093/sysbio/syx088"
             },
             "Non-Homogeneous Yule": {
@@ -1135,7 +1135,7 @@
                         "DESC": "Height of the resulting tree"
                     }
                 },
-                "DESC": "The seed tree is sampled from a <ansired>Non-Homogeneous Yule</ansired> model\nwith <ansired>rate_func</ansired> f(t) and is scaled to the specified <ansired>height</ansired>.\n\n<ansired>WARNING: This plugin uses eval() to execute f(t), which is unsafe!!!\nDon't use a config file that uses this plugin without verifying!</ansired>"
+                "DESC": "The seed tree is sampled from a <b style='color:red;'>Non-Homogeneous Yule</b> model\nwith <b style='color:red;'>rate_func</b> f(t) and is scaled to the specified <b style='color:red;'>height</b>.\n\n<b style='color:red;'>WARNING: This plugin uses eval() to execute f(t), which is unsafe!!!\nDon't use a config file that uses this plugin without verifying!</b>"
             },
             "None": {
                 "PARAM": {},
@@ -1153,7 +1153,7 @@
                         "DESC": "Height of the resulting tree"
                     }
                 },
-                "DESC": "The seed tree is sampled from a <ansired>Yule</ansired> model\nand is scaled to the specified <ansired>height</ansired>."
+                "DESC": "The seed tree is sampled from a <b style='color:red;'>Yule</b> model\nand is scaled to the specified <b style='color:red;'>height</b>."
             }
         },
         "Mutation Rates": {
@@ -1180,7 +1180,7 @@
                         "DESC": "The probability that a child branch will have a different rate than its parent"
                     }
                 },
-                "DESC": "Each branch's length is multiplied by one of the following rates:\n  - The rate of its parent, with probability 1-<ansired>p</ansired>\n  - The rate of its parent + <ansired>delta</ansired>, with probability <ansired>p</ansired>/2\n  - The rate of its parent - <ansired>delta</ansired>, with probability <ansired>p</ansired>/2\n  - The root edge has rate <ansired>R0</ansired>\n  - All rates must be in the range [<ansired>R_min</ansired>, <ansired>R_max</ansired>]",
+                "DESC": "Each branch's length is multiplied by one of the following rates:\n  - The rate of its parent, with probability 1-<b style='color:red;'>p</b>\n  - The rate of its parent + <b style='color:red;'>delta</b>, with probability <b style='color:red;'>p</b>/2\n  - The rate of its parent - <b style='color:red;'>delta</b>, with probability <b style='color:red;'>p</b>/2\n  - The root edge has rate <b style='color:red;'>R0</b>\n  - All rates must be in the range [<b style='color:red;'>R_min</b>, <b style='color:red;'>R_max</b>]",
                 "CITE": "Sanderson MJ (1997). \"A Nonparametric Approach to Estimating\n    Divergence Times in the Absence of Rate Constancy.\"\n    Mol Biol Evol. 14(12):1218.\n    doi:10.1093/oxfordjournals.molbev.a025731"
             },
             "Autocorrelated Exponential": {
@@ -1190,7 +1190,7 @@
                         "DESC": "The mutation rate of the root edge"
                     }
                 },
-                "DESC": "Each branch's length is multiplied by a rate that is sampled from an\n<ansired>Exponential</ansired> distribution whose mean is the rate of the parent branch.",
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from an\n<b style='color:red;'>Exponential</b> distribution whose mean is the rate of the parent branch.",
                 "CITE": "Aris-Brosou S, Yang Z (2002). \"Effects of Models of Rate Evolution\n    on Estimation of Divergence Dates with Special Reference to the\n    Metazoan 18S Ribosomal RNA Phylogeny.\" Syst Biol. 51(5):703-714.\n    doi:10.1080/10635150290102375"
             },
             "Autocorrelated Gamma": {
@@ -1204,7 +1204,7 @@
                         "DESC": "Scaling factor of the Gamma distribution's variance"
                     }
                 },
-                "DESC": "Each branch's length is multiplied by a rate that is sampled from a\n<ansired>Gamma</ansired> distribution whose mean is the rate of the parent branch\nand whose variance is the branch length multiplied by <ansired>v</ansired>.",
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from a\n<b style='color:red;'>Gamma</b> distribution whose mean is the rate of the parent branch\nand whose variance is the branch length multiplied by <b style='color:red;'>v</b>.",
                 "CITE": "Aris-Brosou S, Yang Z (2002). \"Effects of Models of Rate Evolution\n    on Estimation of Divergence Dates with Special Reference to the\n    Metazoan 18S Ribosomal RNA Phylogeny.\" Syst Biol. 51(5):703-714.\n    doi:10.1080/10635150290102375"
             },
             "Autocorrelated Log-Normal": {
@@ -1218,7 +1218,7 @@
                         "DESC": "Scaling factor of the Log-Normal distribution's variance"
                     }
                 },
-                "DESC": "Each branch's length is multiplied by a rate that is sampled from a\n<ansired>Log-Normal</ansired> distribution whose mean is the rate of the parent branch\nand whose variance is the branch length multiplied by <ansired>v</ansired>.",
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from a\n<b style='color:red;'>Log-Normal</b> distribution whose mean is the rate of the parent branch\nand whose variance is the branch length multiplied by <b style='color:red;'>v</b>.",
                 "CITE": "Aris-Brosou S, Yang Z (2002). \"Effects of Models of Rate Evolution\n    on Estimation of Divergence Dates with Special Reference to the\n    Metazoan 18S Ribosomal RNA Phylogeny.\" Syst Biol. 51(5):703-714.\n    doi:10.1080/10635150290102375"
             },
             "Chi-Squared": {
@@ -1228,7 +1228,7 @@
                         "DESC": "Degrees of freedom of the Chi-Squared distribution"
                     }
                 },
-                "DESC": "Each branch's length is multiplied by a rate that is sampled from a\n<ansired>Chi-Squared</ansired> distribution with <ansired>k</ansired> degrees of freedom."
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from a\n<b style='color:red;'>Chi-Squared</b> distribution with <b style='color:red;'>k</b> degrees of freedom."
             },
             "Constant": {
                 "PARAM": {
@@ -1246,7 +1246,7 @@
                         "DESC": "Scale parameter of the Exponential distribution"
                     }
                 },
-                "DESC": "Each branch's length is multiplied by a rate that is sampled from\n<ansired>Exponential</ansired>(<ansired>beta</ansired>)."
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from\n<b style='color:red;'>Exponential</b>(<b style='color:red;'>beta</b>)."
             },
             "F": {
                 "PARAM": {
@@ -1259,7 +1259,7 @@
                         "DESC": "Degrees of freedom in the F distribution's denominator"
                     }
                 },
-                "DESC": "Each branch's length is multiplied by a rate that is sampled from an\n<ansired>F</ansired> distribution with degrees of freedom parameters <ansired>d1</ansired> and <ansired>d2</ansired>."
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from an\n<b style='color:red;'>F</b> distribution with degrees of freedom parameters <b style='color:red;'>d1</b> and <b style='color:red;'>d2</b>."
             },
             "Gamma": {
                 "PARAM": {
@@ -1272,7 +1272,7 @@
                         "DESC": "Scale parameter of the Gamma distribution"
                     }
                 },
-                "DESC": "Each branch's length is multiplied by a rate that is sampled from\n<ansired>Gamma</ansired>(<ansired>k</ansired>, <ansired>theta</ansired>)."
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from\n<b style='color:red;'>Gamma</b>(<b style='color:red;'>k</b>, <b style='color:red;'>theta</b>)."
             },
             "Inverse Gaussian (Wald)": {
                 "PARAM": {
@@ -1285,7 +1285,7 @@
                         "DESC": "Shape parameter of the Inverse Gaussian (Wald) distribution"
                     }
                 },
-                "DESC": "Each branch's length is multiplied by a rate that is sampled from\n<ansired>InverseGaussian</ansired>(<ansired>mu</ansired>, <ansired>lambda</ansired>)."
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from\n<b style='color:red;'>InverseGaussian</b>(<b style='color:red;'>mu</b>, <b style='color:red;'>lambda</b>)."
             },
             "Log-Normal": {
                 "PARAM": {
@@ -1298,7 +1298,7 @@
                         "DESC": "Standard deviation of the underlying Normal distribution"
                     }
                 },
-                "DESC": "Each branch's length is multiplied by a rate that is sampled from\n<ansired>LogNormal</ansired>(<ansired>mu</ansired>, <ansired>sigma</ansired>^2)."
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from\n<b style='color:red;'>LogNormal</b>(<b style='color:red;'>mu</b>, <b style='color:red;'>sigma</b>^2)."
             },
             "Noncentral Chi-Squared": {
                 "PARAM": {
@@ -1311,7 +1311,7 @@
                         "DESC": "Non-centrality parameter of the Noncentral Chi-Squared distribution"
                     }
                 },
-                "DESC": "Each branch's length is multiplied by a rate that is sampled from a\n<ansired>Noncentral Chi-Squared</ansired> distribution with <ansired>k</ansired> degrees of freedom and\nnon-centrality parameter <ansired>lambda</ansired>."
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from a\n<b style='color:red;'>Noncentral Chi-Squared</b> distribution with <b style='color:red;'>k</b> degrees of freedom and\nnon-centrality parameter <b style='color:red;'>lambda</b>."
             },
             "Noncentral F": {
                 "PARAM": {
@@ -1328,7 +1328,7 @@
                         "DESC": "Non-centrality parameter of the Noncentral F distribution"
                     }
                 },
-                "DESC": "Each branch's length is multiplied by a rate that is sampled from a\n<ansired>Noncentral F</ansired> distribution with degrees of freedom parameters <ansired>d1</ansired> and <ansired>d2</ansired>,\nand with non-centrality parameter <ansired>lambda</ansired>."
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from a\n<b style='color:red;'>Noncentral F</b> distribution with degrees of freedom parameters <b style='color:red;'>d1</b> and <b style='color:red;'>d2</b>,\nand with non-centrality parameter <b style='color:red;'>lambda</b>."
             },
             "None": {
                 "PARAM": {},
@@ -1345,7 +1345,7 @@
                         "DESC": "Shape parameter of the Pareto distribution"
                     }
                 },
-                "DESC": "Each branch's length is multiplied by a rate that is sampled from\n<ansired>Pareto</ansired>(<ansired>alpha</ansired>)."
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from\n<b style='color:red;'>Pareto</b>(<b style='color:red;'>alpha</b>)."
             },
             "Power": {
                 "PARAM": {
@@ -1354,7 +1354,7 @@
                         "DESC": "Shape parameter of the Power distribution"
                     }
                 },
-                "DESC": "Each branch's length is multiplied by a rate that is sampled from\n<ansired>Power</ansired>(<ansired>c</ansired>)."
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from\n<b style='color:red;'>Power</b>(<b style='color:red;'>c</b>)."
             },
             "Rayleigh": {
                 "PARAM": {
@@ -1363,7 +1363,7 @@
                         "DESC": "Scale parameter of the Rayleigh distribution"
                     }
                 },
-                "DESC": "Each branch's length is multiplied by a rate that is sampled from\n<ansired>Rayleigh</ansired>(<ansired>sigma</ansired>)."
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from\n<b style='color:red;'>Rayleigh</b>(<b style='color:red;'>sigma</b>)."
             },
             "Triangular": {
                 "PARAM": {
@@ -1380,7 +1380,7 @@
                         "DESC": "Mode of the Triangular distribution"
                     }
                 },
-                "DESC": "Each branch's length is multiplied by a rate that is sampled from\n<ansired>Triangular</ansired>(<ansired>a</ansired>, <ansired>b</ansired>, <ansired>c</ansired>)."
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from\n<b style='color:red;'>Triangular</b>(<b style='color:red;'>a</b>, <b style='color:red;'>b</b>, <b style='color:red;'>c</b>)."
             },
             "Truncated Normal": {
                 "PARAM": {
@@ -1401,7 +1401,7 @@
                         "DESC": "Maximum of the Truncated Normal distribution"
                     }
                 },
-                "DESC": "Each branch's length is multiplied by a rate that is sampled from\n<ansired>TruncatedNormal</ansired>(<ansired>mu</ansired>, <ansired>sigma</ansired>, <ansired>a</ansired>, <ansired>b</ansired>)."
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from\n<b style='color:red;'>TruncatedNormal</b>(<b style='color:red;'>mu</b>, <b style='color:red;'>sigma</b>, <b style='color:red;'>a</b>, <b style='color:red;'>b</b>)."
             },
             "Uniform": {
                 "PARAM": {
@@ -1414,7 +1414,7 @@
                         "DESC": "Maximum of the Uniform distribution"
                     }
                 },
-                "DESC": "Each branch's length is multiplied by a rate that is sampled from\n<ansired>Uniform</ansired>(<ansired>a</ansired>, <ansired>b</ansired>)."
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from\n<b style='color:red;'>Uniform</b>(<b style='color:red;'>a</b>, <b style='color:red;'>b</b>)."
             },
             "Weibull": {
                 "PARAM": {
@@ -1427,7 +1427,7 @@
                         "DESC": "Scale parameter of the Weibull distribution"
                     }
                 },
-                "DESC": "Each branch's length is multiplied by a rate that is sampled from\n<ansired>Weibull</ansired>(<ansired>shape</ansired>, <ansired>scale</ansired>)."
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from\n<b style='color:red;'>Weibull</b>(<b style='color:red;'>shape</b>, <b style='color:red;'>scale</b>)."
             }
         },
         "Ancestral Sequence": {
@@ -1537,7 +1537,7 @@
                         "DESC": "Proportion of invariable sites"
                     }
                 },
-                "DESC": "Sequences evolve according to a <ansired>General Time-Reversible (GTR)</ansired>\nsubstitution model."
+                "DESC": "Sequences evolve according to a <b style='color:red;'>General Time-Reversible (GTR)</b>\nsubstitution model."
             },
             "General Time-Reversible (GTR) + Codon": {
                 "PARAM": {
@@ -1594,7 +1594,7 @@
                         "DESC": "Relative rate of substitution at codon site 3"
                     }
                 },
-                "DESC": "Sequences evolve according to a <ansired>General Time-Reversible (GTR)</ansired>\nsubstitution model with <ansired>codon</ansired>-specific rate heterogeneity."
+                "DESC": "Sequences evolve according to a <b style='color:red;'>General Time-Reversible (GTR)</b>\nsubstitution model with <b style='color:red;'>codon</b>-specific rate heterogeneity."
             },
             "General Time-Reversible (GTR) + Gamma": {
                 "PARAM": {
@@ -1651,7 +1651,7 @@
                         "DESC": "Proportion of invariable sites"
                     }
                 },
-                "DESC": "Sequences evolve according to a <ansired>General Time-Reversible (GTR)</ansired>\nsubstitution model with <ansired>Gamma</ansired>-distributed rate heterogeneity."
+                "DESC": "Sequences evolve according to a <b style='color:red;'>General Time-Reversible (GTR)</b>\nsubstitution model with <b style='color:red;'>Gamma</b>-distributed rate heterogeneity."
             },
             "None": {
                 "PARAM": {},
