@@ -133,7 +133,7 @@ export const ModelCitation = () => {
     return (
       <>
         <Typography variant="h5">Citation</Typography>
-        <Typography>{citation}</Typography>
+        <Typography>{textParse(citation, "HTML")}</Typography>
         <br />
       </>
     );
