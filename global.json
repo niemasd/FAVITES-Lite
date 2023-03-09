@@ -26,7 +26,7 @@
                     }
                 },
                 "DESC": "The <b style='color:red;'>Barabasi-Albert (BA)</b> model is an algorithm for generating undirected random scale-free networks using a preferential attachment mechanism.",
-                "CITE": "Albert R, Barabasi AL (2002). \"Statistical mechanics of complex networks.\"     Rev Mod Phys. 74(1):47-97. doi:10.1103/RevModPhys.74.47",
+                "CITE": "<ul><li>Albert R, Barabasi AL (2002). \"Statistical mechanics of complex networks.\"<i>Rev Mod Phys</i>. 74(1):47-97. <a href='https://doi.org/10.1103/RevModPhys.74.47' target='_blank'>doi:10.1103/RevModPhys.74.47</a></li><ul>",
                 "PROP": [
                     "The total number of edges is: <b style='color:red;'>m</b>(<b style='color:red;'>n</b>-<b style='color:red;'>m</b>)",
                     "The expected degree is approximately: 2<b style='color:red;'>m</b>"
@@ -44,7 +44,7 @@
                     }
                 },
                 "DESC": "A <b style='color:red;'>barbell</b> graph is an undirected graph composed of two complete graphs, each with <b style='color:red;'>m1</b> nodes, connected by a path of <b style='color:red;'>m2</b> nodes.",
-                "CITE": "Ghosh A, Boyd S, Saberi A (2006). \"Minimizing Effective Resistance of a Graph.\"     Proc 17th Internat Sympos Math Th Network and Systems. 1185-1196.     doi:10.1137/050645452",
+                "CITE": "<ul><li>Ghosh A, Boyd S, Saberi A (2006). \"Minimizing Effective Resistance of a Graph.\" <i>Proc 17th Internat Sympos Math Th Network and Systems</i>. 1185-1196. <a href='https://doi.org/10.1137/050645452' target='_blank'>doi:10.1137/050645452</a></li></ul>",
                 "PROP": [
                     "The total number of nodes is: 2<b style='color:red;'>m1</b> + <b style='color:red;'>m2</b>",
                     "The total number of edges is: <b style='color:red;'>m1</b>(<b style='color:red;'>m1</b>-1) + <b style='color:red;'>m2</b> + 1"
@@ -87,7 +87,7 @@
                     }
                 },
                 "DESC": "The <b style='color:red;'>Erdos-Renyi (ER)</b> model is an undirected graph model in which each of the <b style='color:red;'>n</b> choose 2 possible edges have probability <b style='color:red;'>p</b> of existing.",
-                "CITE": "Erdos P, Renyi A (1959). \"On Random Graphs. I.\" Publ Math. 6:290-297. Gilbert EN (1959). \"Random Graphs.\" Ann Math Stat. 30(4):1141-1144.     doi:10.1214/aoms/1177706098",
+                "CITE": "<ul><li>Erdos P, Renyi A (1959). \"On Random Graphs. I.\" <i>Publ Math</i>. 6:290-297.</li><li>Gilbert EN (1959). \"Random Graphs.\" <i>Ann Math Stat</i>. 30(4):1141-1144. <a href='https://doi.org/10.1214/aoms/1177706098' target='_blank'>doi:10.1214/aoms/1177706098</a></li></ul>",
                 "PROP": [
                     "The expected degree is: <b style='color:red;'>p</b>(<b style='color:red;'>n</b> choose 2) = <b style='color:red;'>pn</b>(<b style='color:red;'>n</b>-1)/2",
                     "The degree distribution is: Binomial(<b style='color:red;'>n</b>-1, k)"
@@ -109,7 +109,7 @@
                     }
                 },
                 "DESC": "The <b style='color:red;'>Newman-Watts-Strogatz (NWS)</b> model is an undirected graph model as follows:   1. Start with a ring of <b style='color:red;'>n</b> nodes   2. Connect each node with its <b style='color:red;'>k</b> nearest neighbors   3. For each edge (u,v) in the ring, add a new random edge (u,w) with probability <b style='color:red;'>p</b>",
-                "CITE": "Newman MEJ, Watts DJ (1999). \"Renormalization group analysis of the small-world     network model.\" Phys Lett A. 263(4-6):341-346. doi:10.1016/S0375-9601(99)00757-4",
+                "CITE": "<ul><li>Newman MEJ, Watts DJ (1999). \"Renormalization group analysis of the small-world network model.\" <i>Phys Lett A</i>. 263(4-6):341-346. <a href='10.1016/S0375-9601(99)00757-4' target='_blank'>doi:10.1016/S0375-9601(99)00757-4</a></li></ul>",
                 "PROP": [
                     "The number of edges in the connected ring is: <b style='color:red;'>nk</b>/2",
                     "The number of newly added edges is: Binomial(<b style='color:red;'>nk</b>/2, <b style='color:red;'>p</b>)"
@@ -334,7 +334,7 @@
                     }
                 },
                 "DESC": "The <b style='color:red;'>Granich et al. (2008)</b> model for HIV has 11 states:<br><ul><li>NS: Non-Susceptible</li><li>S: Susceptible</li><li>I1, I2, I3, and I4: Untreated HIV stage 1, 2, 3, and 4</li><li>A1, A2, A3, and A4: ART-treated HIV stage 1, 2, 3, and 4</li><li>D: Deceased</li><ul><br>The following transitions are possible:<ul><li>NS -> S (nodal)</li><li>S -> I1 (induced by I1-I4/A1-A4 or outside)</li><li>I1 -> A1, I2 -> A2, I3 -> A3, and I4 -> A4 (nodal)</li><li>A1 -> I1, A2 -> I2, A3 -> I3, and A4 -> I4 (nodal)</li><li>I1 -> I2 -> I3 -> I4 (nodal)</li><li>A1 -> A2 -> A3 -> A4 (nodal)</li><li>All non-D states -> D</li></ul>",
-                "CITE": "Granich RM, Gilks CF, Dye C, De Cock KM, Williams BG (2008).     \"Universal voluntary HIV testing with immediate antiretroviral     therapy as a strategy for elimination of HIV transmission:     a mathematical model.\" The Lancet. 373(9657):48-57.     doi:10.1016/S0140-6736(08)61697-9"
+                "CITE": "<ul><li>Granich RM, Gilks CF, Dye C, De Cock KM, Williams BG (2008). \"Universal voluntary HIV testing with immediate antiretroviral therapy as a strategy for elimination of HIV transmission: a mathematical model.\" <i>The Lancet</i>. 373(9657):48-57. <a href='https://doi.org/10.1016/S0140-6736(08)61697-9' target='_blank'>doi:10.1016/S0140-6736(08)61697-9</a></li></ul>"
             },
             "Hethcote and Yorke (1984)": {
                 "INF_STATES": ["MIS", "MIA", "FIS", "FIA"],
