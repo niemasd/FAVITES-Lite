@@ -254,8 +254,8 @@ export const ParametersSelect = () => {
                 helperText={isError ? "Invalid input" : ""}
               />
               <ul>
-                <li>Type: {parameters[param].TYPE}</li>
-                <li>Description: {parameters[param].DESC}</li>
+                <li><b>Type:</b> {parameters[param].TYPE}</li>
+                <li><b>Description:</b> {parameters[param].DESC}</li>
               </ul>
             </div>
           );
