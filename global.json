@@ -25,7 +25,7 @@
                         "DESC": "Number of edges attached from new nodes to existing nodes"
                     }
                 },
-                "DESC": "The <b style='color:red;'>Barabasi-Albert (BA)</b> model is an algorithm for generating undirected random scale-free networks using a preferential attachment mechanism.",
+                "DESC": "The <a href='https://en.wikipedia.org/wiki/Barab%C3%A1si%E2%80%93Albert_model' target='_blank'>Barabasi-Albert (BA)</a> model is an algorithm for generating undirected random scale-free networks using a preferential attachment mechanism.",
                 "CITE": "<ul><li>Albert R, Barabasi AL (2002). \"Statistical mechanics of complex networks.\" <i>Rev Mod Phys</i>. 74(1):47-97. <a href='https://doi.org/10.1103/RevModPhys.74.47' target='_blank'>doi:10.1103/RevModPhys.74.47</a></li><ul>",
                 "PROP": [
                     "The total number of edges is: <b style='color:red;'>m</b>(<b style='color:red;'>n</b>-<b style='color:red;'>m</b>)",
