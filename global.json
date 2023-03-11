@@ -512,8 +512,8 @@
                     "Ancestral Sequence": "None",
                     "Sequence Evolution": "None"
                 },
-                "DESC": "The <b style='color:red;'>Hethcote and Yorke (1984)</b> model for gonorrhea has 8 states:<ul><li>MA and FA: Male/Female Abstinent</li><li>MS and FS: Male/Female Susceptible</li><li>MIS and FIS: Male/Female Symptomatic Infected</li><li>MIA and FIA: Male/Female Asymptomatic Infected</li></ul>The following transitions are possible:<ul><li>MA → MS and FA → FS (nodal)</li><li>MS → MA and FS → FA (nodal)</li><li>MS → MIA and FS → FIA (induced by MIA/MIS/FIA/FIS or outside)</li><li>MS → MIS and FS → FIS (induced by MIA/MIS/FIA/FIS or outside)</li><li>MIA → MS and FIA → FS (nodal)</li><li>MIS → MS and FIS → FS (nodal)</li></ul>Must select \"None\" for all downstream steps.",
-                "CITE": "Hethcote HW, Yorke JA (1984). \"Gonorrhea transmission dynamics and control.\" <i>Lect Notes Math</i>. 56. <a href='https://doi.org/10.1007/978-3-662-07544-9' target='_blank'>doi:10.1007/978-3-662-07544-9</a>"
+                "DESC": "The <b><a href='https://doi.org/10.1007/978-3-662-07544-9' target='_blank'>Hethcote and Yorke (1984)</a></b> model for gonorrhea has 8 states:<ul><li>MA and FA: Male/Female Abstinent</li><li>MS and FS: Male/Female Susceptible</li><li>MIS and FIS: Male/Female Symptomatic Infected</li><li>MIA and FIA: Male/Female Asymptomatic Infected</li></ul>The following transitions are possible:<ul><li>MA → MS and FA → FS (nodal)</li><li>MS → MA and FS → FA (nodal)</li><li>MS → MIA and FS → FIA (induced by MIA/MIS/FIA/FIS or outside)</li><li>MS → MIS and FS → FIS (induced by MIA/MIS/FIA/FIS or outside)</li><li>MIA → MS and FIA → FS (nodal)</li><li>MIS → MS and FIS → FS (nodal)</li></ul>Must select \"None\" for all downstream steps.",
+                "CITE": "<ul><li>Hethcote HW, Yorke JA (1984). \"Gonorrhea transmission dynamics and control.\" <i>Lect Notes Math</i>. 56. <a href='https://doi.org/10.1007/978-3-662-07544-9' target='_blank'>doi:10.1007/978-3-662-07544-9</a></li></ul>"
             },
             "None": {
                 "INF_STATES": [],
@@ -612,8 +612,8 @@
                         "DESC": "The transition rate H → R (nodal)"
                     }
                 },
-                "DESC": "The <b style='color:red;'>SAPHIRE</b> model (Hao et al., Nature 2020) has 7 states:<ul><li>S: Susceptible</li><li>A: Unascertained Case</li><li>P: Presymptomatic Infectious Case</li><li>H: Hospitalized Case</li><li>I: Ascertained Infectious Case</li><li>R: Removed</li><li>E: Exposed</li></ul>The following transitions are possible:<ul><li>S → E (induced by E/P/I/A or outside)</li><li>E → P (nodal)</li><li>P → A and P → I (nodal)</li><li>I → H and I → R (nodal)</li><li>A → R (nodal)</li><li>H → R (nodal)</li></ul>",
-                "CITE": "Hao X, Cheng S, Wu D, Wu T, Lin X, Wang C (2020). \"Reconstruction     of the full transmission dynamics of COVID-19 in Wuhan.\"     Nature. 584:420-424. doi:10.1038/s41586-020-2554-8"
+                "DESC": "The <b><a href='https://doi.org/10.1038/s41586-020-2554-8' target='_blank'>SAPHIRE</a></b> model (<a href='https://doi.org/10.1038/s41586-020-2554-8' target='_blank'>Hao et al., Nature 2020</a>) has 7 states:<ul><li>S: Susceptible</li><li>A: Unascertained Case</li><li>P: Presymptomatic Infectious Case</li><li>H: Hospitalized Case</li><li>I: Ascertained Infectious Case</li><li>R: Removed</li><li>E: Exposed</li></ul>The following transitions are possible:<ul><li>S → E (induced by E/P/I/A or outside)</li><li>E → P (nodal)</li><li>P → A and P → I (nodal)</li><li>I → H and I → R (nodal)</li><li>A → R (nodal)</li><li>H → R (nodal)</li></ul>",
+                "CITE": "<ul><li>Hao X, Cheng S, Wu D, Wu T, Lin X, Wang C (2020). \"Reconstruction of the full transmission dynamics of COVID-19 in Wuhan.\" <i>Nature</i>. 584:420-424. <a href='https://doi.org/10.1038/s41586-020-2554-8' target='_blank'>doi:10.1038/s41586-020-2554-8</a></li></ul>"
             },
             "SAAPPHIIRE": {
                 "INF_STATES": ["E", "P1", "P2", "I1", "I2", "A1", "A2"],
