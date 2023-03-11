@@ -870,7 +870,7 @@
                         "DESC": "The transition rate S → I induced by neighbors in I"
                     }
                 },
-                "DESC": "The <b style='color:red;'>Susceptible-Infected (SI)</b> model has two states:   - S: Susceptible   - I: Infected<br>The following transition is possible:   - S → I (induced by I or outside)"
+                "DESC": "The <b><a href='https://math.libretexts.org/Bookshelves/Applied_Mathematics/Mathematical_Biology_(Chasnov)/04%3A_Infectious_Disease_Modeling/4.01%3A_The_SI_Model' target='_blank'>Susceptible-Infected (SI)</a></b> model has two states:<ul><li>S: Susceptible</li><li>I: Infected</li></ul>The following transition is possible:<ul><li>S → I (induced by I or outside)</li></ul>"
             },
             "Susceptible-Infected-Removed (SIR)": {
                 "INF_STATES": ["I"],
@@ -904,7 +904,7 @@
                         "DESC": "The transition rate I → R (nodal)"
                     }
                 },
-                "DESC": "The <b style='color:red;'>Susceptible-Infected-Removed (SIR)</b> model has three states:   - S: Susceptible   - I: Infected   - R: Removed<br>The following transitions are possible:   - S → I (induced by I or outside)   - I → R"
+                "DESC": "The <b><a href='https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology#The_SIR_model' target='_blank'>Susceptible-Infected-Removed (SIR)</a></b> model has three states:<ul><li>S: Susceptible</li><li>I: Infected</li><li>R: Removed</li></ul>The following transitions are possible:<ul><li>S → I (induced by I or outside)</li><li>I → R</li></ul>"
             },
             "Susceptible-Infected-Susceptible (SIS)": {
                 "INF_STATES": ["I"],
