@@ -145,7 +145,7 @@
             }
         },
         "Transmission Network": {
-            "Granich <i>et al</i>. (2008)": {
+            "Granich et al. (2008)": {
                 "INF_STATES": ["I1", "I2", "I3", "I4", "A1", "A2", "A3", "A4"],
                 "PARAM": {
                     "duration": {
