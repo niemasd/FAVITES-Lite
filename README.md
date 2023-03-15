@@ -30,6 +30,8 @@ There are two primary components to FAVITES-Lite: the [Config Designer](https://
 ### Config Designer
 The [Config Designer](https://niema.net/FAVITES-Lite) is a tool that helps users design a FAVITES-Lite configuration file for their unique simulation experiment design. Unlike the original FAVITES, in which users had to navigate the documentation to manually design a configuration file, the FAVITES-Lite Config Designer guides the user and includes detailed information about all model choices for all steps of the simulation workflow.
 
+The Config Designer web app was developed by my students: Grant Cheng, Jenny Lam, Justyce Granda, Kathy Chen, Helena Hundhausen, and Daniel Ji.
+
 ### FAVITES-Lite Executable
 The [FAVITES-Lite executable (`favites_lite.py`)](favites_lite.py) actually executes a given simulation experiment, and it can be used as follows:
 
