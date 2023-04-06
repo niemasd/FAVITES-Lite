@@ -1338,7 +1338,7 @@
                         "DESC": "Shape parameter of the Pareto distribution"
                     }
                 },
-                "DESC": "Each branch's length is multiplied by a rate that is sampled from <b style='color:red;'>Pareto</b>(<b style='color:red;'>alpha</b>)."
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from a <b><a href='https://en.wikipedia.org/wiki/Pareto_distribution' target='_blank'>Pareto</a></b> distribution with shape parameter <b style='color:red;'>alpha</b>."
             },
             "Power": {
                 "PARAM": {
