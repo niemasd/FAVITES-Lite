@@ -1000,7 +1000,7 @@
                         "DESC": "The number of times every individual is sampled"
                     }
                 },
-                "DESC": "Each sample time of a given individual is sampled from a \"standardized form\" <b style='color:red;'>Truncated Exponential</b> distribution of the individual's infection time window.<br>If the individual has multiple time windows, a single time window is chosen randomly with equal probability."
+                "DESC": "Each sample time of a given individual is sampled from a \"standardized form\" <b style='color:red;'>Truncated Exponential</b> distribution of the individual's infection time window. If the individual has multiple time windows, a single time window is chosen randomly with equal probability."
             },
             "Truncated Gamma": {
                 "PARAM": {
@@ -1021,7 +1021,7 @@
                         "DESC": "Scale parameter of the Gamma distribution"
                     }
                 },
-                "DESC": "Each sample time of a given individual is sampled from a <b style='color:red;'>Truncated Gamma</b> distribution of the individual's time window of specified states.<br>If the individual has multiple time windows, a single time window is chosen randomly with equal probability."
+                "DESC": "Each sample time of a given individual is sampled from a <b style='color:red;'>Truncated Gamma</b> distribution of the individual's time window of specified states. If the individual has multiple time windows, a single time window is chosen randomly with equal probability."
             },
             "Truncated Normal": {
                 "PARAM": {
@@ -1042,7 +1042,7 @@
                         "DESC": "Scale parameter of the Truncated Normal distribution"
                     }
                 },
-                "DESC": "Each sample time of a given individual is sampled from a <b style='color:red;'>Truncated Normal</b> distribution of the individual's infection time window.<br>If the individual has multiple time windows, a single time window is chosen randomly with equal probability.",
+                "DESC": "Each sample time of a given individual is sampled from a <b style='color:red;'>Truncated Normal</b> distribution of the individual's infection time window. If the individual has multiple time windows, a single time window is chosen randomly with equal probability.",
                 "PROP": [
                     "To center the underlying Normal at the center of the [0,1] window: <b style='color:red;'>mu</b> = 0.5",
                     "To center the underlying Normal at the left of the [0,1] window: <b style='color:red;'>mu</b> = 0",
@@ -1060,7 +1060,7 @@
                         "DESC": "The number of times every individual is sampled"
                     }
                 },
-                "DESC": "Each sample time of a given individual is sampled from a <b style='color:red;'>Uniform</b> distribution of the individual's infection time window.<br>If the individual has multiple time windows, a single time window is chosen randomly with equal probability."
+                "DESC": "Each sample time of a given individual is sampled from a <b style='color:red;'>Uniform</b> distribution of the individual's infection time window. If the individual has multiple time windows, a single time window is chosen randomly with equal probability."
             }
         },
         "Viral Phylogeny (Transmissions)": {
@@ -1127,7 +1127,7 @@
                         "DESC": "Height of the resulting tree"
                     }
                 },
-                "DESC": "The seed tree is sampled from a <b style='color:red;'>Non-Homogeneous Yule</b> model with <b style='color:red;'>rate_func</b> f(t) and is scaled to the specified <b style='color:red;'>height</b>.<br><b style='color:red;'>WARNING: This plugin uses eval() to execute f(t), which is unsafe!!! Don't use a config file that uses this plugin without verifying!</b>"
+                "DESC": "The seed tree is sampled from a <b style='color:red;'>Non-Homogeneous Yule</b> model with <b style='color:red;'>rate_func</b> f(t) and is scaled to the specified <b style='color:red;'>height</b>.<br><br>Must select \"None\" for all downstream steps.<b style='color:red;'>WARNING: This plugin uses eval() to execute f(t), which is unsafe!!! Don't use a config file that uses this plugin without verifying!</b>"
             },
             "None": {
                 "PARAM": {},
