@@ -37,7 +37,11 @@ def time_windows(model, params, out_fn, config, GLOBAL, verbose=True):
                 delta = variates.pop() * length
             elif model == "Truncated Gamma":
                 for i in range(100): # 100 attempts
-                    delta = gamma(params['k'], params['theta']); break
+                    tmp = gamma(params['k'], params['theta'])
+                    if tmp <= length:
+                        delta = tmp; break
+                if tmp is None:
+                    raise RuntimeError("Failed to sample truncated Gamma in 100 attempts")
             elif model == "Uniform":
                 delta = uniform(0, length)
             else:
