@@ -1321,7 +1321,7 @@
                         "DESC": "Non-centrality parameter of the Noncentral F distribution"
                     }
                 },
-                "DESC": "Each branch's length is multiplied by a rate that is sampled from a <b style='color:red;'>Noncentral F</b> distribution with degrees of freedom parameters <b style='color:red;'>d1</b> and <b style='color:red;'>d2</b>, and with non-centrality parameter <b style='color:red;'>lambda</b>."
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from a <b><a href='https://en.wikipedia.org/wiki/Noncentral_F-distribution' target='_blank'>Noncentral F</a></b> distribution with degrees of freedom parameters <b style='color:red;'>d1</b> and <b style='color:red;'>d2</b>, and with non-centrality parameter <b style='color:red;'>lambda</b>."
             },
             "None": {
                 "PARAM": {},
