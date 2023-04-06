@@ -200,7 +200,7 @@ export const ModelRequirements = () => {
         <ul>
           {Object.keys(requirements).map((req) => (
             <li key={req}>
-              {req}: {requirements[req]}
+              <b>{req}:</b> {requirements[req]}
             </li>
           ))}
         </ul>
