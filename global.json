@@ -1120,14 +1120,14 @@
                 "PARAM": {
                     "rate_func": {
                         "TYPE": "function",
-                        "DESC": "The rate function f(t) of the initial Non-Homogeneous Yule tree"
+                        "DESC": "The rate function <i>f</i>(<i>t</i>) of the initial Non-Homogeneous Yule tree"
                     },
                     "height": {
                         "TYPE": "positive float",
                         "DESC": "Height of the resulting tree"
                     }
                 },
-                "DESC": "The seed tree is sampled from a <b style='color:red;'>Non-Homogeneous Yule</b> model with <b style='color:red;'>rate_func</b> f(t) and is scaled to the specified <b style='color:red;'>height</b>.<br><br>Must select \"None\" for all downstream steps.<br><br><b style='color:red;'>WARNING: This plugin uses eval() to execute f(t), which is unsafe!!! Don't use a config file that uses this plugin without verifying!</b>"
+                "DESC": "The seed tree is sampled from a <b style='color:red;'>Non-Homogeneous Yule</b> model with <b style='color:red;'>rate_func</b> <i>f</i>(<i>t</i>) and is scaled to the specified <b style='color:red;'>height</b>.<br><br>Must select \"None\" for all downstream steps.<br><br><b style='color:red;'>WARNING: This plugin uses eval() to execute <i>f</i>(<i>t</i>), which is unsafe!!! Don't use a config file that uses this plugin without verifying!</b>"
             },
             "None": {
                 "PARAM": {},
@@ -1145,7 +1145,8 @@
                         "DESC": "Height of the resulting tree"
                     }
                 },
-                "DESC": "The seed tree is sampled from a <b style='color:red;'>Yule</b> model and is scaled to the specified <b style='color:red;'>height</b>."
+                "DESC": "The seed tree is sampled from a <b><a href='https://doi.org/10.1098/rstb.1925.0002' target='_blank'>Yule</a></b> model (<a href='https://doi.org/10.1098/rstb.1925.0002' target='_blank'>Yule, Phil Trans Royal Soc London 1925</a>) and is scaled to the specified <b style='color:red;'>height</b>.",
+                "CITE": "Yule (1925). \"II.—A mathematical theory of evolution, based on the conclusions of Dr. J. C. Willis, F. R. S.\" <i>Phil Trans Royal Soc London</i>. 213:21-87. <a href='https://doi.org/10.1098/rstb.1925.0002' target='_blank'>doi:10.1098/rstb.1925.0002</a>"
             }
         },
         "Mutation Rates": {
