@@ -1407,7 +1407,7 @@
                         "DESC": "Maximum of the Uniform distribution"
                     }
                 },
-                "DESC": "Each branch's length is multiplied by a rate that is sampled from <b style='color:red;'>Uniform</b>(<b style='color:red;'>a</b>, <b style='color:red;'>b</b>)."
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from a <b><a href='https://en.wikipedia.org/wiki/Continuous_uniform_distribution' target='_blank'>Uniform</a></b> distribution with minimum <b style='color:red;'>a</b> and maximum <b style='color:red;'>b</b>."
             },
             "Weibull": {
                 "PARAM": {
@@ -1420,7 +1420,7 @@
                         "DESC": "Scale parameter of the Weibull distribution"
                     }
                 },
-                "DESC": "Each branch's length is multiplied by a rate that is sampled from <b style='color:red;'>Weibull</b>(<b style='color:red;'>shape</b>, <b style='color:red;'>scale</b>)."
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from a <b><a href='https://en.wikipedia.org/wiki/Weibull_distribution' target='_blank'>Weibull</a></b> distribution with shape parameter <b style='color:red;'>shape</b> and scale parameter <b style='color:red;'>scale</b>."
             }
         },
         "Ancestral Sequence": {
