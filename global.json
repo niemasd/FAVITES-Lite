@@ -1183,7 +1183,7 @@
                         "DESC": "The mutation rate of the root edge"
                     }
                 },
-                "DESC": "Each branch's length is multiplied by a rate that is sampled from an <b style='color:red;'>Exponential</b> distribution whose mean is the rate of the parent branch.",
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from an <b><a href='https://en.wikipedia.org/wiki/Exponential_distribution' target='_blank'>Exponential</a></b> distribution whose mean is the rate of the parent branch.",
                 "CITE": "Aris-Brosou S, Yang Z (2002). \"Effects of Models of Rate Evolution on Estimation of Divergence Dates with Special Reference to the Metazoan 18S Ribosomal RNA Phylogeny.\" <i>Syst Biol</i>. 51(5):703-714. <a href='https://doi.org/10.1080/10635150290102375' target='_blank'>doi:10.1080/10635150290102375</a>"
             },
             "Autocorrelated Gamma": {
@@ -1197,7 +1197,7 @@
                         "DESC": "Scaling factor of the Gamma distribution's variance"
                     }
                 },
-                "DESC": "Each branch's length is multiplied by a rate that is sampled from a <b style='color:red;'>Gamma</b> distribution whose mean is the rate of the parent branch and whose variance is the branch length multiplied by <b style='color:red;'>v</b>.",
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from a <b><a href='https://en.wikipedia.org/wiki/Gamma_distribution' target='_blank'>Gamma</a></b> distribution whose mean is the rate of the parent branch and whose variance is the branch length multiplied by <b style='color:red;'>v</b>.",
                 "CITE": "Aris-Brosou S, Yang Z (2002). \"Effects of Models of Rate Evolution on Estimation of Divergence Dates with Special Reference to the Metazoan 18S Ribosomal RNA Phylogeny.\" <i>Syst Biol</i>. 51(5):703-714. <a href='https://doi.org/10.1080/10635150290102375' target='_blank'>doi:10.1080/10635150290102375</a>"
             },
             "Autocorrelated Log-Normal": {
@@ -1211,7 +1211,7 @@
                         "DESC": "Scaling factor of the Log-Normal distribution's variance"
                     }
                 },
-                "DESC": "Each branch's length is multiplied by a rate that is sampled from a <b style='color:red;'>Log-Normal</b> distribution whose mean is the rate of the parent branch and whose variance is the branch length multiplied by <b style='color:red;'>v</b>.",
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from a <b><a href='https://en.wikipedia.org/wiki/Log-normal_distribution' target='_blank'>Log-Normal</a></b> distribution whose mean is the rate of the parent branch and whose variance is the branch length multiplied by <b style='color:red;'>v</b>.",
                 "CITE": "Aris-Brosou S, Yang Z (2002). \"Effects of Models of Rate Evolution on Estimation of Divergence Dates with Special Reference to the Metazoan 18S Ribosomal RNA Phylogeny.\" <i>Syst Biol</i>. 51(5):703-714. <a href='https://doi.org/10.1080/10635150290102375' target='_blank'>doi:10.1080/10635150290102375</a>"
             },
             "Chi-Squared": {
@@ -1221,7 +1221,7 @@
                         "DESC": "Degrees of freedom of the Chi-Squared distribution"
                     }
                 },
-                "DESC": "Each branch's length is multiplied by a rate that is sampled from a <b style='color:red;'>Chi-Squared</b> distribution with <b style='color:red;'>k</b> degrees of freedom."
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from a <b><a href='https://en.wikipedia.org/wiki/Chi-squared_distribution' target='_blank'>Chi-Squared</a></b> distribution with <b style='color:red;'>k</b> degrees of freedom."
             },
             "Constant": {
                 "PARAM": {
@@ -1239,7 +1239,7 @@
                         "DESC": "Scale parameter of the Exponential distribution"
                     }
                 },
-                "DESC": "Each branch's length is multiplied by a rate that is sampled from <b style='color:red;'>Exponential</b>(<b style='color:red;'>beta</b>)."
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from an <b><a href='https://en.wikipedia.org/wiki/Exponential_distribution' target='_blank'>Exponential</a></b> distribution with scale parameter <b style='color:red;'>beta</b>."
             },
             "F": {
                 "PARAM": {
@@ -1252,7 +1252,7 @@
                         "DESC": "Degrees of freedom in the F distribution's denominator"
                     }
                 },
-                "DESC": "Each branch's length is multiplied by a rate that is sampled from an <b style='color:red;'>F</b> distribution with degrees of freedom parameters <b style='color:red;'>d1</b> and <b style='color:red;'>d2</b>."
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from an <b><a href='https://en.wikipedia.org/wiki/F-distribution' target='_blank'>F</a></b> distribution with degrees of freedom parameters <b style='color:red;'>d1</b> and <b style='color:red;'>d2</b>."
             },
             "Gamma": {
                 "PARAM": {
@@ -1265,7 +1265,7 @@
                         "DESC": "Scale parameter of the Gamma distribution"
                     }
                 },
-                "DESC": "Each branch's length is multiplied by a rate that is sampled from <b style='color:red;'>Gamma</b>(<b style='color:red;'>k</b>, <b style='color:red;'>theta</b>)."
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from a <b><a href='https://en.wikipedia.org/wiki/Gamma_distribution' target='_blank'>Gamma</a></b> distribution with shape parameter <b style='color:red;'>k</b> and scale parameter <b style='color:red;'>theta</b>."
             },
             "Inverse Gaussian (Wald)": {
                 "PARAM": {
