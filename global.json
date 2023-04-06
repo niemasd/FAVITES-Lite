@@ -1173,8 +1173,8 @@
                         "DESC": "The probability that a child branch will have a different rate than its parent"
                     }
                 },
-                "DESC": "Each branch's length is multiplied by one of the following rates:   - The rate of its parent, with probability 1-<b style='color:red;'>p</b>   - The rate of its parent + <b style='color:red;'>delta</b>, with probability <b style='color:red;'>p</b>/2   - The rate of its parent - <b style='color:red;'>delta</b>, with probability <b style='color:red;'>p</b>/2   - The root edge has rate <b style='color:red;'>R0</b>   - All rates must be in the range [<b style='color:red;'>R_min</b>, <b style='color:red;'>R_max</b>]",
-                "CITE": "Sanderson MJ (1997). \"A Nonparametric Approach to Estimating     Divergence Times in the Absence of Rate Constancy.\"     Mol Biol Evol. 14(12):1218.     doi:10.1093/oxfordjournals.molbev.a025731"
+                "DESC": "Each branch's length is multiplied by one of the following rates:<ul><li>The rate of its parent, with probability 1-<b style='color:red;'>p</b></li><li>The rate of its parent + <b style='color:red;'>delta</b>, with probability <b style='color:red;'>p</b>/2</li><li>The rate of its parent - <b style='color:red;'>delta</b>, with probability <b style='color:red;'>p</b>/2</li><li>The root edge has rate <b style='color:red;'>R0</b></li><li>All rates must be in the range [<b style='color:red;'>R_min</b>, <b style='color:red;'>R_max</b>]</li></ul>",
+                "CITE": "Sanderson MJ (1997). \"A Nonparametric Approach to Estimating Divergence Times in the Absence of Rate Constancy.\" <i>Mol Biol Evol</i>. 14(12):1218. <a href='https://doi.org/10.1093/oxfordjournals.molbev.a025731' target='_blank'>doi:10.1093/oxfordjournals.molbev.a025731</a>"
             },
             "Autocorrelated Exponential": {
                 "PARAM": {
@@ -1184,7 +1184,7 @@
                     }
                 },
                 "DESC": "Each branch's length is multiplied by a rate that is sampled from an <b style='color:red;'>Exponential</b> distribution whose mean is the rate of the parent branch.",
-                "CITE": "Aris-Brosou S, Yang Z (2002). \"Effects of Models of Rate Evolution     on Estimation of Divergence Dates with Special Reference to the     Metazoan 18S Ribosomal RNA Phylogeny.\" Syst Biol. 51(5):703-714.     doi:10.1080/10635150290102375"
+                "CITE": "Aris-Brosou S, Yang Z (2002). \"Effects of Models of Rate Evolution on Estimation of Divergence Dates with Special Reference to the Metazoan 18S Ribosomal RNA Phylogeny.\" <i>Syst Biol</i>. 51(5):703-714. <a href='https://doi.org/10.1080/10635150290102375' target='_blank'>doi:10.1080/10635150290102375</a>"
             },
             "Autocorrelated Gamma": {
                 "PARAM": {
@@ -1198,7 +1198,7 @@
                     }
                 },
                 "DESC": "Each branch's length is multiplied by a rate that is sampled from a <b style='color:red;'>Gamma</b> distribution whose mean is the rate of the parent branch and whose variance is the branch length multiplied by <b style='color:red;'>v</b>.",
-                "CITE": "Aris-Brosou S, Yang Z (2002). \"Effects of Models of Rate Evolution     on Estimation of Divergence Dates with Special Reference to the     Metazoan 18S Ribosomal RNA Phylogeny.\" Syst Biol. 51(5):703-714.     doi:10.1080/10635150290102375"
+                "CITE": "Aris-Brosou S, Yang Z (2002). \"Effects of Models of Rate Evolution on Estimation of Divergence Dates with Special Reference to the Metazoan 18S Ribosomal RNA Phylogeny.\" <i>Syst Biol</i>. 51(5):703-714. <a href='https://doi.org/10.1080/10635150290102375' target='_blank'>doi:10.1080/10635150290102375</a>"
             },
             "Autocorrelated Log-Normal": {
                 "PARAM": {
@@ -1212,7 +1212,7 @@
                     }
                 },
                 "DESC": "Each branch's length is multiplied by a rate that is sampled from a <b style='color:red;'>Log-Normal</b> distribution whose mean is the rate of the parent branch and whose variance is the branch length multiplied by <b style='color:red;'>v</b>.",
-                "CITE": "Aris-Brosou S, Yang Z (2002). \"Effects of Models of Rate Evolution     on Estimation of Divergence Dates with Special Reference to the     Metazoan 18S Ribosomal RNA Phylogeny.\" Syst Biol. 51(5):703-714.     doi:10.1080/10635150290102375"
+                "CITE": "Aris-Brosou S, Yang Z (2002). \"Effects of Models of Rate Evolution on Estimation of Divergence Dates with Special Reference to the Metazoan 18S Ribosomal RNA Phylogeny.\" <i>Syst Biol</i>. 51(5):703-714. <a href='https://doi.org/10.1080/10635150290102375' target='_blank'>doi:10.1080/10635150290102375</a>"
             },
             "Chi-Squared": {
                 "PARAM": {
