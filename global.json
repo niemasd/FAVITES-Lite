@@ -1000,7 +1000,7 @@
                         "DESC": "The number of times every individual is sampled"
                     }
                 },
-                "DESC": "Each sample time of a given individual is sampled from a \"standardized form\" <b style='color:red;'>Truncated Exponential</b> distribution of the individual's infection time window. If the individual has multiple time windows, a single time window is chosen randomly with equal probability."
+                "DESC": "Each sample time of a given individual is sampled from a \"standardized form\" <b><a href='https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.truncexpon.html' target='_blank'>Truncated Exponential</a></b> distribution of the individual's infection time window. If the individual has multiple time windows, a single time window is chosen randomly with equal probability."
             },
             "Truncated Gamma": {
                 "PARAM": {
@@ -1042,7 +1042,7 @@
                         "DESC": "Scale parameter of the Truncated Normal distribution"
                     }
                 },
-                "DESC": "Each sample time of a given individual is sampled from a <b style='color:red;'>Truncated Normal</b> distribution of the individual's infection time window. If the individual has multiple time windows, a single time window is chosen randomly with equal probability.",
+                "DESC": "Each sample time of a given individual is sampled from a <b><a href='https://en.wikipedia.org/wiki/Truncated_normal_distribution' target='_blank'>Truncated Normal</a></b> distribution of the individual's infection time window. If the individual has multiple time windows, a single time window is chosen randomly with equal probability.",
                 "PROP": [
                     "To center the underlying Normal at the center of the [0,1] window: <b style='color:red;'>mu</b> = 0.5",
                     "To center the underlying Normal at the left of the [0,1] window: <b style='color:red;'>mu</b> = 0",
@@ -1060,7 +1060,7 @@
                         "DESC": "The number of times every individual is sampled"
                     }
                 },
-                "DESC": "Each sample time of a given individual is sampled from a <b style='color:red;'>Uniform</b> distribution of the individual's infection time window. If the individual has multiple time windows, a single time window is chosen randomly with equal probability."
+                "DESC": "Each sample time of a given individual is sampled from a <b><a href='https://en.wikipedia.org/wiki/Continuous_uniform_distribution' target='_blank'>Uniform</a></b> distribution of the individual's infection time window. If the individual has multiple time windows, a single time window is chosen randomly with equal probability."
             }
         },
         "Viral Phylogeny (Transmissions)": {
