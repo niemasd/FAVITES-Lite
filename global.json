@@ -1278,7 +1278,7 @@
                         "DESC": "Shape parameter of the Inverse Gaussian (Wald) distribution"
                     }
                 },
-                "DESC": "Each branch's length is multiplied by a rate that is sampled from <b style='color:red;'>InverseGaussian</b>(<b style='color:red;'>mu</b>, <b style='color:red;'>lambda</b>)."
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from an <b><a href='https://en.wikipedia.org/wiki/Inverse_Gaussian_distribution' target='_blank'>Inverse Gaussian (Wald)</a></b> distribution with mean <b style='color:red;'>mu</b> and shape parameter <b style='color:red;'>lambda</b>."
             },
             "Log-Normal": {
                 "PARAM": {
@@ -1291,7 +1291,7 @@
                         "DESC": "Standard deviation of the underlying Normal distribution"
                     }
                 },
-                "DESC": "Each branch's length is multiplied by a rate that is sampled from <b style='color:red;'>LogNormal</b>(<b style='color:red;'>mu</b>, <b style='color:red;'>sigma</b>^2)."
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from a <b><a href='https://en.wikipedia.org/wiki/Log-normal_distribution' target='_blank'>Log-Normal</a></b> distribution with mean <b style='color:red;'>mu</b> and standard deviation <b style='color:red;'>sigma</b>."
             },
             "Noncentral Chi-Squared": {
                 "PARAM": {
@@ -1304,7 +1304,7 @@
                         "DESC": "Non-centrality parameter of the Noncentral Chi-Squared distribution"
                     }
                 },
-                "DESC": "Each branch's length is multiplied by a rate that is sampled from a <b style='color:red;'>Noncentral Chi-Squared</b> distribution with <b style='color:red;'>k</b> degrees of freedom and non-centrality parameter <b style='color:red;'>lambda</b>."
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from a <b><a href='https://en.wikipedia.org/wiki/Noncentral_chi-squared_distribution' target='_blank'>Noncentral Chi-Squared</a></b> distribution with <b style='color:red;'>k</b> degrees of freedom and non-centrality parameter <b style='color:red;'>lambda</b>."
             },
             "Noncentral F": {
                 "PARAM": {
