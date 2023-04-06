@@ -1347,7 +1347,7 @@
                         "DESC": "Shape parameter of the Power distribution"
                     }
                 },
-                "DESC": "Each branch's length is multiplied by a rate that is sampled from <b style='color:red;'>Power</b>(<b style='color:red;'>c</b>)."
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from <b><a href='https://numpy.org/doc/stable/reference/random/generated/numpy.random.power.html' target='_blank'>Power</a></b> distribution with shape parameter <b style='color:red;'>c</b>."
             },
             "Rayleigh": {
                 "PARAM": {
