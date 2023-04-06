@@ -952,7 +952,7 @@
                     "Ancestral Sequence": "None",
                     "Sequence Evolution": "None"
                 },
-                "DESC": "No individuals are sampled.<br>Must select \"None\" for all downstream steps."
+                "DESC": "No individuals are sampled. Must select \"None\" for all downstream steps."
             },
             "Specific Time": {
                 "PARAM": {
@@ -1085,7 +1085,7 @@
                     "Ancestral Sequence": "None",
                     "Sequence Evolution": "None"
                 },
-                "DESC": "No phylogeny is simulated.<br>Must select \"None\" for all downstream steps."
+                "DESC": "No phylogeny is simulated. Must select \"None\" for all downstream steps."
             },
             "Transmission Tree": {
                 "PARAM": {},
@@ -1136,7 +1136,7 @@
                     "Ancestral Sequence": "None",
                     "Sequence Evolution": "None"
                 },
-                "DESC": "No phylogeny is simulated.<br>Must select \"None\" for all downstream steps."
+                "DESC": "No phylogeny is simulated. Must select \"None\" for all downstream steps."
             },
             "Yule": {
                 "PARAM": {
@@ -1328,7 +1328,7 @@
                     "Ancestral Sequence": "None",
                     "Sequence Evolution": "None"
                 },
-                "DESC": "No mutation rates are sampled (i.e., no mutation tree is output).<br>Must select \"None\" for all downstream steps."
+                "DESC": "No mutation rates are sampled (i.e., no mutation tree is output). Must select \"None\" for all downstream steps."
             },
             "Pareto": {
                 "PARAM": {
@@ -1478,7 +1478,7 @@
                 "REQS": {
                     "Sequence Evolution": "None"
                 },
-                "DESC": "No ancestral sequence is simulated.<br>Must select \"None\" for all downstream steps."
+                "DESC": "No ancestral sequence is simulated. Must select \"None\" for all downstream steps."
             }
         },
         "Sequence Evolution": {
