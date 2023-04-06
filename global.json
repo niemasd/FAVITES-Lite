@@ -1100,7 +1100,7 @@
                         "DESC": "Height of the resulting tree"
                     }
                 },
-                "DESC": "The seed tree is sampled from a <b style='color:red;'>Neutral Coalescent</b> model and is scaled to the specified <b style='color:red;'>height</b>."
+                "DESC": "The seed tree is sampled from a <b><a href='https://en.wikipedia.org/wiki/Coalescent_theory' target='_blank'>Neutral Coalescent</a></b> model and is scaled to the specified <b style='color:red;'>height</b>."
             },
             "Dual-Birth": {
                 "PARAM": {
@@ -1113,8 +1113,8 @@
                         "DESC": "Height of the resulting tree"
                     }
                 },
-                "DESC": "The seed tree is sampled from a <b style='color:red;'>Dual-Birth</b> model and is scaled to the specified <b style='color:red;'>height</b>.",
-                "CITE": "Moshiri N, Mirarab S (2018). \"A Two-State Model of Tree Evolution and     Its Applications to Alu Retrotransposition.\" Syst Biol.     67(3):475-489. doi:10.1093/sysbio/syx088"
+                "DESC": "The seed tree is sampled from a <b><a href='https://doi.org/10.1093/sysbio/syx088' target='_blank'>Dual-Birth</a></b> model (<a href='https://doi.org/10.1093/sysbio/syx088' target='_blank'>Moshiri & Mirarab, Syst Biol 2018</a>) and is scaled to the specified <b style='color:red;'>height</b>.",
+                "CITE": "Moshiri N, Mirarab S (2018). \"A Two-State Model of Tree Evolution and Its Applications to <i>Alu</i> Retrotransposition.\" <i>Syst Biol</i>. 67(3):475-489. <a href='https://doi.org/10.1093/sysbio/syx088' target='_blank'>doi:10.1093/sysbio/syx088</a>"
             },
             "Non-Homogeneous Yule": {
                 "PARAM": {
