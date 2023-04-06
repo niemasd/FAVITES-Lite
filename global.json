@@ -1531,7 +1531,7 @@
                     }
                 },
                 "DESC": "Sequences evolve according to a <b><a href='https://en.wikipedia.org/wiki/Models_of_DNA_evolution#GTR_model_(Tavar%C3%A9_1986)' target='_blank'>General Time-Reversible (GTR)</a></b> substitution model.",
-                "CITE": "Tavaré S (1986). \"Some Probabilistic and Statistical Problems in the Analysis of DNA Sequences.\" Lect Math Life Sci. 17:57–86."
+                "CITE": "Tavaré S (1986). \"Some Probabilistic and Statistical Problems in the Analysis of DNA Sequences.\" <i>Lect Math Life Sci</i>. 17:57–86."
             },
             "General Time-Reversible (GTR) + Codon": {
                 "PARAM": {
@@ -1589,7 +1589,7 @@
                     }
                 },
                 "DESC": "Sequences evolve according to a <b><a href='https://en.wikipedia.org/wiki/Models_of_DNA_evolution#GTR_model_(Tavar%C3%A9_1986)' target='_blank'>General Time-Reversible (GTR)</a></b> substitution model with <b style='color:red;'>codon</b>-specific rate heterogeneity.",
-                "CITE": "Tavaré S (1986). \"Some Probabilistic and Statistical Problems in the Analysis of DNA Sequences.\" Lect Math Life Sci. 17:57–86."
+                "CITE": "Tavaré S (1986). \"Some Probabilistic and Statistical Problems in the Analysis of DNA Sequences.\" <i>Lect Math Life Sci</i>. 17:57–86."
             },
             "General Time-Reversible (GTR) + Gamma": {
                 "PARAM": {
@@ -1647,7 +1647,7 @@
                     }
                 },
                 "DESC": "Sequences evolve according to a <b><a href='https://en.wikipedia.org/wiki/Models_of_DNA_evolution#GTR_model_(Tavar%C3%A9_1986)' target='_blank'>General Time-Reversible (GTR)</a></b> substitution model with <b style='color:red;'>Gamma</b>-distributed rate heterogeneity.",
-                "CITE": "Tavaré S (1986). \"Some Probabilistic and Statistical Problems in the Analysis of DNA Sequences.\" Lect Math Life Sci. 17:57–86."
+                "CITE": "Tavaré S (1986). \"Some Probabilistic and Statistical Problems in the Analysis of DNA Sequences.\" <i>Lect Math Life Sci</i>. 17:57–86."
             },
             "None": {
                 "PARAM": {},
