@@ -1347,7 +1347,7 @@
                         "DESC": "Shape parameter of the Power distribution"
                     }
                 },
-                "DESC": "Each branch's length is multiplied by a rate that is sampled from <b><a href='https://numpy.org/doc/stable/reference/random/generated/numpy.random.power.html' target='_blank'>Power</a></b> distribution with shape parameter <b style='color:red;'>c</b>."
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from a <b><a href='https://numpy.org/doc/stable/reference/random/generated/numpy.random.power.html' target='_blank'>Power</a></b> distribution with shape parameter <b style='color:red;'>c</b>."
             },
             "Rayleigh": {
                 "PARAM": {
@@ -1356,7 +1356,7 @@
                         "DESC": "Scale parameter of the Rayleigh distribution"
                     }
                 },
-                "DESC": "Each branch's length is multiplied by a rate that is sampled from <b style='color:red;'>Rayleigh</b>(<b style='color:red;'>sigma</b>)."
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from a <b><a href='https://en.wikipedia.org/wiki/Rayleigh_distribution' target='_blank'>Rayleigh</a></b> distribution with scale parameter <b style='color:red;'>sigma</b>."
             },
             "Triangular": {
                 "PARAM": {
@@ -1373,7 +1373,7 @@
                         "DESC": "Mode of the Triangular distribution"
                     }
                 },
-                "DESC": "Each branch's length is multiplied by a rate that is sampled from <b style='color:red;'>Triangular</b>(<b style='color:red;'>a</b>, <b style='color:red;'>b</b>, <b style='color:red;'>c</b>)."
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from a <b><a href='https://en.wikipedia.org/wiki/Triangular_distribution' target='_blank'>Triangular</a></b> distribution with lower-limit <b style='color:red;'>a</b>, upper-limit <b style='color:red;'>b</b>, and mode <b style='color:red;'>c</b>."
             },
             "Truncated Normal": {
                 "PARAM": {
@@ -1394,7 +1394,7 @@
                         "DESC": "Maximum of the Truncated Normal distribution"
                     }
                 },
-                "DESC": "Each branch's length is multiplied by a rate that is sampled from <b style='color:red;'>TruncatedNormal</b>(<b style='color:red;'>mu</b>, <b style='color:red;'>sigma</b>, <b style='color:red;'>a</b>, <b style='color:red;'>b</b>)."
+                "DESC": "Each branch's length is multiplied by a rate that is sampled from a <b><a href='https://en.wikipedia.org/wiki/Truncated_normal_distribution' target='_blank'>Truncated Normal</a></b> distribution with location parameter <b style='color:red;'>mu</b>, scale parameter <b style='color:red;'>sigma</b>, minimum <b style='color:red;'>a</b>, and maximum <b style='color:red;'>b</b>."
             },
             "Uniform": {
                 "PARAM": {
