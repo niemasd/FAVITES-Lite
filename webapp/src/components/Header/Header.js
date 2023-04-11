@@ -7,8 +7,11 @@ import {
   Alert,
   IconButton,
   Collapse,
+  Input,
+  TextField,
 } from "@mui/material";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { setConfig } from "../../features/config/configSlice";
 import styles from "./Header.module.css";
 import globalJSON from "../../files/global.json";
 
@@ -30,7 +33,7 @@ const parseNums = (config_obj) => {
   let config = JSON.parse(string);
 
   for (const step in config) {
-    for (const param in config[step]["param"] ) {
+    for (const param in config[step]["param"]) {
       let value = config[step]["param"][param];
       if (!isNaN(value)) {
         config[step]["param"][param] = Number(value);
@@ -38,12 +41,40 @@ const parseNums = (config_obj) => {
     }
   }
   return config;
-}
+};
 
 const Header = (props) => {
   const config = useSelector((state) => state.config.value);
   const [openExport, setOpenExport] = useState(false);
+  const [openImport, setOpenImport] = useState(false);
   const [openAlert, setOpenAlert] = useState(false);
+  const [selectedFile, setSelectedFile] = useState();
+  const [textboxValue, setTextboxValue] = useState("");
+  const dispatch = useDispatch();
+  const acceptedFiles = /.json/;
+
+  const uploadHandler = (e) => {
+    setSelectedFile(e.target.files[0]);
+  };
+
+  const handleSubmission = () => {
+    const fileReader = new FileReader();
+
+    if (!selectedFile.type.match(acceptedFiles)) {
+      console.log("There is an error with uploading the file");
+      return;
+    }
+
+    fileReader.onload = (e) => {
+      console.log(e.target.result);
+      uploadConfig(e.target.result);
+    };
+    fileReader.readAsText(selectedFile);
+  };
+
+  const uploadConfig = (s) => {
+    dispatch(setConfig(JSON.parse(s)))
+  }
 
   const { className } = props;
 
@@ -51,19 +82,29 @@ const Header = (props) => {
     <>
       <div className={`${className} ${styles.Main}`}>
         <h1 className={styles.Title}>
-          FAVITES-Lite <span className={styles.AltText}>Config Designer</span> v{globalJSON["VERSION"]}
+          FAVITES-Lite <span className={styles.AltText}>Config Designer</span> v
+          {globalJSON["VERSION"]}
         </h1>
-        <Button
-          variant="contained"
-          onClick={() => {
-            console.log(JSON.stringify(parseNums(config)));
-            // alert("Config has been printed into the console.");
-            setOpenExport(true);
-          }}
-          className={styles.Button}
-        >
-          Export
-        </Button>
+        <div className={styles.ButtonRow}>
+          <Button
+            variant="contained"
+            onClick={() => {
+              setOpenImport(true);
+            }}
+            className={styles.Button}
+          >
+            Import
+          </Button>
+          <Button
+            variant="contained"
+            onClick={() => {
+              setOpenExport(true);
+            }}
+            className={styles.Button}
+          >
+            Export
+          </Button>
+        </div>
       </div>
       <Modal
         open={openExport}
@@ -96,7 +137,9 @@ const Header = (props) => {
               variant="contained"
               className={styles.ModalButton}
               onClick={() => {
-                navigator.clipboard.writeText(JSON.stringify(parseNums(config)));
+                navigator.clipboard.writeText(
+                  JSON.stringify(parseNums(config))
+                );
                 setOpenAlert(true);
               }}
             >
@@ -141,8 +184,96 @@ const Header = (props) => {
           </Button> */}
         </Box>
       </Modal>
-    </>
+      <Modal
+        open={openImport}
+        onClose={() => {
+          setOpenImport(false);
+          // setOpenAlert(false);
+        }}
+      >
+        <Box
+          sx={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            width: 400,
+            bgcolor: "background.paper",
+            border: "2px solid #000",
+            boxShadow: 24,
+            p: 4,
+          }}
+        >
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+            Import Options
+          </Typography>
+          {/* <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            {JSON.stringify(config)}
+          </Typography> */}
+          <br />
 
+          <Input type="file" name="file" onChange={uploadHandler} />
+          <br />
+          <br />
+          <div>
+            <Button
+              variant="contained"
+              className={styles.ModalButton}
+              onClick={handleSubmission}
+            >
+              Use Selected File
+            </Button>
+          </div>
+          <div className={styles.Separator}>OR</div>
+          <TextField
+            fullWidth
+            multiline
+            maxRows={4}
+            onChange={(e) => {
+              setTextboxValue(e.target.value);
+            }}
+          ></TextField>
+          <br />
+          <br />
+          <div>
+            <Button
+              variant="contained"
+              className={styles.ModalButton}
+              onClick={() => {
+                console.log(textboxValue)
+                uploadConfig(textboxValue);
+              }}
+            >
+              Use Textbox
+            </Button>
+          </div>
+          <Collapse in={openAlert}>
+            <Alert
+              severity="success"
+              action={
+                <IconButton
+                  aria-label="close"
+                  color="inherit"
+                  size="small"
+                  onClick={() => {
+                    setOpenAlert(false);
+                  }}
+                >
+                  X
+                </IconButton>
+              }
+              className={styles.ModalAlert}
+            >
+              Success!
+            </Alert>
+          </Collapse>
+
+          {/* <Button variant="outlined" className={styles.ModalButton}>
+            Export as JSON
+          </Button> */}
+        </Box>
+      </Modal>
+    </>
   );
 };
 

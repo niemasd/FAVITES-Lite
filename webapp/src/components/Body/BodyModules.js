@@ -68,7 +68,6 @@ export const ModelSelect = () => {
       ? globalJSON.MODELS[model][config[model]["model"]].REQS
       : null;
 
-    // TODO: add check in error for model requirements
     if (!requirements) return checkParams(model);
 
     Object.keys(requirements).forEach((req) => {

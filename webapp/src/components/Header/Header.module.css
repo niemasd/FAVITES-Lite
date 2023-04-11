@@ -13,6 +13,12 @@
   justify-content: space-between;
 }
 
+.ButtonRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 5px;
+}
+
 .ButtonContainer {
   margin: 1rem 0 0 0;
   display: flex;
@@ -31,4 +37,26 @@
 
 .ModalAlert {
   margin-top: 10px;
+}
+
+.Separator {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 20px 0px;
+}
+
+.Separator::before,
+.Separator::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #000;
+}
+
+.Separator:not(:empty)::before {
+  margin-right: .25em;
+}
+
+.Separator:not(:empty)::after {
+  margin-left: .25em;
 }
