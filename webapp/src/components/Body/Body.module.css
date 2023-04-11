@@ -2,10 +2,3 @@
   padding: 1.5em;
   overflow-y: scroll;
 }
-
-* {
-  -ms-overflow-style: none;
-}
-::-webkit-scrollbar {
-  display: none;
-}
