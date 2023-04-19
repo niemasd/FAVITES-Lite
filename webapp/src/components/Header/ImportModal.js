@@ -18,6 +18,7 @@ const ImportModal = (props) => {
   const [textboxValue, setTextboxValue] = useState("");
   const [openSuccessAlert, setOpenSuccessAlert] = useState(false);
   const [openErrorAlert, setOpenErrorAlert] = useState(false);
+  const [errMsg, setErrMsg] = useState("");
   const dispatch = useDispatch();
 
   const acceptedFiles = /.json/;
@@ -28,26 +29,37 @@ const ImportModal = (props) => {
 
   const handleSubmission = () => {
     const fileReader = new FileReader();
+    clearAlerts();
 
     if (!selectedFile.type.match(acceptedFiles)) {
-      console.log("There is an error with uploading the file");
+      setOpenErrorAlert(true);
+      setErrMsg("There is an error with uploading the file.");
       return;
     }
 
     fileReader.onload = (e) => {
       console.log(e.target.result);
       uploadConfig(e.target.result);
+      dispatch(setSelected("Contact Network"));
     };
     fileReader.readAsText(selectedFile);
   };
 
   const uploadConfig = (s) => {
+    clearAlerts();
+
     try {
       dispatch(setConfig(JSON.parse(s)));
       setOpenSuccessAlert(true);
     } catch {
       setOpenErrorAlert(true);
+      setErrMsg("Check your JSON string.");
     }
+  };
+
+  const clearAlerts = () => {
+    setOpenSuccessAlert(false);
+    setOpenErrorAlert(false);
   };
 
   const { open, setOpen } = props;
@@ -114,7 +126,11 @@ const ImportModal = (props) => {
           </Button>
         </div>
         <SuccessAlert open={openSuccessAlert} setOpen={setOpenSuccessAlert} />
-        <ErrorAlert open={openErrorAlert} setOpen={setOpenErrorAlert} message={"Invalid JSON! Check the JSON string."} />
+        <ErrorAlert
+          open={openErrorAlert}
+          setOpen={setOpenErrorAlert}
+          message={errMsg}
+        />
       </Box>
     </Modal>
   );
