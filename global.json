@@ -926,7 +926,7 @@
                         "DESC": "The transition rate I → S (nodal)"
                     }
                 },
-                "DESC": "The <b><a href='https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology#The_SIS_model' target='_blank'>Susceptible-Infected-Susceptible (SIS)</a></b> model has two states:<ul><li><b>S:</b> Susceptible</li><li><b>I:</b> Infected</li></ul>The following transitions are possible:<ul><li>S → I (induced by I or outside)</li><li>I → S</li></ul>"
+                "DESC": "The <b><a href='https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology#The_SIS_model' target='_blank'>Susceptible-Infected-Susceptible (SIS)</a></b> model has two states:<ul><li><b>S:</b> Susceptible</li><li><b>I:</b> Infected</li></ul>The following transitions are possible:<ul><li>S → I (induced by I or outside)</li><li>I → S (nodal)</li></ul>"
             }
         },
         "Sample Times": {
