@@ -138,7 +138,7 @@
                         "DESC": "Number of nearest neighbors to connect to"
                     }
                 },
-                "DESC": "A <b><a href='https://runestone.academy/ns/books/published/complex/SmallWorldGraphs/RingLattice.html' target='_blank'>ring lattice</a></b> graph is an undirected graph in which every node has an edge to each of its <b style='color:red;'>k</b> neighbors.",
+                "DESC": "A <b><a href='https://runestone.academy/ns/books/published/complex/SmallWorldGraphs/RingLattice.html' target='_blank'>ring lattice</a></b> graph is an undirected graph in which every node has an edge to each of its <b style='color:red;'>k</b> nearest neighbors.",
                 "PROP": [
                     "The number of edges is: <b style='color:red;'>nk</b>/2"
                 ]
