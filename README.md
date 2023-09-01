@@ -48,3 +48,8 @@ usage: favites_lite.py [-h] -c CONFIG -o OUTPUT [--overwrite] [--quiet] [--versi
 
 ## Scripts
 To aid with common downstream analyses, you can find some helper scripts in the [`scripts`](scripts) folder of this repository. The scripts will be organized by step(s) of the FAVITES-Lite simulation workflow, and each subdirectory will have a README describing the scripts in that folder.
+
+# Citing FAVITES-Lite
+We are currently working on a manuscript for FAVITES-Lite. For now, if you use FAVITES-Lite in your work, please cite the original FAVITES paper:
+
+> **Moshiri N**, Ragonnet-Cronin M, Wertheim JO, Mirarab S (2018). "FAVITES: simultaneous simulation of transmission networks, phylogenetic trees, and sequences." *Bioinformatics*. 35(11):1852-1861. [doi:10.1093/bioinformatics/bty921](https://doi.org/10.1093/bioinformatics/bty921)
