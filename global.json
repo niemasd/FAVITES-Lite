@@ -1,5 +1,5 @@
 {
-    "VERSION": "0.0.4",
+    "VERSION": "0.0.5",
     "CONFIG_KEYS": ["Contact Network", "Transmission Network", "Sample Times", "Viral Phylogeny (Transmissions)", "Viral Phylogeny (Seeds)", "Mutation Rates", "Ancestral Sequence", "Sequence Evolution"],
     "TYPES": ["positive integer"],
     "DESC": {
@@ -1137,6 +1137,11 @@
                     "Sequence Evolution": "None"
                 },
                 "DESC": "No phylogeny is simulated. Must select \"None\" for all downstream steps."
+            },
+            "Single Introduction": {
+                "PARAM": {},
+                "REQS": {},
+                "DESC": "Assumes that there is only 1 introduction (and thus 1 transmission chain) in the transmission model, so no seed phylogeny is simulated."
             },
             "Yule": {
                 "PARAM": {

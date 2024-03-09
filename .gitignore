@@ -1,5 +1,7 @@
-# test file
+# test files
+config.json
 test.json
+tmp
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

@@ -6,5 +6,6 @@ PLUGIN_FUNCTIONS = {
     "Dual-Birth": common_treesap.treesap_dualbirth,
     "Non-Homogeneous Yule": common_treesap.treesap_nonhom_yule,
     "None": DUMMY_PLUGIN_FUNC,
+    "Single Introduction": common_treesap.treesap_single_intro,
     "Yule": common_treesap.treesap_yule,
 }
