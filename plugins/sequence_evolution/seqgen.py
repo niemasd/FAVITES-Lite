@@ -22,7 +22,12 @@ def seqgen(mode, params, out_fn, config, GLOBAL, verbose=True):
     seqgen_tree_fn = "%s/seqgen.phy" % out_fn['intermediate']
     seqgen_log_fn = "%s/seqgen.log" % out_fn['intermediate']
     f = open(seqgen_tree_fn, 'w'); f.write("1 %d\nROOT %s\n1\n%s" % (len(root_seq),root_seq,treestr)); f.close()
-    command = ['seq-gen', '-of', '-k1']
+    command = [
+        'seq-gen',
+        '-of',
+        '-k1',
+        '-z', str(GLOBAL['RNG_SEED']),
+    ]
     if mode in {'GTR', 'GTR+G', 'GTR+Codon'}: # GTR model
         command += ['-m', 'GTR']
     if mode in {'GTR', 'GTR+G', 'GTR+Codon'}: # add base frequencies

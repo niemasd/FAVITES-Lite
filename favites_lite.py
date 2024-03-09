@@ -4,6 +4,10 @@ FAVITES-Lite
 Niema Moshiri 2022
 '''
 
+# useful constants
+RNG_SEED_MIN = 0
+RNG_SEED_MAX = 2147483647
+
 # general imports and load global.json
 from os import makedirs, remove
 from os.path import abspath, expanduser, isdir, isfile
@@ -11,8 +15,15 @@ from shutil import rmtree
 from sys import argv, stderr
 from time import time
 import json
+import random
 GLOBAL_JSON_PATH = "%s/global.json" % '/'.join(abspath(expanduser(argv[0])).split('/')[:-1])
 GLOBAL = json.loads(open(GLOBAL_JSON_PATH).read())
+
+# external imports
+try:
+    import numpy
+except:
+    error("Unable to import numpy. Install with: pip install numpy")
 
 # FAVITES-Lite-specific imports
 from plugins import PLUGIN_FUNCTIONS
@@ -25,16 +36,29 @@ def parse_args():
     parser.add_argument('-c', '--config', required=True, type=str, help="FAVITES-Lite Config File")
     parser.add_argument('-o', '--output', required=True, type=str, help="Output Directory")
     parser.add_argument('--overwrite', action="store_true", help="Overwrite output directory if it exists")
+    parser.add_argument('--rng_seed', required=False, type=int, default=None, help="Random Number Generator Seed")
     parser.add_argument('--quiet', action="store_true", help="Suppress Log Messages")
     parser.add_argument('--version', action="store_true", help="Show FAVITES-Lite version")
     return parser.parse_args()
 
 # validate user args
 def validate_args(args, verbose=True):
+    # check RNG seed
+    if args.rng_seed is None:
+        args.rng_seed = random.randint(RNG_SEED_MIN, RNG_SEED_MAX)
+    elif args.rng_seed < RNG_SEED_MIN or args.rng_seed > RNG_SEED_MAX:
+        error("Invalid RNG seed (%s). Must be in the range [%d, %d]" % (args.rng_seed, RNG_SEED_MIN, RNG_SEED_MAX))
+    GLOBAL['RNG_SEED'] = args.rng_seed; random.seed(GLOBAL['RNG_SEED']); numpy.random.seed(GLOBAL['RNG_SEED'])
+    if verbose:
+        print_log("RNG Seed: %d" % GLOBAL['RNG_SEED'])
+
+    # check config file
     if not isfile(args.config):
         error("Config file not found: %s" % args.config)
     if verbose:
         print_log("Config File: %s" % args.config)
+
+    # check output directory
     if isdir(args.output) or isfile(args.output):
         if args.overwrite or input('Output directory exists: "%s". Overwrite? (Y/N) ' % args.output).upper().startswith('Y'):
             if verbose:
@@ -74,6 +98,7 @@ if __name__ == "__main__":
     args = parse_args(); verbose = not args.quiet
     if verbose:
         print_log("=== FAVITES-Lite v%s ===" % GLOBAL['VERSION'])
+        print_log("Command: %s" % ' '.join(argv))
     validate_args(args, verbose=verbose)
     config = json.loads(open(args.config).read()); validate_config(config)
     makedirs(args.output); f = open("%s/config.json" % args.output, 'w'); json.dump(config, f); f.close()

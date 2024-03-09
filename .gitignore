@@ -1,7 +1,7 @@
 # test files
 config.json
-test.json
-tmp
+test*.json
+tmp*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

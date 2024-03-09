@@ -65,6 +65,7 @@ def gemf_favites(model, params, out_fn, config, GLOBAL, verbose=True):
         '-t', str(params['duration']),
         '-o', gemf_out,
         '--output_all_transitions',
+        '--rng_seed', str(GLOBAL['RNG_SEED']),
         '--quiet',
     ]
     if verbose:
