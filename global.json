@@ -1,5 +1,5 @@
 {
-    "VERSION": "1.0.0",
+    "VERSION": "1.0.1",
     "CONFIG_KEYS": ["Contact Network", "Transmission Network", "Sample Times", "Viral Phylogeny (Transmissions)", "Viral Phylogeny (Seeds)", "Mutation Rates", "Ancestral Sequence", "Sequence Evolution"],
     "DESC": {
         "Contact Network": "The <b style='color:red;'>Contact Network</b> graph model describes all social interactions:<ul><li>Nodes represent individuals in the population</li><li>Edges represent all interactions across which the pathogen can transmit</li><li>Currently, FAVITES-Lite only supports static (i.e., unchanging) contact networks</li></ul>",
