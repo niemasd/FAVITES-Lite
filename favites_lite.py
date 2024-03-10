@@ -10,13 +10,13 @@ RNG_SEED_MAX = 2147483647
 
 # general imports and load global.json
 from os import makedirs, remove
-from os.path import abspath, expanduser, isdir, isfile
+from os.path import abspath, expanduser, isdir, isfile, realpath
 from shutil import rmtree
 from sys import argv, stderr
 from time import time
 import json
 import random
-GLOBAL_JSON_PATH = "%s/global.json" % '/'.join(abspath(expanduser(argv[0])).split('/')[:-1])
+GLOBAL_JSON_PATH = "%s/global.json" % '/'.join(abspath(realpath(expanduser(__file__))).split('/')[:-1])
 GLOBAL = json.loads(open(GLOBAL_JSON_PATH).read())
 
 # external imports
