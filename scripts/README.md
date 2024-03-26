@@ -4,3 +4,4 @@ This directory contains helper scripts to aid with common downstream analyses. E
 * **[`contact_network`](contact_network):** Scripts related to analyzing the contact network
 * **[`transmission_network`](transmission_network):** Scripts related to analyzing the transmission network
 * **[`phylogeny`](phylogeny):** Scripts related to analyzing the phylogeny (either the time tree or the mutation tree, or both)
+* **[`distances`](distances):** Scripts related to analyzing distances (either from trees or from sequences)
