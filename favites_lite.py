@@ -26,7 +26,7 @@ except:
     error("Unable to import numpy. Install with: pip install numpy")
 
 # FAVITES-Lite-specific imports
-from plugins import PLUGIN_FUNCTIONS
+from plugins import common, PLUGIN_FUNCTIONS
 from plugins.common import *
 
 # parse user args
@@ -42,34 +42,31 @@ def parse_args():
     return parser.parse_args()
 
 # validate user args
-def validate_args(args, verbose=True):
+def validate_args(args):
     # check RNG seed
     if args.rng_seed is None:
         args.rng_seed = random.randint(RNG_SEED_MIN, RNG_SEED_MAX)
     elif args.rng_seed < RNG_SEED_MIN or args.rng_seed > RNG_SEED_MAX:
         error("Invalid RNG seed (%s). Must be in the range [%d, %d]" % (args.rng_seed, RNG_SEED_MIN, RNG_SEED_MAX))
     GLOBAL['RNG_SEED'] = args.rng_seed; random.seed(GLOBAL['RNG_SEED']); numpy.random.seed(GLOBAL['RNG_SEED'])
-    if verbose:
-        print_log("RNG Seed: %d" % GLOBAL['RNG_SEED'])
+    print_log("RNG Seed: %d" % GLOBAL['RNG_SEED'])
 
     # check config file
     if not isfile(args.config):
         error("Config file not found: %s" % args.config)
-    if verbose:
-        print_log("Config File: %s" % args.config)
+    print_log("Config File: %s" % args.config)
 
     # check output directory
     if isdir(args.output) or isfile(args.output):
         if args.overwrite or input('Output directory exists: "%s". Overwrite? (Y/N) ' % args.output).upper().startswith('Y'):
-            if verbose:
-                print_log("Overwriting output directory: %s" % args.output)
+            print_log("Overwriting output directory: %s" % args.output)
             if isdir(args.output):
                 rmtree(args.output)
             else:
                 remove(args.output)
         else:
             error("Didn't overwrite output directory: %s" % args.output)
-    elif verbose:
+    else:
         print_log("Output Directory: %s" % args.output)
 
 # validate FAVITES-Lite config
@@ -95,13 +92,15 @@ if __name__ == "__main__":
     if len(argv) > 1 and argv[1].lower().lstrip('-') == 'version':
         print("FAVITES-Lite v%s" % GLOBAL['VERSION']); exit()
     start_time = time()
-    args = parse_args(); verbose = not args.quiet
-    if verbose:
-        print_log("=== FAVITES-Lite v%s ===" % GLOBAL['VERSION'])
-        print_log("Command: %s" % ' '.join(argv))
-    validate_args(args, verbose=verbose)
+    args = parse_args()
+    if not args.quiet:
+        common.LOG_FILES.append(stderr)
+    print_log("=== FAVITES-Lite v%s ===" % GLOBAL['VERSION'])
+    print_log("Command: %s" % ' '.join(argv))
+    validate_args(args)
     config = json.loads(open(args.config).read()); validate_config(config)
-    makedirs(args.output); f = open("%s/config.json" % args.output, 'w'); json.dump(config, f); f.close()
+    makedirs(args.output); common.LOG_FILES.append(open("%s/log.txt" % args.output, 'w'))
+    f = open("%s/config.json" % args.output, 'w'); json.dump(config, f); f.close()
     out_fn = {
         'intermediate': "%s/intermediate_files" % args.output,
         'contact_network': "%s/contact_network.tsv" % args.output,
@@ -116,24 +115,21 @@ if __name__ == "__main__":
         'sequences': "%s/sequences.fas" % args.output,
     }
     makedirs(out_fn['intermediate'])
-    if verbose:
-        print_log("Intermediate Files: %s" % out_fn['intermediate'])
+    print_log("Intermediate Files: %s" % out_fn['intermediate'])
     for step in GLOBAL['CONFIG_KEYS']:
-        if verbose:
-            print_log(); print_log("=== %s ===" % step)
+        print_log(); print_log("=== %s ===" % step)
         model = config[step]['model'].strip()
-        if verbose:
-            print_log("Model: %s" % model)
+        print_log("Model: %s" % model)
         params = config[step]['param']
-        if verbose:
-            for p in GLOBAL['MODELS'][step][model]['PARAM']:
-                print_log("Parameter: %s: %s" % (p, params[p]))
+        for p in GLOBAL['MODELS'][step][model]['PARAM']:
+            print_log("Parameter: %s: %s" % (p, params[p]))
         if step not in PLUGIN_FUNCTIONS:
             error("Step not implemented yet: %s" % step)
         if model not in PLUGIN_FUNCTIONS[step]:
             error("%s model not implemented yet: %s" % (step, model))
-        PLUGIN_FUNCTIONS[step][model](params, out_fn, config, GLOBAL, verbose=verbose)
+        PLUGIN_FUNCTIONS[step][model](params, out_fn, config, GLOBAL)
     end_time = time()
-    if verbose:
-        print_log(); print_log("=== Completion ===")
-        print_log("Total runtime: %s seconds" % (end_time-start_time))
+    print_log(); print_log("=== Completion ===")
+    print_log("Total runtime: %s seconds" % (end_time-start_time))
+    for f in common.LOG_FILES:
+        f.close()

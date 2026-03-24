@@ -3,7 +3,7 @@ from .. import *
 from random import shuffle, uniform
 
 # random sequence with exact frequencies
-def exact_freqs(params, out_fn, config, GLOBAL, verbose=True):
+def exact_freqs(params, out_fn, config, GLOBAL):
     probs = [params['p_%s' % n] for n in 'ACGT']; p_A, p_C, p_G, p_T = probs; k = params['k']
     if not check_props(probs):
         error("Invalid base frequencies: %s" % str({k:params[k] for k in params if k.startswith('p_')}))
@@ -11,11 +11,10 @@ def exact_freqs(params, out_fn, config, GLOBAL, verbose=True):
     tmp += (['T']*(k-len(tmp)))
     shuffle(tmp)
     f = open(out_fn['ancestral_seq'], 'w'); f.write('>Ancestral Sequence (Exact Base Frequencies, k = %s, p_A = %s, p_C = %s, p_G = %s, p_T = %s)\n%s\n' % (k, p_A, p_C, p_G, p_T, ''.join(tmp))); f.close()
-    if verbose:
-        print_log("Ancestral Sequence written to: %s" % out_fn['ancestral_seq'])
+    print_log("Ancestral Sequence written to: %s" % out_fn['ancestral_seq'])
 
 # random sequence with die roll at each position
-def seq_die_roll(params, out_fn, config, GLOBAL, verbose=True):
+def seq_die_roll(params, out_fn, config, GLOBAL):
     probs = [params['p_%s' % n] for n in 'ACGT']; p_A, p_C, p_G, p_T = probs; k = params['k']
     if not check_props(probs):
         error("Invalid base frequencies: %s" % str({k:params[k] for k in params if k.startswith('p_')}))

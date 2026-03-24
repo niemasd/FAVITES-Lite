@@ -6,6 +6,7 @@ import math
 
 # constants
 ZERO_THRESH = 0.00000000001
+LOG_FILES = list()
 
 # non-standard imports
 try:
@@ -23,7 +24,9 @@ def get_time():
 
 # print to log (prefixed by current time)
 def print_log(s='', end='\n'):
-    print("[%s] %s" % (get_time(), s), end=end, file=stderr); stderr.flush()
+    t = "[%s] %s" % (get_time(), s)
+    for f in LOG_FILES:
+        print(t, end=end, file=f); f.flush()
 
 # print error message
 def error(s='', end='\n'):

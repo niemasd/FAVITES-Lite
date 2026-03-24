@@ -2,7 +2,7 @@
 from .. import *
 
 # sample individuals first time they enter a given state
-def state_entry(params, out_fn, mode, verbose=True):
+def state_entry(params, out_fn, mode):
     sampled_states = {s.strip() for s in params['sampled_states'].split(',')}
     if mode in {'first'}:
         sampled_nodes = set()
@@ -23,9 +23,8 @@ def state_entry(params, out_fn, mode, verbose=True):
     for t, node in sample_times:
         f.write("%s\t%s\n" % (node, t))
     f.close()
-    if verbose:
-        print_log("Sample Times written to: %s" % out_fn['sample_times'])
-def state_entry_first(params, out_fn, config, GLOBAL, verbose=True):
-    state_entry(params, out_fn, "first", verbose=verbose)
-def state_entry_all(params, out_fn, config, GLOBAL, verbose=True):
-    state_entry(params, out_fn, "all", verbose=verbose)
+    print_log("Sample Times written to: %s" % out_fn['sample_times'])
+def state_entry_first(params, out_fn, config, GLOBAL):
+    state_entry(params, out_fn, "first")
+def state_entry_all(params, out_fn, config, GLOBAL):
+    state_entry(params, out_fn, "all")
